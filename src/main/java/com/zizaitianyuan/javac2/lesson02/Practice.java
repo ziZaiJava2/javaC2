@@ -40,7 +40,33 @@ public class Practice {
 	 */
 	public static void printDiamond(int n) {
 		
-	}
+   	
+		
+		for(int i =1; i <= n; i++){
+			for(int k = 0; k < n-i; k++){
+				System.out.print(" ");
+			}
+			for(int j = 1; j <=2*i-1; j++){
+				System.out.print("*");
+			}
+			System.out.println();
+		}
+   		for(int i = 1; i < n; i++){
+   		   	for(int j = 0; j < i; j++){
+   		   		System.out.print(" ");
+   		   	}
+   		   	for(int k = 0; k < -2*i+5; k++){
+   		   		System.out.print("*");
+   		   	}
+   		   	System.out.println();
+   		}
+   		}
+	    	
+	     
+			
+		
+		
+	
 	
 	
 	/**
@@ -56,6 +82,13 @@ public class Practice {
 	 */
 	public static void printReverseTriangle(int n) {
 		
+		for( int i = n; i > 0; i--){
+			for(int j = 0; j < i; j++){
+				System.out.print("*");
+			}
+			System.out.println();
+	
+		}
 	}
 	
 	/**
@@ -70,7 +103,16 @@ public class Practice {
 	 * @param n
 	 */
 	public static void printReverseTriangle2(int n) {
-		
+		for( int i = 1; i <= n; i++){
+				for(int j = 1; j <= n-i; j++){
+					System.out.print(" ");
+			}
+				for(int k = 1; k <= i; k++){
+					System.out.print("*");
+				}
+			System.out.println();
+	
+		}
 	}	
 	/**
 	 *  返回传入数组中最大的整数
@@ -79,6 +121,20 @@ public class Practice {
 	 * @return
 	 */
 	public static int getMax(int[] array) {
-		return 0;
+		int i;
+		for( i = 0; i < 8; i++){
+			if(array[i]>array[i+1]){
+				int tmp;
+				tmp = array[i];
+				array[i] = array[i+1];
+				array[i+1] = tmp;
+				
+				
+			}
+		}
+		
+		int max = array[i];
+		return max;
+	
 	}
 }

@@ -60,11 +60,41 @@ public class Practice {
 		int x, y, z;
            System.out.println("5555555555");
 		
+<<<<<<< HEAD
 		// 下半部分，与上半部分相似
 		for (x = n; x <= 2 * n - 1; x++) {
 	
 		}
 	}
+=======
+   	
+		
+		for(int i =1; i <= n; i++){
+			for(int k = 0; k < n-i; k++){
+				System.out.print(" ");
+			}
+			for(int j = 1; j <=2*i-1; j++){
+				System.out.print("*");
+			}
+			System.out.println();
+		}
+   		for(int i = 1; i < n; i++){
+   		   	for(int j = 0; j < i; j++){
+   		   		System.out.print(" ");
+   		   	}
+   		   	for(int k = 0; k < -2*i+5; k++){
+   		   		System.out.print("*");
+   		   	}
+   		   	System.out.println();
+   		}
+   		}
+	    	
+	     
+			
+		
+		
+	
+>>>>>>> 81e5b78... homeworlk 11.13
 	
 	//0000000000
 	
@@ -79,6 +109,7 @@ public class Practice {
 	 * @param n
 	 */
 	public static void printReverseTriangle(int n) {
+<<<<<<< HEAD
 
 		for (int i = n; i > 0; i--) {
 			for (int j = 0; j < i; j++) {
@@ -86,6 +117,15 @@ public class Practice {
 			}
 			System.out.println();
 
+=======
+		
+		for( int i = n; i > 0; i--){
+			for(int j = 0; j < i; j++){
+				System.out.print("*");
+			}
+			System.out.println();
+	
+>>>>>>> 81e5b78... homeworlk 11.13
 		}
 	}
 
@@ -99,6 +139,7 @@ public class Practice {
 	 * @param n
 	 */
 	public static void printReverseTriangle2(int n) {
+<<<<<<< HEAD
 		for (int i = 1; i <= n; i++) {
 			for (int j = 1; j <= n - i; j++) {
 				System.out.print(" ");
@@ -111,6 +152,19 @@ public class Practice {
 		}
 	}
 
+=======
+		for( int i = 1; i <= n; i++){
+				for(int j = 1; j <= n-i; j++){
+					System.out.print(" ");
+			}
+				for(int k = 1; k <= i; k++){
+					System.out.print("*");
+				}
+			System.out.println();
+	
+		}
+	}	
+>>>>>>> 81e5b78... homeworlk 11.13
 	/**
 	 * 返回传入数组中最大的整数
 	 * 
@@ -119,6 +173,7 @@ public class Practice {
 	 */
 	public static int getMax(int[] array) {
 		int i;
+<<<<<<< HEAD
 		for (i = 0; i < 8; i++) {
 			if (array[i] > array[i + 1]) {
 				int tmp;
@@ -132,5 +187,21 @@ public class Practice {
 		int max = array[i];
 		return max;
 
+=======
+		for( i = 0; i < 8; i++){
+			if(array[i]>array[i+1]){
+				int tmp;
+				tmp = array[i];
+				array[i] = array[i+1];
+				array[i+1] = tmp;
+				
+				
+			}
+		}
+		
+		int max = array[i];
+		return max;
+	
+>>>>>>> 81e5b78... homeworlk 11.13
 	}
 }

@@ -107,8 +107,6 @@ public class Practice {
 			}
 			System.out.println();
 			}
-		
-	
 	}	
 	/**
 	 *  返回传入数组中最大的整数

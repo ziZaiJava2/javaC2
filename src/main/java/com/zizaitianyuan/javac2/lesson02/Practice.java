@@ -239,9 +239,12 @@ public static void main(String[] args) {
 			}
 			System.out.println();
 			}
+<<<<<<< HEAD
 		
 	
 >>>>>>> f480394... homework~
+=======
+>>>>>>> 4786d03... homework2
 	}	
 	/**
 	 *  返回传入数组中最大的整数

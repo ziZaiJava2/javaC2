@@ -39,6 +39,7 @@ public class Practice {
 	 *    *
 	 */
 	public static void printDiamond(int n) {
+<<<<<<< HEAD
 		int x, y, z;
 
 		// 上半部分
@@ -68,7 +69,32 @@ public class Practice {
 			}
 			System.out.println();
 		}
+=======
+		int n1=3;
+		for(int i=1;i<=n1;i++){
+            for(int j=1;j<=n1-i;j++){
+			System.out.print(" ");
+			}
+			for(int j=1;j<=(2*i-1);j++){
+			System.out.print("*");
+			}
+			System.out.println();
+			}
+			
+		for(int i=n1-1;i>0;i--){
+			for(int j=1;j<=n1-i;j++){
+			System.out.print(" ");
+			}
+			for(int j=1;j<=(2*i-1);j++){
+			System.out.print("*");
+			}
+			System.out.println();
+			}
+>>>>>>> f480394... homework~
 	}
+
+	
+	
 	
 	
 	
@@ -84,12 +110,21 @@ public class Practice {
 	 * @param n
 	 */
 	public static void printReverseTriangle(int n) {
+<<<<<<< HEAD
 		for (int x = 1; x <= n; x++) {
 			for (int y = n; y >= x; y--) {
 				System.out.print("*");
 			}
 			System.out.println();
 		}
+=======
+		int n1 = 3;
+		for(int i =0;i<=n1;i++){
+			for(int j=i+1;j<=n1;j++){
+				System.out.print("*");
+			}
+			System.out.println();}
+>>>>>>> f480394... homework~
 	}
 	
 	/**
@@ -104,6 +139,7 @@ public class Practice {
 	 * @param n
 	 */
 	public static void printReverseTriangle2(int n) {
+<<<<<<< HEAD
 		for (int x = 1; x <= n; x++) {
 
 			for (int y = 1; y <= n; y++) {
@@ -116,6 +152,20 @@ public class Practice {
 			System.out.println();
 		}
 
+=======
+		int n2 = 3;
+		for(int i =0;i<=n2;i++){
+			for(int j=n2;j>=i;j--){
+				System.out.print(" ");
+			}
+			for(int q=i;q>0;q--){
+				System.out.print("*");
+			}
+			System.out.println();
+			}
+		
+	
+>>>>>>> f480394... homework~
 	}	
 	/**
 	 *  返回传入数组中最大的整数
@@ -124,6 +174,7 @@ public class Practice {
 	 * @return
 	 */
 	public static int getMax(int[] array) {
+<<<<<<< HEAD
 
 		for (int x = 1; x < array.length; x++) {
 			if (array[0] < array[x]) {
@@ -131,5 +182,14 @@ public class Practice {
 			}
 		}
 		return array[0];
+=======
+		int n=array[0];
+		for(int i = 0; i < 10; i++){
+			if(array[i]>n)
+			n=array[i];
+			
+		}
+		return n;
+>>>>>>> f480394... homework~
 	}
 }

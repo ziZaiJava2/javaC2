@@ -42,6 +42,7 @@ public static void main(String[] args) {
 	public static void printDiamond(int n) {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3c2ee03... h
 		int x, y, z;
@@ -75,6 +76,8 @@ public static void main(String[] args) {
 			System.out.println();
 		}
 =======
+=======
+>>>>>>> f480394... homework~
 		int n1=3;
 		for(int i=1;i<=n1;i++){
             for(int j=1;j<=n1-i;j++){
@@ -82,6 +85,7 @@ public static void main(String[] args) {
 			}
 			for(int j=1;j<=(2*i-1);j++){
 			System.out.print("*");
+<<<<<<< HEAD
 =======
 >>>>>>> 3c2ee03... h
 			}
@@ -106,7 +110,25 @@ public static void main(String[] args) {
 =======
 		}
 >>>>>>> 3c2ee03... h
+=======
+			}
+			System.out.println();
+			}
+			
+		for(int i=n1-1;i>0;i--){
+			for(int j=1;j<=n1-i;j++){
+			System.out.print(" ");
+			}
+			for(int j=1;j<=(2*i-1);j++){
+			System.out.print("*");
+			}
+			System.out.println();
+			}
+>>>>>>> f480394... homework~
 	}
+
+	
+	
 	
 	
 	
@@ -125,6 +147,7 @@ public static void main(String[] args) {
 	public static void printReverseTriangle(int n) {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 		for (int x = 1; x <= n; x++) {
 			for (int y = n; y >= x; y--) {
 				System.out.print("*");
@@ -132,12 +155,15 @@ public static void main(String[] args) {
 			System.out.println();
 		}
 =======
+=======
+>>>>>>> f480394... homework~
 		int n1 = 3;
 		for(int i =0;i<=n1;i++){
 			for(int j=i+1;j<=n1;j++){
 				System.out.print("*");
 			}
 			System.out.println();}
+<<<<<<< HEAD
 >>>>>>> f480394... homework~
 =======
 		for (int x = 1; x <= n; x++) {
@@ -147,6 +173,8 @@ public static void main(String[] args) {
 			System.out.println();
 		}
 >>>>>>> 3c2ee03... h
+=======
+>>>>>>> f480394... homework~
 	}
 	
 	/**
@@ -161,6 +189,7 @@ public static void main(String[] args) {
 	 * @param n
 	 */
 	public static void printReverseTriangle2(int n) {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 =======
@@ -179,6 +208,8 @@ public static void main(String[] args) {
 		}
 
 =======
+=======
+>>>>>>> f480394... homework~
 		int n2 = 3;
 		for(int i =0;i<=n2;i++){
 			for(int j=n2;j>=i;j--){
@@ -186,6 +217,7 @@ public static void main(String[] args) {
 			}
 			for(int q=i;q>0;q--){
 				System.out.print("*");
+<<<<<<< HEAD
 =======
 >>>>>>> 3c2ee03... h
 			}
@@ -203,6 +235,13 @@ public static void main(String[] args) {
 		}
 
 >>>>>>> 3c2ee03... h
+=======
+			}
+			System.out.println();
+			}
+		
+	
+>>>>>>> f480394... homework~
 	}	
 	/**
 	 *  返回传入数组中最大的整数
@@ -211,6 +250,7 @@ public static void main(String[] args) {
 	 * @return
 	 */
 	public static int getMax(int[] array) {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 =======
@@ -224,6 +264,8 @@ public static void main(String[] args) {
 		}
 		return array[0];
 =======
+=======
+>>>>>>> f480394... homework~
 		int n=array[0];
 		for(int i = 0; i < 10; i++){
 			if(array[i]>n)
@@ -231,10 +273,13 @@ public static void main(String[] args) {
 			
 		}
 		return n;
+<<<<<<< HEAD
 >>>>>>> f480394... homework~
 =======
 		}
 		return array[0];
 >>>>>>> 3c2ee03... h
+=======
+>>>>>>> f480394... homework~
 	}
 }

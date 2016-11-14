@@ -16,7 +16,9 @@ public class Practice2 {
 	 * @param args
 	 */
 	public static void main(String[] args) {
+
 		fibonacci(6);
+
 		//　请自行补充对ｆｉｂｏｎａｃｃｉ１的测试，这里我就不写了。
 		
 		if (fibonacci2(1) == 1 && fibonacci2(2) == 1 && fibonacci2(5) == 5 && fibonacci2(8) == 21) {

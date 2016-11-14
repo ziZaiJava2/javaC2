@@ -16,8 +16,13 @@ public class Practice2 {
 
 		fibonacci(6);
 
+<<<<<<< HEAD
 		// 请自行补充对ｆｉｂｏｎａｃｃｉ１的测试，这里我就不写了。
 
+=======
+		//　请自行补充对ｆｉｂｏｎａｃｃｉ１的测试，这里我就不写了。
+		
+>>>>>>> 6975373... demo
 		if (fibonacci2(1) == 1 && fibonacci2(2) == 1 && fibonacci2(5) == 5 && fibonacci2(8) == 21) {
 			System.out.println("fibonacci2正确");
 			System.out.println("practic");

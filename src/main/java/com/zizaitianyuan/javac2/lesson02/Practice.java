@@ -43,6 +43,9 @@ public static void main(String[] args) {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 3c2ee03... h
 =======
 >>>>>>> 3c2ee03... h
 		int x, y, z;
@@ -57,6 +60,7 @@ public static void main(String[] args) {
 				} else {                               // 不满足条件的则输出空格
 					System.out.print(" ");
 				}
+<<<<<<< HEAD
 <<<<<<< HEAD
 			}
 			System.out.println();
@@ -111,23 +115,31 @@ public static void main(String[] args) {
 		}
 >>>>>>> 3c2ee03... h
 =======
+=======
+>>>>>>> 3c2ee03... h
 			}
 			System.out.println();
-			}
-			
-		for(int i=n1-1;i>0;i--){
-			for(int j=1;j<=n1-i;j++){
-			System.out.print(" ");
-			}
-			for(int j=1;j<=(2*i-1);j++){
-			System.out.print("*");
+		}
+
+		// 下半部分，与上半部分相似
+		for (x = n; x <= 2 * n - 1; x++) {
+			for (y = 1; y <= 2 * n - 1; y++) {
+				if ((n - (x - n) + y) == (n + 1)) {     // (n-(x-n)等于上半部分的x
+					for (z = 2 * (n - (x - n)) - 1; z > 0; z--) {
+						System.out.print("*");
+					}
+				} else {
+					System.out.print(" ");
+				}
 			}
 			System.out.println();
+<<<<<<< HEAD
 			}
 >>>>>>> f480394... homework~
+=======
+		}
+>>>>>>> 3c2ee03... h
 	}
-
-	
 	
 	
 	
@@ -145,6 +157,7 @@ public static void main(String[] args) {
 	 * @param n
 	 */
 	public static void printReverseTriangle(int n) {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -175,6 +188,14 @@ public static void main(String[] args) {
 >>>>>>> 3c2ee03... h
 =======
 >>>>>>> f480394... homework~
+=======
+		for (int x = 1; x <= n; x++) {
+			for (int y = n; y >= x; y--) {
+				System.out.print("*");
+			}
+			System.out.println();
+		}
+>>>>>>> 3c2ee03... h
 	}
 	
 	/**
@@ -192,6 +213,9 @@ public static void main(String[] args) {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 3c2ee03... h
 =======
 >>>>>>> 3c2ee03... h
 		for (int x = 1; x <= n; x++) {
@@ -201,6 +225,7 @@ public static void main(String[] args) {
 					System.out.print(" ");
 				} else
 					System.out.print("*");
+<<<<<<< HEAD
 <<<<<<< HEAD
 			}
 
@@ -245,6 +270,13 @@ public static void main(String[] args) {
 >>>>>>> f480394... homework~
 =======
 >>>>>>> 4786d03... homework2
+=======
+			}
+
+			System.out.println();
+		}
+
+>>>>>>> 3c2ee03... h
 	}	
 	/**
 	 *  返回传入数组中最大的整数
@@ -256,6 +288,9 @@ public static void main(String[] args) {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 3c2ee03... h
 =======
 >>>>>>> 3c2ee03... h
 
@@ -263,6 +298,7 @@ public static void main(String[] args) {
 			if (array[0] < array[x]) {
 				array[0] = array[x];
 			}
+<<<<<<< HEAD
 <<<<<<< HEAD
 		}
 		return array[0];
@@ -284,5 +320,9 @@ public static void main(String[] args) {
 >>>>>>> 3c2ee03... h
 =======
 >>>>>>> f480394... homework~
+=======
+		}
+		return array[0];
+>>>>>>> 3c2ee03... h
 	}
 }

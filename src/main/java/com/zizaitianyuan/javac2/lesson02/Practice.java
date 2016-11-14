@@ -38,7 +38,8 @@ public class Practice {
 	 *    *
 	 */
 	public static void printDiamond(int n) {
-		
+		System.out.println(" * ");
+		System.out.println("***");
 	}
 	
 	

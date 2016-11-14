@@ -16,7 +16,7 @@ public class Practice2 {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		
+		fibonacci(6);
 		//　请自行补充对ｆｉｂｏｎａｃｃｉ１的测试，这里我就不写了。
 		
 		if (fibonacci2(1) == 1 && fibonacci2(2) == 1 && fibonacci2(5) == 5 && fibonacci2(8) == 21) {
@@ -42,7 +42,17 @@ public class Practice2 {
 	 * @return
 	 */
 	public static int[] fibonacci(int n) {
-		return new int[0];
+		int[] array = new int[n];
+		array[0]=1;
+		array[1]=1;
+		for(int i=2;i<n;i++){
+			array[i]=array[i-1]+array[i-2];
+		}
+		for(int j=0;j<n;j++){
+			
+			System.out.print(array[j]+" ");
+		}
+		return new int[n];
 	}
 	
 	/**
@@ -58,7 +68,11 @@ public class Practice2 {
 	 * @return
 	 */
 	public static int fibonacci2(int n) {
-		return 0;
+		    if(n<=2)return 1;
+			int a=1,b=1,c=0;
+			for(int i=3; i<=n; c=a+b,a=b,b=c,i++);
+			System.out.println(c);
+			return c;
 	}
 	
 	/**

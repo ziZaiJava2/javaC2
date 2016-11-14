@@ -92,7 +92,7 @@ public class Practice3 {
 					result.inBoth[i] = source[i];
 					break;
 				}
-System.out.println();
+                       System.out.println();
 			}
 
 			if (j == 5) {

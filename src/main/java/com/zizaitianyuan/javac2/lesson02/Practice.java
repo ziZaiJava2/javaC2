@@ -21,7 +21,7 @@ public class Practice {
 		}
 		System.out.println(Arrays.toString(array));
 		System.out.println(getMax(array));
-}
+	}
 	
 	
 	
@@ -38,7 +38,6 @@ public class Practice {
 	 *    *
 	 */
 	public static void printDiamond(int n) {
-<<<<<<< HEAD
 		for(int i = 0; i < n - 1; i++) 
         { 
             for(int x = i + 1; x < n; x++) 
@@ -63,39 +62,7 @@ public class Practice {
             } 
             System.out.println(); 
         }
-=======
-		int x, y, z;
-
-		// 上半部分
-		for (x = 1; x < n; x++) {
-			for (y = 1; y <= 2 * n - 1; y++) {
-				if ((x + y) == (n + 1)) {              // 第一行正中间的*号，第二行正中间（左边+1）的*号出现时，
-					for (z = 1; z <= 2 * x - 1; z++) { // 输出*号，同时控制个数
-						System.out.print("*");
-					}
-				} else {                               // 不满足条件的则输出空格
-					System.out.print(" ");
-				}
-			}
-			System.out.println();
-		}
-
-		// 下半部分，与上半部分相似
-		for (x = n; x <= 2 * n - 1; x++) {
-			for (y = 1; y <= 2 * n - 1; y++) {
-				if ((n - (x - n) + y) == (n + 1)) {     // (n-(x-n)等于上半部分的x
-					for (z = 2 * (n - (x - n)) - 1; z > 0; z--) {
-						System.out.print("*");
-					}
-				} else {
-					System.out.print(" ");
-				}
-			}
-			System.out.println();
-		}
->>>>>>> master
 	}
-	
 	
 	
 	/**
@@ -110,13 +77,8 @@ public class Practice {
 	 * @param n
 	 */
 	public static void printReverseTriangle(int n) {
-<<<<<<< HEAD
 		for(int i=0;i<n;i++){
 			for(int j=0;j<n-i;j++){
-=======
-		for (int x = 1; x <= n; x++) {
-			for (int y = n; y >= x; y--) {
->>>>>>> master
 				System.out.print("*");
 			}
 			System.out.println();
@@ -135,7 +97,6 @@ public class Practice {
 	 * @param n
 	 */
 	public static void printReverseTriangle2(int n) {
-<<<<<<< HEAD
 		for(int i=0;i<n;i++){
 			for(int x=0;x<n-i-1;x++){
 				System.out.print(" ");
@@ -145,20 +106,6 @@ public class Practice {
 			}
 			System.out.println();
 		}
-=======
-		for (int x = 1; x <= n; x++) {
-
-			for (int y = 1; y <= n; y++) {
-				if (x + y <= n) {               //例如第一行第一个 1+1   ；  第三行第二个 3+2        
-					System.out.print(" ");
-				} else
-					System.out.print("*");
-			}
-
-			System.out.println();
-		}
-
->>>>>>> master
 	}	
 	/**
 	 *  返回传入数组中最大的整数
@@ -167,7 +114,6 @@ public class Practice {
 	 * @return
 	 */
 	public static int getMax(int[] array) {
-<<<<<<< HEAD
 		int max=array[0];
 		for(int i=1;i<array.length;i++){
 			if(array[i]>max){
@@ -175,14 +121,5 @@ public class Practice {
 			}
 		}
 		return max;
-=======
-
-		for (int x = 1; x < array.length; x++) {
-			if (array[0] < array[x]) {
-				array[0] = array[x];
-			}
-		}
-		return array[0];
->>>>>>> master
 	}
 }

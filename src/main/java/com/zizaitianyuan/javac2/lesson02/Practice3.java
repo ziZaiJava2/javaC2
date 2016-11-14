@@ -127,10 +127,14 @@ public class Practice3 {
 					break;
 				}
 <<<<<<< HEAD
+<<<<<<< HEAD
 				System.out.println();
 =======
 System.out.println();
 >>>>>>> bcf9c88... 0
+=======
+                       System.out.println();
+>>>>>>> e52b3d8... practice
 			}
 
 			if (j == 5) {

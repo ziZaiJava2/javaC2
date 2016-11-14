@@ -1,4 +1,4 @@
-package com.zizaitianyuan.javac2.lesson02;
+﻿package com.zizaitianyuan.javac2.lesson02;
 
 import java.util.Arrays;
 import java.util.Random;
@@ -21,7 +21,7 @@ public class Practice {
 		}
 		System.out.println(Arrays.toString(array));
 		System.out.println(getMax(array));
-	}
+}
 	
 	
 	

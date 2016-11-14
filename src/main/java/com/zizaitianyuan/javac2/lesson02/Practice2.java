@@ -21,6 +21,7 @@ public class Practice2 {
 		
 		if (fibonacci2(1) == 1 && fibonacci2(2) == 1 && fibonacci2(5) == 5 && fibonacci2(8) == 21) {
 			System.out.println("fibonacci2正确");
+			System.out.println("practic");
 		}
 
 //		如果fibonacci3也实现了，选中下面三行，可以使用ｃｔｒｌ + /来取消注释

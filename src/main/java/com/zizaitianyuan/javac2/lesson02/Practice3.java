@@ -83,10 +83,36 @@ public class Practice3 {
 		// 比如只在source有的值是１，使用这个语句　result.onlyInsource[n] = 1;
 		// 比如只在newData有的值是１，使用这个语句　result.notInSource[n] = 1;
 		// 其中ｎ是你要放入元素的位置
-		
 		// 这里写计算过程：
-		
-		
+
+		for (int i = 0; i < source.length; i++) {
+			int j;
+			for (j = 0; j < newData.length; j++) {
+				if (source[i] == newData[j]) {
+					result.inBoth[i] = source[i];
+					break;
+				}
+System.out.println();
+			}
+
+			if (j == 5) {
+				result.onlyInSource[i] = source[i];
+			}
+
+		}
+		for (int i = 0; i < newData.length; i++) {
+			int j = 0;
+			for (j = 0; j < source.length; j++) {
+				if (source[i] == newData[j]) {
+					continue;
+				}
+				if (j == 5) {
+					result.onlyInSource[i] = newData[i];
+				}
+			}
+
+		}
+
 		return result;
 	}
 }

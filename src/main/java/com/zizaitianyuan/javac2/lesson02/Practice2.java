@@ -24,9 +24,15 @@ public class Practice2 {
 		}
 
 //		如果fibonacci3也实现了，选中下面三行，可以使用ｃｔｒｌ + /来取消注释
+<<<<<<< HEAD
 //		if (fibonacci3(1) == 1 && fibonacci3(2) == 1 && fibonacci3(5) == 5 && fibonacci3(8) == 21) {
 //			System.out.println("fibonacci3正确");
 //		}
+=======
+		if (fibonacci3(1) == 1 && fibonacci3(2) == 1 && fibonacci3(5) == 5 && fibonacci3(8) == 21) {
+			System.out.println("fibonacci3正确");
+		}
+>>>>>>> 3c2ee03... h
 
 	}
 	
@@ -70,7 +76,13 @@ public class Practice2 {
 	public static int fibonacci2(int n) {
 		    if(n<=2)return 1;
 			int a=1,b=1,c=0;
+<<<<<<< HEAD
 			for(int i=3; i<=n; c=a+b,a=b,b=c,i++);
+=======
+			for(int i=3; i<=n;i++){
+				c=a+b;a=b;b=c;
+			}
+>>>>>>> 3c2ee03... h
 			System.out.println(c);
 			return c;
 	}
@@ -90,4 +102,8 @@ public class Practice2 {
 	public static int fibonacci3(int n) {
 		return 0;
 	}
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 3c2ee03... h

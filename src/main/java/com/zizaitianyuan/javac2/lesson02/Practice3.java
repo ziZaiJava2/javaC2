@@ -1,12 +1,20 @@
 package com.zizaitianyuan.javac2.lesson02;
 
 public class Practice3 {
+<<<<<<< HEAD
 
 	private static int MAX_SIZE = 5;
 	
 	/**
 	 * 
 	 * 传入两个***有序***的不重复的正整数数组(都大于０)，两个数组的整数个数小于5个
+=======
+private static int MAX_SIZE = 5;
+	
+	/**
+	 * 
+	 * 传入两个***有序***的正整数数组(都大于０)，两个数组的整数个数小于5个
+>>>>>>> 3c2ee03... h
 	 * 
 	 * 这是我近期工作中碰到的，也是以前同时刚刚碰到的一个实际工作中的问题，这个问题
 	 * 我们之后还会拿出来几次使用不同的解法来说明一些写代码要注意的问题。
@@ -64,4 +72,8 @@ class Result {
 	int[] onlyInSource;
 	int[] inBoth;
 	int[] notInSource;
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 3c2ee03... h

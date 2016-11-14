@@ -1,12 +1,13 @@
-package com.zizaitianyuan.javac2.lesson02;
+﻿package com.zizaitianyuan.javac2.lesson02;
 
 import java.util.Arrays;
 import java.util.Random;
 
 public class Practice {
 
+	 
 	
-	public static void main(String[] args) {
+public static void main(String[] args) {
 		
 		printDiamond(3);
 		
@@ -40,6 +41,9 @@ public class Practice {
 	 */
 	public static void printDiamond(int n) {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 3c2ee03... h
 		int x, y, z;
 
 		// 上半部分
@@ -52,6 +56,7 @@ public class Practice {
 				} else {                               // 不满足条件的则输出空格
 					System.out.print(" ");
 				}
+<<<<<<< HEAD
 			}
 			System.out.println();
 		}
@@ -77,23 +82,31 @@ public class Practice {
 			}
 			for(int j=1;j<=(2*i-1);j++){
 			System.out.print("*");
+=======
+>>>>>>> 3c2ee03... h
 			}
 			System.out.println();
-			}
-			
-		for(int i=n1-1;i>0;i--){
-			for(int j=1;j<=n1-i;j++){
-			System.out.print(" ");
-			}
-			for(int j=1;j<=(2*i-1);j++){
-			System.out.print("*");
+		}
+
+		// 下半部分，与上半部分相似
+		for (x = n; x <= 2 * n - 1; x++) {
+			for (y = 1; y <= 2 * n - 1; y++) {
+				if ((n - (x - n) + y) == (n + 1)) {     // (n-(x-n)等于上半部分的x
+					for (z = 2 * (n - (x - n)) - 1; z > 0; z--) {
+						System.out.print("*");
+					}
+				} else {
+					System.out.print(" ");
+				}
 			}
 			System.out.println();
+<<<<<<< HEAD
 			}
 >>>>>>> f480394... homework~
+=======
+		}
+>>>>>>> 3c2ee03... h
 	}
-
-	
 	
 	
 	
@@ -111,6 +124,7 @@ public class Practice {
 	 */
 	public static void printReverseTriangle(int n) {
 <<<<<<< HEAD
+<<<<<<< HEAD
 		for (int x = 1; x <= n; x++) {
 			for (int y = n; y >= x; y--) {
 				System.out.print("*");
@@ -125,6 +139,14 @@ public class Practice {
 			}
 			System.out.println();}
 >>>>>>> f480394... homework~
+=======
+		for (int x = 1; x <= n; x++) {
+			for (int y = n; y >= x; y--) {
+				System.out.print("*");
+			}
+			System.out.println();
+		}
+>>>>>>> 3c2ee03... h
 	}
 	
 	/**
@@ -140,6 +162,9 @@ public class Practice {
 	 */
 	public static void printReverseTriangle2(int n) {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 3c2ee03... h
 		for (int x = 1; x <= n; x++) {
 
 			for (int y = 1; y <= n; y++) {
@@ -147,6 +172,7 @@ public class Practice {
 					System.out.print(" ");
 				} else
 					System.out.print("*");
+<<<<<<< HEAD
 			}
 
 			System.out.println();
@@ -160,8 +186,12 @@ public class Practice {
 			}
 			for(int q=i;q>0;q--){
 				System.out.print("*");
+=======
+>>>>>>> 3c2ee03... h
 			}
+
 			System.out.println();
+<<<<<<< HEAD
 			}
 <<<<<<< HEAD
 		
@@ -169,6 +199,10 @@ public class Practice {
 >>>>>>> f480394... homework~
 =======
 >>>>>>> 4786d03... homework2
+=======
+		}
+
+>>>>>>> 3c2ee03... h
 	}	
 	/**
 	 *  返回传入数组中最大的整数
@@ -178,11 +212,15 @@ public class Practice {
 	 */
 	public static int getMax(int[] array) {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 3c2ee03... h
 
 		for (int x = 1; x < array.length; x++) {
 			if (array[0] < array[x]) {
 				array[0] = array[x];
 			}
+<<<<<<< HEAD
 		}
 		return array[0];
 =======
@@ -194,5 +232,9 @@ public class Practice {
 		}
 		return n;
 >>>>>>> f480394... homework~
+=======
+		}
+		return array[0];
+>>>>>>> 3c2ee03... h
 	}
 }

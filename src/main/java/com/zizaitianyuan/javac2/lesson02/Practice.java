@@ -6,9 +6,14 @@ import java.util.Random;
 public class Practice {
 
 	public static void main(String[] args) {
+<<<<<<< HEAD
 
 		printDiamond(3);
 
+=======
+		
+		
+>>>>>>> bcf9c88... 0
 		printReverseTriangle(3);
 
 		printReverseTriangle2(3);
@@ -27,6 +32,7 @@ public class Practice {
 	 * 
 	 * 例如n = 3时： * *** ***** *** *
 	 */
+<<<<<<< HEAD
 	public static void printDiamond(int n) {
 
 		for (int i = 1; i <= n; i++) {
@@ -49,6 +55,20 @@ public class Practice {
 		}
 	}
 
+=======
+	public static void skyking(int n) {
+		int x, y, z;
+           System.out.println("5555555555");
+		
+		// 下半部分，与上半部分相似
+		for (x = n; x <= 2 * n - 1; x++) {
+	
+		}
+	}
+	
+	//0000000000
+	
+>>>>>>> bcf9c88... 0
 	/**
 	 * 打印高度为n的倒三角
 	 * 

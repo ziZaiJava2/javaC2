@@ -22,8 +22,7 @@ public class Practice {
 		}
 		System.out.println(Arrays.toString(array));
 		System.out.println(getMax(array));
-		Practice pi=new Practice();
-		pi.printDiamond(3);
+
 	}
 	
 	

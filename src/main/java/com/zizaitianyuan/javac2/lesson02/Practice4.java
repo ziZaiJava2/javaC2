@@ -29,7 +29,7 @@ public class Practice4 {
 	private static void quicksort(int sourceArray[], int left, int right) {
 		
 		/*
-		 *	定义六个int变量
+		 *	定义4个int变量和1个int数组
 		 *	i:被赋值为传入的数组首元素序号。
 		 *	j:被赋值为传入的数组尾元素序号。
 		 *	temp:被赋值为数组首元素。

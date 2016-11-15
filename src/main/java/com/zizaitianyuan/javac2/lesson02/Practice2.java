@@ -17,12 +17,17 @@ public class Practice2 {
 		fibonacci(6);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 		// 请自行补充对ｆｉｂｏｎａｃｃｉ１的测试，这里我就不写了。
 
 =======
 		//　请自行补充对ｆｉｂｏｎａｃｃｉ１的测试，这里我就不写了。
 		
 >>>>>>> 6975373... demo
+=======
+		// 请自行补充对ｆｉｂｏｎａｃｃｉ１的测试，这里我就不写了。
+
+>>>>>>> 618e14e... practice2
 		if (fibonacci2(1) == 1 && fibonacci2(2) == 1 && fibonacci2(5) == 5 && fibonacci2(8) == 21) {
 			System.out.println("fibonacci2正确");
 			System.out.println("practic");
@@ -76,12 +81,22 @@ public class Practice2 {
 		int b = 2;
 		int tmp;
 		int sum;
+<<<<<<< HEAD
 
 		for (int i = 3; i < n; i++) {
 			tmp = b;
 			b = a + b;
 			a = tmp;
 
+=======
+		
+		for (int i = 3; i < n; i++) {
+		 tmp = b;
+	     b = a + b;
+	     a = tmp;
+	    
+	     
+>>>>>>> 618e14e... practice2
 		}
 		return b;
 	}

@@ -1,5 +1,7 @@
 package com.zizaitianyuan.javac2.lesson02;
 
+import java.util.Arrays;
+
 public class Practice4 {
 
 	/**
@@ -14,6 +16,7 @@ public class Practice4 {
 	 */
 	public static int[] sort(int[] sourceArray) {
 		int[] result = new int[sourceArray.length];
+<<<<<<< HEAD
 		for (int i = sourceArray.length - 2; i >= 0; i--) {
 			for (int j = 0; j <= i; j++) {
 				if (sourceArray[j] > sourceArray[j + 1]) {
@@ -25,6 +28,10 @@ public class Practice4 {
 			}
 		}
 
+=======
+		Arrays.sort(sourceArray);
+		
+>>>>>>> 6c21a42... practice4
 		return sourceArray;
 	}
 }

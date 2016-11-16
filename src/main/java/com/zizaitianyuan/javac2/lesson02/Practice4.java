@@ -24,7 +24,6 @@ public class Practice4 {
 				}
 			}
 		}
-
 		return sourceArray;
 	}
 }

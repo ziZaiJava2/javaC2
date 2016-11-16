@@ -5,19 +5,6 @@ import org.junit.Test;
 
 public class Practice3Test {
 
-	
-	@Test
-	public void testcase1() {
-		int[] source = new int[] {1, 1, 1, 1, 1};
-		int[] newData = new int[] {1, 1, 1, 1, 1};
-		
-		Result result = Practice3.merge(source, newData);
-		
-		Assert.assertArrayEquals(result.inBoth, new int[]{1, 1, 1, 1, 1});
-		Assert.assertArrayEquals(result.onlyInSource, new int[]{0, 0, 0, 0, 0});
-		Assert.assertArrayEquals(result.notInSource, new int[]{0, 0, 0, 0, 0});
-	}
-	
 	@Test
 	public void testcase2() {
 		int[] source = new int[] {1, 2, 3, 4, 5};

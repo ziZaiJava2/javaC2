@@ -90,13 +90,12 @@ public class Practice2 {
 	 * @return
 	 */
 	public static int fibonacci3(int n) {
-		int i=0;
-		i=diGui(n);
-		
+		int i = 0;
+		i = diGui(n);
 		return i;
-	    }
+	}
 
-public static int diGui(int n){
+    public static int diGui(int n){
 	if(n<=2){
 		return 1;
 	}else{

@@ -27,6 +27,7 @@ public class Practice2 {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 //		if (fibonacci3(1) == 1 && fibonacci3(2) == 1 && fibonacci3(5) == 5 && fibonacci3(8) == 21) {
 //			System.out.println("fibonacci3正确");
 //		}
@@ -45,6 +46,11 @@ public class Practice2 {
 			System.out.println("fibonacci3正确");
 		}
 >>>>>>> 3c2ee03... h
+=======
+		if (fibonacci3(1) == 1 && fibonacci3(2) == 1 && fibonacci3(5) == 5 && fibonacci3(8) == 21) {
+			System.out.println("fibonacci3正确");
+		}
+>>>>>>> 05bf006... h
 
 	}
 	
@@ -91,6 +97,7 @@ public class Practice2 {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 			for(int i=3; i<=n; c=a+b,a=b,b=c,i++);
 =======
 			for(int i=3; i<=n;i++){
@@ -107,6 +114,11 @@ public class Practice2 {
 				c=a+b;a=b;b=c;
 			}
 >>>>>>> 3c2ee03... h
+=======
+			for(int i=3; i<=n;i++){
+				c=a+b;a=b;b=c;
+			}
+>>>>>>> 05bf006... h
 			System.out.println(c);
 			return c;
 	}
@@ -125,16 +137,27 @@ public class Practice2 {
 	 */
 	public static int fibonacci3(int n) {
 <<<<<<< HEAD
+<<<<<<< HEAD
 		int i = 0;
 		i = diGui(n);
 		return i;
 	}
 
     public static int diGui(int n){
+=======
+		int i=0;
+		i=diGui(n);
+		
+		return i;
+	    }
+
+public static int diGui(int n){
+>>>>>>> 05bf006... h
 	if(n<=2){
 		return 1;
 	}else{
 		return diGui(n-1)+diGui(n-2);
+<<<<<<< HEAD
 	}
 	
 }
@@ -154,3 +177,15 @@ public class Practice2 {
 	}
 }
 >>>>>>> 3c2ee03... h
+=======
+	}
+	
+}
+
+
+	private static int j(int n) {
+		// TODO 自动生成的方法存根
+		return 0;
+	}
+}
+>>>>>>> 05bf006... h

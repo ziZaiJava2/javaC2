@@ -29,6 +29,7 @@ public class Practice4 {
 			}
 		}
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 <<<<<<< HEAD
 =======
@@ -39,6 +40,10 @@ public class Practice4 {
 >>>>>>> 5ce9789... practice4
 =======
 >>>>>>> 8377485... 4
+=======
+		
+		
+>>>>>>> 0f4775d... 0
 		return sourceArray;
 	}
 }

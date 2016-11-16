@@ -28,6 +28,7 @@ public class Practice4 {
 				}
 			}
 		}
+<<<<<<< HEAD
 
 <<<<<<< HEAD
 =======
@@ -36,6 +37,8 @@ public class Practice4 {
 >>>>>>> 6c21a42... practice4
 =======
 >>>>>>> 5ce9789... practice4
+=======
+>>>>>>> 8377485... 4
 		return sourceArray;
 	}
 }

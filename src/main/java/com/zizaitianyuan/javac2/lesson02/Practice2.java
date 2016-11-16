@@ -138,6 +138,7 @@ public class Practice2 {
 	public static int fibonacci3(int n) {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 		int i = 0;
 		i = diGui(n);
 		return i;
@@ -148,11 +149,19 @@ public class Practice2 {
 		int i=0;
 		i=diGui(n);
 		
+=======
+		int i = 0;
+		i = diGui(n);
+>>>>>>> d727d4b... practice4
 		return i;
-	    }
+	}
 
+<<<<<<< HEAD
 public static int diGui(int n){
 >>>>>>> 05bf006... h
+=======
+    public static int diGui(int n){
+>>>>>>> d727d4b... practice4
 	if(n<=2){
 		return 1;
 	}else{

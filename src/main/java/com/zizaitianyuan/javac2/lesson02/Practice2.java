@@ -24,15 +24,9 @@ public class Practice2 {
 		}
 
 //		如果fibonacci3也实现了，选中下面三行，可以使用ｃｔｒｌ + /来取消注释
-<<<<<<< HEAD
 		if (fibonacci3(1) == 1 && fibonacci3(2) == 1 && fibonacci3(5) == 5 && fibonacci3(8) == 21) {
 			System.out.println("fibonacci3正确");
 		}
-=======
-//		if (fibonacci3(1) == 1 && fibonacci3(2) == 1 && fibonacci3(5) == 5 && fibonacci3(8) == 21) {
-//			System.out.println("fibonacci3正确");
-//		}
->>>>>>> master
 
 	}
 	
@@ -76,13 +70,9 @@ public class Practice2 {
 	public static int fibonacci2(int n) {
 		    if(n<=2)return 1;
 			int a=1,b=1,c=0;
-<<<<<<< HEAD
 			for(int i=3; i<=n;i++){
 				c=a+b;a=b;b=c;
 			}
-=======
-			for(int i=3; i<=n; c=a+b,a=b,b=c,i++);
->>>>>>> master
 			System.out.println(c);
 			return c;
 	}
@@ -100,10 +90,24 @@ public class Practice2 {
 	 * @return
 	 */
 	public static int fibonacci3(int n) {
+		int i=0;
+		i=diGui(n);
+		
+		return i;
+	    }
+
+public static int diGui(int n){
+	if(n<=2){
+		return 1;
+	}else{
+		return diGui(n-1)+diGui(n-2);
+	}
+	
+}
+
+
+	private static int j(int n) {
+		// TODO 自动生成的方法存根
 		return 0;
 	}
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> master

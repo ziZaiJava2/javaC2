@@ -95,6 +95,10 @@ public class Practice2 {
 	 * @return
 	 */
 	public static int fibonacci3(int n) {
-		return 0;
+		if(n <= 2){
+			return 1;
+		}else{
+			return fibonacci3(n - 1) + fibonacci3(n - 2);
+		}
 	}
 }

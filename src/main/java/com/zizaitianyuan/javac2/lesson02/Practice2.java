@@ -71,13 +71,12 @@ public class Practice2 {
 		int b = 2;
 		int tmp;
 		int sum;
-		
+
 		for (int i = 3; i < n; i++) {
-		 tmp = b;
-	     b = a + b;
-	     a = tmp;
-	    
-	     
+			tmp = b;
+			b = a + b;
+			a = tmp;
+
 		}
 		return b;
 	}
@@ -95,9 +94,9 @@ public class Practice2 {
 	 * @return
 	 */
 	public static int fibonacci3(int n) {
-		if(n <= 2){
+		if (n <= 2) {
 			return 1;
-		}else{
+		} else {
 			return fibonacci3(n - 1) + fibonacci3(n - 2);
 		}
 	}

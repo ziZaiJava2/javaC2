@@ -7,16 +7,22 @@ public class Mathmatics {
 		return a + b;
 	}
 	
+	/*
+	 * overload,方法名字不变，但是参数变了，这里的变包括参数个数
+	 */
 	public static int add(int a, int b, int c) {
 		return a + b + c;
 	}
 	
+	/*
+	 * 以及参数类型的变化
+	 */
 	public static double add(double a, double b) {
 		return a + b;
 	}
 	
 	/*
-	 *  Java中返回值不算做签名的一部分，所以单独改变返回值的话，不能算作overload.
+	 *  但是，Java中返回值不算做签名的一部分，所以单独改变返回值的话，不能算作overload.
 	 *  
 	 *  取消下面的注释，会发现eclipse会报错说重复定义方法了
 	 */

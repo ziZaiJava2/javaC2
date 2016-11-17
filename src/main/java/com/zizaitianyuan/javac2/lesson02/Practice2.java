@@ -114,9 +114,15 @@ public class Practice2 {
 	 * @return
 	 */
 	public static int fibonacci3(int n) {
+<<<<<<< HEAD
 		if (n <= 2) {
 			return 1;
 		} else {
+=======
+		if(n <= 2){
+			return 1;
+		}else{
+>>>>>>> 67a85a3... practice2
 			return fibonacci3(n - 1) + fibonacci3(n - 2);
 		}
 	}

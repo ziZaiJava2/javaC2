@@ -16,12 +16,17 @@ public class Practice2 {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		fibonacci(6);
+		fibonacci(10);
+		System.out.println();
+		fibonacci2(6);
+//		Arrays.toString((6));
+	//	fibonacci(6);
+		
 		//　请自行补充对ｆｉｂｏｎａｃｃｉ１的测试，这里我就不写了。
 		
-		if (fibonacci2(1) == 1 && fibonacci2(2) == 1 && fibonacci2(5) == 5 && fibonacci2(8) == 21) {
-			System.out.println("fibonacci2正确");
-		}
+//		if (fibonacci2(1) == 1 && fibonacci2(2) == 1 && fibonacci2(5) == 5 && fibonacci2(8) == 21) {
+//			System.out.println("fibonacci2正确");
+//		}
 
 //		如果fibonacci3也实现了，选中下面三行，可以使用ｃｔｒｌ + /来取消注释
 //		if (fibonacci3(1) == 1 && fibonacci3(2) == 1 && fibonacci3(5) == 5 && fibonacci3(8) == 21) {
@@ -42,19 +47,60 @@ public class Practice2 {
 	 * @return
 	 */
 	public static int[] fibonacci(int n) {
-		int[] array = new int[n];
-		array[0]=1;
-		array[1]=1;
-		for(int i=2;i<n;i++){
-			array[i]=array[i-1]+array[i-2];
+//		int[] fibonacci=new int[n];
+//		if(n<3){
+//		fibonacci[0] = 1;
+//		fibonacci[1] = 1;
+//		fibonacci[2] = 2;
+//		}
+//		if(n>=3){
+//			
+//			for(int i = 2;i <n;i++){
+//			fibonacci[i]=fibonacci[i-1]+fibonacci[i-2];
+//			System.out.print(fibonacci[i]);
+//		}
+//	}
+//		return fibonacci;
+		int temp[] = new int[n];
+		switch(n){
+		case 1 :
+		    temp[0] = 1;
+		    break;
+		default  :		
+			temp[0] = 1;
+		    temp[1] = 1;
+		    break;
 		}
-		for(int j=0;j<n;j++){
-			
-			System.out.print(array[j]+" ");
-		}
-		return new int[n];
+		System.out.print("[");
+		if (n < 3){								
+					for(int j = 0;j < n;j++){
+						System.out.print(temp[ j ] );
+						if (j <= n-2){
+							System.out.print(",");
+						}
+					}
+					System.out.println("]");
+	       } else { 
+	    	   for(int k = 0;k < 2;k++){
+					System.out.print(temp[ k ] );
+					if (k <= n-1){
+						System.out.print(",");
+							      }
+	    	   }
+					for ( int k = 2;k < n;k++ ){
+						temp[ k ] = temp[k - 1] + temp[k - 2];						
+							System.out.print(temp[ k ] );
+							if (k < n - 1){
+								System.out.print(",");
+						}
+						
+					
+	}System.out.print("]");
+		
 	}
-	
+	    	   
+		return temp;
+		}
 	/**
 	 * 这个方法期望输入ｎ的时候，返回斐波拉契数列的第ｎ个数
 	 * 
@@ -68,11 +114,16 @@ public class Practice2 {
 	 * @return
 	 */
 	public static int fibonacci2(int n) {
-		    if(n<=2)return 1;
-			int a=1,b=1,c=0;
-			for(int i=3; i<=n; c=a+b,a=b,b=c,i++);
-			System.out.println(c);
-			return c;
+		int [] num=new int[n+1];  
+		num [0] = 1;  
+    	num [1] = 1;
+        if (n >= 3){        	        	  
+        		for (int i = 2;i < n;i++){  
+            num[i] = num[i-1] + num[i-2];  
+        }        
+        	}
+        System.out.println(num [n - 1]);
+		return  num[n];
 	}
 	
 	/**
@@ -88,6 +139,7 @@ public class Practice2 {
 	 * @return
 	 */
 	public static int fibonacci3(int n) {
+		
 		return 0;
 	}
 }

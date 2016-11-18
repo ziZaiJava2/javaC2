@@ -91,6 +91,6 @@ public class Practice2 {
 		if (n<=2){
 			return 1;
 		}
-		return fibonacci3(n-1)+fibonacci2(n);
+		return fibonacci3(n-1)+fibonacci2(nnnnn);
 	}
 }

@@ -27,13 +27,24 @@ public class Mathmatics {
 	 *  取消下面的注释，会发现eclipse会报错说重复定义方法了
 	 */
 //	public static int add(double a, double b) {
-//		return (int)(a + b);
+//		{
+//	     return(int)(a+b);
 //	}
 	
 	
 	// 补充减法，命名为sub
 	
-	
+	public static int sub(int a, int b) {
+		return a - b;
+	}
+
+	public static int sub(int a, int b, int c) {
+		return a - b - c;
+	}
+
+	public static double sub(double a, double b) {
+		return a - b;
+	}
 	
 	/*
 	 * 做完题再补充一个知识点，可变参数列表
@@ -64,4 +75,11 @@ public class Mathmatics {
 	/*
 	 * 自己尝试给sub添加可变参数列表
 	 */
+	public static double sub(double a, double... args) {
+		double nub = a;
+		for (double arg : args) {
+			nub -= arg;
+		}
+		return nub;
+	}
 }

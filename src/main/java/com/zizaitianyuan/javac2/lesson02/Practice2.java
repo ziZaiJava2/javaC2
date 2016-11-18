@@ -88,6 +88,9 @@ public class Practice2 {
 	 * @return
 	 */
 	public static int fibonacci3(int n) {
-		return 0;
+		if (n<=2){
+			return 1;
+		}
+		return fibonacci3(n-1)+fibonacci2(n);
 	}
 }

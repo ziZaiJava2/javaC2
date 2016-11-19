@@ -1,9 +1,24 @@
 package com.zizaitianyuan.javac2.lesson05;
 
 import java.util.ArrayList;
-import java.util.Collections;
+import java.util.Arrays;
 import java.util.List;
 
+/*
+ * 这个类用来模拟乘客进站排队买票。
+ * 
+ * line1到line4表示4个窗口，乘客排队，然后买票离开。
+ * 
+ * 完成下面的方法：
+ * 
+ * comingPassagers， 用来生成进站的乘客。
+ * lineUp， 用来将生成的乘客排入到售票窗口
+ * saleTickets， 用来模拟售出车票
+ * 
+ * passagersInLines， 用来统计最后还有多少乘客没有买到车票
+ * 
+ * 
+ */
 public class LineInStation {
 
 	
@@ -21,26 +36,40 @@ public class LineInStation {
 			
 			saleTickets();
 			
-			List<Person> passages = comingPassages();
+			List<Person> passages = comingPassagers();
 			lineUp(passages);
 			
-			passages = comingPassages();
+			passages = comingPassagers();
 			lineUp(passages);
 			
 			System.out.println(linesDesc());
 		}
+		
+		int passagers = passagersInLines();
+		
+		System.out.printf("总共有%d个乘客进入车站，卖出%d张车票，还有%d个乘客没有买到车票。\n", 
+				totalPassagers, saledTikets, passagers);
 	}
 	
 	
 	/*
-	 * 此方法应该随机生成一个长度为1~3的list，表示1~3个乘客来到车站
+	 * 此方法应该随机生成一个长度为1~3的list，表示1~3个乘客来到车站， 
 	 * 
-	 * 乘客的名字从名字库中取得，使用过的名字从库里删除TODO
+	 * 并统计总的进站人数到(totalPassagers)
+	 * 
+	 * 名字随机从names中获取
 	 * 
 	 */
-	public static List<Person> comingPassages() {
+	public static List<Person> comingPassagers() {
 		return null;
 	}
+	
+	private static int totalPassagers = 0;
+	
+	private List<String> names = Arrays.asList(
+			"Jim", "Ken", "Leon", "Ada", "Lily", "Lucy", "Will", "Eagle",
+			"David", "Zoe", "Wendy", "Acea", "Kin", "Fish", "Paul", "Dean"
+			);
 	
 	
 	/*
@@ -54,11 +83,24 @@ public class LineInStation {
 	}
 	
 	/*
-	 * 这个方法给每个队伍卖出一张车票，就是排队伍第一个位置的乘客从队列中删除
+	 * 这个方法给每个队伍卖出一张车票，并统计总共卖出的票数到（saledTikets）。
+	 * 
+	 * 拿到票的乘客会离开车站
+	 * 
+	 * 就是排队伍第一个位置的乘客从队列中删除
 	 */
 	public static void saleTickets() {
 		
 	}
+	
+	/*
+	 * 统计还有多少个乘客没有买到车票
+	 */
+	public static int passagersInLines() {
+		return 0;
+	}
+	
+	private static int saledTikets = 0;
 	
 	public static String linesDesc() {
 		return  "line1:" + line1.toString() + "\n" + 

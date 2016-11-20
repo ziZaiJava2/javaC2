@@ -74,10 +74,14 @@ public class LineInStation {
 		}
 		totalPassagers += comPasNum;
 <<<<<<< HEAD
+<<<<<<< HEAD
 		return comingPassagers;
 =======
 		return null;
 >>>>>>> 2470ba3... homework
+=======
+		return comingPassagers;
+>>>>>>> f38f6f8... homework
 	}
 	
 	private static int totalPassagers = 0;

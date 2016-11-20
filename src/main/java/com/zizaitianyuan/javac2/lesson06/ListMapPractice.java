@@ -50,7 +50,7 @@ public class ListMapPractice {
 
 		  ArrayList<Student> conputeStu = new ArrayList<Student>();
 	   for(Student stu : allStudents){
-		   if(stu.getMajor() == "Computer Science"){
+		   if(stu.getMajor().equals("Computer Science")){
 			   conputeStu.add(stu);
 		   }
 	   }

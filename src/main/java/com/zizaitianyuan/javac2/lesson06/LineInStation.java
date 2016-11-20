@@ -1,4 +1,4 @@
-package com.zizaitianyuan.javac2.lesson05;
+package com.zizaitianyuan.javac2.lesson06;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -57,7 +57,7 @@ public class LineInStation {
 	 * 
 	 * 并统计总的进站人数到(totalPassagers)
 	 * 
-	 * 名字随机从names中获取
+	 * 名字随机从names中获取,也可以自己想办法生成
 	 * 
 	 */
 	public static List<Person> comingPassagers() {

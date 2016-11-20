@@ -128,18 +128,22 @@ public class LineInStation {
 		while (!line1.isEmpty()) {
 			saledTikets += 1;
 			line1.remove(0);
+			break;
 		}
 		while (!line2.isEmpty()) {
 			saledTikets += 1;
 			line2.remove(0);
+			break;
 		}
 		while (!line3.isEmpty()) {
 			saledTikets += 1;
 			line3.remove(0);
+			break;
 		}
 		while (!line4.isEmpty()) {
 			saledTikets += 1;
 			line4.remove(0);
+			break;
 		}
 	}
 
@@ -147,8 +151,8 @@ public class LineInStation {
 	 * 统计还有多少个乘客没有买到车票
 	 */
 	public static int passagersInLines() {
-		totalPassagers -= saledTikets;
-		return totalPassagers;
+		int passages=totalPassagers - saledTikets;
+		return passages;
 	}
 
 	private static int saledTikets = 0;

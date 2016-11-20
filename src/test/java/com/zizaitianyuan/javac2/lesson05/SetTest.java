@@ -28,7 +28,7 @@ public class SetTest {
 	
 	@Before
 	public void before() {
-		set = new HashSet<>();
+		set = new HashSet<String>();
 	}
 	
 	

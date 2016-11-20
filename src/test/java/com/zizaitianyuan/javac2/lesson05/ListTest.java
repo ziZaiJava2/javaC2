@@ -21,7 +21,7 @@ public class ListTest {
 	 */
 	@Before
 	public void before() {
-		list = new ArrayList<>();
+		list = new ArrayList<String>();
 	}
 	
 	/*

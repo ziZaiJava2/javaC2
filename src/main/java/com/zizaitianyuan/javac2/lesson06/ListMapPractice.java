@@ -62,6 +62,7 @@ public class ListMapPractice {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 		List<Student> majoredSoftwareEngineering = new ArrayList<Student>();
 		for(Student temp : allStudents){
 			if("Software Engineering".equals(temp.getMajor())) {
@@ -100,6 +101,16 @@ public class ListMapPractice {
 				majoredSoftwareEngineering.add(temp);
 			}
 		}
+=======
+		List<Student> MajoredSoftwareEngineering = new ArrayList<Student>();
+		for(Student temp : allStudents){
+			if("Software Engineering".equals(temp.getMajor())) {
+				MajoredSoftwareEngineering.add(temp);
+			}
+		}
+		
+		return MajoredSoftwareEngineering;
+>>>>>>> b256983... homework
 		
 <<<<<<< HEAD
 		return MajoredSoftwareEngineering;
@@ -169,6 +180,7 @@ public class ListMapPractice {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 		List<Student> majoredComputerScience = new ArrayList<Student>();
 		for ( Student temp : allStudents){
 			if("Computer Science".equals(temp.getMajor())) {
@@ -245,6 +257,15 @@ public class ListMapPractice {
 =======
 		return majoredComputerScience;
 >>>>>>> 9b62263... homework
+=======
+		List<Student> MajoredComputerScience = new ArrayList<Student>();
+		for ( Student temp : allStudents){
+			if("Computer Science".equals(temp.getMajor())) {
+				MajoredComputerScience.add(temp);
+			}
+		}
+		return MajoredComputerScience;
+>>>>>>> b256983... homework
 		
 >>>>>>> 86ef6d6... homework
 =======
@@ -268,6 +289,10 @@ public class ListMapPractice {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< 78dabee2c32f6e9e3b6006df862f001952990459
+>>>>>>> homework
+=======
 <<<<<<< HEAD
 >>>>>>> homework
 	public static Map<String, Student> constructStudentMapWithNameKey() {
@@ -299,6 +324,8 @@ public class ListMapPractice {
 >>>>>>> b256983... homework
 =======
 >>>>>>> 86ef6d6... homework
+=======
+>>>>>>> b256983... homework
 	public static Map<String, Student> constructStudentMapWithNameKey(){		
 		for(Student temp :allStudents) {
 			studentMapWithNameKey.put(temp.getName(), temp); 
@@ -307,6 +334,7 @@ public class ListMapPractice {
 		return studentMapWithNameKey;
 	}
 	 	
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -324,6 +352,11 @@ public class ListMapPractice {
 >>>>>>> b256983... homework
 =======
 >>>>>>> 86ef6d6... homework
+<<<<<<< 78dabee2c32f6e9e3b6006df862f001952990459
+>>>>>>> homework
+=======
+=======
+>>>>>>> b256983... homework
 >>>>>>> homework
 	/*
 	 * 通过 allStudents中保存的学生信息来构造一个 Map， 其中 key是学生的学号， value是学生,
@@ -342,6 +375,7 @@ public class ListMapPractice {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 86ef6d6... homework
 =======
 >>>>>>> b256983... homework
@@ -354,6 +388,11 @@ public class ListMapPractice {
 >>>>>>> b256983... homework
 =======
 >>>>>>> 86ef6d6... homework
+<<<<<<< 78dabee2c32f6e9e3b6006df862f001952990459
+>>>>>>> homework
+=======
+=======
+>>>>>>> b256983... homework
 >>>>>>> homework
 		}
 		return studentMapWithIdKey;

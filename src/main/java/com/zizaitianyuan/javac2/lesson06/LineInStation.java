@@ -127,6 +127,7 @@ public class LineInStation {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> 7393b8f... homework
@@ -169,6 +170,14 @@ public class LineInStation {
 >>>>>>> homework
 
 
+<<<<<<< 4d3f300ecf7e1c9546f5d05566193c62f984fb71
+=======
+>>>>>>> 7393b8f... homework
+=======
+>>>>>>> e89f888... homework
+=======
+>>>>>>> e89f888... homework
+>>>>>>> homework
 		if(line1.size() <= line2.size() && line1.size() <= line3.size() &&
 				line1.size() <= line4.size()) {
 			line1.addAll(passages);
@@ -183,7 +192,15 @@ public class LineInStation {
 								
 
 		}else{line4.addAll(passages);}
+<<<<<<< 4d3f300ecf7e1c9546f5d05566193c62f984fb71
 
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> e89f888... homework
+=======
+>>>>>>> e89f888... homework
+>>>>>>> homework
 		
 		
 <<<<<<< af67ec1873dcd1d234ec893768979ab2da74acb2

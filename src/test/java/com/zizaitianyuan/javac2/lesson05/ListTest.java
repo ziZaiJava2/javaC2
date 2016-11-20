@@ -2,36 +2,15 @@ package com.zizaitianyuan.javac2.lesson05;
 
 import java.util.ArrayList;
 
-import org.junit.After;
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
 
 public class ListTest {
 
-	private ArrayList<String> list;
-	
 	/*
-	 * before方法会在每个case运行之前被调用
-	 * 
-	 * 我们一般用他来做在case执行前做初始化的工作
-	 * 
-	 * 这里我们每次执行case之前都生成一个新的ArrayList
-	 * 这样每次测试就不会相互影响
+	 * 每一个case都会new一个新的ListTest，然后执行测试，所以这里每个case都会有自己的实例成员变量list
 	 */
-	@Before
-	public void before() {
-		list = new ArrayList<>();
-	}
-	
-	/*
-	 * 对应的有一个after，这个在每次case执行完之后执行
-	 * 
-	 */
-	@After
-	public void after() {
-		list = null;
-	}
+	private ArrayList<String> list = new ArrayList<>();	
 	
 	/*
 	 * list中可以加入null

@@ -9,6 +9,7 @@ public class Practice2test {
 	public void testcase2() {
 	
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 
 		Assert.assertEquals(Practice2.fibonacci(134),8022285054220315881l);
@@ -23,17 +24,23 @@ public class Practice2test {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+=======
+
+
+>>>>>>> dfb962b... 11.20
 		Assert.assertEquals(Practice2.fibonacci(134),8022285054220315881l);
-=======
+
 		Assert.assertEquals(Practice2.fibonacci3(32),2178309 );
->>>>>>> 010ecb7... abc
-=======
+
 		Assert.assertEquals(Practice2.fibonacci3(32),2178309 );
->>>>>>> 006926b... abc
-=======
+
 		Assert.assertEquals(Practice2.fibonacci(134),8022285054220315881l);
+<<<<<<< HEAD
 >>>>>>> c536710... Mathmatics.java
 >>>>>>> d855e4a... gg
+=======
+
+>>>>>>> dfb962b... 11.20
 	}
 
 }

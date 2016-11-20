@@ -48,6 +48,7 @@ public class ListMapPractice {
 
 =======
 	public static List<Student> getStudentListMajoredInSoftwareEngineering(){
+<<<<<<< HEAD
 		List<Student> majoredSoftwareEngineering = new ArrayList<Student>();
 		for(Student temp : allStudents){
 			if("Software Engineering".equals(temp.getMajor())) {
@@ -56,6 +57,16 @@ public class ListMapPractice {
 		}
 		
 		return majoredSoftwareEngineering;
+=======
+		List<Student> MajoredSoftwareEngineering = new ArrayList<Student>();
+		for(Student temp : allStudents){
+			if("Software Engineering".equals(temp.getMajor())) {
+				MajoredSoftwareEngineering.add(temp);
+			}
+		}
+		
+		return MajoredSoftwareEngineering;
+>>>>>>> b256983... homework
 		
 >>>>>>> 86ef6d6... homework
 	}
@@ -79,6 +90,7 @@ public class ListMapPractice {
 
 =======
 	public static List<Student> getStudentListMajoredInComputerScience(){
+<<<<<<< HEAD
 		List<Student> majoredComputerScience = new ArrayList<Student>();
 		for ( Student temp : allStudents){
 			if("Computer Science".equals(temp.getMajor())) {
@@ -86,6 +98,15 @@ public class ListMapPractice {
 			}
 		}
 		return majoredComputerScience;
+=======
+		List<Student> MajoredComputerScience = new ArrayList<Student>();
+		for ( Student temp : allStudents){
+			if("Computer Science".equals(temp.getMajor())) {
+				MajoredComputerScience.add(temp);
+			}
+		}
+		return MajoredComputerScience;
+>>>>>>> b256983... homework
 		
 >>>>>>> 86ef6d6... homework
 	}
@@ -94,6 +115,7 @@ public class ListMapPractice {
 	 * 通过 allStudents中保存的学生信息来构造一个 Map， 其中 key是学生的名字， value是学生,
 	 * 以便以后可以快速的通过学生名字来查询学生的信息
 	 */
+<<<<<<< HEAD
 <<<<<<< HEAD
 	public static Map<String, Student> constructStudentMapWithNameKey() {
 		for (Student temp : allStudents) {
@@ -104,6 +126,8 @@ public class ListMapPractice {
 	}
 
 =======
+=======
+>>>>>>> b256983... homework
 	public static Map<String, Student> constructStudentMapWithNameKey(){		
 		for(Student temp :allStudents) {
 			studentMapWithNameKey.put(temp.getName(), temp); 
@@ -112,7 +136,10 @@ public class ListMapPractice {
 		return studentMapWithNameKey;
 	}
 	 	
+<<<<<<< HEAD
 >>>>>>> 86ef6d6... homework
+=======
+>>>>>>> b256983... homework
 	/*
 	 * 通过 allStudents中保存的学生信息来构造一个 Map， 其中 key是学生的学号， value是学生,
 	 * 以便以后可以快速的通过学生学号来查询学生的信息
@@ -125,7 +152,10 @@ public class ListMapPractice {
 	public static Map<Integer, Student> constructStudentMapWithIdKey(){
 		for(Student temp :allStudents) {
 			studentMapWithIdKey.put(temp.getId(), temp); 
+<<<<<<< HEAD
 >>>>>>> 86ef6d6... homework
+=======
+>>>>>>> b256983... homework
 		}
 		return studentMapWithIdKey;
 	}

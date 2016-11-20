@@ -30,14 +30,14 @@ public class ListMapPractice {
 	 *  从 allStudents 中找出主修专业为 "Software Engineering"的学生， 并保存在一个ArrayList中，并返回
 	 */
 	public static List<Student> getStudentListMajoredInSoftwareEngineering(){
-		List<Student> MajoredSoftwareEngineering = new ArrayList<Student>();
+		List<Student> majoredSoftwareEngineering = new ArrayList<Student>();
 		for(Student temp : allStudents){
 			if("Software Engineering".equals(temp.getMajor())) {
-				MajoredSoftwareEngineering.add(temp);
+				majoredSoftwareEngineering.add(temp);
 			}
 		}
 		
-		return MajoredSoftwareEngineering;
+		return majoredSoftwareEngineering;
 		
 	}
 	
@@ -46,13 +46,13 @@ public class ListMapPractice {
 	 *  从 allStudents 中找出主修专业为 "Computer Science"的学生， 并保存在一个ArrayList中，并返回
 	 */
 	public static List<Student> getStudentListMajoredInComputerScience(){
-		List<Student> MajoredComputerScience = new ArrayList<Student>();
+		List<Student> majoredComputerScience = new ArrayList<Student>();
 		for ( Student temp : allStudents){
 			if("Computer Science".equals(temp.getMajor())) {
-				MajoredComputerScience.add(temp);
+				majoredComputerScience.add(temp);
 			}
 		}
-		return MajoredComputerScience;
+		return majoredComputerScience;
 		
 	}
 	

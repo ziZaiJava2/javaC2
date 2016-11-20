@@ -34,7 +34,7 @@ public class ListMapPractice {
 		List<Student> softList = new ArrayList<Student>();
 		Iterator<Student> iter = allStudents.iterator();
 		while (iter.hasNext()) {
-			Student s = (Student) iter.next();
+			Student s =  iter.next();
 			if ("Software Engineering".equals(s.getMajor())) {
 				softList.add(s);
 			}
@@ -49,7 +49,7 @@ public class ListMapPractice {
 		List<Student> comList = new ArrayList<Student>();
 		Iterator<Student> iter = allStudents.iterator();
 		while (iter.hasNext()) {
-			Student s = (Student) iter.next();
+			Student s =  iter.next();
 			if ("Computer Science".equals(s.getMajor())) {
 				comList.add(s);
 			}
@@ -64,7 +64,7 @@ public class ListMapPractice {
 	public static Map<String, Student> constructStudentMapWithNameKey() {
 		Iterator<Student> iter = allStudents.iterator();
 		while (iter.hasNext()) {
-			Student s = (Student) iter.next();
+			Student s =  iter.next();
 			studentMapWithNameKey.put(s.getName(), s);
 		}
 
@@ -78,7 +78,7 @@ public class ListMapPractice {
 	public static Map<Integer, Student> constructStudentMapWithIdKey() {
 		Iterator<Student> iter = allStudents.iterator();
 		while (iter.hasNext()) {
-			Student s = (Student) iter.next();
+			Student s =  iter.next();
 			studentMapWithIdKey.put(s.getId(), s);
 		}
 		return studentMapWithIdKey;

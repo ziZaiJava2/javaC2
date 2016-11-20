@@ -7,6 +7,24 @@ import org.junit.Test;
 
 public class ListTest {
 
+<<<<<<< HEAD
+=======
+	private ArrayList<String> list;
+	
+	/*
+	 * before方法会在每个case运行之前被调用
+	 * 
+	 * 我们一般用他来做在case执行前做初始化的工作
+	 * 
+	 * 这里我们每次执行case之前都生成一个新的ArrayList
+	 * 这样每次测试就不会相互影响
+	 */
+	@Before
+	public void before() {
+		list = new ArrayList<String>();
+	}
+	
+>>>>>>> 536e910... aaaaaa
 	/*
 	 * 每一个case都会new一个新的ListTest，然后执行测试，所以这里每个case都会有自己的实例成员变量list
 	 */

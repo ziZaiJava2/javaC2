@@ -118,6 +118,7 @@ public class LineInStation {
 		}
 
 	}
+	
 
 	/*
 	 * 这个方法给每个队伍卖出一张车票，并统计总共卖出的票数到（saledTikets）。

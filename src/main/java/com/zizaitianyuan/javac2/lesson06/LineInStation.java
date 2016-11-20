@@ -73,7 +73,27 @@ public class LineInStation {
 			comingPassagers.add(per);		
 		}
 		totalPassagers += comPasNum;
+<<<<<<< af67ec1873dcd1d234ec893768979ab2da74acb2
 
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+		return comingPassagers;
+=======
+=======
+>>>>>>> 2470ba3... homework
+=======
+>>>>>>> 2470ba3... homework
+		return null;
+>>>>>>> 2470ba3... homework
+=======
+		return comingPassagers;
+>>>>>>> f38f6f8... homework
+=======
+>>>>>>> homework
 		return comingPassagers;
 
 
@@ -96,9 +116,39 @@ public class LineInStation {
 	 */
 	public static void lineUp(List<Person> passages) {
 		
+<<<<<<< af67ec1873dcd1d234ec893768979ab2da74acb2
 
 		
 
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+>>>>>>> 7393b8f... homework
+		List<Person> min = new ArrayList<Person>();
+		min = line1;
+		if(line1.size() > line2.size()){
+			min = line2;
+		}
+		if(line2.size() > line3.size()){
+			min = line3;
+		}
+		if(line3.size() > line4.size()){
+			min = line4;
+		}
+		min.addAll(passages);
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 2470ba3... homework
+=======
+>>>>>>> 2470ba3... homework
+>>>>>>> homework
 		List<Person> min = line1;
 		if(line2.size() < line1.size()) {
 			 min = line2;
@@ -110,6 +160,13 @@ public class LineInStation {
 			 min = line4;
 		}
 		min.addAll(passages);
+<<<<<<< af67ec1873dcd1d234ec893768979ab2da74acb2
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> homework
 
 
 		if(line1.size() <= line2.size() && line1.size() <= line3.size() &&
@@ -129,10 +186,19 @@ public class LineInStation {
 
 		
 		
+<<<<<<< af67ec1873dcd1d234ec893768979ab2da74acb2
 		}
 
 
 
+=======
+>>>>>>> 2470ba3... homework
+=======
+		
+>>>>>>> 2470ba3... homework
+	}
+	
+>>>>>>> homework
 	/*
 	 * 这个方法给每个队伍卖出一张车票，并统计总共卖出的票数到（saledTikets）。
 	 * 
@@ -163,6 +229,7 @@ public class LineInStation {
 	 * 统计还有多少个乘客没有买到车票
 	 */
 	public static int passagersInLines() {
+<<<<<<< af67ec1873dcd1d234ec893768979ab2da74acb2
 
 
 		return totalPassagers - saledTikets;
@@ -170,6 +237,29 @@ public class LineInStation {
 
 
 
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+
+		return totalPassagers - saledTikets;
+<<<<<<< HEAD
+=======
+		int noTicketPassagers = totalPassagers - saledTikets;
+		return noTicketPassagers;
+>>>>>>> 2470ba3... homework
+=======
+
+
+>>>>>>> 7393b8f... homework
+=======
+		int noTicketPassagers = totalPassagers - saledTikets;
+		return noTicketPassagers;
+>>>>>>> 2470ba3... homework
+=======
+		int noTicketPassagers = totalPassagers - saledTikets;
+		return noTicketPassagers;
+>>>>>>> 2470ba3... homework
+>>>>>>> homework
 	}
 	
 	private static int saledTikets = 0;

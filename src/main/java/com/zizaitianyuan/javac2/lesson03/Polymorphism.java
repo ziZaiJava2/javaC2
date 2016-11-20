@@ -10,14 +10,111 @@ public class Polymorphism {
 			{"Circle", "11"},
 			{"Circle", "13"},
 			{"Square", "15"},
+			{"EquilateralTriangle","10"}
 	};
+	
 	
 	public static void main(String[] args) {
 		
 		// 我们的程序是生成一个对对应图形的说明，以及计算图形的周长 perimeter
+	for (String[] shape :data) {
+		Shape s =ShapeFactory.getInstance(shape[0], Integer.parseInt(shape[1]));
 		
+		System.out.print(s.toString()+ "，");
+		System.out.println("周长： "+s.perimeter());
+	}
 		
+	}
+	
+	
+}
+
+class ShapeFactory{
+	public static final String CIRCLE = "Circle";
+	
+	public static final String SQUARE = "Square";
+	
+	public static final String E_TRIANGLE = "EquilateralTriangle";
+
+	public static Shape getInstance(String type, int len){
+		
+		Shape s = null;
+		if(CIRCLE.equals(type)){
+			s = new Circle(len);
+		}else if (SQUARE.equals(type)){
+			s = new Square(len);
+		}else if (E_TRIANGLE.equals(type)){
+			s = new ETriangle(len);
+		}else{
+			System.out.println("错误的输入！！！");
+			System.exit(0);
+		}
+		return s;
+	}		
+}
+
+
+class ETriangle implements Shape {
+	
+	private int side;
+	
+	public ETriangle(int side){
+		this.side = side;
+	}
+	@Override
+	public String toString(){
+		return String.format("等边三角形。 边长：%d",this.side);
+	}
+	
+	@Override
+	public double perimeter(){
+		return 3*this.side;
 	}
 	
 }
 
+class Circle implements Shape {
+	
+	private int r;
+	
+	public Circle(int r){
+		this.r = r;
+	}
+	@Override
+	public String toString(){
+		return String.format("圆形。半径长：%d",this.r);
+	}
+	
+	@Override
+	public double perimeter(){
+		return 2*this.r*Math.PI;
+	}
+	
+}
+
+class Square implements Shape {
+	
+	private int side;
+	
+	 public Square(int side){
+		this.side = side;
+	}
+	@Override
+	public String toString(){
+		return String.format("正方形。边长：%d",this.side);
+	}
+	
+	@Override
+	public double perimeter(){
+		return 4*this.side;
+	}
+	
+}
+
+
+interface Shape {
+
+	public String toString();
+
+	public double perimeter();
+}

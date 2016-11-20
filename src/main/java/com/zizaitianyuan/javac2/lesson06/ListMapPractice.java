@@ -33,6 +33,7 @@ public class ListMapPractice {
 =======
 	public static List<Student> getStudentListMajoredInSoftwareEngineering(){
 <<<<<<< HEAD
+<<<<<<< HEAD
 		List<Student> majoredSoftwareEngineering = new ArrayList<Student>();
 		for(Student temp : allStudents){
 			if("Software Engineering".equals(temp.getMajor())) {
@@ -43,14 +44,21 @@ public class ListMapPractice {
 		return majoredSoftwareEngineering;
 =======
 		List<Student> MajoredSoftwareEngineering = new ArrayList<Student>();
+=======
+		List<Student> majoredSoftwareEngineering = new ArrayList<Student>();
+>>>>>>> c40e511... homework
 		for(Student temp : allStudents){
 			if("Software Engineering".equals(temp.getMajor())) {
-				MajoredSoftwareEngineering.add(temp);
+				majoredSoftwareEngineering.add(temp);
 			}
 		}
 		
+<<<<<<< HEAD
 		return MajoredSoftwareEngineering;
 >>>>>>> b256983... homework
+=======
+		return majoredSoftwareEngineering;
+>>>>>>> c40e511... homework
 		
 	}
 >>>>>>> 9b66918... homework
@@ -64,6 +72,7 @@ public class ListMapPractice {
 =======
 	public static List<Student> getStudentListMajoredInComputerScience(){
 <<<<<<< HEAD
+<<<<<<< HEAD
 		List<Student> majoredComputerScience = new ArrayList<Student>();
 		for ( Student temp : allStudents){
 			if("Computer Science".equals(temp.getMajor())) {
@@ -73,13 +82,20 @@ public class ListMapPractice {
 		return majoredComputerScience;
 =======
 		List<Student> MajoredComputerScience = new ArrayList<Student>();
+=======
+		List<Student> majoredComputerScience = new ArrayList<Student>();
+>>>>>>> c40e511... homework
 		for ( Student temp : allStudents){
 			if("Computer Science".equals(temp.getMajor())) {
-				MajoredComputerScience.add(temp);
+				majoredComputerScience.add(temp);
 			}
 		}
+<<<<<<< HEAD
 		return MajoredComputerScience;
 >>>>>>> b256983... homework
+=======
+		return majoredComputerScience;
+>>>>>>> c40e511... homework
 		
 	}
 >>>>>>> 9b66918... homework

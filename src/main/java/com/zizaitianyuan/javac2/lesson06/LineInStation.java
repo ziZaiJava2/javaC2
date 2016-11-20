@@ -62,10 +62,11 @@ public class LineInStation {
 		Random rand = new Random();
 		List<Person> comPass = new ArrayList<Person>();
 		int num=rand.nextInt(3)+1;
-		totalPassagers += num;
+		//totalPassagers += num;
 		for (int i = 1; i <= num ; i++) {
 			Person per = new Person(names.get(rand.nextInt(names.size())));
 			comPass.add(per);
+			totalPassagers++;
 		}
 		return comPass;
 	}
@@ -127,25 +128,17 @@ public class LineInStation {
 	 * 就是排队伍第一个位置的乘客从队列中删除
 	 */
 	public static void saleTickets() {
-		while (!line1.isEmpty()) {
-			saledTikets += 1;
-			line1.remove(0);
-			break;
-		}
-		while (!line2.isEmpty()) {
-			saledTikets += 1;
-			line2.remove(0);
-			break;
-		}
-		while (!line3.isEmpty()) {
-			saledTikets += 1;
-			line3.remove(0);
-			break;
-		}
-		while (!line4.isEmpty()) {
-			saledTikets += 1;
-			line4.remove(0);
-			break;
+		saleTicket(line1);
+		saleTicket(line2);
+		saleTicket(line3);
+		saleTicket(line4);
+	}
+
+	private static void saleTicket(List<Person> line) {
+		// TODO Auto-generated method stub
+		if(!line.isEmpty()){
+			saledTikets++;
+			line.remove(0);
 		}
 	}
 
@@ -153,8 +146,7 @@ public class LineInStation {
 	 * 统计还有多少个乘客没有买到车票
 	 */
 	public static int passagersInLines() {
-		int passages=totalPassagers - saledTikets;
-		return passages;
+		return totalPassagers - saledTikets;
 	}
 
 	private static int saledTikets = 0;

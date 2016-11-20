@@ -1,7 +1,7 @@
 
 package com.zizaitianyuan.javac2.lesson03;
 
-public class Run {
+public class Polymorphism {
 	
 	// 假设这部分数据是从数据库或者文件读取出来的数据
 	static String[][] data = {

@@ -70,7 +70,7 @@ public class LineInStation {
 			comingPassagers.add(per);		
 		}
 		totalPassagers += comPasNum;
-		return null;
+		return comingPassagers;
 	}
 	
 	private static int totalPassagers = 0;

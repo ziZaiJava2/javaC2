@@ -76,12 +76,16 @@ public class LineInStation {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 		return comingPassagers;
 =======
 =======
 >>>>>>> 2470ba3... homework
 		return null;
 >>>>>>> 2470ba3... homework
+=======
+		return comingPassagers;
+>>>>>>> f38f6f8... homework
 =======
 		return comingPassagers;
 >>>>>>> f38f6f8... homework

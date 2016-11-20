@@ -3,6 +3,7 @@ package com.zizaitianyuan.javac2.lesson06;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 
 /*
  * 这个类用来模拟乘客进站排队买票。
@@ -58,15 +59,23 @@ public class LineInStation {
 	 * 并统计总的进站人数到(totalPassagers)
 	 * 
 	 * 名字随机从names中获取,也可以自己想办法生成
-	 * 
+	 * = Math.random()*3;
 	 */
 	public static List<Person> comingPassagers() {
+		Random ran = new Random();
+		int comPasNum = ran.nextInt(3) + 1;
+		List<Person> comingPassagers = new ArrayList<Person>();
+		for(int i = 0; i <comPasNum; i++) {
+			Person per = new Person(names.get(ran.nextInt(names.size())));
+			comingPassagers.add(per);		
+		}
+		totalPassagers += comPasNum;
 		return null;
 	}
 	
 	private static int totalPassagers = 0;
 	
-	private List<String> names = Arrays.asList(
+	static  List<String> names = Arrays.asList(
 			"Jim", "Ken", "Leon", "Ada", "Lily", "Lucy", "Will", "Eagle",
 			"David", "Zoe", "Wendy", "Acea", "Kin", "Fish", "Paul", "Dean"
 			);
@@ -80,6 +89,18 @@ public class LineInStation {
 	 */
 	public static void lineUp(List<Person> passages) {
 		
+		List<Person> min = line1;
+		if(line2.size() < line1.size()) {
+			 min = line2;
+		}
+		if(line3.size() < line2.size()) {
+			 min = line3;
+		}
+		if(line4.size() < line3.size()) {
+			 min = line4;
+		}
+		min.addAll(passages);
+		
 	}
 	
 	/*
@@ -90,14 +111,30 @@ public class LineInStation {
 	 * 就是排队伍第一个位置的乘客从队列中删除
 	 */
 	public static void saleTickets() {
-		
+		if(!line1.isEmpty()){
+			saledTikets++;
+			line1.remove(0);
+		}
+		if(!line2.isEmpty()){
+			saledTikets++;
+			line2.remove(0);
+		}
+		if(!line3.isEmpty()){
+			saledTikets++;
+			line3.remove(0);
+		}
+		if(!line4.isEmpty()){
+			saledTikets++;
+			line4.remove(0);
+		}
 	}
 	
 	/*
 	 * 统计还有多少个乘客没有买到车票
 	 */
 	public static int passagersInLines() {
-		return 0;
+		int noTicketPassagers = totalPassagers - saledTikets;
+		return noTicketPassagers;
 	}
 	
 	private static int saledTikets = 0;

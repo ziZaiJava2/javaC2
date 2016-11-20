@@ -62,7 +62,6 @@ public class LineInStation {
 		Random rand = new Random();
 		List<Person> comPass = new ArrayList<Person>();
 		int num=rand.nextInt(3)+1;
-		//totalPassagers += num;
 		for (int i = 1; i <= num ; i++) {
 			Person per = new Person(names.get(rand.nextInt(names.size())));
 			comPass.add(per);
@@ -101,7 +100,7 @@ public class LineInStation {
 					index = i + 1;
 				}
 			}
-			switch (index) {
+			switch (a[index]) {
 			case 1: {
 				line1.addAll(passages);
 			}
@@ -136,8 +135,8 @@ public class LineInStation {
 
 	private static void saleTicket(List<Person> line) {
 		// TODO Auto-generated method stub
-		if(!line.isEmpty()){
-			saledTikets++;
+		while(!line.isEmpty()){
+			saledTikets ++;
 			line.remove(0);
 		}
 	}

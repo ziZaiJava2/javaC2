@@ -2,7 +2,10 @@ package com.zizaitianyuan.javac2.lesson06;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+
 
 /*
  * 这个类用来模拟乘客进站排队买票。
@@ -61,12 +64,21 @@ public class LineInStation {
 	 * 
 	 */
 	public static List<Person> comingPassagers() {
+		
+		ArrayList<Person> comingPassagers = new ArrayList<Person>();
+		
+
+		
+		for (Person coming:line1){
+			comingPassagers.add(coming);			
+			totalPassagers++;
+		}
 		return null;
 	}
 	
 	private static int totalPassagers = 0;
 	
-	private List<String> names = Arrays.asList(
+	private static List<String> names = Arrays.asList(
 			"Jim", "Ken", "Leon", "Ada", "Lily", "Lucy", "Will", "Eagle",
 			"David", "Zoe", "Wendy", "Acea", "Kin", "Fish", "Paul", "Dean"
 			);
@@ -80,6 +92,9 @@ public class LineInStation {
 	 */
 	public static void lineUp(List<Person> passages) {
 		
+		for (Person name : line2){
+			
+		}
 	}
 	
 	/*

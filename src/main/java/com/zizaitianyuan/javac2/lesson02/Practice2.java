@@ -1,7 +1,7 @@
 package com.zizaitianyuan.javac2.lesson02;
 
 public class Practice2 {
-   static  int[] array = new int[6];
+
 	/**
 	 * 
 	 * 斐波拉契数列１， １， ２， ３， ５， ８， １３
@@ -14,39 +14,14 @@ public class Practice2 {
 	 */
 	public static void main(String[] args) {
 
-<<<<<<< HEAD
 		fibonacci(6);
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 		// 请自行补充对ｆｉｂｏｎａｃｃｉ１的测试，这里我就不写了。
 
-=======
-		//　请自行补充对ｆｉｂｏｎａｃｃｉ１的测试，这里我就不写了。
-		
->>>>>>> 6975373... demo
-=======
-		// 请自行补充对ｆｉｂｏｎａｃｃｉ１的测试，这里我就不写了。
-
->>>>>>> 618e14e... practice2
 		if (fibonacci2(1) == 1 && fibonacci2(2) == 1 && fibonacci2(5) == 5 && fibonacci2(8) == 21) {
 			System.out.println("fibonacci2正确");
 			System.out.println("practic");
 		}
-=======
-//		fibonacci(6);
-       int x = fibonacci3(5);
-       System.out.println(x);
-       array[0] = 0;
-       array[1] = 1;
-       
-		// 请自行补充对ｆｉｂｏｎａｃｃｉ１的测试，这里我就不写了。
-
-//		if (fibonacci2(1) == 1 && fibonacci2(2) == 1 && fibonacci2(5) == 5 && fibonacci2(8) == 21) {
-//			System.out.println("fibonacci2正确");
-//			System.out.println("practic");
-//		}
->>>>>>> 50c1e8d... null
 
 		// 如果fibonacci3也实现了，选中下面三行，可以使用ｃｔｒｌ + /来取消注释
 		// if (fibonacci3(1) == 1 && fibonacci3(2) == 1 && fibonacci3(5) == 5 &&
@@ -64,19 +39,19 @@ public class Practice2 {
 	 * @param n
 	 * @return
 	 */
-//	public static int[] fibonacci(int n) {
-//		int[] array = new int[n];
-//		array[0] = 1;
-//		array[1] = 1;
-//		for (int i = 2; i < n; i++) {
-//			array[i] = array[i - 1] + array[i - 2];
-//		}
-//		for (int j = 0; j < n; j++) {
-//
-//			System.out.println(array[j]);
-//		}
-//		return new int[n];
-//	}
+	public static int[] fibonacci(int n) {
+		int[] array = new int[n];
+		array[0] = 1;
+		array[1] = 1;
+		for (int i = 2; i < n; i++) {
+			array[i] = array[i - 1] + array[i - 2];
+		}
+		for (int j = 0; j < n; j++) {
+
+			System.out.println(array[j]);
+		}
+		return new int[n];
+	}
 
 	/**
 	 * 这个方法期望输入ｎ的时候，返回斐波拉契数列的第ｎ个数
@@ -88,7 +63,6 @@ public class Practice2 {
 	 * @param n
 	 * @return
 	 */
-<<<<<<< HEAD
 	public static int fibonacci2(int n) {
 		if (n <= 2) {
 			return 1;
@@ -97,44 +71,15 @@ public class Practice2 {
 		int b = 2;
 		int tmp;
 		int sum;
-<<<<<<< HEAD
 
 		for (int i = 3; i < n; i++) {
 			tmp = b;
 			b = a + b;
 			a = tmp;
 
-=======
-		
-		for (int i = 3; i < n; i++) {
-		 tmp = b;
-	     b = a + b;
-	     a = tmp;
-	    
-	     
->>>>>>> 618e14e... practice2
 		}
 		return b;
 	}
-=======
-//	public static int fibonacci2(int n) {
-//		if (n <= 2) {
-//			return 1;
-//		}
-//		int a = 1;
-//		int b = 2;
-//		int tmp;
-//		int sum;
-//
-//		for (int i = 3; i < n; i++) {
-//			tmp = b;
-//			b = a + b;
-//			a = tmp;
-//
-//		}
-//		return b;
-//	}
->>>>>>> 50c1e8d... null
 
 	/**
 	 * 如果你知道什么是递归，那么请用递归来实现这个方法
@@ -149,36 +94,10 @@ public class Practice2 {
 	 * @return
 	 */
 	public static int fibonacci3(int n) {
-<<<<<<< HEAD
-<<<<<<< HEAD
 		if (n <= 2) {
 			return 1;
 		} else {
-=======
-		if(n <= 2){
-			return 1;
-		}else{
->>>>>>> 67a85a3... practice2
 			return fibonacci3(n - 1) + fibonacci3(n - 2);
-=======
-		
-		if(n == 0){
-			
-			return array[0];
-			
 		}
-		if(n == 1){
-			
-			return array[1];
-		}
-		if(n > 2){
-			return array[n];
->>>>>>> 50c1e8d... null
-		}
-		array[n] = fibonacci3(n - 1) + fibonacci3(n - 2);
-		return array[n];
-		
-		
-		
 	}
 }

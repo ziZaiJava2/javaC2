@@ -14,10 +14,6 @@ public class Practice4 {
 	 */
 	public static int[] sort(int[] sourceArray) {
 		int[] result = new int[sourceArray.length];
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 5ce9789... practice4
 		for (int i = sourceArray.length - 2; i >= 0; i--) {
 			for (int j = 0; j <= i; j++) {
 				if (sourceArray[j] > sourceArray[j + 1]) {
@@ -28,22 +24,7 @@ public class Practice4 {
 				}
 			}
 		}
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-<<<<<<< HEAD
-=======
-		Arrays.sort(sourceArray);
-		
->>>>>>> 6c21a42... practice4
-=======
->>>>>>> 5ce9789... practice4
-=======
->>>>>>> 8377485... 4
-=======
-		
-		
->>>>>>> 0f4775d... 0
 		return sourceArray;
 	}
 }

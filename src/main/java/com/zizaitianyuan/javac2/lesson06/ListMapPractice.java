@@ -31,6 +31,15 @@ public class ListMapPractice {
 	 */
 	public static List<Student> getStudentListMajoredInSoftwareEngineering(){
 		
+	    ArrayList<Student> programingStu = new ArrayList<Student>();
+	   for(Student stu : allStudents){
+		   if(stu.getMajor() == "Software Engineering"){
+			   programingStu.add(stu);
+		   }
+	   }
+		
+		return programingStu;
+		
 	}
 	
 	
@@ -38,6 +47,16 @@ public class ListMapPractice {
 	 *  从 allStudents 中找出主修专业为 "Computer Science"的学生， 并保存在一个ArrayList中，并返回
 	 */
 	public static List<Student> getStudentListMajoredInComputerScience(){
+
+		  ArrayList<Student> conputeStu = new ArrayList<Student>();
+	   for(Student stu : allStudents){
+		   if(stu.getMajor() == "Computer Science"){
+			   conputeStu.add(stu);
+		   }
+	   }
+		
+		return conputeStu;
+		
 		
 	}
 	
@@ -46,7 +65,9 @@ public class ListMapPractice {
 	 */
 	public static Map<String, Student> constructStudentMapWithNameKey(){
 		
-		
+		for(Student stu : allStudents){
+			studentMapWithNameKey.put(stu.getName(), stu);
+		}
 		return studentMapWithNameKey;
 	}
 	
@@ -55,6 +76,9 @@ public class ListMapPractice {
 	 */
 	public static Map<Integer, Student> constructStudentMapWithIdKey(){
 		
+		for(Student stu : allStudents){
+			studentMapWithIdKey.put(stu.getId(), stu);
+		}
 		
 		return studentMapWithIdKey;
 	}

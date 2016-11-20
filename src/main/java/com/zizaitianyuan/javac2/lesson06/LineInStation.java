@@ -75,8 +75,11 @@ public class LineInStation {
 		totalPassagers += comPasNum;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 		return comingPassagers;
 =======
+=======
+>>>>>>> 2470ba3... homework
 		return null;
 >>>>>>> 2470ba3... homework
 =======
@@ -103,6 +106,7 @@ public class LineInStation {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> 7393b8f... homework
@@ -120,6 +124,8 @@ public class LineInStation {
 		min.addAll(passages);
 <<<<<<< HEAD
 =======
+=======
+>>>>>>> 2470ba3... homework
 		List<Person> min = line1;
 		if(line2.size() < line1.size()) {
 			 min = line2;
@@ -131,6 +137,7 @@ public class LineInStation {
 			 min = line4;
 		}
 		min.addAll(passages);
+<<<<<<< HEAD
 =======
 =======
 
@@ -155,6 +162,9 @@ public class LineInStation {
 =======
 
 >>>>>>> 7393b8f... homework
+=======
+		
+>>>>>>> 2470ba3... homework
 	}
 	
 	/*
@@ -187,6 +197,7 @@ public class LineInStation {
 	 * 统计还有多少个乘客没有买到车票
 	 */
 	public static int passagersInLines() {
+<<<<<<< HEAD
 
 		return totalPassagers - saledTikets;
 <<<<<<< HEAD
@@ -198,6 +209,10 @@ public class LineInStation {
 
 
 >>>>>>> 7393b8f... homework
+=======
+		int noTicketPassagers = totalPassagers - saledTikets;
+		return noTicketPassagers;
+>>>>>>> 2470ba3... homework
 	}
 	
 	private static int saledTikets = 0;

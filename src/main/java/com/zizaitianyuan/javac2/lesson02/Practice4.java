@@ -14,7 +14,23 @@ public class Practice4 {
 	 */
 	public static int[] sort(int[] sourceArray) {
 		int[] result = new int[sourceArray.length];
+		int temp;
 
-		return result;
+		for (int x = 0; x < sourceArray.length; x++) {
+			for (int y = 0; y < sourceArray.length - 1; y++) {
+
+				if (sourceArray[y + 1] < sourceArray[y]) {//如果后面一个数比前面一个数大
+					temp = sourceArray[y + 1];            //则两数交换 ，把小的数放到前面
+					sourceArray[y + 1] = sourceArray[y];
+					sourceArray[y] = temp;
+				}
+			}
+		}
+//		for (int a = 0; a < sourceArray.length; a++) {
+//			result[a] = sourceArray[a];
+//		}
+		
+		
+		return sourceArray;
 	}
 }

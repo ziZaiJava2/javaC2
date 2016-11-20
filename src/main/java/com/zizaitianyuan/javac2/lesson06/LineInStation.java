@@ -97,6 +97,7 @@ public class LineInStation {
 	public static void lineUp(List<Person> passages) {
 		
 <<<<<<< HEAD
+<<<<<<< HEAD
 		List<Person> min = new ArrayList<Person>();
 		min = line1;
 		if(line1.size() > line2.size()){
@@ -121,6 +122,21 @@ public class LineInStation {
 			 min = line4;
 		}
 		min.addAll(passages);
+=======
+		if(line1.size() <= line2.size() && line1.size() <= line3.size() &&
+				line1.size() <= line4.size()) {
+			line1.addAll(passages);
+					
+		}else if(line2.size() <= line3.size() &&
+				line2.size() <= line4.size() && line2.size() <= line1.size()) {
+			line2.addAll(passages);
+					
+		}else if(line3.size() <= line2.size() &&
+				line3.size() <= line4.size() && line3.size() <= line1.size()) {
+			line3.addAll(passages);
+								
+		}else{line4.addAll(passages);}
+>>>>>>> e89f888... homework
 		
 >>>>>>> 2470ba3... homework
 	}

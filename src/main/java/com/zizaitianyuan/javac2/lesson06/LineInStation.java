@@ -61,8 +61,9 @@ public class LineInStation {
 		 */
 		Random rand = new Random();
 		List<Person> comPass = new ArrayList<Person>();
-		for (int i = 1; i <= rand.nextInt(3) + 1; i++) {
-			totalPassagers += i;
+		int num=rand.nextInt(3)+1;
+		totalPassagers += num;
+		for (int i = 1; i <= num ; i++) {
 			Person per = new Person(names.get(rand.nextInt(names.size())));
 			comPass.add(per);
 		}
@@ -91,6 +92,7 @@ public class LineInStation {
 		} else {
 			int a[] = new int[] { line1.size(), 1, line2.size(), 2, line3.size(), 3, line4.size(), 4 };
 			int index = 0;
+			@SuppressWarnings("unused")
 			int min = a[0];
 			for (int i = 2; i < 7; i += 2) {
 				if (a[i] < a[0]) {

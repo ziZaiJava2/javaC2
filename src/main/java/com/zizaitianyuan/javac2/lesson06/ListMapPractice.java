@@ -48,14 +48,14 @@ public class ListMapPractice {
 
 =======
 	public static List<Student> getStudentListMajoredInSoftwareEngineering(){
-		List<Student> MajoredSoftwareEngineering = new ArrayList<Student>();
+		List<Student> majoredSoftwareEngineering = new ArrayList<Student>();
 		for(Student temp : allStudents){
 			if("Software Engineering".equals(temp.getMajor())) {
-				MajoredSoftwareEngineering.add(temp);
+				majoredSoftwareEngineering.add(temp);
 			}
 		}
 		
-		return MajoredSoftwareEngineering;
+		return majoredSoftwareEngineering;
 		
 >>>>>>> 86ef6d6... homework
 	}
@@ -79,13 +79,13 @@ public class ListMapPractice {
 
 =======
 	public static List<Student> getStudentListMajoredInComputerScience(){
-		List<Student> MajoredComputerScience = new ArrayList<Student>();
+		List<Student> majoredComputerScience = new ArrayList<Student>();
 		for ( Student temp : allStudents){
 			if("Computer Science".equals(temp.getMajor())) {
-				MajoredComputerScience.add(temp);
+				majoredComputerScience.add(temp);
 			}
 		}
-		return MajoredComputerScience;
+		return majoredComputerScience;
 		
 >>>>>>> 86ef6d6... homework
 	}

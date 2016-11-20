@@ -33,8 +33,17 @@ public class Mathmatics {
 	
 	// 补充减法，命名为sub
 	
-	
-	
+	public static int sub(int a, int b) {
+		return a - b;
+	}
+
+	public static int sub(int a, int b, int c) {
+		return a - b - c;
+	}
+
+	public static double sub(double a, double b) {
+		return a - b;
+	}
 	/*
 	 * 做完题再补充一个知识点，可变参数列表
 	 * 
@@ -52,6 +61,10 @@ public class Mathmatics {
 	
 	/*
 	 * 继续重载add, 可变参数可以和其他参数一起使用，但是可变参数列表必须放在最后一个.想想为什么？
+	 * 
+	 * 如果把可变参数放在中间或者前面的话，如果与可变参数相邻的参数和他的类型相同，
+	 * 计算机就无法准确分析那个是固定参数，哪些是可变参数，计算过程中肯定会出现问题，
+	 * 所以可变参数都是放在最后面的
 	 */
 	public static double add(double a, double ...args) {
 		double sum = a;
@@ -64,4 +77,12 @@ public class Mathmatics {
 	/*
 	 * 自己尝试给sub添加可变参数列表
 	 */
+	
+	public static double sub(double a, double ...args){
+	double sum = a;
+	for(double b1 : args) {
+		sum -= b1;
+	}
+	return sum;
+	}
 }

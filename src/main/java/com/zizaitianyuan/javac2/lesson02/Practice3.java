@@ -6,7 +6,7 @@ public class Practice3 {
 	
 	/**
 	 * 
-	 * 传入两个***有序***的不重复的正整数数组(都大于０)，两个数组的整数个数小于5个
+	 * 传入两个***有序***的正整数数组(都大于０)，两个数组的整数个数小于5个
 	 * 
 	 * 这是我近期工作中碰到的，也是以前同时刚刚碰到的一个实际工作中的问题，这个问题
 	 * 我们之后还会拿出来几次使用不同的解法来说明一些写代码要注意的问题。
@@ -53,11 +53,78 @@ public class Practice3 {
 		// 比如只在newData有的值是１，使用这个语句　result.notInSource[n] = 1;
 		// 其中ｎ是你要放入元素的位置
 		
+		
 		// 这里写计算过程：
+//		int num=0;
+//		for(int x = 0;x < source.length;x++ ){
+//			for(int y = 0 ; y < newData.length;y++){
+//				if(source[x] == newData[y]){
+//					
+//						result.inBoth[num++]=source[x];
+//						source[x] = 0;
+//						newData[y] = 0;
+//						break;
+//					
+//				}
+//			}
+//		}
+//		
+//		
+//		for (int x = 0; x < source.length; x++) {
+//			for (int y = 0; y < newData.length; y++) {
+//				if (source[x] != newData[y]) {
+//					for (int z = 0; z < source.length; z++) {
+//						result.onlyInSource[z] = source[x];
+//					}
+//				}
+//			}
+//		}
+//		
+//		
+//		for (int x = 0; x < source.length; x++) {
+//			for (int y = 0; y < newData.length; y++) {
+//
+//				if (source[x] != newData[y]) {
+//					for (int z = 0; z < newData.length; z++) {
+//						result.notInSource[z] = source[y];
+//
+//					}
+//				}
+//			}
+//		}
+//		
+//		
+//		return result;
+//	}
 		
 		
-		return result;
-	}
+		int b = 0, c= 0, d = 0;
+		for (int i = 0; i < source.length; i++) {
+			for (int j = 0; j < newData.length; j++) {
+				if (newData[j] == source[i]) {
+					result.inBoth[b++] = source[i];
+					source[i] = 0;
+					newData[j] = 0;
+					break;
+				}
+			}
+		}
+		/**
+		 * 遍历两个数组，将符合期望的元素分别传入onlyInSource和notInSource，并实现正数在前，0在后。
+		 */
+		
+		for (int i = 0; i < source.length; i++) {
+			if (source[i] != 0) {
+				result.onlyInSource[c++] = source[i];
+			}
+		}
+		
+		for (int i = 0; i < newData.length; i++) {
+			if (newData[i] != 0) {
+				result.notInSource[d++] = newData[i];
+			}
+		}
+		return result;}
 }
 
 class Result {

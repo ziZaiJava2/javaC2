@@ -3,6 +3,7 @@ package com.zizaitianyuan.javac2.lesson06;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 
 /*
  * 这个类用来模拟乘客进站排队买票。
@@ -61,6 +62,20 @@ public class LineInStation {
 	 * 
 	 */
 	public static List<Person> comingPassagers() {
+//		（me）生成一个ArrayList名字为in，num生成1-3的随机数，把in的大小定为num
+		ArrayList<String> in = new ArrayList<String>();
+		Random rand = new Random();
+		int num = rand.nextInt(3);
+		in.size() = num;
+		
+//		（me）总人数统计
+		totalPassagers = totalPassagers + in.size();
+		
+//		（me）一共16个姓名，随机生成1-16的数num2，在16个姓名中随机抽取到in中
+		int num2 = rand.nextInt(16)
+				for （int i = 1;i<=num;i++）{
+					in.add(names[num2]);
+	}
 		return null;
 	}
 	
@@ -79,6 +94,19 @@ public class LineInStation {
 	 * 乘客会挑选最短的队伍进行排队
 	 */
 	public static void lineUp(List<Person> passages) {
+//		取最小的数不知道有没有函数min
+//		没有的话，只能一个个比
+		if (line1.size() <= line2.size()){
+			if (line1.size() <= line3.size()){
+				if (line1.size() <= line4.size()){
+//					当line1最短时，加入乘客
+					line1.add(passages);
+	}
+	}
+			
+			
+	}
+		else
 		
 	}
 	
@@ -90,6 +118,11 @@ public class LineInStation {
 	 * 就是排队伍第一个位置的乘客从队列中删除
 	 */
 	public static void saleTickets() {
+//		（me）能力不足，先不考虑空队
+		line1.remove(1);
+		line2.remove(1);
+		line3.remove(1);
+		line4.remove(1);
 		
 	}
 	
@@ -97,6 +130,9 @@ public class LineInStation {
 	 * 统计还有多少个乘客没有买到车票
 	 */
 	public static int passagersInLines() {
+//		（me）还在排队的人就是没买到票的人数
+		int no = line1.size() + line2.size() + line3.size() + line4.size();
+		System.out.println("还有%d个乘客没有买到车票" , no);
 		return 0;
 	}
 	

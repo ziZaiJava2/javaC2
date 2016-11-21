@@ -21,39 +21,33 @@ import java.util.List;
  */
 public class LineInStation {
 
-	
 	private static List<Person> line1 = new ArrayList<>();
 	private static List<Person> line2 = new ArrayList<>();
 	private static List<Person> line3 = new ArrayList<>();
 	private static List<Person> line4 = new ArrayList<>();
-	
-	
+
 	public static void main(String[] args) {
-		
-		
-		
-		for(int i = 0; i < 10; i++) {
-			
+
+		for (int i = 0; i < 10; i++) {
+
 			saleTickets();
-			
+
 			List<Person> passages = comingPassagers();
 			lineUp(passages);
-			
+
 			passages = comingPassagers();
 			lineUp(passages);
-			
+
 			System.out.println(linesDesc());
 		}
-		
+
 		int passagers = passagersInLines();
-		
-		System.out.printf("总共有%d个乘客进入车站，卖出%d张车票，还有%d个乘客没有买到车票。\n", 
-				totalPassagers, saledTikets, passagers);
+
+		System.out.printf("总共有%d个乘客进入车站，卖出%d张车票，还有%d个乘客没有买到车票。\n", totalPassagers, saledTikets, passagers);
 	}
-	
-	
+
 	/*
-	 * 此方法应该随机生成一个长度为1~3的list，表示1~3个乘客来到车站， 
+	 * 此方法应该随机生成一个长度为1~3的list，表示1~3个乘客来到车站，
 	 * 
 	 * 并统计总的进站人数到(totalPassagers)
 	 * 
@@ -61,27 +55,50 @@ public class LineInStation {
 	 * 
 	 */
 	public static List<Person> comingPassagers() {
-		return null;
+		int num = names.size();
+
+		line1.addAll(getPassagers(num));
+		line2.addAll(getPassagers(num));
+		line3.addAll(getPassagers(num));
+		line4.addAll(getPassagers(num));
+		return line1;
+		
+		
+
 	}
-	
+
+	public static List<Person> getPassagers(int num) {
+		List<Person> passagers = new ArrayList<Person>();
+		for (int i = 0; i < 4; i++) {
+
+			int x = (int) (Math.random() * num);
+
+			if(passagers.contains(names.get(x))){
+				passagers.remove(names.get(x));
+			}else{
+				Person passagers1 = new Person(names.get(x));
+				passagers.add(passagers1);
+				totalPassagers++;
+			}
+		}
+		return passagers;
+
+	}
+
 	private static int totalPassagers = 0;
-	
-	private List<String> names = Arrays.asList(
-			"Jim", "Ken", "Leon", "Ada", "Lily", "Lucy", "Will", "Eagle",
-			"David", "Zoe", "Wendy", "Acea", "Kin", "Fish", "Paul", "Dean"
-			);
-	
-	
+
+	private static List<String> names = Arrays.asList("Jim", "Ken", "Leon", "Ada", "Lily", "Lucy", "Will", "Eagle",
+			"David", "Zoe", "Wendy", "Acea", "Kin", "Fish", "Paul", "Dean");
+
 	/*
-	 * 此方法将乘客排进队伍中，一同到来的乘客为了买票买到一起，他们会排到
-	 * 同一个队伍。
+	 * 此方法将乘客排进队伍中，一同到来的乘客为了买票买到一起，他们会排到 同一个队伍。
 	 * 
 	 * 乘客会挑选最短的队伍进行排队
 	 */
 	public static void lineUp(List<Person> passages) {
-		
+
 	}
-	
+
 	/*
 	 * 这个方法给每个队伍卖出一张车票，并统计总共卖出的票数到（saledTikets）。
 	 * 
@@ -90,38 +107,35 @@ public class LineInStation {
 	 * 就是排队伍第一个位置的乘客从队列中删除
 	 */
 	public static void saleTickets() {
-		
+
 	}
-	
+
 	/*
 	 * 统计还有多少个乘客没有买到车票
 	 */
 	public static int passagersInLines() {
 		return 0;
 	}
-	
+
 	private static int saledTikets = 0;
-	
+
 	public static String linesDesc() {
-		return  "line1:" + line1.toString() + "\n" + 
-				"line2:" + line2.toString() + "\n" + 
-				"line3:" + line3.toString() + "\n" + 
-				"line4:" + line4.toString() + "\n";
+		return "line1:" + line1.toString() + "\n" + "line2:" + line2.toString() + "\n" + "line3:" + line3.toString()
+				+ "\n" + "line4:" + line4.toString() + "\n";
 	}
 }
 
-
 class Person {
 	private String name;
-	
+
 	public Person(String name) {
 		this.name = name;
 	}
-	
+
 	public String getName() {
 		return this.name;
 	}
-	
+
 	public String toString() {
 		return name;
 	}

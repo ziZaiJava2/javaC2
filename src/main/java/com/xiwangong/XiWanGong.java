@@ -14,7 +14,7 @@ public class XiWanGong {
 	}
 
 	public void washWanAndIntoWanGui(Wan w, WanGui wanGui) {
-		System.out.println("ϴˢˢ");
+		System.out.println("洗刷刷");
 		wanGui.addWanGui(w);
 		++count;
 	}

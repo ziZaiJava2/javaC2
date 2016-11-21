@@ -14,16 +14,16 @@ public class WanTest {
 			jiarui1.getWan(wanDeliver.removeWan(), wanGui, wanDeliver);
 			jiarui2.getWan(wanDeliver.removeWan(), wanGui, wanDeliver);
 		}
-		System.out.println("×Ü¹²·ÅÈë" + IntoDeliver.IntoWanCount + "¸öÍë");
+		System.out.println("æ€»å…±æ”¾å…¥" + IntoDeliver.IntoWanCount + "ä¸ªç¢—");
 		System.out
-				.println("Ï´Íë¹¤jiarui1Ï´ÁË" + jiarui1.getCount() + "¸öÍë" + " " + "Ï´Íë¹¤jiarui2Ï´ÁË" + jiarui2.getCount() + "¸öÍë");
-		System.out.println("´«ËÍÌ¨»¹Ê£ÏÂ" + WanDeliver.deliverWanCount + "¸öÍë");
-		System.out.println("Íë¹ñÀïÓĞ" + WanGui.wanGuiAcount + "¸öÍë");
+				.println("æ´—ç¢—å·¥jiarui1æ´—äº†" + jiarui1.getCount() + "ä¸ªç¢—" + " " + "æ´—ç¢—å·¥jiarui2æ´—äº†" + jiarui2.getCount() + "ä¸ªç¢—");
+		System.out.println("ä¼ é€å°è¿˜å‰©ä¸‹" + WanDeliver.deliverWanCount + "ä¸ªç¢—");
+		System.out.println("ç¢—æŸœé‡Œæœ‰" + WanGui.wanGuiAcount + "ä¸ªç¢—");
 		if (IntoDeliver.IntoWanCount == WanDeliver.deliverWanCount + WanGui.wanGuiAcount) {
-			System.out.println("jiarui1ºÍjiarui2ºÜÀ÷º¦£¬Ã»ÓĞ¶ªÒ»¸öÍë");
+			System.out.println("jiarui1å’Œjiarui2å¾ˆå‰å®³ï¼Œæ²¡æœ‰ä¸¢ä¸€ä¸ªç¢—");
 		} else {
 			System.out.println(
-					"¶ªÁË" + (IntoDeliver.IntoWanCount - WanDeliver.deliverWanCount - WanGui.wanGuiAcount) + "¸öÍë£¬¿Û¹¤×Ê£¡£¡£¡");
+					"ä¸¢äº†" + (IntoDeliver.IntoWanCount - WanDeliver.deliverWanCount - WanGui.wanGuiAcount) + "ä¸ªç¢—ï¼Œæ‰£å·¥èµ„ï¼ï¼ï¼");
 		}
 
 	}

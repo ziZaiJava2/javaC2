@@ -20,6 +20,12 @@ import java.util.List;
  * 
  */
 public class LineInStation {
+	private static int totalPassagers = 0;
+
+	private static List<String> names = Arrays.asList("Jim", "Ken", "Leon", "Ada", "Lily", "Lucy", "Will", "Eagle",
+			"David", "Zoe", "Wendy", "Acea", "Kin", "Fish", "Paul", "Dean");
+	
+	private static int saledTikets = 0;
 
 	private static List<Person> line1 = new ArrayList<>();
 	private static List<Person> line2 = new ArrayList<>();
@@ -57,46 +63,65 @@ public class LineInStation {
 	public static List<Person> comingPassagers() {
 		int num = names.size();
 
-		line1.addAll(getPassagers(num));
-		line2.addAll(getPassagers(num));
-		line3.addAll(getPassagers(num));
-		line4.addAll(getPassagers(num));
-		return line1;
-		
-		
-
-	}
-
-	public static List<Person> getPassagers(int num) {
 		List<Person> passagers = new ArrayList<Person>();
+		
 		for (int i = 0; i < 4; i++) {
-
 			int x = (int) (Math.random() * num);
-
-			if(passagers.contains(names.get(x))){
-				passagers.remove(names.get(x));
-			}else{
-				Person passagers1 = new Person(names.get(x));
-				passagers.add(passagers1);
-				totalPassagers++;
-			}
+			Person passagers1 = new Person(names.get(x));
+			passagers.add(passagers1);
+			totalPassagers++;
 		}
 		return passagers;
-
 	}
 
-	private static int totalPassagers = 0;
 
-	private static List<String> names = Arrays.asList("Jim", "Ken", "Leon", "Ada", "Lily", "Lucy", "Will", "Eagle",
-			"David", "Zoe", "Wendy", "Acea", "Kin", "Fish", "Paul", "Dean");
-
+	
 	/*
 	 * 此方法将乘客排进队伍中，一同到来的乘客为了买票买到一起，他们会排到 同一个队伍。
 	 * 
 	 * 乘客会挑选最短的队伍进行排队
 	 */
 	public static void lineUp(List<Person> passages) {
-
+            if(line1.isEmpty()){
+            	line1.addAll(passages);
+            }else if(line2.isEmpty()){
+            	line2.addAll(passages);
+            }else if(line3.isEmpty()){
+            	line3.addAll(passages);
+            }else if(line4.isEmpty()){
+            	line4.addAll(passages);
+            }else{
+            	//当每个队伍都有人时，乘客会判断队伍人数多少
+            	int p1 = line1.size();
+            	int p2 = line2.size();
+            	int p3 = line3.size();
+            	int p4 = line4.size();
+            	int lineArr[] = {p1, p2, p3, p4};
+            	int min = lineArr[0];//将每个队伍的人数进行排序，乘客选择最小的人数排进
+            	int index = 0;
+            	for(int i = 1; i < lineArr.length; i++ ){
+            		if(min > lineArr[i]){
+            			min = lineArr[i];
+            			index = i;
+            		}
+            
+            	}
+            	switch(index){
+            	case 0:
+            		line1.addAll(passages);
+            		break;
+            	case 1:
+            		line2.addAll(passages);
+            		break;
+            	case 2:
+            		line3.addAll(passages);
+            		break;
+            	case 3:
+            		line4.addAll(passages);
+            		break;
+            	}
+            	
+            }
 	}
 
 	/*
@@ -106,7 +131,31 @@ public class LineInStation {
 	 * 
 	 * 就是排队伍第一个位置的乘客从队列中删除
 	 */
+	static int inLineNum1;
+	static int inLineNum2;
+	static int inLineNum3;
+	static int inLineNum4;
 	public static void saleTickets() {
+		if(line1.isEmpty()){
+			inLineNum1= line1.size();
+			line1.remove(0);
+			saledTikets++;
+		}
+        if(line2.isEmpty()){
+        	inLineNum2= line2.size();
+    		line2.remove(0);
+    		saledTikets++;
+        }
+		if(line3.isEmpty()){
+			inLineNum3= line3.size();
+			line3.remove(0);
+    		saledTikets++;
+		}
+		if(line4.isEmpty()){
+			line4.remove(0);
+			saledTikets++;
+			inLineNum4= line4.size();
+		}
 
 	}
 
@@ -114,14 +163,19 @@ public class LineInStation {
 	 * 统计还有多少个乘客没有买到车票
 	 */
 	public static int passagersInLines() {
-		return 0;
+		return totalPassagers-(inLineNum1 + inLineNum2 + inLineNum3 +inLineNum4);
 	}
 
-	private static int saledTikets = 0;
+
 
 	public static String linesDesc() {
-		return "line1:" + line1.toString() + "\n" + "line2:" + line2.toString() + "\n" + "line3:" + line3.toString()
-				+ "\n" + "line4:" + line4.toString() + "\n";
+		
+		
+		
+		return "line1:" + line1.toString() + "\n" 
+	         + "line2:" + line2.toString() + "\n" 
+			 + "line3:" + line3.toString() + "\n" 
+	         + "line4:" + line4.toString() + "\n";
 	}
 }
 

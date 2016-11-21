@@ -87,22 +87,7 @@ public class Practice2 {
 	 * @param n
 	 * @return
 	 */
-	public static int fibonacci3(int n) {
-		if (n<=2){
-			return 1;
-		}
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-		return fibonacci3(n-1)+fibonacci2(nnnnn);
-=======
-		return fibonacci3(n-1)+fibonacci2(n);
->>>>>>> 96cd5d5... a
-=======
-		return fibonacci3(n-1)+fibonacci2(nnnnn);
->>>>>>> 18e6b51... f
-=======
-		return fibonacci3(n-1)+fibonacci2(nnnnn);
->>>>>>> 6eb9307e6f5ed4b4a3caf8a9290209a1dffddbda
+
+
 	}
 }

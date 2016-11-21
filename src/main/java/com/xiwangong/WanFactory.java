@@ -14,7 +14,7 @@ public class WanFactory {
 		} else if (type.equals(CiWan)) {
 			w = new CiWan();
 		} else {
-			System.out.println("ÏµÍ³ÎŞ·¨Ê¶±ğµÄÍëÀàĞÍ");
+			System.out.println("ç¢—ç±»å‹æ— æ³•è¯†åˆ«");
 			System.exit(0);
 		}
 		return w;

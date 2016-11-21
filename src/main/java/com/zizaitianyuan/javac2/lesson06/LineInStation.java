@@ -137,8 +137,8 @@ public class LineInStation {
 	private static void saleTicket(List<Person> line) {
 		// TODO Auto-generated method stub
 		while(!line.isEmpty()){
-			saledTikets ++;
 			line.remove(0);
+			saledTikets ++;
 		}
 	}
 

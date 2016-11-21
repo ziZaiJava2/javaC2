@@ -1,9 +1,10 @@
 package com.xiwangong;
 
 public class WanFactory {
-	private static final String GangWan = "BUXIUGANG";
-	private static final String TieWan = "TIE";
-	private static final String CiWan = "TAOCI";
+	
+	private static final String GangWan = new GangWan().getType();
+	private static final String TieWan = new TieWan().getType();
+	private static final String CiWan = new CiWan().getType();
 
 	public static Wan getWans(String types) {
 		Wan w = null;
@@ -15,7 +16,6 @@ public class WanFactory {
 			w = new CiWan();
 		} else {
 			System.out.println("碗类型无法识别");
-			System.out.println(types);
 			System.exit(0);
 		}
 		return w;

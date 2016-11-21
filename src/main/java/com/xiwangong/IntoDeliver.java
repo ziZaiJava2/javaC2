@@ -16,7 +16,6 @@ public class IntoDeliver {
 		for (int i = 0; i < a; i++) {
 			int b = rand.nextInt(3);
 			w = WanFactory.getWans(wanType[b]);
-			System.out.println(b);
 			wanwan.add(w);
 		}
 		return wanwan;

@@ -1,4 +1,4 @@
-package com.zizaitianyuan.javac2.lesson06;
+package App;
 
 public class Shape1 {
 	static String[][] data = {
@@ -17,8 +17,8 @@ public class Shape1 {
 		for(String[] shape : data){
 			Shape s = ShapeFactory.getInstance(shape[0],Integer.parseInt(shape[1]));
 			
-			System.out.print(s.toString() + "ï¿½ï¿½");
-			System.out.println("ï¿½Ü³ï¿½ï¿½ï¿½" + s.perimeter());
+			System.out.print(s.toString() + "£¬");
+			System.out.println("ÖÜ³¤£º" + s.perimeter());
 		}
 	}
 
@@ -32,7 +32,7 @@ class Circle implements Shape{
 	}
 	
 	public String toString(){
-		return String.format("Ô²ï¿½Î£ï¿½ï¿½ë¾¶ï¿½ï¿½%d",this.r);
+		return String.format("Ô²ÐÎ£¬°ë¾¶£º%d",this.r);
 	}
 	
 	public double perimeter(){
@@ -48,7 +48,7 @@ class Square implements Shape{
 	}
 	
 	public String toString(){
-		return String.format("ï¿½ï¿½ï¿½ï¿½ï¿½Î£ï¿½ï¿½ß³ï¿½ï¿½ï¿½%d",this.side);
+		return String.format("Õý·½ÐÎ£¬±ß³¤£º%d",this.side);
 	}
 	public double perimeter(){
 		return 4*this.side;
@@ -63,7 +63,7 @@ class ETriangle implements Shape{
 	}
 	
 	public String toString(){
-		return String.format("ï¿½È±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î£ï¿½ï¿½ß³ï¿½ï¿½ï¿½%d",this.side);
+		return String.format("µÈ±ßÈý½ÇÐÎ£¬±ß³¤£º%d",this.side);
 	}
 	
 	public double perimeter(){
@@ -85,7 +85,7 @@ class ShapeFactory{
 		}else if(E_TRIANGLE.equals(type)){
 			s = new ETriangle(len);
 		}else{
-			System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ë£¡ï¿½ï¿½");
+			System.out.println("´íÎóÊäÈë£¡£¡");
 			System.exit(0);
 		}
 		return s;

@@ -11,8 +11,8 @@ public class WanTest {
 		WanGui wanGui = new WanGui();
 		for (int j = 0; j < 10; j++) {
 			intoDeliver.intoDeliver(intoDeliver.createWan(), wanDeliver);
-			jiarui1.getWan(wanDeliver.removeWan(), wanGui, wanDeliver);
-			jiarui2.getWan(wanDeliver.removeWan(), wanGui, wanDeliver);
+			jiarui1.getWan(wanGui, wanDeliver);
+			jiarui2.getWan(wanGui, wanDeliver);
 		}
 		System.out.println("总共放入" + IntoDeliver.IntoWanCount + "个碗");
 		System.out

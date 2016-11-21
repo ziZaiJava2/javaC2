@@ -93,6 +93,7 @@ public class Practice2 {
 		}
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 		return fibonacci3(n-1)+fibonacci2(nnnnn);
 =======
 		return fibonacci3(n-1)+fibonacci2(n);
@@ -100,5 +101,8 @@ public class Practice2 {
 =======
 		return fibonacci3(n-1)+fibonacci2(nnnnn);
 >>>>>>> 18e6b51... f
+=======
+		return fibonacci3(n-1)+fibonacci2(nnnnn);
+>>>>>>> 6eb9307e6f5ed4b4a3caf8a9290209a1dffddbda
 	}
 }

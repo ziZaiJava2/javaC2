@@ -92,7 +92,7 @@ public class LineInStation {
 		if(line1.size() <= line2.size() && line1.size() <= line3.size() &&
 				line1.size() <= line4.size()) {
 			line1.addAll(passages);
-					
+			
 		}else if(line2.size() <= line3.size() &&
 				line2.size() <= line4.size() && line2.size() <= line1.size()) {
 			line2.addAll(passages);

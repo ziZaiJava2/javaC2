@@ -38,13 +38,13 @@ public class WashBowlRoom {
        System.out.println("洗碗工总共洗了：" + manWashed);
 	}
 	/*
-	 * 这个方法用来随机生成1-5个碗放上传送带
+	 * 这个方法用来随机生成1-3个碗放上传送带
 	 */
 	public static List<String> inComingBowls(){
-		int bowlNum = (int)(Math.random()*bowls.size());
-		int timeBowl = (int)(Math.random()*10);
+		int timeBowl = (int)(Math.random()*3);
 		List<String> comingBowls = new LinkedList<>();
 		for(int i = 0; i < timeBowl; i++){
+			int bowlNum = (int)(Math.random()*bowls.size());
 			Bowl bowl = getType(bowls.get(bowlNum));
 			comingBowls.add(bowl.getBowltType());
 		}

@@ -29,7 +29,6 @@ public class Polymorphism {
 		System.out.print(s.toString()+ "，");
 		System.out.println("周长： "+s.perimeter());
 	}
-		
 	}
 	
 	

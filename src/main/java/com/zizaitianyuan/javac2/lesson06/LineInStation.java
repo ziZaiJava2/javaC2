@@ -57,7 +57,10 @@ public class LineInStation {
 	 * 此方法应该随机生成一个长度为1~3的list，表示1~3个乘客来到车站， 
 	 * 
 	 * 并统计总的进站人数到(totalPassagers)
-	 * 
+	 * (int i = 0; i <comPasNum; i++) {
+			Person per = new Person(names.get(ran.nextInt(names.size())));
+			comingPassagers.add(per);		
+		}
 	 * 名字随机从names中获取,也可以自己想办法生成
 	 * = Math.random()*3;
 	 */
@@ -89,20 +92,18 @@ public class LineInStation {
 	 */
 	public static void lineUp(List<Person> passages) {
 		
-		if(line1.size() <= line2.size() && line1.size() <= line3.size() &&
-				line1.size() <= line4.size()) {
-			line1.addAll(passages);
-			
-		}else if(line2.size() <= line3.size() &&
-				line2.size() <= line4.size() && line2.size() <= line1.size()) {
-			line2.addAll(passages);
-					
-		}else if(line3.size() <= line2.size() &&
-				line3.size() <= line4.size() && line3.size() <= line1.size()) {
-			line3.addAll(passages);
-								
-		}else{line4.addAll(passages);}
-		
+		List<Person> min = new ArrayList<Person>();
+		min = line1;
+		if(line1.size() > line2.size()){
+			min = line2;
+		}
+		if(line2.size() > line3.size()){
+			min = line3;
+		}
+		if(line3.size() > line4.size()){
+			min = line4;
+		}
+		min.addAll(passages);
 	}
 	
 	/*
@@ -135,8 +136,7 @@ public class LineInStation {
 	 * 统计还有多少个乘客没有买到车票
 	 */
 	public static int passagersInLines() {
-		int noTicketPassagers = totalPassagers - saledTikets;
-		return noTicketPassagers;
+		return totalPassagers - saledTikets;
 	}
 	
 	private static int saledTikets = 0;

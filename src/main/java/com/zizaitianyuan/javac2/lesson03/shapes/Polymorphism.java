@@ -128,8 +128,8 @@ public class Polymorphism {
 			// Integer.paserInt就是对Integer这个类的一个静态方法parseInt的调用
 			// 按住crtl，点击下面的parseInt方法，你可以跳过去看到方法定义。
 			// 和我们写的静态方法没什么区别。
-			int len = Integer.parseInt(shape[1]);
 			
+			int len = Integer.parseInt(shape[1]);
 			// 这一行就是调用我们自己定义的一个静态方法。
 			// 按住crtl, 点击getInstance跳转到实现去
 			Shape s = ShapeFactory.getInstance(type, len);

@@ -61,15 +61,13 @@ public class LineInStation {
 	 * 
 	 */
 	public static List<Person> comingPassagers() {
-		int num = names.size();
-
-		List<Person> passagers = new ArrayList<Person>();
+		int num = (int)(Math.random()*3);
+        int lnum = (int)(Math.random()*names.size());
+		List<Person> passagers = new ArrayList<Person>(num);
 		
-		for (int i = 0; i < 4; i++) {
-			int x = (int) (Math.random() * num);
-			Person passagers1 = new Person(names.get(x));
-			passagers.add(passagers1);
-			totalPassagers++;
+		for (int i = 0; i < num; i++) {
+			Person person = new Person(names.get(lnum));
+			passagers.add(person);
 		}
 		return passagers;
 	}
@@ -82,46 +80,20 @@ public class LineInStation {
 	 * 乘客会挑选最短的队伍进行排队
 	 */
 	public static void lineUp(List<Person> passages) {
-            if(line1.isEmpty()){
-            	line1.addAll(passages);
-            }else if(line2.isEmpty()){
-            	line2.addAll(passages);
-            }else if(line3.isEmpty()){
-            	line3.addAll(passages);
-            }else if(line4.isEmpty()){
-            	line4.addAll(passages);
-            }else{
-            	//当每个队伍都有人时，乘客会判断队伍人数多少
-            	int p1 = line1.size();
-            	int p2 = line2.size();
-            	int p3 = line3.size();
-            	int p4 = line4.size();
-            	int lineArr[] = {p1, p2, p3, p4};
-            	int min = lineArr[0];//将每个队伍的人数进行排序，乘客选择最小的人数排进
-            	int index = 0;
-            	for(int i = 1; i < lineArr.length; i++ ){
-            		if(min > lineArr[i]){
-            			min = lineArr[i];
-            			index = i;
-            		}
-            
-            	}
-            	switch(index){
-            	case 0:
-            		line1.addAll(passages);
-            		break;
-            	case 1:
-            		line2.addAll(passages);
-            		break;
-            	case 2:
-            		line3.addAll(passages);
-            		break;
-            	case 3:
-            		line4.addAll(passages);
-            		break;
-            	}
-            	
-            }
+          List<Person> min = line1;
+          if(min.size() > line2.size()){
+        	  min = line2;
+          }
+          
+          if(min.size() > line3.size()){
+        	  min = line3;
+          }
+          
+          if(min.size() > line4.size()){
+        	  min = line4;
+          }
+          
+         min.addAll(passages);
 	}
 
 	/*

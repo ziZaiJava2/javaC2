@@ -22,7 +22,7 @@ public class RuntimeDemo {
 		
 		System.out.println("size of Foo.allStrs: " + Foo.allStrs.size());
 	}
-	
+	 
 	
 	
 }

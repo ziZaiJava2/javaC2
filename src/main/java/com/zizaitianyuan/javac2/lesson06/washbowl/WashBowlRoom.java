@@ -13,11 +13,11 @@ public class WashBowlRoom {
 	private static List<String> bowls = Arrays.asList("Iron", "China", "Iron", "Plastic", "Plastic", "Plastic", "Plastic", "Plastic",
 			"China", "China", "Plastic", "Iron", "China", "Iron", "China", "Iron");
 	private static Map<String,List> BowlCage = new HashMap<>();
-	private static 	List<String> ironBowl = new LinkedList<>();
-	private static 	List<String> chinaBowl = new LinkedList<>();
-	private static 	List<String> plasticBowl = new LinkedList<>();
+	private static 	List<Bowl> ironBowl = new LinkedList<>();
+	private static 	List<Bowl> chinaBowl = new LinkedList<>();
+	private static 	List<Bowl> plasticBowl = new LinkedList<>();
 	
-	static List<String> bowlCarryBand = new LinkedList<>();//传送带上的碗
+	static List<Bowl> bowlCarryBand = new LinkedList<>();//传送带上的碗
 	static int allBowls = 0;//所有的碗
 	static int leaveBowls = 0;//剩下的碗
 	static int chinaBowls = 0;//陶瓷碗
@@ -32,7 +32,7 @@ public class WashBowlRoom {
         	  BowlCage.put("iron", ironBowl);
         	  BowlCage.put("plastic", plasticBowl);
           }
-       System.out.println("总共进去：" + allBowls + "个 " + "还剩下：" + 0 + "个 " );
+       System.out.println("总共进去：" + allBowls + "个 " + "还剩下：" + (allBowls -  manWashed) + "个 " );
        System.out.println("铁碗：" + ironBowls + "个 " + "陶瓷碗：" + chinaBowls + "个 " + "塑料碗：" + plasticBowls + "个");
        System.out.println("柜子里有:"+ chinaBowl.size() + ironBowl.size() + plasticBowl.size() +"碗");
        System.out.println("洗碗工总共洗了：" + manWashed);
@@ -56,13 +56,13 @@ public class WashBowlRoom {
 		int bowl = (int)(Math.random()*10);
 		for(int i = 0; i < bowl; i++){
 			
-			if(bowlCarryBand.get(0).equals(CHINA)){
+			if(CHINA.equals(bowlCarryBand.get(0))){
 				chinaBowl.add(bowlCarryBand.get(0));
 			
-			}else if(bowlCarryBand.get(0).equals(IRON)){
+			}else if(IRON.equals(bowlCarryBand.get(0))){
 				ironBowl.add(bowlCarryBand.get(0));
 				
-			}else if(bowlCarryBand.get(0).equals(PLASTIC)){
+			}else if(PLASTIC.equals(bowlCarryBand.get(0))){
 				plasticBowl.add(bowlCarryBand.get(0));
 			}
 			bowlCarryBand.remove(0);

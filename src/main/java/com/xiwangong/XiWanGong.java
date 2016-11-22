@@ -6,16 +6,16 @@ public class XiWanGong {
 	private int count = 0;
 	private int Acount = new Random().nextInt(3) + 3;
 	
-	public void getWan(WanGui wanGui, WanDeliver wanDeliver) {
+	public void getWan(Cupboard wanGui, ConveyorBelt wanDeliver) {
 		for (int i = 0; i < Acount; i++) {
-			Wan w = wanDeliver.removeWan();
-			washWanAndIntoWanGui(w, wanGui);
+			Bowl w = wanDeliver.removeBowl();
+			washBowlAndIntoCupboard(w, wanGui);
 		}
 	}
 
-	public void washWanAndIntoWanGui(Wan w, WanGui wanGui) {
+	public void washBowlAndIntoCupboard(Bowl w, Cupboard wanGui) {
 		System.out.println("洗刷刷");
-		wanGui.addWanGui(w);
+		wanGui.CupboardAddBowl(w);
 		count++;
 	}
 

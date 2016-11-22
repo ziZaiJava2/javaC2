@@ -1,7 +1,7 @@
 package com.xiwangong;
 
-public class TieWan implements Wan {
-	private final String type = "TIE";
+public class IronBowl implements Bowl {
+	private final String type = "IRON";
 
 	@Override
 	public String getType() {

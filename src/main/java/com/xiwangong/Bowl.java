@@ -1,5 +1,5 @@
 package com.xiwangong;
 
-public interface Wan {
+public interface Bowl {
 	public String getType();
 }

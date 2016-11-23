@@ -25,7 +25,6 @@ public class XiWanGong {
 		}
 		System.out.printf("统计总共放入%d个盘子。1号个洗碗工洗了%d个，2号个洗碗工洗了%d个，传送台上还剩下%d个盘子。碗柜里总共有%d个盘子，各种类型的盘子是%d。最后看看盘子有没有丢\n",totalPut,totalWash1,totalWash2,,,);
 	}
-
 }
 
 //每次从尾部放入要洗的盘子，从头拿出盘子去洗。
@@ -95,7 +94,7 @@ public static list(List<Wan> type){
 		return wann;
 	}
 
-public class Wan{
+public static class Wan{
 	private String wan;
 	
 	public Wan(String wan){

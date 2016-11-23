@@ -11,10 +11,10 @@ public class Polymorphism {
 			{ "Circle", "11" }, 
 			{ "Circle", "13" },
 			{ "Square", "15" }, 
-			{ "EquilateralTriangle", "10" } 
+			{ "EquilateralTriangle", "10" } ,
 	};
 
-	public static void main(String[] args, Object SQUARE) {
+	public static void main(String[] args) {
 		// 我们的程序是生成一个对对应图形的说明，以及计算图形的周长 perimeter
 		for (String[] shape : data) {
 			Shape s = ShapeFactory.getInstance(shape[0], Integer.parseInt(shape[1]));
@@ -22,6 +22,7 @@ public class Polymorphism {
 			System.out.println("周長:" + s.perimeter());
 		}
 	}
+}
 
 class Circle implements Shape {
 	private int r;

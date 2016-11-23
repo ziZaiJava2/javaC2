@@ -45,7 +45,7 @@ public static void main(String[] args){
 //		}
 //	}
 	
-	for(String[] shape : data) {
+	for(String[] shape : data) {//数组里放的是数组
 //		String type = shape[0];
 //		int len = Integer.parseInt(shape[1]);
 //		

@@ -93,3 +93,31 @@ public class void box(){
 	
 	
 }
+
+
+
+//看老师视频
+Map<String,List<String>> map = new HashMap<>();
+
+map.put("dish",new ArrayList<>());
+
+List<String> list = map.get("dish");
+
+list.add("a dish");
+
+System.out.println(map.get("dish"));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

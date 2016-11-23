@@ -42,7 +42,7 @@ class ShapeFactory{
 	
 	public static final String E_TRIANGLE = "EquilateralTriangle";
 
-	public static Shape getInstance(String type, int len){
+	static Shape getInstance(String type, int len){
 		
 		Shape s = null;
 		if(CIRCLE.equals(type)){
@@ -125,6 +125,9 @@ class Square implements Shape {
 	
 }
 
+class Point{
+	
+}
 
 interface Shape {
 

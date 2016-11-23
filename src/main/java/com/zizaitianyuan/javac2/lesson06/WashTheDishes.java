@@ -36,7 +36,7 @@ public class WashTheDishes {
 		}
 	}
 //碗柜
-	private static Map<String, List> washedWan = new HashMap<String, List>();
+	private static Map<String, line> washedWan = new HashMap<String, line>();
 
 	private static int totalWanGui = 0;
 //洗完放入碗柜
@@ -82,7 +82,7 @@ public static list(List<Wan> type){
 		Random random = new Random();
 		for (int i = 1; i <= random.nextInt(3) + 3; i++) {
 			totalWash1 += 1;
-			Wan wan = new Wan(line.getFirst());
+			Wan wan = new Wan(line.getFirst(line));
 			wann.add(wan);
 		}
 		for (int i = 1; i <= random.nextInt(3) + 3; i++) {
@@ -103,3 +103,5 @@ public class Wan{
 		return this.wan;
 	}
 }
+
+

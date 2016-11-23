@@ -21,7 +21,7 @@ public class Dish {
 	
 	interface Things{
 		public String  toString(); 
-		public String  
+		
 		
 	}
 	

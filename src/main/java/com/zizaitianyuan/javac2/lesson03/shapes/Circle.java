@@ -9,7 +9,7 @@ public class Circle implements Shape {
 	}
 
 	@Override
-	public double perimeter() {
+	 public double perimeter() {
 		//					这个Math.PI就是对一个类变量的引用，可以ctrl，点击PI跳过去看看定义
 		return 2 * this.r * Math.PI;
 	}

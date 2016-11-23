@@ -1,10 +1,12 @@
 package com.zizaitianyuan.javac2.lesson06.washbowl;
 
 public class IronBowl implements Bowl{
-
-	public String getBowltType() {
-		// TODO Auto-generated method stub
-		return "Iron";
+	private String bowl;
+	public IronBowl(String bowl){
+		this.bowl = bowl;
 	}
-
+	public String getBowlType(){
+		return bowl;
+		
+	}
 }

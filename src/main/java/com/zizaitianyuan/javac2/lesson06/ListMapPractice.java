@@ -29,6 +29,7 @@ public class ListMapPractice {
 	/*
 	 * 从 allStudents 中找出主修专业为 "Software Engineering"的学生， 并保存在一个ArrayList中，并返回
 	 */
+<<<<<<< HEAD
 
 
 
@@ -45,11 +46,24 @@ public class ListMapPractice {
 
 		return majoredSoftwareEngineering;
 
+=======
+	public static List<Student> getStudentListMajoredInSoftwareEngineering(){
+		List<Student> majoredSoftwareEngineering = new ArrayList<Student>();
+		for(Student temp : allStudents){
+			if("Software Engineering".equals(temp.getMajor())) {
+				majoredSoftwareEngineering.add(temp);
+			}
+		}
+		
+		return majoredSoftwareEngineering;
+		
+>>>>>>> f38f6f8064e82a7e98ec90533ce26f9e620fe227
 	}
 
 	/*
 	 * 从 allStudents 中找出主修专业为 "Computer Science"的学生， 并保存在一个ArrayList中，并返回
 	 */
+<<<<<<< HEAD
 
 
 
@@ -58,17 +72,28 @@ public class ListMapPractice {
 		List<Student> majoredComputerScience = new ArrayList<Student>();
 		for (Student temp : allStudents) {
 			if ("Computer Science".equals(temp.getMajor())) {
+=======
+	public static List<Student> getStudentListMajoredInComputerScience(){
+		List<Student> majoredComputerScience = new ArrayList<Student>();
+		for ( Student temp : allStudents){
+			if("Computer Science".equals(temp.getMajor())) {
+>>>>>>> f38f6f8064e82a7e98ec90533ce26f9e620fe227
 				majoredComputerScience.add(temp);
 			}
 		}
 		return majoredComputerScience;
+<<<<<<< HEAD
 
+=======
+		
+>>>>>>> f38f6f8064e82a7e98ec90533ce26f9e620fe227
 	}
 
 	/*
 	 * 通过 allStudents中保存的学生信息来构造一个 Map， 其中 key是学生的名字， value是学生,
 	 * 以便以后可以快速的通过学生名字来查询学生的信息
 	 */
+<<<<<<< HEAD
 	public static Map<String, Student> constructStudentMapWithNameKey() {
 		for (Student temp : allStudents) {
 			studentMapWithNameKey.put(temp.getName(), temp);
@@ -77,13 +102,29 @@ public class ListMapPractice {
 		return studentMapWithNameKey;
 	}
 
+=======
+	public static Map<String, Student> constructStudentMapWithNameKey(){		
+		for(Student temp :allStudents) {
+			studentMapWithNameKey.put(temp.getName(), temp); 
+		}
+		
+		return studentMapWithNameKey;
+	}
+	 	
+>>>>>>> f38f6f8064e82a7e98ec90533ce26f9e620fe227
 	/*
 	 * 通过 allStudents中保存的学生信息来构造一个 Map， 其中 key是学生的学号， value是学生,
 	 * 以便以后可以快速的通过学生学号来查询学生的信息
 	 */
+<<<<<<< HEAD
 	public static Map<Integer, Student> constructStudentMapWithIdKey() {
 		for (Student temp : allStudents) {
 			studentMapWithIdKey.put(temp.getId(), temp);
+=======
+	public static Map<Integer, Student> constructStudentMapWithIdKey(){
+		for(Student temp :allStudents) {
+			studentMapWithIdKey.put(temp.getId(), temp); 
+>>>>>>> f38f6f8064e82a7e98ec90533ce26f9e620fe227
 		}
 		return studentMapWithIdKey;
 	}

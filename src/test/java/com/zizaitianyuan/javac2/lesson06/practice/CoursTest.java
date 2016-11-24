@@ -38,7 +38,7 @@ public class CoursTest {
 		CourseSession course = new CourseSession(01, "English", date);
 		Assert.assertEquals(date, course.getStartDate());
 		Calendar ec = Calendar.getInstance();
-		ec.set(2017, 6, 1);
+		ec.set(2017, 5, 1);
 		Date date1 = new Date();
 		date1 = ec.getTime();
 		Assert.assertEquals(date1, course.getEndDate());

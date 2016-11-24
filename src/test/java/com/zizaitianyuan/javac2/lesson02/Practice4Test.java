@@ -1,7 +1,6 @@
 package com.zizaitianyuan.javac2.lesson02;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -125,9 +124,4 @@ public class Practice4Test {
 
 	}
 
-<<<<<<< HEAD
 }
->>>>>>> d727d4b... practice4
-=======
-}
->>>>>>> d727d4b... practice4

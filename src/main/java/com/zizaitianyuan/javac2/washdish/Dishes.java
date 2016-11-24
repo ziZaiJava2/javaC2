@@ -2,12 +2,7 @@ package com.zizaitianyuan.javac2.washdish;
 
 public class Dishes {
 
-	public static void main(String[] args) {
-
-
+	public interface Bowl{
+		public String getType;
 	}
-
-}
-public class Bowl implements getType{
-	
 }

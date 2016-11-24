@@ -60,6 +60,11 @@ public class Mathmatics {
 		}
 		return sum;
 	}
+
+	public static int sub(int i, int j) {
+		// TODO 自动生成的方法存根
+		return 0;
+	}
 	
 	/*
 	 * 自己尝试给sub添加可变参数列表

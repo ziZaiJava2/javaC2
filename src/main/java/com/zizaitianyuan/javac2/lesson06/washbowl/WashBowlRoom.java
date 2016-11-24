@@ -13,12 +13,12 @@ public class WashBowlRoom {
 	static String PLASTIC = "Plastic";
 	private static String[] Bowls = {"Iron", "China", "Plastic", "Iron", "China", "China", "China", "Iron",
 			"China", "Plastic", "Plastic", "Iron", "China", "Iron", "China", "Iron"};
-	private static List<Bowl> bowls = new LinkedList<>();
+	private static List<Bowl> bowls = new LinkedList<Bowl>();
 	private static Map<String,List> BowlCage = new HashMap<>();
-	private static List<Bowl> bowlCarryBand = new LinkedList<>();
-	private static 	List<Bowl> ironBowl = new LinkedList<>();
-	private static 	List<Bowl> chinaBowl = new LinkedList<>();
-	private static 	List<Bowl> plasticBowl = new LinkedList<>();
+	private static List<Bowl> bowlCarryBand = new LinkedList<Bowl>();
+	private static 	List<Bowl> ironBowl = new LinkedList<Bowl>();
+	private static 	List<Bowl> chinaBowl = new LinkedList<Bowl>();
+	private static 	List<Bowl> plasticBowl = new LinkedList<Bowl>();
 	
 	
 	static int allBowls = 0;//所有的碗
@@ -29,10 +29,11 @@ public class WashBowlRoom {
 	static int manWashed = 0;//洗碗工洗了多少个碗
 	public static void main(String[] args) {
 		  bowls = putBowls(Bowls);
+		  bowlCarryBand = bowlInComing(bowls);
           for(int i = 0; i < 10; i++){
-        	  bowlCarryBand = bowlInComing(bowls);
         	  washBowls(bowlCarryBand);
           }
+       putBowlInCage();
        System.out.println("总共进去：" + allBowls + "个 " + "还剩下：" + (allBowls -  manWashed) + "个 " );
        System.out.println("铁碗：" + ironBowls + "个 " + "陶瓷碗：" + chinaBowls + "个 " + "塑料碗：" + plasticBowls + "个");
        System.out.println("柜子里有:"+ chinaBowl.size() + ironBowl.size() + plasticBowl.size() +"碗");

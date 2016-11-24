@@ -15,7 +15,7 @@ import java.util.Map;
  */
 
 public class ListMapPractice {
-	private static final Student Student = null;
+	
 
 	/*
 	 * 初始化一个用来存储所有学生的List， 最后面的代码块用来构造一些学生对象 并把他们保存在 allStudents中

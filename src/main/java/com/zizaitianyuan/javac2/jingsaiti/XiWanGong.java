@@ -41,7 +41,7 @@ public class XiWanGong {
 
 	private static int totalWanGui = 0;
 //洗完放入碗柜
-public static list(List<Wan> type){
+public static Map<K, V>{
 	Set<String> set = washedWan.keySet("Circle","Square","EquilateralTriangle");
 	
 	for(Wan okWan:line){
@@ -94,7 +94,7 @@ public static list(List<Wan> type){
 		return wann;
 	}
 
-public static class Wan{
+public static class Wan implements List{
 	private String wan;
 	
 	public Wan(String wan){

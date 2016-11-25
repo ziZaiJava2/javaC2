@@ -16,6 +16,10 @@ public class CourseSession {
 	// 某一门课的学生
 	public static List<Student> les = new ArrayList<Student>();
 
+	public static List<Student> getLes() {
+		return les;
+	}
+
 	public CourseSession() {
 
 	}

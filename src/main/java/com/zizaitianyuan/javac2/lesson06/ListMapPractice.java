@@ -29,17 +29,12 @@ public class ListMapPractice {
 	/*
 	 *  从 allStudents 中找出主修专业为 "Software Engineering"的学生， 并保存在一个ArrayList中，并返回
 	 */
-	public static List<Student> getStudentListMajoredInSoftwareEngineering(){
-		
-	}
 	
 	
 	/*
 	 *  从 allStudents 中找出主修专业为 "Computer Science"的学生， 并保存在一个ArrayList中，并返回
 	 */
-	public static List<Student> getStudentListMajoredInComputerScience(){
-		
-	}
+	
 	
 	/*
 	 * 通过 allStudents中保存的学生信息来构造一个 Map， 其中 key是学生的名字， value是学生, 以便以后可以快速的通过学生名字来查询学生的信息
@@ -76,6 +71,18 @@ public class ListMapPractice {
 			student.setMajor(studentMajor[i]);
 			allStudents.add(student);
 		}
+	}
+
+
+
+	public static List<Student> getStudentListMajoredInSoftwareEngineering() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public static List<Student> getStudentListMajoredInComputerScience() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
 

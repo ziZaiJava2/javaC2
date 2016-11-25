@@ -36,7 +36,11 @@ public class WashTheDishes {
 		}
 	}
 //碗柜
+<<<<<<< HEAD
 	private static Map<String, line> washedWan = new HashMap<String, line>();
+=======
+	private static Map<String, List> washedWan = new HashMap<String, List>();
+>>>>>>> 360d5e2f42ba49d2ec0badef870db5016cf6df51
 
 	private static int totalWanGui = 0;
 //洗完放入碗柜
@@ -82,7 +86,11 @@ public static list(List<Wan> type){
 		Random random = new Random();
 		for (int i = 1; i <= random.nextInt(3) + 3; i++) {
 			totalWash1 += 1;
+<<<<<<< HEAD
 			Wan wan = new Wan(line.getFirst(line));
+=======
+			Wan wan = new Wan(line.getFirst());
+>>>>>>> 360d5e2f42ba49d2ec0badef870db5016cf6df51
 			wann.add(wan);
 		}
 		for (int i = 1; i <= random.nextInt(3) + 3; i++) {
@@ -103,5 +111,8 @@ public class Wan{
 		return this.wan;
 	}
 }
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 360d5e2f42ba49d2ec0badef870db5016cf6df51

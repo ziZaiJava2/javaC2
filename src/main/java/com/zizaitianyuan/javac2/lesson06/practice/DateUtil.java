@@ -9,14 +9,12 @@ public class DateUtil {
        private DateUtil(){
     	   
        }
-       private String creatDate(int year, int month, int day){
+       private Date creatDate(int year, int month, int day){
     	   Date date = new Date();
     	   Calendar c = Calendar.getInstance();
     	   c.set(year, month, day);
-    	   SimpleDateFormat sdf = new SimpleDateFormat("YYYY-MM-dd");
     	   date = c.getTime();
-    	   String time = sdf.format(date);
-		   return time;
+		   return date;
     	   
        }
 }

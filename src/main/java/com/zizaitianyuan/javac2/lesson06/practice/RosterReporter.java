@@ -17,7 +17,7 @@ public class RosterReporter {
     	   String startTime = sdf.format(sDate);
     	   Date eDate =  courseSession.getEndDate();
     	   String endTime = sdf.format(eDate);
-    	   String courseMessage = "课程：" +  name + " " + "课程编号：" + num + "课程人数：" + " " + courseSession.getNumberOfStudents();
+    	   String courseMessage = "课程：" +  name + " " + "课程编号：" + num + " " + "课程人数：" + " " + courseSession.getNumberOfStudents();
     	   String timeMessage = "开课时间：" + " " + startTime + " " +"课程结束时间：" + endTime;
     	   String stuMessage = "";
     	   for(int i = 0; i < courseSession.getNumberOfStudents(); i++){

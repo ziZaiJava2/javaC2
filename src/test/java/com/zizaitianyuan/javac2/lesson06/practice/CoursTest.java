@@ -14,7 +14,7 @@ public class CoursTest {
 
 	@Test
 	public void test() {
-		CourseSession course = new CourseSession(01, "English");
+		CourseSession course = CourseSession.create(01, "English");
 	    Assert.assertEquals(01, course.getCourseNum());
 	    Assert.assertEquals("English", course.getCourseName());
 	}
@@ -23,7 +23,7 @@ public class CoursTest {
 		Student stu1 = new Student("song");
 		Student stu2 = new Student("jia");
 		Student stu3 = new Student("gao");
-		CourseSession course1 = new CourseSession(01, "English");
+		CourseSession course1 = CourseSession.create(01, "English");
 		course1.enroll(stu1);
 		course1.enroll(stu2);
         course1.enroll(stu3);
@@ -35,7 +35,7 @@ public class CoursTest {
 		Calendar sc = Calendar.getInstance();
 		sc.set(2016, 11, 1);
 		date = sc.getTime();
-		CourseSession course = new CourseSession(01, "English", date);
+		CourseSession course = CourseSession.create(01, "English", date);
 		Assert.assertEquals(date, course.getStartDate());
 		Calendar ec = Calendar.getInstance();
 		ec.set(2017, 5, 1);
@@ -43,14 +43,6 @@ public class CoursTest {
 		date1 = ec.getTime();
 		Assert.assertEquals(date1, course.getEndDate());
 		
-	}
-	@SuppressWarnings("deprecation")
-	@Test
-	public void test4(){
-		CourseSession course1 = new CourseSession(01, "English");
-		CourseSession course2 = new CourseSession(02, "Math");
-		CourseSession course3 = new CourseSession(03, "Java");
-		Assert.assertEquals(3, course3.getCourseNum());
 	}
 
 }

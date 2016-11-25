@@ -10,10 +10,20 @@ import java.util.List;
 public class CourseSession {
        private int courseNum;//课程编号
        private String courseName;//课程名字
-       static int count = 0;
+       private static int count = 0;//课程数量
        private Date date;
        private List<Student> allStus = new ArrayList<Student>();//注册List
-       public CourseSession(int courseNum, String courseName){
+       /**
+        * 
+        * @param courseNum
+        * @param courseName
+        * @param date
+        */
+       private CourseSession(int courseNum, String courseName, Date date){
+    	   this(courseNum, courseName);
+    	   this.date = date;
+       }
+       private CourseSession(int courseNum, String courseName){
     	   this.courseNum = courseNum;
     	   this.courseName = courseName;
     	   count++;
@@ -32,16 +42,6 @@ public class CourseSession {
         */
        public String getCourseName(){
     	   return courseName;
-       }
-       /**
-        * 
-        * @param courseNum
-        * @param courseName
-        * @param date
-        */
-       public CourseSession(int courseNum, String courseName, Date date){
-    	   this(courseNum, courseName);
-    	   this.date = date;
        }
        /**
         * 给学生注册,注册的同时并统计有多少人注册了课程
@@ -93,5 +93,24 @@ public class CourseSession {
     	Date date = new Date();
     	date = c.getTime();
    		return date;
+       }
+       /**
+        * 返回添加的课程数量
+        * @return
+        */
+       public static int getCourseCount(){
+    	   return count;
+       }
+       public static CourseSession create(int courseNum, String courseName){
+    	   CourseSession course = new CourseSession(courseNum, courseName);
+    	   CourseReport report = new CourseReport();
+    	   report.add(course);
+		   return course;
+       }
+       public static CourseSession create(int courseNum, String courseName, Date date){
+    	   CourseSession course = new CourseSession(courseNum, courseName, date);
+    	   CourseReport report = new CourseReport();
+    	   report.add(course);
+		   return course;
        }
 }

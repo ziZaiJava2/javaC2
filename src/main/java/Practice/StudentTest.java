@@ -35,9 +35,10 @@ public class StudentTest {
 		CourseSession lesson = new CourseSession();
 		lesson.setDepartment("English");
 		Student namee = new Student();
-	    namee.setName("xiaohong");
+	    namee.setName("xiaohong");	    
+	    lesson.enroll(namee);
 	    namee.setName("xiaoming");
-	    lesson.enroll();
+	    lesson.enroll(namee);
 		Assert.assertEquals( lesson.getNumberOfStudents(), 2);
 	}
 	
@@ -46,13 +47,19 @@ public class StudentTest {
 	public void testGetNumberOfStudents3(){
 		CourseSession lesson = new CourseSession();
 		lesson.setDepartment("English");
+		Student namea = new Student();
+	    namea.setName("xiaohong");	    
+	    lesson.enroll(namea);
+	    namea.setName("xiaoming");
+	    lesson.enroll(namea);
+	    
 		Student namee = new Student();
-	    namee.setName("xiaohong");
-	    namee.setName("xiaoming");
+	    namee.setName("xiaohong");	    
 	    List<Student> stu = new ArrayList<Student>();
-	    stu.add(namee.setName("xiaohong"));
-	    stu.add(namee.setName("xiaoming"));		
-		Assert.assertEquals(stu<Student>() ,lesson.getAllStudents() );
+	    stu.add(namee);
+	    namee.setName("xiaoming");
+	    stu.add(namee);		
+		Assert.assertEquals(stu ,lesson.getAllStudents(namea) );
 	}
 	
 	//新的测试case，创建一个English的课程，给这门课程使用enroll(student)方法注册3名学生，通过get(2)获取学生，assert和你enroll的第三个学生是不是同一个。

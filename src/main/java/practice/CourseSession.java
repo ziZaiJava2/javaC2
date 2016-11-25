@@ -1,12 +1,15 @@
 package practice;
 
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
+
 /**
- * ¿Î³ÌÀà£¬°üº¬¿Î³ÌµÄÊôÐÔºÍ×¢²á×¢²á¸Ã¿Î³ÌµÄÑ§Éú
+ * ï¿½Î³ï¿½ï¿½à£¬ï¿½ï¿½ï¿½ï¿½ï¿½Î³Ìµï¿½ï¿½ï¿½ï¿½Ôºï¿½×¢ï¿½ï¿½×¢ï¿½ï¿½Ã¿Î³Ìµï¿½Ñ§ï¿½ï¿½
+ * 
  * @author Administrator
  *
  */
@@ -19,7 +22,8 @@ public class CourseSession {
 	Date endCourse;
 	private static String str = "yyyy-MM-dd";
 	private static int count;
-	//´´ÔìCourseSession¶ÔÏó
+
+	// ï¿½ï¿½ï¿½ï¿½CourseSessionï¿½ï¿½ï¿½ï¿½
 	public static CourseSession create(String department, String number) {
 		return new CourseSession(department, number);
 	}
@@ -27,11 +31,12 @@ public class CourseSession {
 	public static CourseSession create(String department, String number, Date openCourse) {
 		return new CourseSession(department, number, openCourse);
 	}
-	//·µ»Ø¿Î³Ì×ÜÊý
+
+	// ï¿½ï¿½ï¿½Ø¿Î³ï¿½ï¿½ï¿½ï¿½ï¿½
 	public int getCount() {
 		return count;
 	}
-	
+
 	private CourseSession(String department, String number) {
 		this(department, number, null);
 	}
@@ -46,43 +51,55 @@ public class CourseSession {
 	public String getDepartment() {
 		return department;
 	}
-	//·µ»Ø¿Î³ÌÃû³Æ
+
+	// ï¿½ï¿½ï¿½Ø¿Î³ï¿½ï¿½ï¿½ï¿½ï¿½
 	public String getNumber() {
 		return number;
 	}
-	//Ñ§Éú×¢²á
+
+	// Ñ§ï¿½ï¿½×¢ï¿½ï¿½
 	public void enroll(Student student) {
 		stu.add(student);
 		studentCount++;
 
 	}
-	//·µ»ØÑ§Éú×ÜÊý
+
+	// ï¿½ï¿½ï¿½ï¿½Ñ§ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	public int getNumberOfStudents() {
 		return studentCount;
 	}
-	//·µ»ØÒ»¸öÑ§Éú¶ÔÏó
+
+	// ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½Ñ§ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	public Student getIndex(int index) {
 		return stu.get(index);
 	}
-	//·µ»Ø¿ª¿ÎÈÕÆÚ
-	public Date getStartDate() throws Exception {
-		DateFormat df = DateFormat.getDateInstance();
-		String start = df.format(openCourse);
-		SimpleDateFormat sdf = new SimpleDateFormat(str);
-		Date startDate = sdf.parse(start);
-		return startDate;
+
+	// ï¿½ï¿½ï¿½Ø¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	private Date getStartDate() throws Exception {
+		return openCourse;
 	}
-	//·µ»Ø½á¿ÎÈÕÆÚ
-	@SuppressWarnings("deprecation")
-	public Date getEndDate() throws Exception {
-		openCourse.setMonth(openCourse.getMonth() + 6);
-		DateFormat df1 = DateFormat.getDateInstance();
-		String end = df1.format(openCourse);
-		SimpleDateFormat sdf = new SimpleDateFormat(str);
-		Date endDate = sdf.parse(end);
-		return endDate;
+
+	// ï¿½ï¿½ï¿½Ø½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	private Date getEndDate() throws Exception {
+		Calendar cal = new GregorianCalendar();
+		cal.setTime(getStartDate());
+		cal.set(Calendar.MONTH, +6);
+		Date date = cal.getTime();
+		return date;
 	}
-	//¼ÆËã¿Î³ÌÊýÁ¿·½·¨
+
+	public String formated1() throws Exception {
+		SimpleDateFormat sim = new SimpleDateFormat(str);
+		return sim.format(getStartDate());
+	}
+
+	public String formated2() throws Exception {
+		SimpleDateFormat sim = new SimpleDateFormat(str);
+		String a = sim.format(getEndDate());
+		return a;
+	}
+
+	// ï¿½ï¿½ï¿½ï¿½Î³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	private static void incrementCount() {
 		count++;
 	}

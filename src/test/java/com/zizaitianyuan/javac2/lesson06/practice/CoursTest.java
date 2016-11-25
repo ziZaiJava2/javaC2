@@ -9,14 +9,17 @@ import org.junit.Test;
 
 import junit.framework.Assert;
 
+
+
 public class CoursTest {
 
 
 	@Test
 	public void test() {
-		CourseSession course = CourseSession.create(01, "English");
-	    Assert.assertEquals(01, course.getCourseNum());
-	    Assert.assertEquals("English", course.getCourseName());
+        CourseSession course = CourseSession.create(01, "English");
+	    assertEquals(01, course.getCourseNum());
+	    assertEquals("English", course.getCourseName());
+
 	}
 	@Test
 	public void test2(){
@@ -27,7 +30,7 @@ public class CoursTest {
 		course1.enroll(stu1);
 		course1.enroll(stu2);
         course1.enroll(stu3);
-        Assert.assertEquals(stu3, course1.indexStu(2));
+        assertEquals(stu3, course1.indexStu(2));
 	}
 	@Test
 	public void test3(){
@@ -37,12 +40,22 @@ public class CoursTest {
 		date = sc.getTime();
 		CourseSession course = CourseSession.create(01, "English", date);
 		Assert.assertEquals(date, course.getStartDate());
+		assertEquals(date, course.getStartDate());
 		Calendar ec = Calendar.getInstance();
 		ec.set(2017, 5, 1);
 		Date date1 = new Date();
 		date1 = ec.getTime();
-		Assert.assertEquals(date1, course.getEndDate());
+		assertEquals(date1, course.getEndDate());
 		
 	}
+	@Test
+	@SuppressWarnings("unused")
+	public void test4(){
+		 CourseSession course = CourseSession.create(01, "English");
+		CourseSession course2 = CourseSession.create(02, "Math");
+		CourseSession course3 = CourseSession.create(03, "Java");
+		assertEquals(3, course3.getCourseNum());
+	}
+
 
 }

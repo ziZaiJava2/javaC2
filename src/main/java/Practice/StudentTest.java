@@ -60,5 +60,12 @@ public class StudentTest {
 	public void testGetNumberOfStudents4(){
 		
 	}
+	
+	//添加测试方法，需要测试的几个点是：
+//	使用两个参数的构造函数生成的课程对象，开始日期getStartDate()是当前月的下一个月的第一天
+//	使用三个参数的构造函数生成的课程对象，开始日期getStartDate()是传入的日期，结束日期getEndDate()是传入日期六个月之后
+	public void testDate(){
+		
+	}
 }
 

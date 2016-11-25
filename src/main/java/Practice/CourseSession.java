@@ -1,13 +1,20 @@
 package Practice;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
+
+import javax.xml.crypto.Data;
 
 public class CourseSession {
 	private String number;
 	private String department;
+	private Date startDate;
+	private Date endtDate;
 	// 某一门课的学生
-	public static List<String> les = new ArrayList<String>();
+	public static List<Student> les = new ArrayList<Student>();
 
 	public CourseSession() {
 
@@ -40,27 +47,42 @@ public class CourseSession {
 	}
 
 	// 添加一个新方法enroll(Student student),用来给这门课注册学生。
-	public void enroll() {
-		Student stu = new Student();
-		stu.setName(getDepartment());
-		les.add(stu.getName());
+	public void enroll(Student student) {
+		les.add(student);
 	}
 
 	// 添加方法getAllStudents(),方法的返回值是List<Student>.返回包含所有通过enroll()方法注册的学生的List。
-	public List<Student> getAllStudents() {
-		List<Student> all = new ArrayList<Student>();
-		enroll();
-		all.add(les);
-		return all;
+	public List<Student> getAllStudents(Student stu) {		
+		return les;
 	}
 
 	// 添加新方法get(int index), 返回第index个注册的学生。
-	public int get(int index) {
-		for (int i = 0; i < les.size(); i++) {
-			if (index == i) {
-				index = i;
-			}
-		}
-		return index;
+	public Student get(int index) {
+		return les.get(index-1);
+	}
+	
+	//添加一个新的构造函数，这次接受三个参数，课程名称，课程编号，开课日期。这里日期使用Date类型
+	public CourseSession(String number, String department , Date startDate){
+		this.number = number;
+		this.department = department;
+		startDate = getStartDate();
+	}
+	
+	//原来的构造函数会转过来调用这个新的构造函数，开课日期是当前日期下个月的第一天。
+	public Date getStartDate(){ 
+		Calendar c = Calendar.getInstance(); 
+		c.set(Calendar.MONTH, c.get(Calendar.MONTH)+2);
+		c.set(Calendar.DAY_OF_MONTH, 1);
+		this.startDate = c.getTime();
+		return this.startDate;
+	}
+	
+	//添加方法getEndDate()，返回Date类型，为开课日期六个月之后的日期。
+	public Date getEndDate(){
+		Calendar c = Calendar.getInstance(); 
+		c.set(Calendar.MONTH, c.get(Calendar.MONTH)+8);
+		c.set(Calendar.DAY_OF_MONTH, 1);
+		this.endtDate = c.getTime();
+		return this.endtDate;
 	}
 }

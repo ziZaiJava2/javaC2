@@ -1,7 +1,11 @@
 package com.zizaitianyuan.javac2.lesson05;
 
+import java.util.Date;
+
 import org.junit.Assert;
 import org.junit.Test;
+
+import com.zizaitianyuan.javac2.lesson05.Student;
 
 public class InitailTest {
 
@@ -14,7 +18,7 @@ public class InitailTest {
 	@Test
 	public void test2() {
 		CourseSession English = new CourseSession("English" , "102");
-		Assert.assertEquals("English", English.getNumber());
+		Assert.assertEquals("English", English.getDepartment());
 	}
 	
 	@Test
@@ -55,7 +59,25 @@ public class InitailTest {
 		english.enroll(stu1);
 		english.enroll(stu2);
 		english.enroll(stu3);
-		Assert.assertEquals(stu3, english.get(2));		//��һ�в���д
+		Assert.assertEquals(stu3, english.get(2));		
 		
+	}
+	
+	@Test
+	public void test7() {
+		CourseSession english = new CourseSession("English" , "102");
+		Date date = english.getStartDate();
+		Assert.assertEquals(date,"2006-12-21 0:00:00 星期五");		
+		english = new CourseSession("English" , "102", date);  //这个测试不会写
+		Assert.assertEquals(date,"2006-12-21 0:00:00 星期五");	
+	}
+	
+	@Test
+	public void test9() {
+		int a = CourseSession.getCount();
+		CourseSession english = new CourseSession("English" , "102");
+		CourseSession math = new CourseSession("English" , "102");
+		CourseSession java = new CourseSession("English" , "102");
+		Assert.assertEquals(3, CourseSession.getCount() - a );	
 	}
 }

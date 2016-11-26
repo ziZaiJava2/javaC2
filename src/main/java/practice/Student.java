@@ -7,8 +7,8 @@ package practice;
  *
  */
 public class Student {
-	String name;
-	private int Cre;
+	private String name;
+	private int cre;
 	private static String LOCAL = "SH";
 
 	// ����Student����
@@ -26,17 +26,17 @@ public class Student {
 
 	// �ж��Ƿ�Ϊȫ����ѧ��
 	public boolean iffullTime() {
-		return Cre >= 12;
+		return cre >= 12;
 	}
 
 	// ���ѧ��
 	public int getCredits() {
-		return Cre;
+		return cre;
 	}
 
 	// ����ѧ��
 	public int addCredits(int credits) {
-		return Cre += credits;
+		return cre += credits;
 	}
 
 	// �ж��Ƿ�Ϊ����ѧ��

@@ -1,9 +1,11 @@
 package practice;
 
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 /**
- * ÈÕÆÚ¹¤¾ßÀà
+ * ï¿½ï¿½ï¿½Ú¹ï¿½ï¿½ï¿½ï¿½ï¿½
  * 
  * @author Administrator
  *
@@ -12,8 +14,8 @@ public class DateUtil {
 	private DateUtil() {
 	}
 
-	@SuppressWarnings("deprecation")
-	public Date createDate(int year, int month, int day) {
-		return new Date(year, month, day);
+	public static Date createDate(int year, int month, int day) {
+		Calendar cal = new GregorianCalendar(year, month, day);
+		return cal.getTime();
 	}
 }

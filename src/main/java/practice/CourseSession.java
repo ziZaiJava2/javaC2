@@ -38,7 +38,7 @@ public class CourseSession {
 	}
 
 	private CourseSession(String department, String number) {
-		this(department, number, null);
+		this(department, number, new GregorianCalendar(Calendar.YEAR, Calendar.MONTH + 2, 1).getTime());
 	}
 
 	private CourseSession(String department, String number, Date openCourse) {
@@ -103,4 +103,5 @@ public class CourseSession {
 	private static void incrementCount() {
 		count++;
 	}
+
 }

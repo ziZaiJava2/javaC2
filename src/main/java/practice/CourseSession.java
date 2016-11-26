@@ -14,14 +14,12 @@ import java.util.List;
  *
  */
 public class CourseSession {
-	String department;
-	String number;
-	private int studentCount = 0;
-	List<Student> stu = new ArrayList<>();
-	private Date openCourse;
-	Date endCourse;
+	private String department;
+	private String number;
+	private List<Student> stu = new ArrayList<>();
+	private Date openCourseDate;
 	private static String str = "yyyy-MM-dd";
-	private static int count;
+	private int count;
 
 	// ����CourseSession����
 	public static CourseSession create(String department, String number) {
@@ -44,7 +42,7 @@ public class CourseSession {
 	private CourseSession(String department, String number, Date openCourse) {
 		this.department = department;
 		this.number = number;
-		this.openCourse = openCourse;
+		this.openCourseDate = openCourse;
 		incrementCount();
 	}
 
@@ -60,13 +58,12 @@ public class CourseSession {
 	// ѧ��ע��
 	public void enroll(Student student) {
 		stu.add(student);
-		studentCount++;
 
 	}
 
 	// ����ѧ������
 	public int getNumberOfStudents() {
-		return studentCount;
+		return stu.size();
 	}
 
 	// ����һ��ѧ������
@@ -76,7 +73,7 @@ public class CourseSession {
 
 	// ���ؿ�������
 	private Date getStartDate() throws Exception {
-		return openCourse;
+		return openCourseDate;
 	}
 
 	// ���ؽ������
@@ -100,7 +97,7 @@ public class CourseSession {
 	}
 
 	// ����γ���������
-	private static void incrementCount() {
+	private void incrementCount() {
 		count++;
 	}
 

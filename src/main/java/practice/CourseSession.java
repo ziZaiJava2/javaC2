@@ -83,7 +83,7 @@ public class CourseSession {
 	private Date getEndDate() throws Exception {
 		Calendar cal = new GregorianCalendar();
 		cal.setTime(getStartDate());
-		cal.set(Calendar.MONTH, +6);
+		cal.add(Calendar.MONTH, +6);
 		Date date = cal.getTime();
 		return date;
 	}

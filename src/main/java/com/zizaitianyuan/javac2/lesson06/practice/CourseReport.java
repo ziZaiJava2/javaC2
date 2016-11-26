@@ -5,12 +5,17 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-public class CourseReport{
+public class CourseReport {
 	private static List<CourseSession> courseList = new ArrayList<>();
+
 	public void add(CourseSession course) {
-          courseList.add(course);
+		courseList.add(course);
 	}
-	public String text(){
+      /**
+       * 给课程名字进行排序
+       * @return
+       */
+	public String text() {
 		Collections.sort(courseList, new Comparator<CourseSession>() {
 
 			@Override
@@ -20,7 +25,7 @@ public class CourseReport{
 			}
 		});
 		String nameList = "课程名单：" + "\n";
-		for(CourseSession courseName : courseList){
+		for (CourseSession courseName : courseList) {
 			nameList = nameList + courseName.getCourseName() + "\n";
 		}
 		return nameList;

@@ -6,15 +6,16 @@ import java.util.Calendar;
 import java.util.SimpleTimeZone;
 
 public class DateUtil {
-       private DateUtil(){
-    	   
-       }
-       private Date creatDate(int year, int month, int day){
-    	   Date date = new Date();
-    	   Calendar c = Calendar.getInstance();
-    	   c.set(year, month, day);
-    	   date = c.getTime();
-		   return date;
-    	   
-       }
+	private DateUtil() {
+
+	}
+
+	private Date creatDate(int year, int month, int day) {
+		Date date = new Date();
+		Calendar c = Calendar.getInstance();
+		c.set(year, month, day);
+		date = c.getTime();
+		return date;
+
+	}
 }

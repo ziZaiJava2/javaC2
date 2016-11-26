@@ -48,23 +48,27 @@ public class Student {
 	 * @param credits
 	 */
 	public void addCredits(int credits) {
-           this.credits = credits;
+		this.credits = credits;
 	}
+
 	/**
 	 * 设置学生的籍贯
+	 * 
 	 * @param Province
 	 */
-	public void SetLocation(String province){
+	public void SetLocation(String province) {
 		this.province = province;
 	}
+
 	/**
 	 * 判断是否是本地学生
+	 * 
 	 * @return
 	 */
-	public boolean isLocal(){
-		if(province.equals(local)){
+	public boolean isLocal() {
+		if (province.equals(local)) {
 			return true;
-		}else{
+		} else {
 			return false;
 		}
 	}

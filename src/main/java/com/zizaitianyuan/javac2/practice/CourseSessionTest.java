@@ -19,7 +19,7 @@ public class CourseSessionTest {
 	}
 
 	@Test
-	public void getEndDateTest() throws Exception {
+	public void getEndDateTest() throws  Exception {
 		String startStr = "2016-01-01";
 		String endStr = "2016-07-01";
 		String formatStr = "YYYY-MM-DD";

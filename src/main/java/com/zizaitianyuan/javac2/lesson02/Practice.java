@@ -44,8 +44,11 @@ public static void main(String[] args) {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3c2ee03... h
+=======
+>>>>>>> e039fb7ac3f61fd1d1764baa11e92ed86026d948
 =======
 >>>>>>> 3c2ee03... h
 		int x, y, z;
@@ -62,6 +65,9 @@ public static void main(String[] args) {
 				}
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> e039fb7ac3f61fd1d1764baa11e92ed86026d948
 			}
 			System.out.println();
 		}
@@ -80,8 +86,11 @@ public static void main(String[] args) {
 			System.out.println();
 		}
 =======
+<<<<<<< HEAD
 =======
 >>>>>>> f480394... homework~
+=======
+>>>>>>> e039fb7ac3f61fd1d1764baa11e92ed86026d948
 		int n1=3;
 		for(int i=1;i<=n1;i++){
             for(int j=1;j<=n1-i;j++){
@@ -90,6 +99,7 @@ public static void main(String[] args) {
 			for(int j=1;j<=(2*i-1);j++){
 			System.out.print("*");
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3c2ee03... h
 			}
@@ -115,6 +125,8 @@ public static void main(String[] args) {
 		}
 >>>>>>> 3c2ee03... h
 =======
+=======
+>>>>>>> e039fb7ac3f61fd1d1764baa11e92ed86026d948
 =======
 >>>>>>> 3c2ee03... h
 			}
@@ -144,7 +156,10 @@ public static void main(String[] args) {
 	
 	
 	
+<<<<<<< HEAD
 	
+=======
+>>>>>>> e039fb7ac3f61fd1d1764baa11e92ed86026d948
 	/**
 	 * 打印高度为n的倒三角
 	 * 
@@ -161,6 +176,9 @@ public static void main(String[] args) {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> e039fb7ac3f61fd1d1764baa11e92ed86026d948
 		for (int x = 1; x <= n; x++) {
 			for (int y = n; y >= x; y--) {
 				System.out.print("*");
@@ -168,14 +186,18 @@ public static void main(String[] args) {
 			System.out.println();
 		}
 =======
+<<<<<<< HEAD
 =======
 >>>>>>> f480394... homework~
+=======
+>>>>>>> e039fb7ac3f61fd1d1764baa11e92ed86026d948
 		int n1 = 3;
 		for(int i =0;i<=n1;i++){
 			for(int j=i+1;j<=n1;j++){
 				System.out.print("*");
 			}
 			System.out.println();}
+<<<<<<< HEAD
 <<<<<<< HEAD
 >>>>>>> f480394... homework~
 =======
@@ -187,6 +209,8 @@ public static void main(String[] args) {
 		}
 >>>>>>> 3c2ee03... h
 =======
+=======
+>>>>>>> e039fb7ac3f61fd1d1764baa11e92ed86026d948
 >>>>>>> f480394... homework~
 =======
 		for (int x = 1; x <= n; x++) {
@@ -214,8 +238,11 @@ public static void main(String[] args) {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3c2ee03... h
+=======
+>>>>>>> e039fb7ac3f61fd1d1764baa11e92ed86026d948
 =======
 >>>>>>> 3c2ee03... h
 		for (int x = 1; x <= n; x++) {
@@ -227,11 +254,39 @@ public static void main(String[] args) {
 					System.out.print("*");
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
 			}
 
 			System.out.println();
 		}
 
+=======
+		int n2 = 3;
+		for(int i =0;i<=n2;i++){
+			for(int j=n2;j>=i;j--){
+				System.out.print(" ");
+			}
+			for(int q=i;q>0;q--){
+				System.out.print("*");
+=======
+>>>>>>> 3c2ee03... h
+>>>>>>> e039fb7ac3f61fd1d1764baa11e92ed86026d948
+			}
+
+			System.out.println();
+<<<<<<< HEAD
+			}
+<<<<<<< HEAD
+		
+	
+>>>>>>> f480394... homework~
+=======
+>>>>>>> 4786d03... homework2
+=======
+		}
+
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> f480394... homework~
@@ -276,6 +331,8 @@ public static void main(String[] args) {
 			System.out.println();
 		}
 
+=======
+>>>>>>> e039fb7ac3f61fd1d1764baa11e92ed86026d948
 >>>>>>> 3c2ee03... h
 	}	
 	/**
@@ -289,8 +346,11 @@ public static void main(String[] args) {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3c2ee03... h
+=======
+>>>>>>> e039fb7ac3f61fd1d1764baa11e92ed86026d948
 =======
 >>>>>>> 3c2ee03... h
 
@@ -300,11 +360,17 @@ public static void main(String[] args) {
 			}
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 		}
 		return array[0];
 =======
 =======
 >>>>>>> f480394... homework~
+=======
+		}
+		return array[0];
+=======
+>>>>>>> e039fb7ac3f61fd1d1764baa11e92ed86026d948
 		int n=array[0];
 		for(int i = 0; i < 10; i++){
 			if(array[i]>n)
@@ -313,12 +379,15 @@ public static void main(String[] args) {
 		}
 		return n;
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> f480394... homework~
 =======
 		}
 		return array[0];
 >>>>>>> 3c2ee03... h
 =======
+=======
+>>>>>>> e039fb7ac3f61fd1d1764baa11e92ed86026d948
 >>>>>>> f480394... homework~
 =======
 		}

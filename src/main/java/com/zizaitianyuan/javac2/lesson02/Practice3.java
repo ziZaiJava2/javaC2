@@ -2,21 +2,34 @@ package com.zizaitianyuan.javac2.lesson02;
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> e039fb7ac3f61fd1d1764baa11e92ed86026d948
 
 
 public class Practice3 {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> e039fb7ac3f61fd1d1764baa11e92ed86026d948
 
 	private static int MAX_SIZE = 5;
-	
+
+
+
 	/**
+
 	 * 
+<<<<<<< HEAD
 	 * 传入两个***有序***的不重复的正整数数组(都大于０)，两个数组的整数个数小于5个
 =======
 private static int MAX_SIZE = 5;
 	
 =======
+<<<<<<< HEAD
 =======
 
 
@@ -45,6 +58,33 @@ public class Practice3 {
 >>>>>>> 05bf006... h
 	 * 
 
+=======
+
+
+
+	private static int MAX_SIZE = 5;
+
+
+
+>>>>>>> 05bf006... h
+	/**
+
+	 * 
+
+	 * 传入两个***有序***的正整数数组(都大于０)，两个数组的整数个数小于5个
+<<<<<<< HEAD
+>>>>>>> 3c2ee03... h
+=======
+
+>>>>>>> 05bf006... h
+=======
+
+	 * 传入两个***有序***的正整数数组(都大于０)，两个数组的整数个数小于5个
+
+>>>>>>> d727d4bf26876c15ae4dd20f8cd4801982e2ddce
+	 * 
+
+>>>>>>> e039fb7ac3f61fd1d1764baa11e92ed86026d948
 	 * 这是我近期工作中碰到的，也是以前同时刚刚碰到的一个实际工作中的问题，这个问题 我们之后还会拿出来几次使用不同的解法来说明一些写代码要注意的问题。
 
 	 * 
@@ -109,6 +149,7 @@ public class Practice3 {
 
 
 
+<<<<<<< HEAD
 		// 把你的计算过程写在这里, 不同的值放进不同的数组里面
 
 		// 比如两个数组都有的值是１，使用这个语句 result.inBoth[n] = 1;
@@ -280,6 +321,8 @@ private static int MAX_SIZE = 5;
 
 
 
+=======
+>>>>>>> e039fb7ac3f61fd1d1764baa11e92ed86026d948
 		// 把你的计算过程写在这里, 不同的值放进不同的数组里面
 
 		// 比如两个数组都有的值是１，使用这个语句 result.inBoth[n] = 1;
@@ -368,9 +411,17 @@ class Result {
 
 	int[] notInSource;
 <<<<<<< HEAD
+<<<<<<< HEAD
 }
 >>>>>>> 3c2ee03... h
 =======
 
 }
+=======
+
+}
+<<<<<<< HEAD
+>>>>>>> 3c2ee03... h
+=======
+>>>>>>> e039fb7ac3f61fd1d1764baa11e92ed86026d948
 >>>>>>> 05bf006... h

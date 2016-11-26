@@ -28,6 +28,9 @@ public class Practice2 {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> e039fb7ac3f61fd1d1764baa11e92ed86026d948
 //		if (fibonacci3(1) == 1 && fibonacci3(2) == 1 && fibonacci3(5) == 5 && fibonacci3(8) == 21) {
 //			System.out.println("fibonacci3正确");
 //		}
@@ -45,12 +48,16 @@ public class Practice2 {
 		if (fibonacci3(1) == 1 && fibonacci3(2) == 1 && fibonacci3(5) == 5 && fibonacci3(8) == 21) {
 			System.out.println("fibonacci3正确");
 		}
+<<<<<<< HEAD
 >>>>>>> 3c2ee03... h
 =======
 		if (fibonacci3(1) == 1 && fibonacci3(2) == 1 && fibonacci3(5) == 5 && fibonacci3(8) == 21) {
 			System.out.println("fibonacci3正确");
 		}
 >>>>>>> 05bf006... h
+=======
+>>>>>>> d727d4bf26876c15ae4dd20f8cd4801982e2ddce
+>>>>>>> e039fb7ac3f61fd1d1764baa11e92ed86026d948
 
 	}
 	
@@ -98,6 +105,9 @@ public class Practice2 {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> e039fb7ac3f61fd1d1764baa11e92ed86026d948
 			for(int i=3; i<=n; c=a+b,a=b,b=c,i++);
 =======
 			for(int i=3; i<=n;i++){
@@ -113,12 +123,16 @@ public class Practice2 {
 			for(int i=3; i<=n;i++){
 				c=a+b;a=b;b=c;
 			}
+<<<<<<< HEAD
 >>>>>>> 3c2ee03... h
 =======
 			for(int i=3; i<=n;i++){
 				c=a+b;a=b;b=c;
 			}
 >>>>>>> 05bf006... h
+=======
+>>>>>>> d727d4bf26876c15ae4dd20f8cd4801982e2ddce
+>>>>>>> e039fb7ac3f61fd1d1764baa11e92ed86026d948
 			System.out.println(c);
 			return c;
 	}
@@ -139,12 +153,16 @@ public class Practice2 {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> e039fb7ac3f61fd1d1764baa11e92ed86026d948
 		int i = 0;
 		i = diGui(n);
 		return i;
 	}
 
     public static int diGui(int n){
+<<<<<<< HEAD
 =======
 		int i=0;
 		i=diGui(n);
@@ -162,10 +180,13 @@ public static int diGui(int n){
 =======
     public static int diGui(int n){
 >>>>>>> d727d4b... practice4
+=======
+>>>>>>> e039fb7ac3f61fd1d1764baa11e92ed86026d948
 	if(n<=2){
 		return 1;
 	}else{
 		return diGui(n-1)+diGui(n-2);
+<<<<<<< HEAD
 <<<<<<< HEAD
 	}
 	
@@ -187,6 +208,8 @@ public static int diGui(int n){
 }
 >>>>>>> 3c2ee03... h
 =======
+=======
+>>>>>>> e039fb7ac3f61fd1d1764baa11e92ed86026d948
 	}
 	
 }
@@ -197,4 +220,10 @@ public static int diGui(int n){
 		return 0;
 	}
 }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 3c2ee03... h
+=======
+>>>>>>> e039fb7ac3f61fd1d1764baa11e92ed86026d948
 >>>>>>> 05bf006... h

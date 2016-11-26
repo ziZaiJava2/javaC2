@@ -23,13 +23,13 @@ public class CourseSession {
 	  
 	
 	public CourseSession(String courseName, String courseNum){
+		this(courseName, courseNum,null);
 		CourseSession.incrementCount();
-		this.courseName = courseName;
-		this.courseNum = courseNum;
 	}
 	
 	public CourseSession(String courseName, String courseNum,Date startDate){
-		this(courseName, courseNum);
+		this.courseName = courseName;
+		this.courseNum = courseNum;
 		this.startDate = startDate;
 	}
 	

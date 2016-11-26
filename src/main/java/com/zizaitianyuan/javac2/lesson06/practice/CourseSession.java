@@ -24,6 +24,8 @@ public class CourseSession {
 	 */
 	private CourseSession(int courseNum, String courseName) {
 		this(courseNum, courseName, null);
+		Calendar c =Calendar.getInstance();
+		date = new Date();
 	}
 
 	private CourseSession(int courseNum, String courseName, Date date) {
@@ -71,9 +73,6 @@ public class CourseSession {
 		return allStus.get(index);
 	}
 
-	public List<Student> getAllStudents() {
-		return allStus;
-	}
 
 	/**
 	 * 返回一个课程的list用于统计他的长度计算人数

@@ -1,7 +1,7 @@
 package com.zizaitianyuan.javac2.lesson06.practice;
 
 public class Student {
-	static final String local = "SH";
+	static final String LOCAL = "SH";
 	private String province;
 	private String stuName;
 	private int credits = 0;
@@ -26,11 +26,7 @@ public class Student {
 	 * @return
 	 */
 	public boolean isFullTime() {
-		if (credits >= 12) {
-			return true;
-		} else {
-			return false;
-		}
+		return credits >= 12;
 	}
 
 	/**
@@ -48,7 +44,7 @@ public class Student {
 	 * @param credits
 	 */
 	public void addCredits(int credits) {
-		this.credits = credits;
+		this.credits += credits;
 	}
 
 	/**
@@ -66,10 +62,6 @@ public class Student {
 	 * @return
 	 */
 	public boolean isLocal() {
-		if (province.equals(local)) {
-			return true;
-		} else {
-			return false;
-		}
+		return LOCAL.equals(province);
 	}
 }

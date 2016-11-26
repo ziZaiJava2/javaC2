@@ -11,10 +11,12 @@ public class CourseReport {
 	public void add(CourseSession course) {
 		courseList.add(course);
 	}
-      /**
-       * 给课程名字进行排序
-       * @return
-       */
+
+	/**
+	 * 给课程名字进行排序
+	 * 
+	 * @return
+	 */
 	public String text() {
 		Collections.sort(courseList, new Comparator<CourseSession>() {
 

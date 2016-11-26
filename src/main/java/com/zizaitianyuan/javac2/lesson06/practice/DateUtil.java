@@ -10,7 +10,7 @@ public class DateUtil {
 
 	}
 
-	private Date creatDate(int year, int month, int day) {
+	private static Date creatDate(int year, int month, int day) {
 		Date date = new Date();
 		Calendar c = Calendar.getInstance();
 		c.set(year, month, day);

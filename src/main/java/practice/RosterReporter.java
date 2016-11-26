@@ -1,9 +1,7 @@
 package practice;
 
-import java.text.SimpleDateFormat;
-
 /**
- * ±¨¸æµ¥Àà£¬Éú³É¿Î³ÌÐÅÏ¢
+ * ï¿½ï¿½ï¿½æµ¥ï¿½à£¬ï¿½ï¿½ï¿½É¿Î³ï¿½ï¿½ï¿½Ï¢
  * 
  * @author Administrator
  *
@@ -15,7 +13,7 @@ public class RosterReporter {
 		this.courseSession = courseSession;
 	}
 
-	// ·µ»Ø±¨µ¥ÐÅÏ¢
+	// ï¿½ï¿½ï¿½Ø±ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
 	public String getReport() throws Exception {
 		String des = courseSession.getDepartment() + " " + courseSession.getNumber() + " "
 				+ courseSession.getNumberOfStudents() + " " + courseSession.formated1() + "~"

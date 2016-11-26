@@ -1,14 +1,17 @@
 package practice;
+
 /**
- * Ñ§ÉúÀà
+ * Ñ§ï¿½ï¿½ï¿½ï¿½
+ * 
  * @author Administrator
  *
  */
 public class Student {
 	String name;
 	private int Cre;
-	private static String Local = "SH";
-	//´´ÔìStudent¶ÔÏó
+	private static String LOCAL = "SH";
+
+	// ï¿½ï¿½ï¿½ï¿½Studentï¿½ï¿½ï¿½ï¿½
 	public Student(String name) {
 		this.name = name;
 	}
@@ -16,37 +19,34 @@ public class Student {
 	public String getName() {
 		return name;
 	}
-	
+
 	public String toString() {
 		return getName();
 	}
-	//ÅÐ¶ÏÊÇ·ñÎªÈ«ÈÕÖÆÑ§Éú
+
+	// ï¿½Ð¶ï¿½ï¿½Ç·ï¿½ÎªÈ«ï¿½ï¿½ï¿½ï¿½Ñ§ï¿½ï¿½
 	public boolean iffullTime() {
-		if (Cre >= 12) {
-			return true;
-		} else {
-			return false;
-		}
+		return Cre >= 12;
 	}
-	//»ñµÃÑ§·Ö
+
+	// ï¿½ï¿½ï¿½Ñ§ï¿½ï¿½
 	public int getCredits() {
 		return Cre;
 	}
-	//Ôö¼ÓÑ§·Ö
+
+	// ï¿½ï¿½ï¿½ï¿½Ñ§ï¿½ï¿½
 	public int addCredits(int credits) {
 		return Cre += credits;
 	}
-	//ÅÐ¶ÏÊÇ·ñÎª±¾µØÑ§Éú
+
+	// ï¿½Ð¶ï¿½ï¿½Ç·ï¿½Îªï¿½ï¿½ï¿½ï¿½Ñ§ï¿½ï¿½
 	public boolean isLocal() {
-		if (Local.equals("SH")) {
-			return true;
-		} else {
-			return false;
-		}
+		return "SH".equals(LOCAL);
 	}
-	//ÉèÖÃÑ§Éú¼®¹á
+
+	// ï¿½ï¿½ï¿½ï¿½Ñ§ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	public void setLocation(String province) {
-		Local = province;
+		LOCAL = province;
 	}
 
 }

@@ -11,7 +11,7 @@ public class Person {
 	}
 
 	public Person() {
-		
+
 	}
 
 	public String getId() {
@@ -37,8 +37,16 @@ public class Person {
 	public void setCashNum(double cashNum) {
 		this.cashNum = cashNum;
 	}
-	
-	void showMyMoney(){
-		System.out.println(this.id + this.name + this.cashNum +this.myAccount);
+
+	public Account getMyAccount() {
+		return myAccount;
+	}
+
+	public void setMyAccount(Account myAccount) {
+		this.myAccount = myAccount;
+	}
+
+	void showMyMoney() {
+		System.out.println(this.id + this.name + this.cashNum + this.myAccount);
 	}
 }

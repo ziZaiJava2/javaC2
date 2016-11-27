@@ -1,6 +1,7 @@
 package com.zizaitianyuan.javac2.lesson05;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class CourseReport {

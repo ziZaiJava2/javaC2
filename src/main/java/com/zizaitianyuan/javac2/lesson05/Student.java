@@ -4,7 +4,7 @@ public class Student {
 	
 	private String name;
 	private int credit;
-	private String Province;
+	private String province;
 	static final String LOCAL = "SH";
 	
 	public  Student(String name){
@@ -31,14 +31,10 @@ public class Student {
 	}
 	
 	public boolean isLocal(){
-		if(this.Province != this.LOCAL){
-			return false;
-		}else{
-			return true;
-		}
+		return LOCAL.equals(this.province);
 	}
 	
-	public void setLocation(String Province){
-		this.Province = Province;
+	public void setLocation(String province){
+		this.province = province;
 	}
 }

@@ -27,14 +27,15 @@ public class CourseSession {
 		this(courseName, courseNum, null);
 		Calendar c = Calendar.getInstance();
 		c.set(c.get(Calendar.YEAR), c.get(Calendar.MONTH) + 1, 1);
-		this.startDate = c.getTime();
-		CourseSession.incrementCount();
+
+
 	}
 	
 	private CourseSession(String courseName, String courseNum,Date startDate){
 		this.courseName = courseName;
 		this.courseNum = courseNum;
-		this.startDate = startDate;
+		this.startDate = startDate;	
+		CourseSession.incrementCount();
 	}
 	
 	public static int getCount(){
@@ -48,7 +49,7 @@ public class CourseSession {
 	public Date getStartDate() {
 		Calendar c = Calendar.getInstance();
 		c.set(c.get(Calendar.YEAR), c.get(Calendar.MONTH) + 1, 1);
-		return this.startDate = c.getTime();
+		return c.getTime();
 	}
 	
 	public Date getEndDate() {

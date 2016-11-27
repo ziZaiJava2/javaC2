@@ -74,7 +74,6 @@ public class CourseSession {
 		return allStus.get(index);
 	}
 
-
 	/**
 	 * 返回一个课程的list用于统计他的长度计算人数
 	 * 

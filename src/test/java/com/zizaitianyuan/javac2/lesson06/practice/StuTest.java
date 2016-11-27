@@ -22,8 +22,9 @@ public class StuTest {
 		Student stu = new Student("Leom");
 		stu.addCredits(15);
 		assertEquals(true, stu.isFullTime());
-		stu.addCredits(11);
-		assertEquals(false, stu.isFullTime());
+		Student stu2 = new Student("Leom");
+		stu2.addCredits(11);
+		assertEquals(false, stu2.isFullTime());
 	}
 	@Test
 	public void test4(){

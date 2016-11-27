@@ -20,7 +20,12 @@ public class Bank {
 		accountMap.put(person.getId(), account);
 		return account;
 	}
-
+    /**
+     * 
+     * @param person 账户对象
+     * @param moneyNum 用户准备存入多少钱
+     * @return 返回是否成功
+     */
 	public boolean saveMoney(Person person, double moneyNum) {
 		if (!accountMap.containsKey(person.getId())) {
 			System.out.println("你未在本银行开户，请先开户");

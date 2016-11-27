@@ -48,7 +48,8 @@ public class CourseSession {
 	public void main(String[] args) {
 		Student stu = new Student("Leon");
 		CourseSession lesson = new CourseSession("102", "English");
-		System.out.println("ѧ��������" + stu.getName() + " �γ̺ţ�" + lesson.getNumber() + " �γ̣�" + lesson.getDepartment());
+		System.out.println(
+				"ѧ��������" + stu.getName() + " �γ̺ţ�" + lesson.getNumber() + " �γ̣�" + lesson.getDepartment());
 	}// ����StudentTest֮����ܲ������ˣ�û��֮ǰ��runѡ�
 
 	// ���һ���·���getNumberOfStudents()������ѧϰ���ſγ�ѧ����������
@@ -77,7 +78,7 @@ public class CourseSession {
 	}
 
 	// ��ӷ���getEndDate()������Date���ͣ�Ϊ��������������֮������ڡ�
-	public Date getEndDate() {
+	public Date getEndDate(){
 		Calendar cal = new GregorianCalendar();
 		cal.setTime(getStartDate());
 		cal.add(Calendar.MONTH, +6);

@@ -8,7 +8,7 @@ import java.util.List;
 public class CourseReport {
 	private static List<CourseSession> courseList = new ArrayList<>();
 
-	public void add(CourseSession course) {
+	public static void add(CourseSession course) {
 		courseList.add(course);
 	}
 

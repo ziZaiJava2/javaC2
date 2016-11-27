@@ -24,14 +24,14 @@ public class CourseSession {
 	 */
 	private CourseSession(int courseNum, String courseName) {
 		this(courseNum, courseName, null);
-		Calendar c = Calendar.getInstance();
-		c.set(c.get(Calendar.YEAR), c.get(Calendar.MONTH) + 1, 1);
-		date = c.getTime();
 	}
 
 	private CourseSession(int courseNum, String courseName, Date date) {
 		this.courseNum = courseNum;
 		this.courseName = courseName;
+		Calendar c = Calendar.getInstance();
+		c.set(c.get(Calendar.YEAR), c.get(Calendar.MONTH) + 1, 1);
+		date = c.getTime();
 		count++;
 		this.date = date;
 	}

@@ -5,6 +5,8 @@ import static org.junit.Assert.*;
 import org.junit.Assert;
 import org.junit.Test;
 
+import com.zizaitianyuan.javac2.lesson06.practice.Student.grade;
+
 public class StuTest {
 
 	@Test
@@ -35,5 +37,19 @@ public class StuTest {
 		stu2.setLocation(Student.LOCAL);
 		assertEquals(true, stu2.isLocal());
 	}
-
+   @Test
+   public void gpaGradeTest(){
+	   Student stu = new Student("贾瑞");
+	   stu.addGrade(grade.A);
+	   stu.addGrade(grade.B);
+	   assertEquals(3.5, stu.getGPA(), 0.0001);
+	   Student stu2 = new Student("梁教官");
+	   stu2.setHonors();
+	   stu2.addGrade(grade.A);
+	   stu2.addGrade(grade.B);
+	   assertEquals(4.5, stu2.getGPA(), 0.0001);
+   }
+   
+	   
+   
 }

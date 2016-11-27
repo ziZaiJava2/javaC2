@@ -2,9 +2,12 @@ package com.zizaitianyuan.javac2.lesson06.practice;
 
 public class Student {
 	static final String LOCAL = "SH";
+	private String isHonors = null;
+	private int gradeCount = 0;
 	private String province;
 	private String stuName;
 	private int credits = 0;
+	private double gpaGrade = 0;
 
 	public Student(String name) {
 		this.stuName = name;
@@ -63,5 +66,72 @@ public class Student {
 	 */
 	public boolean isLocal() {
 		return LOCAL.equals(province);
+	}
+
+	/**
+	 * 得到gpa成绩
+	 * 
+	 * @return 平均成绩成绩
+	 */
+	public double getGPA() {
+		return gpaGrade / gradeCount;
+	}
+
+	/**
+	 * "A"(4分), "B"(3分), "C"(2分gradeCount), "D"(1分), "F"(0分) 根据传入的等级分别计算成绩
+	 * 
+	 * @param grade
+	 */
+	public enum grade {
+		A, B, C, D, E;
+
+	}
+
+	public void addGrade(grade g) {
+
+		if ("honor".equals(isHonors)) {
+			switch (g) {
+			case A:
+				gpaGrade += 5;
+				break;
+			case B:
+				gpaGrade += 4;
+				break;
+			case C:
+				gpaGrade += 3;
+				break;
+			case D:
+				gpaGrade += 2;
+				break;
+			case E:
+				gpaGrade += 0;
+				break;
+			}
+
+		} else {
+			switch (g) {
+			case A:
+				gpaGrade += 4;
+				break;
+			case B:
+				gpaGrade += 3;
+				break;
+			case C:
+				gpaGrade += 2;
+				break;
+			case D:
+				gpaGrade += 1;
+				break;
+			case E:
+				gpaGrade += 0;
+				break;
+			}
+
+		}
+		gradeCount++;
+	}
+
+	public void setHonors() {
+		isHonors = "honor";
 	}
 }

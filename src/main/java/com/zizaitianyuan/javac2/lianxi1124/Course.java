@@ -2,7 +2,7 @@ package com.zizaitianyuan.javac2.lianxi1124;
 
 public class Course {
 	public static void main(String[] args) {
-		CourseSession course = new CourseSession("102", "English");
+		CourseSession course = new CourseSession(102, "English");
 		Student stu1 = new Student("11");
 		Student stu2 = new Student("22");
 		Student stu3 = new Student("33");

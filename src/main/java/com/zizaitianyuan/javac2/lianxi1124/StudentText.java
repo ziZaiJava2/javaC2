@@ -25,16 +25,16 @@ public class StudentText {
 	// 添加一个测试方法测试课程，创建一个English，编号102的课程实例
 	@Test
 	public void testCreateStudent1() {
-		CourseSession courseSession = new CourseSession("102", "English");
+		CourseSession courseSession = new CourseSession(102, "English");
 		Assert.assertEquals("102", courseSession.getNumber());
-		Assert.assertEquals("English", courseSession.getDepartment());
+		Assert.assertEquals("English", courseSession.getcourseName());
 	}
 
 	// 新的测试case，创建一个English的课程，assert默认getNumberOfStudents()返回值为0
 	@Test
 	public void testCreateStudent2() {
-		CourseSession course = new CourseSession("102", "English");
-		course.getDepartment();
+		CourseSession course = new CourseSession(102, "English");
+		course.getcourseName();
 		Assert.assertEquals(course.getNumberOfStudents(), 0);
 	}
 
@@ -47,7 +47,7 @@ public class StudentText {
 		Date startDate = format.parse(startStr);
 		Date expectEndDate = format.parse(endStr);
 
-		CourseSession cs = new CourseSession("java", "001", startDate);
+		CourseSession cs = new CourseSession(001, "java", startDate);
 		Date endDate = cs.getEndDate();
 
 		Assert.assertTrue(expectEndDate.getTime() == endDate.getTime());

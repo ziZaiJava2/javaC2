@@ -1,14 +1,14 @@
 package Practice;
 
 public class Student {
-	static String  StudentLocal = "SH";
+	static final String LOCAL = "SH";
 	private String name;
-	int credits = 0;
+	private int credits = 0;
+	private String province;
 
-	public void setName(String name) {
+	public Student(String name) {
 		this.name = name;
 	}
-
 	public String getName() {
 		return this.name;
 	}
@@ -18,17 +18,12 @@ public class Student {
 	 * 现在先给他返回默认值false。
 	 */
 	public boolean isFullTime() {
-		if (credits == 12) {
-			return true;
-		} else {
-			return false;
-		}
-
+		return credits >= 12;
 	}
 
 	/** 我们添加一个getCredits()方法，获取学生的学分，返回一个int类型 */
 	public int getCredits() {
-		return this.credits;
+		return credits;
 
 	}
 
@@ -38,16 +33,16 @@ public class Student {
 	 * @return
 	 */
 	public void addCredits(int credits) {
-		 this.credits = credits;
+		this.credits += credits;
 	}
 
-	public boolean isLocal(){
-		return false;
+	public boolean isLocal() {
+		return LOCAL.equals(province);
 	}
-	
-	/**添加新方法SetLocation(String Province),用来设置学生的籍贯*/
-	public void SetLocation(String Province){
-		if()
+
+	/** 添加新方法SetLocation(String Province),用来设置学生的籍贯 */
+	public void setLocation(String province) {
+		this.province = province;
 	}
 
 }

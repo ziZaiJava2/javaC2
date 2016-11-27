@@ -7,9 +7,10 @@ package com.course;
  *
  */
 public class Student {
+	private static final String LOCAL = "SH";
 	private String name;
 	private int cre;
-	private static String LOCAL = "SH";
+	private String province = null;
 
 	// ����Student����
 	public Student(String name) {
@@ -46,7 +47,13 @@ public class Student {
 
 	// ����ѧ������
 	public void setLocation(String province) {
-		LOCAL = province;
+		if (!isLocal()) {
+			this.province = province;
+		}
+	}
+
+	public String getProvince() {
+		return province;
 	}
 
 }

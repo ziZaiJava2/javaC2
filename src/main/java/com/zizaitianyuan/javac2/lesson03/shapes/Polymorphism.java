@@ -14,7 +14,7 @@ package com.zizaitianyuan.javac2.lesson03.shapes;
  * 
  *      
  */
-public class Polymorphism {
+//public class Polymorphism {
 /*      		^ 类名，这是自己定义的，首字母大写 
  * 		^ class关键字，用来定义类
  * ^ 这个是表示可见性的关键字， 
@@ -58,16 +58,16 @@ public class Polymorphism {
 	 * int[][] a
 	 * ----- 这段表示这个数组中的元素是int[]类型的。
 	 * 
-	 */
-	public static String[][] data = {
-			{"Circle", "10"},  // 这是一个数组    
-			{"Square", "20"},  // 这也是一个数组
-			{"Circle", "11"},  // 这也是一个数组
-			{"Circle", "13"},
-			{"Square", "15"},
-	};
-	
-	
+//	 */
+//	public static String[][] data = {
+//			{"Circle", "10"},  // 这是一个数组    
+//			{"Square", "20"},  // 这也是一个数组
+//			{"Circle", "11"},  // 这也是一个数组
+//			{"Circle", "13"},
+//			{"Square", "15"},
+//	};
+//	
+//	
 	/*
 	 * main方法是一个静态方法。和我们自己平时写的其他静态方法的定义没有什么区别。
 	 * 只是java会把这个方法当做整个类的入口，从这个方法开始执行。
@@ -111,11 +111,11 @@ public class Polymorphism {
 	 * 
 	 * 
 	 */
-	public static void main(String[] args) {
+//	public static void main(String[] args) {
 		
 		// 我们的程序是生成一个对对应图形的说明，以及计算图形的周长 perimeter
 		// 二维数组中的元素是String[]这个类型的数组，所以for-each语句中的类型就是String[],一个数组
-		for(String[] shape: data) {
+//		for(String[] shape: data) {
 			/* 这里我们定义了一个String类型的变量，那么这个变量就只能接受一个Stirng的实例
 			 * 
 			 * String也是类，这个类型的变量也只能被赋一个new String()的对象。
@@ -124,15 +124,15 @@ public class Polymorphism {
 			 *		String type = new String("Circle");
 			 * 
 			 */
-			String type = shape[0];
+//			String type = shape[0];
 			// Integer.paserInt就是对Integer这个类的一个静态方法parseInt的调用
 			// 按住crtl，点击下面的parseInt方法，你可以跳过去看到方法定义。
 			// 和我们写的静态方法没什么区别。
-			int len = Integer.parseInt(shape[1]);
+//			int len = Integer.parseInt(shape[1]);
 			
 			// 这一行就是调用我们自己定义的一个静态方法。
 			// 按住crtl, 点击getInstance跳转到实现去
-			Shape s = ShapeFactory.getInstance(type, len);
+//			Shape s = ShapeFactory.getInstance(type, len);
 			
 			
 			// 这里调用的是对象方法，然后将返回值和其他字符串拼接在一起。
@@ -156,10 +156,10 @@ public class Polymorphism {
 			// 切换回来之后，s.description()的调用返回了一个String的引用，然后将这个String的引用和后面的拼起来
 			// 变成了 圆形， 半径： 10 周长为:
 			// 然后调用s.perimeter()方法。
-			System.out.println(s.description() + " 周长为: "  + s.perimeter());                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         ter());
-		}
+//			System.out.println(s.description() + " 周长为: "  + s.perimeter());                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         ter());
+//		}
 		
-	}
+//	}
 	
-}
+//}
 

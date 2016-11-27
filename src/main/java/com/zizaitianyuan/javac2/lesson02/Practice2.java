@@ -87,39 +87,39 @@ public class Practice2 {
 	 * @param n
 	 * @return
 	 */
-<<<<<<< HEAD
-	public static int fibonacci3(int n) {
-		if (n<=2){
-			return 1;
-		}
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-		return fibonacci3(n-1)+fibonacci2(nnnnn);
-=======
-		return fibonacci3(n-1)+fibonacci2(n);
->>>>>>> 96cd5d5... a
-=======
-		return fibonacci3(n-1)+fibonacci2(nnnnn);
->>>>>>> 18e6b51... f
-=======
-		return fibonacci3(n-1)+fibonacci2(n);
->>>>>>> 08a7f75... a
-=======
-		return fibonacci3(n-1)+fibonacci2(nnnnn);
->>>>>>> 10f312b... f
-=======
-		return fibonacci3(n-1)+fibonacci2(n);
->>>>>>> 96cd5d5... a
-=======
-		return fibonacci3(n-1)+fibonacci2(nnnnn);
->>>>>>> 18e6b51... f
-=======
+//<<<<<<< HEAD
+//	public static int fibonacci3(int n) {
+//		if (n<=2){
+//			return 1;
+//		}
+//<<<<<<< HEAD
+//<<<<<<< HEAD
+//<<<<<<< HEAD
+//<<<<<<< HEAD
+//<<<<<<< HEAD
+//<<<<<<< HEAD
+//		return fibonacci3(n-1)+fibonacci2(nnnnn);
+//=======
+//		return fibonacci3(n-1)+fibonacci2(n);
+//>>>>>>> 96cd5d5... a
+//=======
+//		return fibonacci3(n-1)+fibonacci2(nnnnn);
+//>>>>>>> 18e6b51... f
+//=======
+//		return fibonacci3(n-1)+fibonacci2(n);
+//>>>>>>> 08a7f75... a
+//=======
+//		return fibonacci3(n-1)+fibonacci2(nnnnn);
+//>>>>>>> 10f312b... f
+//=======
+//		return fibonacci3(n-1)+fibonacci2(n);
+//
+//
+//		return fibonacci3(n-1)+fibonacci2(nnnnn);
+//
 
-
->>>>>>> 48c0a27... homework
-	}
+//
+//
+//>>>>>>> 48c0a27... homework
+//	}
 }

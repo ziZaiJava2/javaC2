@@ -16,6 +16,7 @@ public class Student {
 	private String province = null;
 	private List<String> gpa = new ArrayList<String>();
 	private double sumGrade;
+	private boolean honors=false;
 
 	// ����Student����
 	public Student(String name) {
@@ -67,6 +68,9 @@ public class Student {
 	}
 
 	private double multiGrade() {
+		if(honors==true){
+			sumGrade+=1;
+		}
 		for (String grade : gpa) {
 			switch (grade) {
 			case "A": {
@@ -95,6 +99,9 @@ public class Student {
 
 	public void addGrade(String grade) {
 		gpa.add(grade.toUpperCase());
+	}
+	public void setHonors(){
+		honors=true;
 	}
 
 }

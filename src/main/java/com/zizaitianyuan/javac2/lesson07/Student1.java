@@ -10,26 +10,22 @@ import java.util.List;
 
 public class Student1 {
 
-	private static void enroll1(CourseSession course, Student student) {
-		course.enroll(student);
-	}
-
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		// Date date = new Date();
-		CourseSession course = CourseSession.create("102", "English");
-		RosterReporter report = new RosterReporter(course);
+		CourseSession course = CourseSession.create("102", "English");  //初始化一个CourseSession对象
+		RosterReporter report = new RosterReporter(course);   //初始化一个RosterReporter对象
 		Student[] student = new Student[] { new Student("Leon"), new Student("leone"), new Student("leono") };
-		for (Student s : student) {
-			enroll1(course, s);
+		for (Student s : student) {  //用enroll（）方法将学生输入enList
+			course.enroll(s);
 		}
-		System.out.println(report.getReport());
+		System.out.println(report.getReport());  //调用文本方法
 
 	}
 
 }
 
-class Student {
+class Student {   //创建学生的类
 	private String name;
 	private int credits;
 	private String province;
@@ -68,17 +64,17 @@ class Student {
 	}
 }
 
-class CourseSession {
+class CourseSession {   //创建一个课程的类
 	static List<Student> enList = new ArrayList<Student>();
 	private String number;
 	private String department;
 	private Date startDate;
 	private Date endDate;
-	private static String ymd = "yyyy-MM-dd";
+	private static String ymd = "yyyy-MM-dd"; //日期输出格式 
 	private static int count;
 
-	private CourseSession(String number, String department) {
-		this(number, department, new GregorianCalendar(2016, 10 + 1, 1).getTime());
+	private CourseSession(String number, String department) {   
+		this(number, department, new GregorianCalendar(2016, 10 + 1, 1).getTime());   //调用三个参数的构造函数，我这里不会用Calendar生成当前日期
 
 	}
 
@@ -126,7 +122,7 @@ class CourseSession {
 		return endDate;
 	}
 
-	public String formated1() {
+	public String formated1() {   
 		SimpleDateFormat sim = new SimpleDateFormat(ymd);
 		return sim.format(getStartDate());
 	}
@@ -145,11 +141,11 @@ class CourseSession {
 		count++;
 	}
 
-	static CourseSession create(String number, String department) {
+	static CourseSession create(String number, String department) {  //两参的工厂方法
 		return new CourseSession(number, department);
 	}
 
-	static CourseSession create(String number, String department, Date startDate) {
+	static CourseSession create(String number, String department, Date startDate) { 
 		return new CourseSession(number, department, startDate);
 	}
 }
@@ -162,7 +158,7 @@ class RosterReporter {
 		this.course = course;
 	}
 
-	public String getReport() {
+	public String getReport() {  //输出的文本方法
 		String bag = "课程编号：" + course.getNumber() + "\t课程名称：" + course.getDepartment() + "\t参加本门课程人数："
 				+ course.getNumberOfStudent() + "\t开始与截止日期：" + course.formated1() + "~" + course.formated2() + "\n\n";
 		bag = bag + "参加本门课程学生姓名：\n";
@@ -173,7 +169,7 @@ class RosterReporter {
 	}
 }
 
-class StudentTest {
+class StudentTest {   //测试
 
 	// @Test
 	// public void testCreateStudent(){
@@ -248,7 +244,7 @@ class DateUtil {
 	// }
 }
 
-class CourseReport {
+class CourseReport {   
 	static List<CourseSession> courseList = new ArrayList<CourseSession>();
 
 	public void add(CourseSession course) {
@@ -256,11 +252,9 @@ class CourseReport {
 	}
 
 	public String text() {
-		int i = 1;
-		String bag2 = null;
-		Iterator<CourseSession> iter = courseList.iterator();
-		while (iter.hasNext()) {
-			bag2 += "\t" + (i++) + iter.next();
+		String bag2 = null;		
+		for(int i = 1;i<courseList.size();i++) {
+			bag2 += "\t" + i + courseList.get(i-1);
 		}
 		return bag2;
 	}

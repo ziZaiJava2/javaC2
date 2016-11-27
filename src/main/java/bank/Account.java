@@ -5,7 +5,8 @@ public class Account {
 	private double moneyInAccount;
 
 	public Account(String accountId, double moneyInAccount) {
-
+		this.accountId = accountId;
+		this.moneyInAccount = moneyInAccount;
 	}
 
 	/** 获取账户号码 */
@@ -25,7 +26,7 @@ public class Account {
 
 	/** 设置存款金额 */
 	public void setMoneyInAccount(double moneyInAccount) {
-		this.moneyInAccount = moneyInAccount;
+		this.moneyInAccount += moneyInAccount;
 	}
 
 }

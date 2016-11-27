@@ -7,7 +7,7 @@ import java.util.Set;
 
 public class Bank {
 	// Person person = new Person();
-	public static Map<String, Account> map = new HashMap<String, Account>();
+	public static Map<String, Person> map = new HashMap<String, Person>();
 
 	/**
 	 * 注册账户方法， 参数为一个人的对象 方法要做的事情是： 生成一个新的 银行账户对象， 把Person对象的id设为， 账户对象的账户号，
@@ -16,8 +16,8 @@ public class Bank {
 	 */
 	public Account register(Person person) {
 		Account acc = new Account(person.getId(), 0);
-		acc = person.getMyAccount();
-		map.put(person.getId(), acc);
+		person.setMyAccount(acc);
+		map.put(person.getId(), person);
 		return acc;
 	}
 
@@ -32,19 +32,14 @@ public class Bank {
 		if (!map.containsKey(person.getId())) {
 			System.out.println("请先注册银行账户");
 			return false;
-		}
-		if (moneyNum >= person.getCashNum()) {
-			System.out.println("现金不足");
+		} else if (moneyNum >= person.getCashNum()) {
+			System.out.println(person.getId()+"  :现金不足");
 			return false;
+		} else {
+			person.getMyAccount().setMoneyInAccount(moneyNum);
+			person.setCashNum(person.getCashNum() - moneyNum);
+			return true;
 		}
-		Set set = map.keySet();
-		for (Iterator i = set.iterator(); i.hasNext();) {
-			String s = (String) i.next();
-			if(person.equals(s)){
-		Account	uses = map.get(s).setMoneyInAccount(moneyNum);;
-			}
-			person.setCashNum(cashNum - moneyNum);
-		}
-		
+
 	}
 }

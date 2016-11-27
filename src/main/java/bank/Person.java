@@ -7,12 +7,11 @@ public class Person {
 	private Account myAccount = null;
 
 	public Person(String id, String name, double cashNum) {
-
+		this.id = id;
+		this.name = name;
+		this.cashNum = cashNum;
 	}
 
-	public Person() {
-
-	}
 
 	public String getId() {
 		return id;
@@ -46,7 +45,7 @@ public class Person {
 		this.myAccount = myAccount;
 	}
 
-	void showMyMoney() {
-		System.out.println(this.id + this.name + this.cashNum + this.myAccount);
+	public void showMyMoney() {
+		System.out.println("账户号:" +this.id + "   身份证号:" + this.name + "   个人身上的现金数量:" + this.cashNum + "   存款金额:" + this.myAccount.getMoneyInAccount());
 	}
 }

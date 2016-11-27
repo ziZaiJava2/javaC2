@@ -28,10 +28,10 @@ public class StuTest {
 	@Test
 	public void test4(){
 		Student stu1 = new Student("Leom");
-		stu1.SetLocation("昆仑");
+		stu1.setLocation("昆仑");
 		assertEquals(false, stu1.isLocal());
 		Student stu2 = new Student("jiarui");
-		stu2.SetLocation(Student.LOCAL);
+		stu2.setLocation(Student.LOCAL);
 		assertEquals(true, stu2.isLocal());
 	}
 

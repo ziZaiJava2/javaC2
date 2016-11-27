@@ -14,6 +14,6 @@ public class CourseReportTest {
 		CourseSession course3 = CourseSession.create(01, "02Java");
 		String name = "01English" + "\n" + "02Java" + "\n" + "03Math" + "\n";
 		String expect = "课程名单：" + "\n" + name;
-        Assert.assertEquals(expect, new CourseReport().text());
+        assertEquals(expect, new CourseReport().text());
 }
 }

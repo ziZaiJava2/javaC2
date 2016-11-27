@@ -52,7 +52,7 @@ public class Student {
 	 * 
 	 * @param Province
 	 */
-	public void SetLocation(String province) {
+	public void setLocation(String province) {
 		this.province = province;
 	}
 

@@ -13,20 +13,23 @@ public class RosterReporter {
 	}
 
 	public String getReport() throws ParseException {
-		String name = courseSession.getCourseName();
-		int num = courseSession.getCourseNum();
 		SimpleDateFormat sdf = new SimpleDateFormat("YYYY-MM-dd");
-		Date sDate = courseSession.getStartDate();
-		String startTime = sdf.format(sDate);
-		Date eDate = courseSession.getEndDate();
-		String endTime = sdf.format(eDate);
-		String courseMessage = "课程：" + name + " " + "课程编号：" + num + " " + "课程人数：" + " "
+		//获取时间信息
+		String startTime = sdf.format(courseSession.getStartDate());
+		String endTime = sdf.format(courseSession.getEndDate());
+		//获取课程信息
+		String courseMessage = "课程：" + courseSession.getCourseName() + " " + 
+		                       "课程编号：" + courseSession.getCourseNum() + " " 
+				             + "课程人数：" + " "
 				+ courseSession.getNumberOfStudents();
+		
 		String timeMessage = "开课时间：" + " " + startTime + " " + "课程结束时间：" + endTime;
 		String stuMessage = "";
+		
 		for (int i = 0; i < courseSession.getNumberOfStudents(); i++) {
-			stuMessage = stuMessage + courseSession.getAllStudents().get(i).getName() + "\n";
+			stuMessage = stuMessage + courseSession.indexStu(i).getName() + "\n";
 		}
+		
 		String allMessage = courseMessage + " " + "\n" + timeMessage + " " + " \n" + stuMessage;
 		return allMessage;
 	}

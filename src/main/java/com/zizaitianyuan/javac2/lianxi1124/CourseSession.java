@@ -116,8 +116,8 @@ public class CourseSession {
 		return count;
 	}
 	
-/*
- * public static CourseSession create(int courseNumber, String courseName) {
+
+  /*  public static CourseSession create(int courseNumber, String courseName) {
  
 		CourseSession course = new CourseSession(courseNumber, courseName);
 		Course report = new Course();
@@ -127,7 +127,7 @@ public class CourseSession {
 
 	public static CourseSession create(int courseNum, String courseName, Date date) {
 		CourseSession course = new CourseSession(courseNum, courseName, date);
-		CourseReport report = new CourseReport();
+		Course report = new Course();
 		report.add(course);
 		return course;
 	}

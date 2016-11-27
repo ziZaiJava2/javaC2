@@ -30,268 +30,57 @@ public class ListMapPractice {
 	 * 从 allStudents 中找出主修专业为 "Software Engineering"的学生， 并保存在一个ArrayList中，并返回
 	 */
 
-	public static List<Student> getStudentListMajoredInSoftwareEngineering() {
-		List<Student> majoredSoftwareEngineering = new ArrayList<Student>();
-		for (Student temp : allStudents) {
-			if ("Software Engineering".equals(temp.getMajor())) {
-				majoredSoftwareEngineering.add(temp);
-			}
-		}
 
-		return majoredSoftwareEngineering;
-
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
 	public static List<Student> getStudentListMajoredInSoftwareEngineering(){
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-		List<Student> majoredSoftwareEngineering = new ArrayList<Student>();
-		for(Student temp : allStudents){
-			if("Software Engineering".equals(temp.getMajor())) {
-				majoredSoftwareEngineering.add(temp);
-			}
-		}
-		
-		return majoredSoftwareEngineering;
-=======
+
+
 		List<Student> MajoredSoftwareEngineering = new ArrayList<Student>();
-=======
-		List<Student> majoredSoftwareEngineering = new ArrayList<Student>();
->>>>>>> c40e511... homework
+
 		for(Student temp : allStudents){
 			if("Software Engineering".equals(temp.getMajor())) {
-				majoredSoftwareEngineering.add(temp);
+				MajoredSoftwareEngineering.add(temp);
 			}
 		}
-=======
-		List<Student> MajoredSoftwareEngineering = new ArrayList<Student>();
-=======
-		List<Student> majoredSoftwareEngineering = new ArrayList<Student>();
->>>>>>> c40e511... homework
-		for(Student temp : allStudents){
-			if("Software Engineering".equals(temp.getMajor())) {
-				majoredSoftwareEngineering.add(temp);
-			}
-		}
-		
-<<<<<<< HEAD
 		return MajoredSoftwareEngineering;
->>>>>>> b256983... homework
-		
-<<<<<<< HEAD
-		return MajoredSoftwareEngineering;
->>>>>>> b256983... homework
-=======
-		return majoredSoftwareEngineering;
->>>>>>> c40e511... homework
-=======
-		List<Student> MajoredSoftwareEngineering = new ArrayList<Student>();
-=======
-		List<Student> majoredSoftwareEngineering = new ArrayList<Student>();
->>>>>>> 9b62263... homework
-		for(Student temp : allStudents){
-			if("Software Engineering".equals(temp.getMajor())) {
-				majoredSoftwareEngineering.add(temp);
-			}
-		}
-		
-<<<<<<< HEAD
-		return MajoredSoftwareEngineering;
->>>>>>> 86ef6d6... homework
-=======
-		return majoredSoftwareEngineering;
->>>>>>> 9b62263... homework
-=======
-		return majoredSoftwareEngineering;
->>>>>>> c40e511... homework
-		
->>>>>>> 86ef6d6... homework
-=======
->>>>>>> 7393b8f... homework
-=======
->>>>>>> e2f7479e9fa389a6c345f5fb2c67a41eb63fd66e
 	}
 
 	/*
 	 * 从 allStudents 中找出主修专业为 "Computer Science"的学生， 并保存在一个ArrayList中，并返回
 	 */
 
-	public static List<Student> getStudentListMajoredInComputerScience() {
-
-		List<Student> majoredComputerScience = new ArrayList<Student>();
-		for (Student temp : allStudents) {
-			if ("Computer Science".equals(temp.getMajor())) {
-
-<<<<<<< HEAD
-
->>>>>>> 7393b8f... homework
-	public static List<Student> getStudentListMajoredInComputerScience(){
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-		List<Student> majoredComputerScience = new ArrayList<Student>();
-		for ( Student temp : allStudents){
-			if("Computer Science".equals(temp.getMajor())) {
-<<<<<<< HEAD
-=======
-
->>>>>>> 7393b8f... homework
-				majoredComputerScience.add(temp);
-			}
-		}
-		return majoredComputerScience;
-<<<<<<< HEAD
-=======
-		List<Student> MajoredComputerScience = new ArrayList<Student>();
-=======
-		List<Student> majoredComputerScience = new ArrayList<Student>();
->>>>>>> c40e511... homework
-		for ( Student temp : allStudents){
-			if("Computer Science".equals(temp.getMajor())) {
-=======
->>>>>>> e2f7479e9fa389a6c345f5fb2c67a41eb63fd66e
-				majoredComputerScience.add(temp);
-			}
-		}
-		return majoredComputerScience;
-<<<<<<< HEAD
->>>>>>> c40e511... homework
-=======
-		List<Student> MajoredComputerScience = new ArrayList<Student>();
-=======
-		List<Student> majoredComputerScience = new ArrayList<Student>();
->>>>>>> 9b62263... homework
-		for ( Student temp : allStudents){
-			if("Computer Science".equals(temp.getMajor())) {
-				majoredComputerScience.add(temp);
-			}
-		}
-<<<<<<< HEAD
-		return MajoredComputerScience;
->>>>>>> 86ef6d6... homework
-=======
-		return majoredComputerScience;
->>>>>>> 9b62263... homework
-=======
-		List<Student> MajoredComputerScience = new ArrayList<Student>();
-=======
-		List<Student> majoredComputerScience = new ArrayList<Student>();
->>>>>>> c40e511... homework
-		for ( Student temp : allStudents){
-			if("Computer Science".equals(temp.getMajor())) {
-				majoredComputerScience.add(temp);
-			}
-		}
-<<<<<<< HEAD
-		return MajoredComputerScience;
->>>>>>> b256983... homework
-=======
-		return majoredComputerScience;
->>>>>>> c40e511... homework
-		
->>>>>>> 86ef6d6... homework
-=======
-
-=======
->>>>>>> e2f7479e9fa389a6c345f5fb2c67a41eb63fd66e
-
-	}
 
 	/*
 	 * 通过 allStudents中保存的学生信息来构造一个 Map， 其中 key是学生的名字， value是学生,
 	 * 以便以后可以快速的通过学生名字来查询学生的信息
 	 */
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
 
->>>>>>> e2f7479e9fa389a6c345f5fb2c67a41eb63fd66e
+
 	public static Map<String, Student> constructStudentMapWithNameKey() {
 		for (Student temp : allStudents) {
 			studentMapWithNameKey.put(temp.getName(), temp);
 		}
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> b256983... homework
-=======
-
->>>>>>> 7393b8f... homework
-=======
->>>>>>> 86ef6d6... homework
-=======
->>>>>>> b256983... homework
-	public static Map<String, Student> constructStudentMapWithNameKey(){		
-		for(Student temp :allStudents) {
-			studentMapWithNameKey.put(temp.getName(), temp); 
-		}
-		
-		return studentMapWithNameKey;
-	}
-	 	
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> 86ef6d6... homework
-=======
->>>>>>> b256983... homework
-=======
-
->>>>>>> 7393b8f... homework
-=======
->>>>>>> 86ef6d6... homework
-=======
->>>>>>> b256983... homework
-=======
 		return studentMapWithNameKey;
 	}
 
->>>>>>> e2f7479e9fa389a6c345f5fb2c67a41eb63fd66e
+
+	
 	/*
 	 * 通过 allStudents中保存的学生信息来构造一个 Map， 其中 key是学生的学号， value是学生,
 	 * 以便以后可以快速的通过学生学号来查询学生的信息
 	 */
 
-<<<<<<< HEAD
 
 	public static Map<Integer, Student> constructStudentMapWithIdKey(){
 		for(Student temp :allStudents) {
 			studentMapWithIdKey.put(temp.getId(), temp); 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> 86ef6d6... homework
-=======
->>>>>>> b256983... homework
-=======
 
->>>>>>> 7393b8f... homework
-=======
->>>>>>> 86ef6d6... homework
-=======
->>>>>>> b256983... homework
 		}
 		return studentMapWithIdKey;
 	}
 
-=======
->>>>>>> e2f7479e9fa389a6c345f5fb2c67a41eb63fd66e
+
+
 	/*
 	 * 构造一些学生对象 并把他们保存在 allStudents中
 	 */

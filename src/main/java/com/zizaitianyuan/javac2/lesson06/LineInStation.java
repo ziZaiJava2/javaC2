@@ -72,28 +72,12 @@ public class LineInStation {
 			Person per = new Person(names.get(ran.nextInt(names.size())));
 			comingPassagers.add(per);		
 		}
-<<<<<<< HEAD
 		totalPassagers += comPasNum;
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-		return comingPassagers;
-=======
-=======
->>>>>>> 2470ba3... homework
-		return null;
->>>>>>> 2470ba3... homework
-=======
-		return comingPassagers;
->>>>>>> f38f6f8... homework
-=======
-		return comingPassagers;
->>>>>>> f38f6f8... homework
-=======
+
 		return comingPassagers;
 
->>>>>>> e2f7479e9fa389a6c345f5fb2c67a41eb63fd66e
+
+
 	}
 	
 	private static int totalPassagers = 0;
@@ -112,36 +96,9 @@ public class LineInStation {
 	 */
 	public static void lineUp(List<Person> passages) {
 		
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
->>>>>>> 7393b8f... homework
-		List<Person> min = new ArrayList<Person>();
-		min = line1;
-		if(line1.size() > line2.size()){
-			min = line2;
-		}
-		if(line2.size() > line3.size()){
-			min = line3;
-		}
-		if(line3.size() > line4.size()){
-			min = line4;
-		}
-		min.addAll(passages);
-<<<<<<< HEAD
-=======
-=======
->>>>>>> 2470ba3... homework
-=======
 
 		
 
->>>>>>> e2f7479e9fa389a6c345f5fb2c67a41eb63fd66e
 		List<Person> min = line1;
 		if(line2.size() < line1.size()) {
 			 min = line2;
@@ -153,17 +110,8 @@ public class LineInStation {
 			 min = line4;
 		}
 		min.addAll(passages);
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
 
->>>>>>> 7393b8f... homework
-=======
->>>>>>> e89f888... homework
-=======
 
->>>>>>> e2f7479e9fa389a6c345f5fb2c67a41eb63fd66e
 		if(line1.size() <= line2.size() && line1.size() <= line3.size() &&
 				line1.size() <= line4.size()) {
 			line1.addAll(passages);
@@ -176,31 +124,15 @@ public class LineInStation {
 				line3.size() <= line4.size() && line3.size() <= line1.size()) {
 			line3.addAll(passages);
 								
-<<<<<<< HEAD
+
 		}else{line4.addAll(passages);}
-<<<<<<< HEAD
->>>>>>> e89f888... homework
-		
-<<<<<<< HEAD
->>>>>>> 2470ba3... homework
-=======
 
->>>>>>> 7393b8f... homework
-=======
-=======
->>>>>>> e89f888... homework
 		
->>>>>>> 2470ba3... homework
-	}
-=======
-		}else{line4.addAll(passages);
-		}
+		
 		}
 
 
 
->>>>>>> e2f7479e9fa389a6c345f5fb2c67a41eb63fd66e
-	
 	/*
 	 * 这个方法给每个队伍卖出一张车票，并统计总共卖出的票数到（saledTikets）。
 	 * 
@@ -231,25 +163,13 @@ public class LineInStation {
 	 * 统计还有多少个乘客没有买到车票
 	 */
 	public static int passagersInLines() {
-<<<<<<< HEAD
+
 
 		return totalPassagers - saledTikets;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-		int noTicketPassagers = totalPassagers - saledTikets;
-		return noTicketPassagers;
->>>>>>> 2470ba3... homework
-=======
 
 
->>>>>>> 7393b8f... homework
-=======
-		int noTicketPassagers = totalPassagers - saledTikets;
-		return noTicketPassagers;
->>>>>>> 2470ba3... homework
-=======
->>>>>>> e2f7479e9fa389a6c345f5fb2c67a41eb63fd66e
+
+
 	}
 	
 	private static int saledTikets = 0;

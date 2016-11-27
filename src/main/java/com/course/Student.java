@@ -1,5 +1,8 @@
 package com.course;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * ѧ����
  * 
@@ -11,6 +14,8 @@ public class Student {
 	private String name;
 	private int cre;
 	private String province = null;
+	private List<String> gpa = new ArrayList<String>();
+	private double sumGrade;
 
 	// ����Student����
 	public Student(String name) {
@@ -54,6 +59,42 @@ public class Student {
 
 	public String getProvince() {
 		return province;
+	}
+
+	public double getGPA() {
+
+		return multiGrade() / gpa.size();
+	}
+
+	private double multiGrade() {
+		for (String grade : gpa) {
+			switch (grade) {
+			case "A": {
+				sumGrade += 4;
+				break;
+			}
+			case "B": {
+				sumGrade += 3;
+				break;
+			}
+			case "C": {
+				sumGrade += 2;
+				break;
+			}
+			case "D": {
+				sumGrade += 1;
+				break;
+			}
+			default: {
+
+			}
+			}
+		}
+		return sumGrade;
+	}
+
+	public void addGrade(String grade) {
+		gpa.add(grade.toUpperCase());
 	}
 
 }

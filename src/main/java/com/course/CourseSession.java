@@ -1,4 +1,4 @@
-package practice;
+package com.course;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;

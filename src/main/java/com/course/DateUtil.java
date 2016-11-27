@@ -1,4 +1,4 @@
-package practice;
+package com.course;
 
 import java.util.Calendar;
 import java.util.Date;

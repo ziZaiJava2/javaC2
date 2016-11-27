@@ -1,4 +1,4 @@
-package com.zizaitianyuan.javac2.lesson06;
+/*package com.zizaitianyuan.javac2.lesson06;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -116,3 +116,4 @@ public class Wan{
 
 =======
 >>>>>>> 360d5e2f42ba49d2ec0badef870db5016cf6df51
+*/

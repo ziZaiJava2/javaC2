@@ -9,8 +9,8 @@ import java.util.List;
 public class CourseSession {
 	private String number;// 课程编号
 	private String department;// 课程名字
-	private Date date;
-	private Date endtDate;
+	private static Date date;
+//	private Date endtDate;
 	private static int count = 0;// 课程数量
 	/** 注册：List某一门课的学生 */
 	public static List<Student> allStudentName = new ArrayList<Student>();
@@ -32,6 +32,9 @@ public class CourseSession {
 		this.department = department;
 		this.date = startDate;
 		count++;
+	}
+
+	public CourseSession() {
 	}
 
 	/** 接受课程编号 */
@@ -71,7 +74,7 @@ public class CourseSession {
 	}
 
 	/** 获得开课时间 */
-	public Date getStartDate() {
+	public static Date getStartDate() {
 
 		return date;
 	}

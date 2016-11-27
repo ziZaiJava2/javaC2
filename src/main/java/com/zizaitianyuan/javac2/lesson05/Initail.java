@@ -20,17 +20,21 @@ public class Initail {
 //        System.out.println("属性重设日期------------>"+dateformat.format(date3));
 		
 		
-		CourseSession english = new CourseSession("english","102");
-		Student stu1 = new Student("Duck1");
-		Student stu2 = new Student("Duck2");
-		Student stu3 = new Student("Duck3");
-		Student stu4 = new Student("Duck4");
-		english.enroll(stu1);
-		english.enroll(stu2);
-		english.enroll(stu3);
-		english.enroll(stu4);
-		RosterReporter a = new RosterReporter(english);
-		System.out.println(a.getReport());
+//		CourseSession english = new CourseSession("english","102");
+//		Student stu1 = new Student("Duck1");
+//		Student stu2 = new Student("Duck2");
+//		Student stu3 = new Student("Duck3");
+//		Student stu4 = new Student("Duck4");
+//		english.enroll(stu1);
+//		english.enroll(stu2);
+//		english.enroll(stu3);
+//		english.enroll(stu4);
+//		RosterReporter a = new RosterReporter(english);
+//		System.out.println(a.getReport());
+		
+		
+
+		System.out.println(DateUtil.creatDate(2016, 11, 27));
 	}
 	
 	

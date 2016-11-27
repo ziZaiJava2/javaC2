@@ -4,6 +4,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 import com.zizaitianyuan.javac2.lesson05.Student;
@@ -12,55 +13,49 @@ public class CourseSession {
 	
 
 	public SimpleDateFormat dateformat=new SimpleDateFormat("yyyy-MM-dd ");
-	public Calendar c=Calendar.getInstance();
+	public Calendar c = Calendar.getInstance();
 	public List<Student> course = new ArrayList<Student>();
 	
 	private String courseNum;
 	private String courseName;
 	private Date startDate;
 	private Date endDate;
-	private static int Count = 0 ;
+	private static int count = 0 ;
 	  
 	
-	public CourseSession(String courseName, String courseNum){
-		this(courseName, courseNum,null);
+	private CourseSession(String courseName, String courseNum){
+		this(courseName, courseNum, null);
+		Calendar c = Calendar.getInstance();
+		c.set(c.get(Calendar.YEAR), c.get(Calendar.MONTH) + 1, 1);
+		this.startDate = c.getTime();
 		CourseSession.incrementCount();
 	}
 	
-	public CourseSession(String courseName, String courseNum,Date startDate){
+	private CourseSession(String courseName, String courseNum,Date startDate){
 		this.courseName = courseName;
 		this.courseNum = courseNum;
 		this.startDate = startDate;
 	}
 	
 	public static int getCount(){
-		return CourseSession.Count;
+		return CourseSession.count;
 	}
 	
 	private static void incrementCount(){
-		CourseSession.Count ++;
+		CourseSession.count ++;
 	}
 	
 	public Date getStartDate() {
-			Date date=new Date();
-			date.setYear(116);
-			date.setMonth(11);
-        	date.setDate(1);
-//        date.setMinutes(0);
-//        date.setHours(0);
-//        date.setSeconds(0);
-		return this.startDate = date ;
+		Calendar c = Calendar.getInstance();
+		c.set(c.get(Calendar.YEAR), c.get(Calendar.MONTH) + 1, 1);
+		return this.startDate = c.getTime();
 	}
 	
 	public Date getEndDate() {
-		startDate.setYear(117);
-		startDate.setMonth(5);
-		startDate.setDate(1);
-//		startDate.setMinutes(0);
-//		startDate.setHours(0);
-//		startDate.setSeconds(0);
-		endDate = startDate;
-		return endDate;
+		Calendar c = new GregorianCalendar();
+		c.setTime(this.startDate);
+		c.add(Calendar.MONTH, 6);
+		return c.getTime();
 	}
 	
 	public String getDepartment(){
@@ -90,9 +85,19 @@ public class CourseSession {
 //	}
 	
 	public Student get(int index){
+		return course.get(index);
+	}
+	
+	public static CourseSession creatTwoParameters (String courseName, String courseNum){
 		
-		return course.get(index);	
-		 
+		return new CourseSession(courseName, courseNum);
+		
+	}
+	
+	public static CourseSession creatThreeParameters(String courseName, String courseNum, Date startDate){
+	
+		return new CourseSession(courseName, courseNum, startDate);
+		
 	}
 }
 

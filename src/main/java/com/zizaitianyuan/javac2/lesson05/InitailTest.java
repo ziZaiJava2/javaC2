@@ -14,23 +14,23 @@ public class InitailTest {
 		Student leon = new Student("Leon");
 		Assert.assertEquals("Leon", leon.getName());
 	}
-	
+//	
 	@Test
 	public void test2() {
-		CourseSession English = new CourseSession("English" , "102");
-		Assert.assertEquals("English", English.getDepartment());
+		CourseSession english = CourseSession.creatTwoParameters("English" , "102");
+		Assert.assertEquals("English", english.getDepartment());
 	}
 	
 	@Test
 	public void test3() {
-		CourseSession english = new CourseSession("English" , "102");
+		CourseSession english = CourseSession.creatTwoParameters("English" , "102");
 		english.getNumberOfStudents();
 		Assert.assertEquals(0, english.getNumberOfStudents());
 	}
 	
 	@Test
 	public void test4() {
-		CourseSession english = new CourseSession("English" , "102");
+		CourseSession english = CourseSession.creatTwoParameters("English" , "102");
 		Student stu1 = new Student("Mike");
 		Student stu2 = new Student("Duke");
 		english.enroll(stu1);
@@ -40,7 +40,7 @@ public class InitailTest {
 	
 	@Test
 	public void test5() {
-		CourseSession english = new CourseSession("English" , "102");
+		CourseSession english = CourseSession.creatTwoParameters("English" , "102");
 		Student stu1 = new Student("Mike");
 		Student stu2 = new Student("Duke");
 		english.enroll(stu1);
@@ -52,7 +52,7 @@ public class InitailTest {
 	
 	@Test
 	public void test6() {
-		CourseSession english = new CourseSession("English" , "102");
+		CourseSession english = CourseSession.creatTwoParameters("English" , "102");
 		Student stu1 = new Student("Duke1");
 		Student stu2 = new Student("Duke2");
 		Student stu3 = new Student("Duke3");
@@ -65,19 +65,45 @@ public class InitailTest {
 	
 	@Test
 	public void test7() {
-		CourseSession english = new CourseSession("English" , "102");
+		CourseSession english = CourseSession.creatTwoParameters("English" , "102");
 		Date date = english.getStartDate();
-		Assert.assertEquals(date,"2006-12-21 0:00:00 星期五");		
-		english = new CourseSession("English" , "102", date);  //这个测试不会写
+		Assert.assertEquals(date,"2016-11-27");		
+		CourseSession math = CourseSession.creatThreeParameters("English" , "102", date);
 		Assert.assertEquals(date,"2006-12-21 0:00:00 星期五");	
 	}
 	
 	@Test
 	public void test9() {
 		int a = CourseSession.getCount();
-		CourseSession english = new CourseSession("English" , "102");
-		CourseSession math = new CourseSession("English" , "102");
-		CourseSession java = new CourseSession("English" , "102");
+		CourseSession english = CourseSession.creatTwoParameters("English" , "102");
+		CourseSession math = CourseSession.creatTwoParameters("Math" , "102");
+		CourseSession java = CourseSession.creatTwoParameters("java" , "102");
 		Assert.assertEquals(3, CourseSession.getCount() - a );	
 	}
+	
+	@Test
+	public void test10() {
+		Student stu = new Student("ren");
+		Assert.assertFalse(stu.isFullTime());
+		Assert.assertEquals(0, stu.getCredits() );	
+		Student stu1 = new Student("xiang");
+		stu1.addCredits(5);
+		Assert.assertEquals(5, stu1.getCredits() ); 
+		Student stu2 = new Student("jie");
+		stu2.addCredits(12);
+		Assert.assertEquals(true, stu2.isFullTime());
+		Student stu3 = new Student("renxiang");
+		stu3.addCredits(11);
+		Assert.assertEquals(false, stu3.isFullTime());
+		}
+	
+	public void test11() {
+		Student stu = new Student("ren");
+		Assert.assertFalse( stu.isLocal());
+		Student stu1 = new Student("xiang");
+		stu1.setLocation(stu1.LOCAL);
+		Assert.assertTrue( stu1.isLocal());
+
+		
+		}
 }

@@ -5,9 +5,7 @@ public class RosterReporter {
 	private String report;
 
 	public RosterReporter(CourseSession temp){
-		String a = new String();
-		String b = new String();
-		a = "课程名称" + temp.getDepartment() + "," 
+		String a = "课程名称" + temp.getDepartment() + "," 
 			+ "课程编号" + temp.getNumber() + ","
 			+ "学生人数：" + temp.getNumberOfStudents() + ","
 			+ "开课时间：" + temp.getStartDate()+ ","
@@ -15,9 +13,9 @@ public class RosterReporter {
 //		List<Student> stus = new ArrayList<Student>();
 		
 		for(int i = 0; i < temp.course.size(); i++) {
-			b += "\n" + temp.course.get(i).getName() ;
+			a += "\n" + temp.course.get(i).getName() ;
 		};
-		this.report = a + b;
+		this.report = a ;
 	}
 	
 	public String getReport(){	

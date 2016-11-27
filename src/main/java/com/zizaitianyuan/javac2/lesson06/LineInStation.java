@@ -62,6 +62,7 @@ public class LineInStation {
 	 * 
 	 */
 	public static List<Person> comingPassagers() {
+<<<<<<< HEAD
 		List<Person> in = new ArrayList<Person>();
 		Random random = new Random();
 //      （me）rand.nextInt()用法：给定一个参数n，nextInt(n)将返回一个大于等于0小于n的随机数，
@@ -73,6 +74,20 @@ public class LineInStation {
 					in.add(passager);
 		}
 				totalPassagers += in.size();
+=======
+		ArrayList<Person> in = new ArrayList<Person>();
+		Random rand = new Random();
+//      （me）rand.nextInt()用法：给定一个参数n，nextInt(n)将返回一个大于等于0小于n的随机数，
+//       (me)即：0 <= nextInt(n) < n
+		int num = rand.nextInt(3)+1;
+		
+		totalPassagers + in.size();
+		
+				for (int i = 1;i <= num ; i++){
+					Person ren = new Person(names.get(rand.nextInt(names.size())));
+					in.add(ren);
+		}
+>>>>>>> 48c0a276687d744b1eae8ca0cdbc9ccdf7e9d1d8
 		return in;
 	}
 	
@@ -92,6 +107,7 @@ public class LineInStation {
 	 * 不需要判断是不是空的，因为空的就是0
 	 */
 	public static void lineUp(List<Person> passages) {
+<<<<<<< HEAD
 		List<Person> min = line1;
 		if (min.size() > line2.size()){
 			min = line2;
@@ -122,6 +138,35 @@ public class LineInStation {
 //	saleTicket(line1);
 //	saleTicket(line2);
 	
+=======
+		int a = line1.size();
+		int b = line2.size();
+		int c = line3.size();
+		int d = line4.size();
+		
+		if (line1.isEmpty()) {
+			line1.addAll(passages);
+		} else if (line2.isEmpty()) {
+			line2.addAll(passages);
+		} else if (line3.isEmpty()) {
+			line3.addAll(passages);
+		} else if (line4.isEmpty()) {
+			line4.addAll(passages);
+		} else {
+				if (a <= b && a <= c && a <= d){
+				line1.addAll(passages);
+			} else if (b <= a && b <= c && b <= d){
+				line2.addAll(passages);
+			} else if (c <= a && c <= b && c <= d){
+				line3.addAll(passages);
+			} else if (d <= a && d <= b && d <= c){
+				line4.addAll(passages);
+			}
+		}
+
+		
+	}
+>>>>>>> 48c0a276687d744b1eae8ca0cdbc9ccdf7e9d1d8
 	
 	/*
 	 * 这个方法给每个队伍卖出一张车票，并统计总共卖出的票数到（saledTikets）。
@@ -159,7 +204,12 @@ public class LineInStation {
 	 */
 	public static int passagersInLines() {
 //		（me）还在排队的人就是没买到票的人数
+<<<<<<< HEAD
 		return line1.size() + line2.size() + line3.size() + line4.size();
+=======
+		int no = line1.size() + line2.size() + line3.size() + line4.size();
+		return 0;
+>>>>>>> 48c0a276687d744b1eae8ca0cdbc9ccdf7e9d1d8
 	}
 	
 	private static int saledTikets = 0;

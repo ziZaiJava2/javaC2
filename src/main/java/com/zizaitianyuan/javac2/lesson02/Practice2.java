@@ -87,6 +87,7 @@ public class Practice2 {
 	 * @param n
 	 * @return
 	 */
+<<<<<<< HEAD
 //<<<<<<< HEAD
 //	public static int fibonacci3(int n) {
 //		if (n<=2){
@@ -122,4 +123,9 @@ public class Practice2 {
 //
 //>>>>>>> 48c0a27... homework
 //	}
+=======
+
+
+	}
+>>>>>>> 48c0a276687d744b1eae8ca0cdbc9ccdf7e9d1d8
 }

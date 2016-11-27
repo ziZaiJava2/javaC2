@@ -1,8 +1,6 @@
 package com.lianxi;
-
-//����һ��ѧ�����ࣨStudent����Ҫ��
-//��һ�����캯�����������֣�String����Ϊ����
-//�����и�getName()�ķ���������ȡ��ѧ�������֡�
+//创建一个学生的类（Student），
+//有一个构造函数，接受名字（String）作为参数
 
 public class Student {
 	static final String LOCAL = "SH";
@@ -14,6 +12,7 @@ public class Student {
 		this.name = name;
 	}
 
+//对象有个getName()的方法，可以取得学生的名字。
 	public String getName() {
 		return this.name;
 	}

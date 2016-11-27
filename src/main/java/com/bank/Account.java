@@ -6,7 +6,7 @@ package com.bank;
 
 public class Account {
 	private String accountId; // 账户号
-	double moneyInAccount; // 存款金额
+	private double moneyInAccount; // 存款金额
 
 	// 构造方法
 	// 需要自己写一个两个参数的构造方法， 参数分别为 accountId, moneyInAccount

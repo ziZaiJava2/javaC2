@@ -46,6 +46,6 @@ public class Person {
 	}
 
 	public void showMyMoney() {
-		System.out.println("账户号:" +this.id + "   身份证号:" + this.name + "   个人身上的现金数量:" + this.cashNum + "   存款金额:" + this.myAccount.getMoneyInAccount());
+		System.out.println("身份证号:" +this.id + "   用户名 :" + this.name + "   个人身上剩下的现金数量:" + this.cashNum + "   银行账户金额:" + this.myAccount.getMoneyInAccount());
 	}
 }

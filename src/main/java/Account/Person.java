@@ -6,6 +6,9 @@ public class Person {
 	private double cashNum;
 	private Account myAccount = null;
 
+	/*
+	 * Account myAccount 自己的存款账户， 开始为null。 后面需要去调用Bank的 register方法去获取一个账户。
+	 */
 	public Person(String id, String name, double cashUnm) {
 		this.id = id;
 		this.name = name;

@@ -1,4 +1,4 @@
-package com.zizaitianyuan.javac2.lesson05;
+package com.course.huang;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

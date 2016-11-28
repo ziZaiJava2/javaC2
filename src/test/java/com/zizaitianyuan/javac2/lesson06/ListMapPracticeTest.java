@@ -33,7 +33,7 @@ public class ListMapPracticeTest {
 		String[] studentNamesMajoredInComputerScience = {"Xiao Gang", "Han Mei Mei", "Li Lei", "Liu De Hua"};
 		Set<String> set = new HashSet<String>(Arrays.asList(studentNamesMajoredInComputerScience));
 		
-		List<Student> studentListMajoredInComputerScience = ListMapPractice.getStudentListMajoredInComputerScience();
+		List<Student> studentListMajoredInComputerScience = ListMapPractice();
 		for(Student student: studentListMajoredInComputerScience){
 			String name = student.getName();
 			Assert.assertTrue(set.contains(name));

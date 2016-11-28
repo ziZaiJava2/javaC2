@@ -1,11 +1,9 @@
-package com.zizaitianyuan.javac2.lesson05;
+package com.course.huang;
 
 import java.util.Date;
 
 import org.junit.Assert;
 import org.junit.Test;
-
-import com.zizaitianyuan.javac2.lesson05.Student;
 
 public class InitailTest {
 

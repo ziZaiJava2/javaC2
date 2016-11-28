@@ -12,10 +12,10 @@ public class BankTest {
 	ICBC.register(per3);
 	ICBC.saveMoney(per1, 5000);
 	ICBC.saveMoney(per2, 100000);
-	ICBC.saveMoney(per1, 500000);
+	ICBC.saveMoney(per3, 500000);
 //	System.out.println(per1.showMyMoney() + per2.showMyMoney()+ per3.showMyMoney());
 	per1.showMyMoney();
 	per2.showMyMoney();
 	per3.showMyMoney();
-}
+	}
 }

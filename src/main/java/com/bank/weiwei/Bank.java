@@ -22,7 +22,6 @@ public class Bank {
 			if(person.getCashNum() < moneyNum) {
 				System.out.println("现金不足");
 				return false;
-				
 			}else{
 				person.getMyAccount().setMoneyInAccount(moneyNum);
 				person.setCashNum(person.getCashNum() - moneyNum);

@@ -21,6 +21,10 @@ public class RuntimeDemo {
 		System.out.println(anotherFoo == foo);
 		
 		System.out.println("size of Foo.allStrs: " + Foo.allStrs.size());
+		System.out.println(Foo.allStrs.get(0) == Foo.allStrs.get(1));
+		
+		System.out.println(aFoo.strs.get(0) == anotherFoo.strs.get(0));
+		System.out.println(aFoo.strs.get(0) == Foo.allStrs.get(1));
 	}
 	 
 	

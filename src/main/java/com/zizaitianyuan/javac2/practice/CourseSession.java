@@ -9,23 +9,32 @@ import java.util.List;
 import org.junit.experimental.theories.internal.AllMembersSupplier;
 
 public class CourseSession {
-	public CourseSession(String className, String classId) {
-		this(className, classId, startDate);
+	public CourseSession(String classId2, String classId) {
+		
+		this(classId2, classId, null);
+		
+		Calendar calender = Calendar.getInstance();
 
+		calender.set(calender.get(Calendar.YEAR), calender.get(Calendar.MONTH) + 1, 1);
+
+		startDate = calender.getTime();
 	}
 
-	public CourseSession(String className, String classId, Date startDate) {
+	public CourseSession(String classId2, String classId, Date startDate) {
 		this.getNumber();
 		this.getDepartment();
 		this.startDate = startDate;
+		count++;
 
 	}
 	private String classId;
-	private String className;
+	private String depertment;
 
-	private static List<Student> allStudent = new ArrayList<Student>();
-	private static Date startDate;
+	public static  List<Student> allStudent = new ArrayList<Student>();
+	private  Date startDate;
+	private static int count = 0;
 
+	
 	private static int getNumberofStudent() {
 
 		return allStudent.size();
@@ -36,7 +45,7 @@ public class CourseSession {
 	 * 
 	 * @return
 	 */
-	public static void enroll(Student student) {
+	public  void enroll(Student student) {
 		allStudent.add(student);
 	}
 
@@ -53,9 +62,9 @@ public class CourseSession {
 	 * 返回包含所有通过enroll()方法注册的学生的List。
 	 */
 
-	public List getAllStudents() {
+	public int getAllStudents() {
 
-		return allStudent;
+		return allStudent.size();
 
 	}
 
@@ -81,7 +90,11 @@ public class CourseSession {
 		return cal.getTime();
 
 	}
+	public static int incrementCount() {
 
+		return count;
+
+	}
 	
 
 	/**
@@ -96,16 +109,36 @@ public class CourseSession {
 	 * 接收课程名称
 	 */
 	public String getDepartment() {
-		return this.className;
+		return this.depertment;
 	}
+	public void setDepartment(String department) {
 
-	public static void main(String[] args) {
-		// CourseSession courseSession=
-	}
+		incrementCount();
 
-	public static CourseSession create() {
-		// TODO 自动生成的方法存根
-		return null;
+		this.depertment = department;
 	}
+	public static CourseSession create(String classId, String department) {
+
+		CourseSession course = new CourseSession(classId, department);
+
+		ClassReport report = new ClassReport();
+
+		report.add(course);
+
+		return course;
+
+	}
+	public static CourseSession create(String classId, String department, Date date) {
+
+		CourseSession course = new CourseSession(classId, department);
+
+		ClassReport report = new ClassReport();
+
+		report.add(course);
+
+		return course;
+
+	}
+	
 
 }

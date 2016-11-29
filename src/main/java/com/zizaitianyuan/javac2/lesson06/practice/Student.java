@@ -74,7 +74,11 @@ public class Student {
 	 * @return 平均成绩成绩
 	 */
 	public double getGPA() {
-		return gpaGrade / gradeCount;
+		if ("honor".equals(isHonors)) {
+			return (gpaGrade + gradeCount) / gradeCount;
+		} else {
+			return gpaGrade / gradeCount;
+		}
 	}
 
 	/**
@@ -84,7 +88,6 @@ public class Student {
 	 */
 	public enum grade {
 		A, B, C, D, E;
-
 	}
 
 	public void addGrade(grade g) {
@@ -93,15 +96,19 @@ public class Student {
 			switch (g) {
 			case A:
 				gpaGrade += 5;
+				gradeCount++;
 				break;
 			case B:
 				gpaGrade += 4;
+				gradeCount++;
 				break;
 			case C:
 				gpaGrade += 3;
+				gradeCount++;
 				break;
 			case D:
 				gpaGrade += 2;
+				gradeCount++;
 				break;
 			case E:
 				gpaGrade += 0;
@@ -112,15 +119,19 @@ public class Student {
 			switch (g) {
 			case A:
 				gpaGrade += 4;
+				gradeCount++;
 				break;
 			case B:
 				gpaGrade += 3;
+				gradeCount++;
 				break;
 			case C:
 				gpaGrade += 2;
+				gradeCount++;
 				break;
 			case D:
 				gpaGrade += 1;
+				gradeCount++;
 				break;
 			case E:
 				gpaGrade += 0;
@@ -128,9 +139,10 @@ public class Student {
 			}
 
 		}
-		gradeCount++;
 	}
-
+/**
+ * 设定学生为荣誉学生
+ */
 	public void setHonors() {
 		isHonors = "honor";
 	}

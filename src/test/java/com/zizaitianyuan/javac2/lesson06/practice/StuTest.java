@@ -44,10 +44,10 @@ public class StuTest {
 	   stu.addGrade(grade.B);
 	   assertEquals(3.5, stu.getGPA(), 0.0001);
 	   Student stu2 = new Student("梁教官");
-	   stu2.setHonors();
 	   stu2.addGrade(grade.A);
-	   stu2.addGrade(grade.B);
-	   assertEquals(4.5, stu2.getGPA(), 0.0001);
+	   stu2.addGrade(grade.A);
+	   stu2.setHonors();
+	   assertEquals(5, stu2.getGPA(), 0.0001);
    }
    
 	   

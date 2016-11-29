@@ -50,7 +50,7 @@ public class DateUtil {
 	 * @param date3
 	 * @return 返回一个三个参数中日期最早的
 	 */
-	public static Date getEarlierDate(Date date1, Date date2, Date date3) {
+	public static Date getEarlierDate(Date date1, Date date2, Date date3, Date ...args) {
 		Date tempDate;
 		if (!date1.before(date2)) {
 			tempDate = date1;

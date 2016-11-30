@@ -5,6 +5,8 @@ public class Student {
 	private String name;
 	private int credits = 0;
 	private String province;
+	public double average = 0;
+	int count = 0;
 
 	public Student(String name) {
 		this.name = name;
@@ -44,5 +46,40 @@ public class Student {
 	public void setLocation(String province) {
 		this.province = province;
 	}
+	
+	/**新增一个方法，double getGPA();
+	 * ,返回学生的平均成绩，默认返回0，
+	 * 因为我们现在还没有添加任何成绩*/
+	public double getGPA(){		
+		return average / count;
+	}
+	
+	/**新增一个方法，void addGrade(String grade);
+	 * ，用来添加成绩。合法的成绩有"A"(4分), "B"(3分), 
+	 * "C"(2分), "D"(1分), "F"(0分)*/
+	public void addGrade(String grade){
+		double answer = 0;
+		
+		switch(grade){
+		case "A":
+			answer = 4;
+		break;
+		case "B":
+			answer = 3;
+			break;
+		case "C":
+			answer = 2;
+			break;
+		case "D":
+			answer = 1;
+			break;
 
+		}
+		average = answer + average;
+		count++; 
+	}
+	
+	public enum Grade{
+		A,B,C,D,F
+	}
 }

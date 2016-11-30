@@ -65,6 +65,21 @@ public class Mathmatics {
 		return sum;
 	}
 	
+	public static int sub(int ...args) {
+			int sub = 0;
+			for(int arg: args) {
+				sub *= arg;
+			}
+			return sub;
+		}
+	
+	public static int sub(double ...args) {
+		int sub = 0;
+		for(double arg: args) {
+			sub *= arg;
+		}
+		return sub;
+	}
 	/*
 	 * 自己尝试给sub添加可变参数列表
 	 */
@@ -76,3 +91,4 @@ public class Mathmatics {
 		return num;
 	}
 }
+

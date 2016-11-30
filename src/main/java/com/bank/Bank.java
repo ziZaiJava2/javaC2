@@ -38,7 +38,8 @@ public class Bank {
 				person.getMyAccount().setMoneyInAccount(moneyNum);//拿出person中的MyAccount，将它的钱加入
 				person.setCashNum(person.getCashNum() - moneyNum); // 把Person对象中cashNum
 																	// 减去相应的金额
-				this.accountMap.put(person.getId(), person);// 通过个人账户把自己加入bank中。
+//				this.accountMap.put(person.getId(), person);// 通过个人账户把自己加入bank中。
+//				因为存放地址，上面那句话其实不用。
 				return true;
 			}
 			

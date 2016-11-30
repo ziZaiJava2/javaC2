@@ -1,6 +1,5 @@
 create database shop;
 use shop;
-
    
 create table serve(
 	id int not null auto_increment,
@@ -12,9 +11,6 @@ create table serve(
     primary key(id)
     );
     
-drop table serve;
-
-
 create table product(
 	id int not null auto_increment,
     name varchar(60) not null,
@@ -23,7 +19,7 @@ create table product(
     price double not null,
     primary key(id)
     );
-drop table product; 
+
 alter table product add column sort varchar(40);    
 
 update product set sort='toy' where name = 'lego星球大战-千年隼';
@@ -74,37 +70,31 @@ insert into product(name, description,originalcost,price)
     
     
 insert into serve(name, nick_name, post_box,address,account_balance)
-	values('张昀怡','班花','boss@bl.com','自己编吧，我编不下去了','20000');
+	values('张昀怡','班花','boss@bl.com','SH','20000');
     
 insert into serve(name, nick_name, post_box,address,account_balance)
-	values('徐嘉亮','班草','bancao@58.com','你停在了这条我们熟悉的街','20000');
+	values('徐嘉亮','班草','bancao@58.com','SH','20000');
     
  insert into serve(name, nick_name, post_box,address,account_balance)
-	values('梁绍焕','班草','bancao@58.com','把你准备好的台词全念一遍','20000');
+	values('梁绍焕','班草','bancao@58.com','SH','20000');
     
 insert into serve(name, nick_name, post_box,address,account_balance)
-	values('高成','班草','bancao@58.com','我还在逞强 说着谎','20000');
+	values('高成','班草','bancao@58.com','SH','20000');
     
  insert into serve(name, nick_name, post_box,address,account_balance)
-	values('贾锐','班草','bancao@58.com','也没能力遮挡 你去的方向','20000');
+	values('贾锐','班草','bancao@58.com','SH','20000');
     
  insert into serve(name, nick_name, post_box,address,account_balance)
-	values('金倩玉','班花','boss@58.com','至少分开的时候我落落大方遍','20000');
+	values('金倩玉','班花','boss@58.com','SH','20000');
     
  insert into serve(name, nick_name, post_box,address,account_balance)
-	values('彭佳辉','班草','bancao@58.com','我后来都会选择绕过那条街','20000');
+	values('彭佳辉','班草','bancao@58.com','SH','20000');
     
  insert into serve(name, nick_name, post_box,address,account_balance)
-	values('任向杰','班草','bancao@58.com','我还在逞强 说着谎','20000');
+	values('任向杰','班草','bancao@58.com','SH','20000');
     
  insert into serve(name, nick_name, post_box,address,account_balance)
-	values('宋天健','班草','bancao@58.com','我还在逞强 说着谎','20000');
-    
-create table order_list(
-	serve_id int ,
-    product_id int,
-    foreign key(serve_id) references serve(id)
-    );
+	values('宋天健','班草','bancao@58.com','SH','20000');
     
 #2016-09-01  
 select *from serve;
@@ -113,21 +103,190 @@ select *from product;
 #2016-09-02
 select *from serve where name = '任向杰';
 select * from product where sort = 'electronics';
-    
-select current_date , serve.name , serve.address from serve where name = '任向杰';
-select sum(price) from product where sort ='electronics';
+create table ren1(
+	id int not null auto_increment,
+	serve_name varchar(60)not null,
+    product_name varchar(40),
+    count int ,
+    create_date date,
+    address varchar(30),
+    total double ,
+    state varchar(30),
+	foreign key(id)references  serve(id)
+);
+
+insert into ren1(serve_name, product_name, count,create_date,address,total,state )
+	values('任向杰', '外星人电脑','1','2016-09-02','SH','18999','未付款');
+insert into ren1(serve_name, product_name, count,create_date,address,total,state )
+	values('任向杰', '小米Mix','1','2016-09-02','SH','3199','未付款');
+insert into ren1(serve_name, product_name, count,create_date,address,total,state )
+	values('任向杰', '小米无人机','1','2016-09-02','SH','1999','未付款');
 select name , originalcost , price , price/originalcost from product where sort ='electronics';
+select sum(price) from product where sort ='electronics';
+
+create table ren2(
+	id int not null auto_increment,
+	serve_name varchar(60)not null,
+    product_name varchar(40),
+    count int ,
+    create_date date,
+    address varchar(30),
+    total double ,
+    state varchar(30),
+	foreign key(id)references  serve(id)
+);
+insert into ren2(serve_name, product_name, count,create_date,address,total,state )
+	values('任向杰', '外星人电脑','1','2016-09-02','SH','18999','未付款');
+insert into ren2(serve_name, product_name, count,create_date,address,total,state )
+	values('任向杰', '小米Mix','1','2016-09-02','SH','3199','未付款');
+select sum(price) from product where name ='外星人电脑'or name = '小米Mix';
+drop table ren2;
+create table ren3(
+	id int not null auto_increment,
+	serve_name varchar(60)not null,
+    product_name varchar(40),
+    count int ,
+    create_date date,
+    address varchar(30),
+    total double ,
+    state varchar(30),
+	foreign key(id)references  serve(id)
+);
+insert into ren3(serve_name, product_name, count,create_date,address,total,state )
+	values('任向杰', 'Java编程思想','1','2016-09-02','SH','18999','未付款');
+insert into ren3(serve_name, product_name, count,create_date,address,total,state )
+	values('任向杰', '小黄书','1','2016-09-02','SH','199','未付款');
+update ren3 set     state = '付款';
+select sum(price) from product where name ='Java编程思想'or name = '小黄书';
+update serve set account_balance=20000-278 where name = '任向杰';
     
-select current_date , serve.name , serve.address from serve where name = '任向杰';
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+#2016-09-11    
+update product set price='100' where name = '小黄书';
+create table zyy1(
+	id int not null auto_increment,
+	serve_name varchar(60)not null,
+    product_name varchar(40),
+    count int ,
+    create_date date,
+    address varchar(30),
+    total double ,
+    state varchar(30),
+	foreign key(id)references  serve(id)
+);
+insert into zyy1(serve_name, product_name, count,create_date,address,total,state )
+	values('张昀怡', '小黄书','10','2016-09-11','SH','100','未付款');
+update zyy1 set     state = '付款';
+select sum(price)*10 from product where name ='小黄书';    
+update serve set account_balance=20000-1000 where name = '张昀怡';
+select total from ren3 where product_name= '小黄书';
+#2016-10-10
+update product set originalcost=price;
+
+#2016-10-12
+create table song1(
+	id int not null auto_increment,
+	serve_name varchar(60)not null,
+    product_name varchar(40),
+    count int ,
+    create_date date,
+    address varchar(30),
+    total double ,
+    state varchar(30),
+	foreign key(id)references  serve(id)
+);
+insert into song1(serve_name, product_name, count,create_date,address,total,state )
+	values('宋天健', '外星人电脑','99','2016-09-12','SH','20000','未付款');
+create table song2(
+	id int not null auto_increment,
+	serve_name varchar(60)not null,
+    product_name varchar(40),
+    count int ,
+    create_date date,
+    address varchar(30),
+    total double ,
+    state varchar(30),
+	foreign key(id)references  serve(id)
+);
+insert into song3(serve_name, product_name, count,create_date,address,total,state )
+	values('宋天健', '外星人电脑','99','2016-09-12','SH','20000','未付款');
+create table song1(
+	id int not null auto_increment,
+	serve_name varchar(60)not null,
+    product_name varchar(40),
+    count int ,
+    create_date date,
+    address varchar(30),
+    total double ,
+    state varchar(30),
+	foreign key(id)references  serve(id)
+);
+insert into song1(serve_name, product_name, count,create_date,address,total,state )
+	values('宋天健', '外星人电脑','99','2016-09-12','SH','20000','未付款');
+
+#2016-10-15
+select *from product where sort = 'book';
+create table jia1(
+	id int not null auto_increment,
+	serve_name varchar(60)not null,
+    product_name varchar(40),
+    count int ,
+    create_date date,
+    address varchar(30),
+    total double ,
+    state varchar(30),
+	foreign key(id)references  serve(id)
+);
+insert into jia1(serve_name, product_name, count,create_date,address,total,state )
+	values('贾锐', '小黄书','10','2016-09-15','SH','100','未付款');
+create table jia2(
+	id int not null auto_increment,
+	serve_name varchar(60)not null,
+    product_name varchar(40),
+    count int ,
+    create_date date,
+    address varchar(30),
+    total double ,
+    state varchar(30),
+	foreign key(id)references  serve(id)
+);
+insert into jia2(serve_name, product_name, count,create_date,address,total,state )
+	values('贾锐', 'java编程思想','10','2016-09-15','SH','99','未付款');
+update jia1 set state='付款';
+update jia2 set state='付款';
+
+#2016-11-10
+update product set price=originalcost/2;
+
+#2016-11-11
+update serve set account_balance='25000' where name = '梁绍焕';
+update serve set account_balance='15000' where name = '徐嘉亮';
+create table liang1(
+	id int not null auto_increment,
+	serve_name varchar(60)not null,
+    product_name varchar(40),
+    count int ,
+    create_date date,
+    address varchar(30),
+    total double ,
+    state varchar(30),
+	foreign key(id)references  serve(id)
+);
+insert into liang1(serve_name, product_name, count,create_date,address,total,state )
+	values('梁绍焕', '外星人电脑','1','2016-11-11','SH','20000','未付款');
+insert into liang1(serve_name, product_name, count,create_date,address,total,state )
+	values('梁绍焕', '战地1','2','2016-11-11','SH','199','未付款');
+update liang1 set state='付款';
+create table gao1(
+	id int not null auto_increment,
+	serve_name varchar(60)not null,
+    product_name varchar(40),
+    count int ,
+    create_date date,
+    address varchar(30),
+    total double ,
+    state varchar(30),
+	foreign key(id)references  serve(id)
+);
+insert into gao1(serve_name, product_name, count,create_date,address,total,state )
+	values('高成', '小米无人机','1','2016-11-11','SH','20000','未付款');
+update gao1 set state='付款';

@@ -15,4 +15,9 @@ public class DateUtil {
 		date = c.getTime();
 		return date;
 	}
+	/*
+	 * 一个方法返回一个Date距离现在有多少天，比当前时间晚用正数，比当前时间早用负数
+                  一个方法，接受多个Date参数，返回最早的那个日期
+	 */
+	
 }

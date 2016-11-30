@@ -20,7 +20,7 @@ public class OverloadingTest {
 	
 	@Test
 	public void testSub2() {
-		double result = Mathmatics.sub(10.0, 5.0);
+		double result = Mathmatics.sub(10, 5);
 		Assert.assertTrue(result == 5.0);
 	}
 }

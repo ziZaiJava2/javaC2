@@ -21,7 +21,45 @@ create table product(
     );
 
 alter table product add column sort varchar(40);    
-
+    
+insert into product(name, description,originalcost,price)
+	values ('小黄书','zyy最爱的绝版BL小说','100','199');
+insert into product(name, description,originalcost,price)
+	values('外星人电脑','即使不是最牛逼的电脑，也是最贵的电脑','20000','18999');    
+insert into product(name, description,originalcost,price)
+	values('战地1','一战题材突突突游戏','199','99');    
+insert into product(name, description,originalcost,price)
+	values('小米mix','你有钱也买不到的手机','3199','3199');    
+insert into product(name, description,originalcost,price)
+	values('奥迪跑车','最终幻想15限量版奥迪跑车....模型','399','199');    
+insert into product(name, description,originalcost,price)
+	values('java编程思想','虽然有些人读了还是不会写代码，但真是本好书','99','79');    
+insert into product(name, description,originalcost,price)
+	values('lego星球大战-千年隼','汉索罗的座驾','1999','1999');    
+insert into product(name, description,originalcost,price)
+	values('lego星球大战-死星','帝国大规模杀伤性武器','2999','2999');    
+insert into product(name, description,originalcost,price)
+	values('小米无人机','便宜是便宜，就是要小心炸机','1999','1999');    
+    
+insert into serve(name, nick_name, post_box,address,account_balance)
+	values('张昀怡','班花','boss@bl.com','SH','20000');    
+insert into serve(name, nick_name, post_box,address,account_balance)
+	values('徐嘉亮','班草','bancao@58.com','SH','20000');    
+ insert into serve(name, nick_name, post_box,address,account_balance)
+	values('梁绍焕','班草','bancao@58.com','SH','20000');    
+insert into serve(name, nick_name, post_box,address,account_balance)
+	values('高成','班草','bancao@58.com','SH','20000');    
+ insert into serve(name, nick_name, post_box,address,account_balance)
+	values('贾锐','班草','bancao@58.com','SH','20000');    
+ insert into serve(name, nick_name, post_box,address,account_balance)
+	values('金倩玉','班花','boss@58.com','SH','20000');    
+ insert into serve(name, nick_name, post_box,address,account_balance)
+	values('彭佳辉','班草','bancao@58.com','SH','20000');    
+ insert into serve(name, nick_name, post_box,address,account_balance)
+	values('任向杰','班草','bancao@58.com','SH','20000');    
+ insert into serve(name, nick_name, post_box,address,account_balance)
+ values('宋天健','班草','bancao@58.com','SH','20000');
+    
 update product set sort='toy' where name = 'lego星球大战-千年隼';
 update product set sort='toy' where name = 'lego星球大战-死星';
 update product set sort='toy' where name = '奥迪跑车';
@@ -37,65 +75,6 @@ update product set sort='electronics' where name = '外星人电脑';
 update product set sort='electronics' where name = '小米Mix';
 update product set sort='electronics' where name = '小米无人机';
 
-    
-insert into product(name, description,originalcost,price)
-	values ('小黄书','zyy最爱的绝版BL小说','100','199');
-
-insert into product(name, description,originalcost,price)
-	values('外星人电脑','即使不是最牛逼的电脑，也是最贵的电脑','20000','18999');
-    
-insert into product(name, description,originalcost,price)
-	values('战地1','一战题材突突突游戏','199','99');
-    
-insert into product(name, description,originalcost,price)
-	values('小米mix','你有钱也买不到的手机','3199','3199');
-    
-insert into product(name, description,originalcost,price)
-	values('奥迪跑车','最终幻想15限量版奥迪跑车....模型','399','199');
-    
-insert into product(name, description,originalcost,price)
-	values('java编程思想','虽然有些人读了还是不会写代码，但真是本好书','99','79');
-    
-insert into product(name, description,originalcost,price)
-	values('lego星球大战-千年隼','汉索罗的座驾','1999','1999');
-    
-insert into product(name, description,originalcost,price)
-	values('lego星球大战-死星','帝国大规模杀伤性武器','2999','2999');
-    
-insert into product(name, description,originalcost,price)
-	values('小米无人机','便宜是便宜，就是要小心炸机','1999','1999');
-    
-    
-    
-    
-    
-insert into serve(name, nick_name, post_box,address,account_balance)
-	values('张昀怡','班花','boss@bl.com','SH','20000');
-    
-insert into serve(name, nick_name, post_box,address,account_balance)
-	values('徐嘉亮','班草','bancao@58.com','SH','20000');
-    
- insert into serve(name, nick_name, post_box,address,account_balance)
-	values('梁绍焕','班草','bancao@58.com','SH','20000');
-    
-insert into serve(name, nick_name, post_box,address,account_balance)
-	values('高成','班草','bancao@58.com','SH','20000');
-    
- insert into serve(name, nick_name, post_box,address,account_balance)
-	values('贾锐','班草','bancao@58.com','SH','20000');
-    
- insert into serve(name, nick_name, post_box,address,account_balance)
-	values('金倩玉','班花','boss@58.com','SH','20000');
-    
- insert into serve(name, nick_name, post_box,address,account_balance)
-	values('彭佳辉','班草','bancao@58.com','SH','20000');
-    
- insert into serve(name, nick_name, post_box,address,account_balance)
-	values('任向杰','班草','bancao@58.com','SH','20000');
-    
- insert into serve(name, nick_name, post_box,address,account_balance)
-	values('宋天健','班草','bancao@58.com','SH','20000');
-    
 #2016-09-01  
 select *from serve;
 select *from product;
@@ -255,7 +234,7 @@ update jia1 set state='付款';
 update jia2 set state='付款';
 
 #2016-11-10
-update product set price=originalcost/2;
+update product set price=originalcost/2 where name != '外星人电脑';
 
 #2016-11-11
 update serve set account_balance='25000' where name = '梁绍焕';

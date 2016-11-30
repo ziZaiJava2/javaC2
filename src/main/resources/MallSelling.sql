@@ -1,15 +1,7 @@
 create database shop;
 use shop;
-create table product(
-	id int not null auto_increment,
-    name varchar(60) not null,
-    description varchar(100) ,
-    originalcost double not null,
-    price double not null,
-    primary key(id)
-    );
-drop table product;
-    
+
+   
 create table serve(
 	id int not null auto_increment,
     name varchar(30) not null,
@@ -19,8 +11,37 @@ create table serve(
     account_balance double ,
     primary key(id)
     );
+    
 drop table serve;
 
+
+create table product(
+	id int not null auto_increment,
+    name varchar(60) not null,
+    description varchar(100) ,
+    originalcost double not null,
+    price double not null,
+    primary key(id)
+    );
+drop table product; 
+alter table product add column sort varchar(40);    
+
+update product set sort='toy' where name = 'lego星球大战-千年隼';
+update product set sort='toy' where name = 'lego星球大战-死星';
+update product set sort='toy' where name = '奥迪跑车';
+update product set sort='toy' where name = '战地1';
+update product set sort='toy' where name = '小米无人机';
+
+update product set sort='book' where name = 'java编程思想';
+update product set sort='book' where name = '小黄书';
+
+update product set sort='game' where name = '战地1';
+
+update product set sort='electronics' where name = '外星人电脑';
+update product set sort='electronics' where name = '小米Mix';
+update product set sort='electronics' where name = '小米无人机';
+
+    
 insert into product(name, description,originalcost,price)
 	values ('小黄书','zyy最爱的绝版BL小说','100','199');
 
@@ -79,14 +100,25 @@ insert into serve(name, nick_name, post_box,address,account_balance)
  insert into serve(name, nick_name, post_box,address,account_balance)
 	values('宋天健','班草','bancao@58.com','我还在逞强 说着谎','20000');
     
+create table order_list(
+	serve_id int ,
+    product_id int,
+    foreign key(serve_id) references serve(id)
+    );
+    
+#2016-09-01  
+select *from serve;
+select *from product;
 
+#2016-09-02
+select *from serve where name = '任向杰';
+select * from product where sort = 'electronics';
     
+select current_date , serve.name , serve.address from serve where name = '任向杰';
+select sum(price) from product where sort ='electronics';
+select name , originalcost , price , price/originalcost from product where sort ='electronics';
     
-    
-    
-    
-    
-    
+select current_date , serve.name , serve.address from serve where name = '任向杰';
     
     
     

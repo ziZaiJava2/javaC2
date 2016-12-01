@@ -1,5 +1,7 @@
 create database shop;
 use shop;
+
+#创建商品表
 create table production(
     id int not null auto_increment,
     name varchar(100) not null,
@@ -8,15 +10,21 @@ create table production(
     price DECIMAL(16, 4),
     primary key(id)
 );
+
+#商品分类表
 create table category(
     id int not null auto_increment,
     name varchar(40) not null,
     primary key(id)
 );
+
+#创建商品分类关联表
 create table production_category(
     production_id int,
     category_id int
 );
+
+#向商品表中插入数据
 insert into production(name, description, original_price, price)
 	value('小米mix' , '你有钱也买不到的手机' , 3199 , 3199);
 insert into production(name, description, original_price, price)
@@ -35,6 +43,8 @@ insert into production(name, description, original_price, price)
 	value('外星人电脑' , '即使不是最牛逼的电脑，也是最贵的电脑' , 20000 , 18999);
 insert into production(name, description, original_price, price)
 	value('小黄书' , 'zyy最爱的绝版BL小说' , 100 , 199);
+
+#创建用户表
 create table users(
    id int not null auto_increment,
    name varchar(40) not null,
@@ -44,6 +54,8 @@ create table users(
    balance DECIMAL(16, 4) not null,
    primary key(id)
 );
+
+#向用户表插入数据
 insert into users(name,nickname,mailbox,address,balance) values('张昀怡','班花','boss1@bl.com','张江创意工坊',20000);
 insert into users(name,nickname,mailbox,address,balance) values('贾锐','我科','boss2@bl.com','张江创意工坊',20000);
 insert into users(name,nickname,mailbox,address,balance) values('梁绍焕','新兵蛋子','boss3@bl.com','张江创意工坊',20000);
@@ -52,6 +64,8 @@ insert into users(name,nickname,mailbox,address,balance) values('彭佳辉','辉
 insert into users(name,nickname,mailbox,address,balance) values('徐嘉亮','干趴印度阿三','boss6@bl.com','张江创意工坊',20000);
 insert into users(name,nickname,mailbox,address,balance) values('高成','吃饱就减肥','boss7@bl.com','张江创意工坊',20000);
 insert into users(name,nickname,mailbox,address,balance) values('任向杰','帅瞎自己','boss8@bl.com','张江创意工坊',20000);
+
+#向分类表插入数据
 insert into category(name) values('玩具');
 insert into category(name) values('游戏');
 insert into category(name) values('图书');
@@ -59,6 +73,8 @@ insert into category(name) values('电子产品');
 select * from category;
 select * from production;
 select * from users;
+
+#向商品分类关联表插入数据
 insert into production_category 
 (production_id, category_id)
 select p.id, c.id from production p, category c
@@ -77,6 +93,8 @@ select p.id, c.id from production p, category c
 where p.name in ('外星人电脑','小米Mix','小米无人机') and c.name = '电子产品';
 select * from users where nickname='帅瞎自己';
 select * from production a,category b,production_category c where a.id=c.production_id and b.id=c.category_id and b.name='电子产品';
+
+#创建订单表
 create table orders(
   id int not null auto_increment, 
   create_date date not null,
@@ -84,6 +102,8 @@ create table orders(
   user_name varchar(20) not null,
   primary key(id)
 );
+
+#生成订单
 create table orders_production(
 	orders_id int, 
     production_id int, 
@@ -113,8 +133,11 @@ from production p, production_category pc, category c
 where p.id = pc.production_id 
 and c.id = pc.category_id
 and c.name = '电子产品'; 
+
 select sum(count * price) from orders_production where orders_id=1;
 select p.name,op.count,p.original_price,op.price,op.price/p.original_price from production p,orders_production op where op.production_id=p.id;
+
+#生成订单
 insert into orders_production(
 	orders_id,
     production_id,
@@ -138,10 +161,13 @@ from production p, production_category pc, category c
 where p.id = pc.production_id 
 and c.id = pc.category_id
 and p.name in ('java编程思想','小黄书');
+
 select * from orders;
 select * from orders_production;
 update orders_production set state='已付款' where production_id in (2,9);
 update production p set p.price = p.original_price; 
+
+#生成订单
 insert into orders(
   create_date,
   address,
@@ -163,8 +189,11 @@ from production p, production_category pc, category c
 where p.id = pc.production_id 
 and c.id = pc.category_id
 and p.name = '小黄书'; 
+
 update orders_production set state='已付款' where production_id in (9);
 select * from orders_production where orders_id=1;
+
+
 insert into orders(
   create_date,
   address,
@@ -186,6 +215,8 @@ from production p, production_category pc, category c
 where p.id = pc.production_id 
 and c.id = pc.category_id
 and p.name = '外星人电脑'; 
+
+
 insert into orders_production(
 	orders_id,
     production_id,
@@ -198,6 +229,8 @@ from production p, production_category pc, category c
 where p.id = pc.production_id 
 and c.id = pc.category_id
 and p.name = '外星人电脑'; 
+
+
 insert into orders_production(
 	orders_id,
     production_id,
@@ -211,6 +244,7 @@ where p.id = pc.production_id
 and c.id = pc.category_id
 and p.name = '外星人电脑'; 
 select p.name from production p,category c,production_category pc where p.id=pc.production_id and category_id=c.id and c.name='图书'; 
+
 insert into orders(
   create_date,
   address,
@@ -232,10 +266,12 @@ from production p, production_category pc, category c
 where p.id = pc.production_id 
 and c.id = pc.category_id
 and p.name in('java编程思想','小黄书'); 
+
 update orders_production set state='已付款' where production_id in (2,9);
 update production p set p.price = p.original_price/2 where p.name != '外星人电脑';
 update users set balance=25000 where users.id=3;
 update users set balance=15000 where users.id=6;
+
 insert into orders(
   create_date,
   address,
@@ -257,6 +293,8 @@ from production p, production_category pc, category c
 where p.id = pc.production_id 
 and c.id = pc.category_id
 and p.name in('外星人电脑'); 
+
+
 insert into orders_production(
 	orders_id,
     production_id,
@@ -269,7 +307,9 @@ from production p, production_category pc, category c
 where p.id = pc.production_id 
 and c.id = pc.category_id
 and p.name in('战地1');
+
 update orders_production set state='已付款' where production_id in (7,8) and orders_id=5;
+
 insert into orders(
   create_date,
   address,
@@ -291,11 +331,12 @@ from production p, production_category pc, category c
 where p.id = pc.production_id 
 and c.id = pc.category_id
 and p.name in('小米无人机');
+
 update orders_production set state='已付款' where production_id in (6) and orders_id=6;
+
 select sum(price*count) from orders_production where state='已付款';
 select p.name,op.count from production p,orders_production op where op.production_id=p.id group by(p.name);
-
-
+select o.user_name,count(op.orders_id) from orders_production op,orders o where o.id=op.orders_id group by(o.user_name);
 
 
 

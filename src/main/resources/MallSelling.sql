@@ -94,7 +94,7 @@ select *from serve where name = '任向杰';
 select * from production p, category c, production_category pc where c.name = '电子产品' and pc.production_id= p.id and pc.category_id  = c.id;
 #把所有的电子产品都选上，生成了一个订单
 create table orders(
-	id int not null auto_increment,
+	id int not null ,
     create_date date not null,
     address varchar(100) not null,
     state text,
@@ -102,8 +102,8 @@ create table orders(
     total decimal(16,4),
     primary key(id)
     );
-insert into orders(create_date,address,state,serve_name)
-	values('2016-09-02','SH','未付款','任向杰');    
+insert into orders(id,create_date,address,state,serve_name)
+	values(1,'2016-09-02','SH','未付款','任向杰');    
 select*from orders;
 create table orders_production(
 orders_id int,
@@ -123,8 +123,8 @@ select p.name,op.count,p.original_price,p.price,p.price/p.original_price
 #总价
 select sum(price*count) from orders_production where orders_id =1;
 #创了一个订单，
-insert into orders(create_date,address,state,serve_name)
-	values('2016-09-02','SH','未付款','任向杰');
+insert into orders(id,create_date,address,state,serve_name)
+	values(2,'2016-09-02','SH','未付款','任向杰');
 #这次选了外星人电脑和小米Mix
 insert into orders_production(orders_id ,production_name,price,count,state)
 	select  2,p.name, p.price, 1 ,'未付款'
@@ -139,14 +139,15 @@ select sum(price*count) from orders_production where orders_id =2;
 #选择了取消了订单，这张订单被移除掉了
 delete from orders_production where orders_id = 2;
 #决定Java编程思想和小黄书各买一本回去学习，下订单
-insert into orders(create_date,address,state,serve_name)
-	values('2016-09-02','SH','未付款','任向杰');
+insert into orders(id,create_date,address,state,serve_name)
+	values(3,'2016-09-02','SH','未付款','任向杰');
 insert into orders_production(orders_id ,production_name,price,count,state)
 	select  3,p.name, p.price, 1 ,'未付款'
 		from production p
 			where  p.name in ('Java编程思想','小黄书');
 select sum(price*count) from orders_production where orders_id =3;
 update orders_production set state='已付款' where orders_id = 3;  
+update orders set state='已付款' where id = 3;  
 #扣钱    
 update serve set balance= 20000-278 where name = '任向杰';  
 select*from serve;       
@@ -155,8 +156,8 @@ select*from serve;
 #老板娘看到小黄书卖不动，觉得可能是价格定太高，所以下调价格到了原价
 update production p set p.price = p.original_price where name = '小黄书'; 
 #守候多时的zyy赶紧跳了出来，下单买了10本小黄书
-insert into orders(create_date,address,state,serve_name)
-	values('2016-09-11','SH','未付款','张昀怡');
+insert into orders(id,create_date,address,state,serve_name)
+	values(4,'2016-09-11','SH','未付款','张昀怡');
 insert into orders_production(orders_id ,production_name,price,count,state)
 	select  4,p.name, p.price, 10 ,'未付款'
 		from production p
@@ -164,6 +165,7 @@ insert into orders_production(orders_id ,production_name,price,count,state)
 #总价
 select sum(price*count) from orders_production where orders_id =4;    
 update orders_production set state='已付款' where orders_id = 4;  
+update orders set state='已付款' where id = 4;
 #扣钱    
 update serve set balance= 20000-1000 where name = '张昀怡';  
 select*from serve;    
@@ -178,22 +180,22 @@ select*from production;
 #2016-10-12
 #宋天健跑进来，发现线上居然比线下还买的贵，很气愤，创建了3个订单，每个订单都买了99台外星人电脑，然后不付款
 #1
-insert into orders(create_date,address,state,serve_name)
-	values('2016-10-10','SH','未付款','宋天健');
+insert into orders(id,create_date,address,state,serve_name)
+	values(5,'2016-10-10','SH','未付款','宋天健');
 insert into orders_production(orders_id ,production_name,price,count,state)
 	select  5,p.name, p.price, 99 ,'未付款'
 		from production p
 			where p.name ='外星人电脑'; 
 #2
-insert into orders(create_date,address,state,serve_name)
-	values('2016-10-10','SH','未付款','宋天健');
+insert into orders(id,create_date,address,state,serve_name)
+	values(6,'2016-10-10','SH','未付款','宋天健');
 insert into orders_production(orders_id ,production_name,price,count,state)
 	select  6,p.name, p.price, 99 ,'未付款'
 		from production p
 			where  p.name ='外星人电脑'; 
 #3
-insert into orders(create_date,address,state,serve_name)
-	values('2016-10-10','SH','未付款','宋天健');
+insert into orders(id,create_date,address,state,serve_name)
+	values(7,'2016-10-10','SH','未付款','宋天健');
 insert into orders_production(orders_id ,production_name,price,count,state)
 	select  7,p.name, p.price, 99 ,'未付款'
 		from production p
@@ -204,15 +206,16 @@ insert into orders_production(orders_id ,production_name,price,count,state)
 select *from production p,production_category pc ,category c 
 	where p.id = pc.production_id and c.id = pc.category_id and c.name = '图书';
 #发现只有两本书，觉得好少，只好各买了10本，下单，付款
-insert into orders(create_date,address,state,serve_name)
-	values('2016-10-15','SH','未付款','贾锐');
+insert into orders(id,create_date,address,state,serve_name)
+	values(8,'2016-10-15','SH','未付款','贾锐');
 insert into orders_production(orders_id ,production_name,price,count,state)
 	select  8,p.name, p.price, 10 ,'未付款'
 		from production p, production_category pc, category c 
 			where p.id = pc.production_id and c.id = pc.category_id and c.name ='图书'; 
 #总价            
 select sum(price*count) from orders_production where orders_id =8;            
-update orders_production set state='已付款' where orders_id = 8;             
+update orders_production set state='已付款' where orders_id = 8;       
+update orders set state='已付款' where id = 8;             
 #扣钱    
 update serve set balance= 20000-1990 where name = '贾锐';  
 select*from serve;               
@@ -227,8 +230,8 @@ select*from production;
 update serve set balance= 20000-5000 where name = '徐嘉亮';  
 update serve set balance= 20000+5000 where name = '梁邵焕';  
 #然后梁邵焕下单买了一台外星人电脑和两张战地1，付款
-insert into orders(create_date,address,state,serve_name)
-	values('2016-11-11','SH','未付款','梁邵焕');
+insert into orders(id,create_date,address,state,serve_name)
+	values(9,'2016-11-11','SH','未付款','梁邵焕');
 insert into orders_production(orders_id ,production_name,price,count,state)
 	select  9,p.name, p.price, 1 ,'未付款'
 		from production p
@@ -239,13 +242,14 @@ insert into orders_production(orders_id ,production_name,price,count,state)
 			where p.name ='战地1'; 
 #总价
 select sum(price*count) from orders_production where orders_id =9; 
-update orders_production set state='已付款' where orders_id = 9;   
+update orders_production set state='已付款' where orders_id = 9;
+update orders set state='已付款' where id = 9;   
 #扣钱    
 update serve set balance= 25000-10199 where name = '梁邵焕';  
 select*from serve;               
 #高成买了台小米无人机，并下单付款
-insert into orders(create_date,address,state,serve_name)
-	values('2016-11-11','SH','未付款','高成');
+insert into orders(id, create_date,address,state,serve_name)
+	values(10,'2016-11-11','SH','未付款','高成');
 insert into orders_production(orders_id ,production_name,price,count,state)
 	select  10,p.name, p.price, 1 ,'未付款'
 		from production p
@@ -253,16 +257,44 @@ insert into orders_production(orders_id ,production_name,price,count,state)
 #总价
 select sum(price*count) from orders_production where orders_id =10; 
 update orders_production set state='已付款' where orders_id = 10;   
+update orders set state='已付款' where id = 10;   
 #扣钱    
 update serve set balance= 20000-999.5 where name = '高成';  
 select*from serve;                
  
 #2016-11-12
 #双11之前总的销售额    
-select sum
-            
-            
-            
+select sum(op.price*op.count) from orders_production op,orders o, production p,serve s
+	where  o.serve_name = s.name and o.create_date<'2016-11-11'and o.id = op.orders_id and o.state = '已付款';
+#双11当天总的销售额
+select sum(op.price*op.count) from orders_production op,orders o, production p,serve s
+	where  o.serve_name = s.name and o.create_date>'2016-11-10'and  o.create_date<='2016-11-12' and o.id = op.orders_id and op.state = '已付款' and o.state ='已付款'; ;            
+#总共的销售额            
+select sum(op.price*op.count) from orders_production op,orders o, production p,serve s
+	where  o.serve_name = s.name and  op.state = '已付款' and o.state ='已付款'; 
+#各种商品及他们销售量的列表
+select op.production_name,count from orders_production op where op.state = '已付款';
+#花钱最多的客户的名称
+select o.serve_name  from orders_production op,orders o 
+	where op.count*op.price = (select MAX(count*price) 
+		from orders_production op where op.state = '已付款') and o.id = op.orders_id;
+#每个客户的订单数量的列表
+#select sum(count) as count from orders_production group by count);
+select o.serve_name,count from orders_production op,orders o where  o.id = op.orders_id ;
+
+#订单金额最大的订单
+select *from orders_production  
+	where count * price =(select MAX(count*price) 
+		from orders_production op);
+
+#哪些商品至今销量为0
+select p.name from production p,orders_production op
+	where p.name =op.production_name;
+
+#他找出了创建未完成订单数量最多的人,并将他的账号删除了
+select o.serve_name from orders o , orders_production op
+	where o.id = op.orders_id and op.state = '未付款' ;
+
 
 
 select*from orders_production;

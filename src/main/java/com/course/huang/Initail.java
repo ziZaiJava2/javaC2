@@ -1,8 +1,5 @@
 package com.course.huang;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 public class Initail {
 
 	public static void main(String[] args) {

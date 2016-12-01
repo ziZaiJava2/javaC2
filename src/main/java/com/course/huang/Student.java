@@ -22,7 +22,6 @@ public class Student {
 	}
 	
 	public int getCredits(){
-		
 		return this.credit;
 	}
 	

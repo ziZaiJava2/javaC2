@@ -73,6 +73,7 @@ public class LineInStation {
 			comingPassagers.add(per);		
 		}
 		totalPassagers += comPasNum;
+<<<<<<< f598de320fafae7c4fe958f8b1acdafe051fbc24
 <<<<<<< af67ec1873dcd1d234ec893768979ab2da74acb2
 
 =======
@@ -106,13 +107,18 @@ public class LineInStation {
 		return comingPassagers;
 >>>>>>> f38f6f8... homework
 =======
+=======
+>>>>>>> 12344556
 
 		return comingPassagers;
 
 
 
+<<<<<<< f598de320fafae7c4fe958f8b1acdafe051fbc24
 >>>>>>> 4743267... homework
 >>>>>>> homework
+=======
+>>>>>>> 12344556
 	}
 	
 	private static int totalPassagers = 0;
@@ -131,6 +137,7 @@ public class LineInStation {
 	 */
 	public static void lineUp(List<Person> passages) {
 		
+<<<<<<< f598de320fafae7c4fe958f8b1acdafe051fbc24
 <<<<<<< af67ec1873dcd1d234ec893768979ab2da74acb2
 
 		
@@ -174,6 +181,11 @@ public class LineInStation {
 
 >>>>>>> 4743267... homework
 >>>>>>> homework
+=======
+
+		
+
+>>>>>>> 12344556
 		List<Person> min = line1;
 		if(line2.size() < line1.size()) {
 			 min = line2;
@@ -199,6 +211,7 @@ public class LineInStation {
 =======
 =======
 
+<<<<<<< f598de320fafae7c4fe958f8b1acdafe051fbc24
 <<<<<<< HEAD
 >>>>>>> homework
 >>>>>>> 7393b8f... homework
@@ -213,6 +226,9 @@ public class LineInStation {
 
 >>>>>>> 4743267... homework
 >>>>>>> homework
+=======
+
+>>>>>>> 12344556
 		if(line1.size() <= line2.size() && line1.size() <= line3.size() &&
 				line1.size() <= line4.size()) {
 			line1.addAll(passages);
@@ -225,6 +241,7 @@ public class LineInStation {
 				line3.size() <= line4.size() && line3.size() <= line1.size()) {
 			line3.addAll(passages);
 								
+<<<<<<< f598de320fafae7c4fe958f8b1acdafe051fbc24
 <<<<<<< e08f163e59904abd58ad2f95c831842bcb65b31e
 
 =======
@@ -254,11 +271,13 @@ public class LineInStation {
 >>>>>>> 2470ba3... homework
 =======
 =======
+=======
+>>>>>>> 12344556
 
 		}else{line4.addAll(passages);}
->>>>>>> 4743267... homework
 
 		
+<<<<<<< f598de320fafae7c4fe958f8b1acdafe051fbc24
 <<<<<<< HEAD
 >>>>>>> homework
 >>>>>>> 2470ba3... homework
@@ -271,13 +290,18 @@ public class LineInStation {
 >>>>>>> homework
 =======
 =======
+=======
+>>>>>>> 12344556
 		
 		}
 
 
 
+<<<<<<< f598de320fafae7c4fe958f8b1acdafe051fbc24
 >>>>>>> 4743267... homework
 >>>>>>> homework
+=======
+>>>>>>> 12344556
 	/*
 	 * 这个方法给每个队伍卖出一张车票，并统计总共卖出的票数到（saledTikets）。
 	 * 
@@ -308,6 +332,7 @@ public class LineInStation {
 	 * 统计还有多少个乘客没有买到车票
 	 */
 	public static int passagersInLines() {
+<<<<<<< f598de320fafae7c4fe958f8b1acdafe051fbc24
 <<<<<<< af67ec1873dcd1d234ec893768979ab2da74acb2
 
 
@@ -343,6 +368,8 @@ public class LineInStation {
 >>>>>>> homework
 =======
 =======
+=======
+>>>>>>> 12344556
 
 
 		return totalPassagers - saledTikets;
@@ -350,8 +377,11 @@ public class LineInStation {
 
 
 
+<<<<<<< f598de320fafae7c4fe958f8b1acdafe051fbc24
 >>>>>>> 4743267... homework
 >>>>>>> homework
+=======
+>>>>>>> 12344556
 	}
 	
 	private static int saledTikets = 0;

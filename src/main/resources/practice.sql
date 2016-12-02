@@ -149,5 +149,85 @@ select 1, p.id, p.price, 1,'未付款'
 from production p, production_category p_c, category c where p.id = p_c.production_id 
 and c.id = p_c.category_id
 and c.name = 'electronic_products'; 
+#他看了下总价，发现买不起，只好退出了商城，留下了未付款的订单
+select sum(count * price) from orderr_production where orders_id=1;
+#数学没学好的他想了想，又进来创了一个订单，这次选了外星人电脑和小米Mix，发现还是买不起
+insert into orderr_production(orders_id,production_id,price,count)
+select 1, p.id, p.price, 1 from production p, production_category p_c, category c 
+where p.id = p_c.production_id 
+and c.id = p_c.category_id
+and p.name in ('外星人电脑','小米Mix');
+#这次他选择了取消了订单，这张订单被移除掉了
+delete from orderr_production where production_id in(2,4) limit 2;
+
+select*from production;
+
+#他十分沮丧，决定学好知识，决定Java编程思想和小黄书各买一本回去学习，下订单
+select 1, p.id, p.price, 1 from production p, production_category p_c, category c 
+where p.id = p_c.production_id 
+and c.id = p_c.category_id
+and p.name in ('小黄书','java编程思想');
+select*from production;
+#然后付款
+update orderr_production set state='已付款' where production_id in (1,6);
+#老板娘看到小黄书卖不动，觉得可能是价格定太高，所以下调价格到了原价
+update production set production.price = production.original_price; 
+#守候多时的zyy赶紧跳了出来，下单买了10本小黄书
+insert into orderr_production(orders_id,production_id,price,count)
+select 1, p.id, p.price, 10 from production p, production_category p_c, category c 
+where p.id = p_c.production_id 
+and c.id = p_c.category_id
+and p.name in ('小黄书');
+#然后付款
+update orderr_production set state='已付款' where production_id in (1);
+
+#任向杰进来看到小黄书买的原价了，他觉得自己好像买贵了，所以回去查看了一下自己的订单，发现果然买贵了
+select * from orderr_production where orders_id=1;
+#老板娘在双十一之前把所有商品，除了外星人电脑外，价格调整为原价的一半
+update production p set p.price = p.original_price/2 where p.name != '外星人电脑';
+#宋天健跑进来，发现线上居然比线下还买的贵，很气愤，创建了3个订单，每个订单都买了99台外星人电脑，然后不付款
+insert into orderr(create_date,address,user_name) values ('2016-10-12','沪城环路4号','jian'); 
+
+insert into orderr_production(orders_id,production_id,price,count,state)
+select 3, p.id, p.price, 99,'未付款' from production p, production_category pc, category c 
+where p.id = pc.production_id 
+and c.id = pc.category_id
+and p.name = '外星人电脑'; 
+select*from orderr_production;
+
+insert into orderr_production(orders_id,production_id,price,count,state)
+select 4, p.id, p.price, 99,'未付款' from production p, production_category pc, category c 
+where p.id = pc.production_id 
+and c.id = pc.category_id
+and p.name = '外星人电脑'; 
+select*from orderr_production;
+
+insert into orderr_production(orders_id,production_id,price,count,state)
+select 5, p.id, p.price, 99,'未付款' from production p, production_category pc, category c 
+where p.id = pc.production_id 
+and c.id = pc.category_id
+and p.name = '外星人电脑'; 
+select*from orderr_production;
+
+#贾锐最近书看完了，所 以跑到商城点开了图书分类，查看一下有什么书能买来看看
+select * from production p,category c,production_category p_c 
+where p.id=p_c.production_id and c.id=p_c.category_id and c.name='book';
+
+#发现只有两本书，觉得好少，只好各买了10本，下单，付款
+insert into orderr_production(orders_id,production_id,price,count,state)
+select 6, p.id, p.price, 10,'已付款' from production p, production_category pc, category c 
+where p.id = pc.production_id 
+and c.id = pc.category_id
+and p.name = ('小黄书'); 
+
+insert into orderr_production(orders_id,production_id,price,count,state)
+select 6, p.id, p.price, 10,'已付款' from production p, production_category pc, category c 
+where p.id = pc.production_id 
+and c.id = pc.category_id
+and p.name = ('java编程思想'); 
+delete from orderr_production where production_id in(1) limit 2;
+select *from production;
+#梁邵焕想买一台外星人，然后两张战地1回去和女朋友联机玩，但是钱不够，所以他和徐嘉亮借了5000块
+
 
 

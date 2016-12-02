@@ -183,8 +183,7 @@ update orderr_production set state='已付款' where production_id in (1);
 
 #任向杰进来看到小黄书买的原价了，他觉得自己好像买贵了，所以回去查看了一下自己的订单，发现果然买贵了
 select * from orderr_production where orders_id=1;
-#老板娘在双十一之前把所有商品，除了外星人电脑外，价格调整为原价的一半
-update production p set p.price = p.original_price/2 where p.name != '外星人电脑';
+
 #宋天健跑进来，发现线上居然比线下还买的贵，很气愤，创建了3个订单，每个订单都买了99台外星人电脑，然后不付款
 insert into orderr(create_date,address,user_name) values ('2016-10-12','沪城环路4号','jian'); 
 
@@ -225,9 +224,45 @@ select 6, p.id, p.price, 10,'已付款' from production p, production_category p
 where p.id = pc.production_id 
 and c.id = pc.category_id
 and p.name = ('java编程思想'); 
-delete from orderr_production where production_id in(1) limit 2;
-select *from production;
-#梁邵焕想买一台外星人，然后两张战地1回去和女朋友联机玩，但是钱不够，所以他和徐嘉亮借了5000块
+delete from orderr_production where production_id in(9) limit 8;
+select *from orderr_production;
 
+#老板娘在双十一之前把所有商品，除了外星人电脑外，价格调整为原价的一半
+update production p set p.price = p.original_price/2 where p.name != '外星人电脑';
+
+#梁邵焕想买一台外星人，然后两张战地1回去和女朋友联机玩，但是钱不够，所以他和徐嘉亮借了5000块
+update users set balance = balance + 5000 where name = '梁绍焕';
+update users set balance = balance - 5000 where name = '徐嘉亮';
+select*from orderr_production;
+
+
+#然后梁邵焕下单买了一台外星人电脑和两张战地1，付款
+insert into orderr(create_date,address,user_name) values ('2016-11-11','沪城环路2号','huan'); 
+
+insert into orderr_production(orders_id,production_id,price,count,state)
+select 7, p.id, p.price, 1,'已付款' from production p, production_category p_c, category c 
+where p.id = p_c.production_id 
+and c.id = p_c.category_id
+and p.name = '战地1'; 
+
+#高成买了台小米无人机，并下单付款
+insert into orderr(create_date,address,user_name) values ('2016-11-11','沪城环路3号','cheng'); 
+
+insert into orderr_production(orders_id,production_id,price,count,state)
+select 9, p.id, p.price, 1,'已付款' from production p, production_category p_c, category c 
+where p.id = p_c.production_id 
+and c.id = p_c.category_id
+and p.name = '小米无人机'; 
+#双11之前总的销售额
+  select sum(o_p.price * o_p.orders_id)双11之前总的销售额 from orderr_production o_p , 
+  orderr o where o.create_date = '2016-9-02' and o_p.state = '已付款';
+#双11当天总的销售额
+ select sum(o_p.price * o_p.orders_id)双11当天总的销售额 from orderr_production o_p , 
+  orderr o where o.create_date = '2016-11-11' and o_p.state = '已付款';
+#各种商品及他们销售量的列表
+ select o_p.orders_id as 销量 , 
+ p.name from orderr_production o_p , 
+ orderr o ,production p , category c, production_category p_c 
+ where  p.id = p_c.production_id and c.id = p_c.category_id and o_p.state = '已支付';
 
 

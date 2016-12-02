@@ -281,20 +281,39 @@ select sum(op.price * op.count) from orders_production op ,orders ord where ord.
 /*总共的销售额*/
 select sum(op.price * op.count) from orders_production op ,orders ord where op.orders_id = ord.id and ord.state = '已付款';
 /*各种商品及他们销售量的列表*/
-select group by(op.count)
+select p.name ,sum(op.count) from production p,orders_production op ,orders ord where op.orders_id = ord.id and op.production_id = p.id group by(p.name);
 /*花钱最多的客户的名称*/
+select u.name from production p,users u, orders_production op ,orders ord 
+where ord.state = '已付款' and op.orders_id = ord.id and op.production_id = p.id and ord.user_id = u.id
+group by(u.name) order by(sum(op.count * p.price)) desc limit 1;/*为什么 limit 1,1 显示的是高成*/
 
 /*每个客户的订单数量的列表*/
+select u.name , count(A.orders_id) from(select * from orders_production group by(orders_production.orders_id))A, users u,orders ord 
+where A.orders_id = ord.id and ord.user_id = u.id group by(u.name);
 
 /*订单金额最大的订单*/
+select ord.create_date,u.name,ord.address,sum(p.price * op.count),ord.state from(select ord.create_date,u.name,ord.address,sum(op.price * op.count),ord.state from orders ord,users u,production p, orders_production op 
+where u.id = ord.user_id and op.orders_id = ord.id and op.production_id = p.id group by(op.orders_id))A, users u,orders ord ,orders_production op,production p
+where u.id = ord.user_id and op.orders_id = ord.id and op.production_id = p.id group by(ord.id) order by(sum(p.price * op.count)) desc
+limit 1 ;
 
 /*哪些商品至今销量为0*/
-select p.name from production p;
+/*没做出来!!*/
+select p.name ,op.count from
+(select p.name ,sum(op.count) from production p,orders_production op ,orders ord where op.orders_id = ord.id and op.production_id = p.id group by(op.production_id))A,
+ production p,orders_production op ,orders ord
+ where p.name != A.name and op.production_id = p.id;
+
+(select p.name ,sum(op.count) from production p,orders_production op ,orders ord where op.orders_id = ord.id and op.production_id = p.id group by(op.production_id))A;
 
 /*老板娘觉得未完成订单有点多
 他找出了创建未完成订单数量最多的人，
 并将他的账号删除了*/
-select limit ;
+select u.name , count(A.orders_id) from(select * from orders_production group by(orders_production.orders_id))A, users u,orders ord 
+where A.orders_id = ord.id and ord.user_id = u.id and ord.state = '未付款' group by(u.name) order by count(A.orders_id) desc limit 1;
+
+delete from users where users.name = '宋天建';
+select * from users;
 
 
 /*上课笔记*/

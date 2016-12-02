@@ -1,6 +1,6 @@
-
 use school;
-
+#### 2016-09-01
+#老板娘让程序员给他拉了一下报告，看看有多少个用户了，有多少商品在卖了。写出SQL
 
 create table production(
    id int not null auto_increment,
@@ -22,7 +22,7 @@ create table production_category(
    category_id int
    );
    
-   
+drop table production;
 insert into production(name,description,original_price,price)
   values('lego星球大战-死星','帝国大规模杀伤性武器','2999','2999');
 insert into production(name,description,original_price,price)
@@ -42,6 +42,11 @@ insert into production(name,description,original_price,price)
 insert into production(name,description,original_price,price)
   values('外星人电脑','即使不是最牛逼的电脑，也是最贵的电脑','20000','18999');
   
+# lego星球大战-千年隼， lego星球大战-死星，奥迪跑车，战地1，小米无人机，归入玩具分类
+# java编程思想，小黄书，归入了图书分类
+# 战地1，归入到了游戏分类
+# 外星人电脑，小米Mix，小米无人机，归入到了电子产品分类
+
 insert into category(name) values('玩具');
 insert into category(name) values('游戏');
 insert into category(name) values('图书');
@@ -71,12 +76,14 @@ insert into production_category(production_id,category_id)
 insert into production_category(production_id,category_id) 
   values(6,4);
 
-#delete from production where id = 18;
+#他看到余额有两万，心理暗爽一把，选中了电子产品，查看了一下所有的电子产品，写出SQL
 select * from production p,category c,production_category pc where p.id=pc.production_id and category_id=c.id and c.name='电子产品';
 
 select p.id, c.id from production p, category c
 where p.name = '战地1' and c.name = '游戏';
 
+
+#订单显示：创建日期，用户，地址，总价，订单状况：未付款
 create table orders(
   id int not null auto_increment,
   user_id int not null,
@@ -112,17 +119,22 @@ create table orders_production(
    price decimal(16,4) not null,
    count int
    );
+   
+#列出了所有相关商品名称，数量，原价，实际价格和折扣率。
+alter table production add column deposit_rate double;
+update production set deposit_rate = price/original_price;
+select * from production ;
 
+#### 2016-09-02
+#任向杰进了商城，查看了一下自己的个人信息，写出SQL
+select * from user where nickname = '班花2号';
+
+#他看了下总价，发现买不起，只好退出了商城，留下了未付款的订单
 insert into orders(user_id,create_date,address,total,state)
   values(1,'2016-09-02','上海电机学院','25999','未付款');
   
 #select 1,p.id,1,p.price from production p,category c,production_category pc where p.id = pc.production_id and c.id = pc.category_id and c.name = '电子产品';
 
-select 1, p.id, 1, p.price 
-from production p, production_category pc, category c 
-where p.id = pc.production_id 
-and c.id = pc.category_id
-and c.name = '电子产品'; 
 
 
 #数学没学好的他想了想，又进来创了一个订单，这次选了外星人电脑和小米Mix，发现还是买不起...,写出生成订单的SQL
@@ -245,34 +257,7 @@ group  by total;
 
 
 # 哪些商品至今销量为0
-
+select;
 
 
 # 老板娘觉得未完成订单有点多, 他找出了创建未完成订单数量最多的人，SQL，并将他的账号删除了，SQL
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -326,8 +326,8 @@ select name from production
  where   name not in (select production_name from orders_production where production_name=production.name);
 
 #他找出了创建未完成订单数量最多的人,并将他的账号删除了
-select serve_name from orders 
-	where  state = '未付款' ;
+select serve_name , count(*) from orders 
+	where  state = '未付款' group by serve_name;
 delete from serve where name = '宋天健';
 
 

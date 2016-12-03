@@ -323,7 +323,10 @@ select *from orders
 
 #哪些商品至今销量为0
 select name from production 
- where   name not in (select production_name from orders_production where production_name=production.name);
+ where   name not in 
+	(select production_name 
+		from orders_production 
+			where production_name=production.name and orders_production.state = '已付款');
 
 #他找出了创建未完成订单数量最多的人,并将他的账号删除了
 select serve_name , count(*) from orders 

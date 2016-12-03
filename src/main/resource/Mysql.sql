@@ -33,24 +33,25 @@ insert into 商品分类(分类名称) values('电子产品类');
 
 create table classify(
 	物品分类编号 int not null auto_increment,
-	物品号 int not null,
+	物品编号 int not null,
     分类号 int not null,
-    primary key(物品分类编号)
+    primary key(物品分类编号),
+    foreign key(物品编号) references 物品(物品编号)
     );
     
-insert into classify(物品号,分类号) values(1,2);
-insert into classify(物品号,分类号) values(2,4);
-insert into classify(物品号,分类号) values(3,1);
-insert into classify(物品号,分类号) values(4,4);
-insert into classify(物品号,分类号) values(5,1);
-insert into classify(物品号,分类号) values(6,2);
-insert into classify(物品号,分类号) values(7,1);
-insert into classify(物品号,分类号) values(8,1);
-insert into classify(物品号,分类号) values(9,4);
-insert into classify(物品号,分类号) values(3,3);
-insert into classify(物品号,分类号) values(9,1);
+insert into classify(物品编号,分类号) values(1,2);
+insert into classify(物品编号,分类号) values(2,4);
+insert into classify(物品编号,分类号) values(3,1);
+insert into classify(物品编号,分类号) values(4,4);
+insert into classify(物品编号,分类号) values(5,1);
+insert into classify(物品编号,分类号) values(6,2);
+insert into classify(物品编号,分类号) values(7,1);
+insert into classify(物品编号,分类号) values(8,1);
+insert into classify(物品编号,分类号) values(9,4);
+insert into classify(物品编号,分类号) values(3,3);
+insert into classify(物品编号,分类号) values(9,1);
 select * from classify;
-select 物.物品名,分类.分类名称 from 物品 物,商品分类 分类,classify cy where 物.物品编号 = cy.物品号 and  分类.分类编号 = cy.分类号 and 分类.分类名称 = '电子产品类';
+select 物品名, 分类名称 from 物品 物,商品分类 分类,classify cy where 物.物品编号 = cy.物品编号 and  分类.分类编号 = cy.分类号 and 分类.分类名称 = '电子产品类';
     
 create table 已注册用户(
 	用户ID int not null auto_increment,
@@ -102,7 +103,7 @@ select *from ordergoods;
 #查询自己信息
 select *from 已注册用户 where 姓名 = '任祥杰';
 #查询电子产品类
-select 物.物品名,分类.分类名称 from 物品 物,商品分类 分类,classify cy where 物.物品编号 = cy.物品号 and  分类.分类编号 = cy.分类号 and 分类.分类名称 = '电子产品类';
+select 物品名,分类名称 from 物品 物,商品分类 分类,classify cy where 物.物品编号 = cy.物品编号 and  分类.分类编号 = cy.分类号 and 分类.分类名称 = '电子产品类';
 
 
 #创建三个订单
@@ -119,7 +120,7 @@ select *from orders;
 
 
 #查询订单的详细信息
-select 物.物品名, org.数量, 物.原价, 物.现价, 物.现价/物.原价  from  物品 物, ordergoods org, orders ors  where 物.物品编号 = org.物品编号 and ors.订单编号 = org.订单号;
+select 物品名, 数量, 原价, 现价, 现价/原价  from  物品 物, ordergoods org, orders ors  where 物.物品编号 = org.物品编号 and ors.订单编号 = org.订单号;
 
 #查询订单总价
 select 用户名称 as 用户名称,count(物品名称)as 订单总数,sum(订单总价)as 合计总金额 from orders group by 用户名称;
@@ -189,7 +190,7 @@ insert into ordergoods(物品编号,订单号,数量) values(2,11,99);
 
 
 #贾瑞查看图书类
-select 物.物品名,分类.分类名称 from 物品 物,商品分类 分类,classify cy where 物.物品编号 = cy.物品号 and  分类.分类编号 = cy.分类号 and 分类.分类名称 = '图书类';
+select 物品名,分类名称 from 物品 物,商品分类 分类,classify cy where 物.物品编号 = cy.物品编号 and  分类.分类编号 = cy.分类号 and 分类.分类名称 = '图书类';
 
 insert into orders(商家名称,用户名称,物品名称,订购日期,到货日期,发货日期,订单总价,订单状态) values('华为','贾瑞','小黄书','2013-06-25','2015-03-12','2013-08-22',1000,'已付款');
 insert into ordergoods(物品编号,订单号,数量) values(1,12,10);
@@ -224,21 +225,29 @@ update 已注册用户 set 账户余额 = 账户余额 - 1999 where 姓名 = '�
 
 
 #双11之前总的销售额
-select 商家名称 as 商家, sum(订单总价)as 商家销售总金额 from orders ors where 订购日期<date('2013-11-11') and 订单状态 = '已付款' group by 商家名称;
+select 商家名称, sum(订单总价)as 商家销售总金额 from orders ors where 订购日期<date('2013-11-11') and 订单状态 = '已付款' group by 商家名称;
+
 #双11当天总的销售额
-select 商家名称 as 商家, sum(订单总价)as 商家销售总金额 from orders ors where 订购日期=date('2013-11-11') and 订单状态 = '已付款' group by 商家名称;
+select 商家名称, sum(订单总价)as 商家销售总金额 from orders ors where 订购日期=date('2013-11-11') and 订单状态 = '已付款' group by 商家名称;
+
 #总共的销售额
-select 商家名称 as 商家, sum(订单总价)as 商家销售总金额 from orders ors where 订单状态 = '已付款' group by 商家名称;
+select 商家名称, sum(订单总价)as 商家销售总金额 from orders ors where 订单状态 = '已付款' group by 商家名称;
+
 #各种商品及他们销售量的列表
-select 物品名称 as 物品,sum(数量)as 销售数量,sum(订单总价)as 销售总金额 from orders ors,ordergoods org where 订单状态 = '已付款' and ors.订单编号=org.订单号 group by 物品名称;
+select 物品名称, sum(数量)as 销售数量, sum(订单总价)as 销售总金额 from orders ors, ordergoods org where 订单状态 = '已付款' and ors.订单编号=org.订单号 group by 物品名称;
+
 #花钱最多的客户的名称
-select 姓名 as 用户名, min(账户余额) as 账户余额 from 已注册用户 where 账户余额 = (select min(账户余额) from 已注册用户) group by 姓名;
+select 姓名, min(账户余额) as 账户余额 from 已注册用户 where 账户余额 = (select min(账户余额) from 已注册用户) group by 姓名;
+
 #每个客户的订单数量的列表
-select 用户名称 as 用户名,count(物品名称)as 订单总数,sum(订单总价)as 合计总金额 from orders ors where ors.订单状态 = '已付款' group by 用户名称;
+select 用户名称, count(物品名称)as 订单总数, sum(订单总价)as 合计总金额 from orders ors where ors.订单状态 = '已付款' group by 用户名称;
+
 #订单金额最大的订单
-select 用户名称 as 用户名,max(订单总价) as 订单总价,订单状态 from orders where 订单总价 = (select max(订单总价) from orders) group by 用户名称,订单状态;
+select 用户名称, max(订单总价) as 订单总价,订单状态 from orders where 订单总价 = (select max(订单总价) from orders) group by 用户名称,订单状态;
+
 #哪些商品至今销量为0
 select 物品编号,物品名 from 物品 where 物品编号 not in(select 物品编号 from ordergoods);
+
 #找出了创建未完成订单数量最多的人
 select 用户名称 as 用户名称,count(物品名称)as 订单总数 from orders ors where ors.订单状态 = '未付款' group by 用户名称;
 
@@ -248,4 +257,4 @@ select 用户名称 as 用户名称,count(物品名称)as 订单总数 from orde
 #并将他的账号删除了     错误！
 delete from 已注册用户 where 姓名 in((select 用户名称 as 用户名称,count(物品名称)as 订单总数 from orders ors where ors.订单状态 = '未付款' group by 用户名称));
 
-
+drop database mall

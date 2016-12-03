@@ -1,3 +1,4 @@
+drop database mall;
 create database mall;
 use mall;
 #品名：小黄书，描述：zyy最爱的绝版BL小说，原价：100，现价：199
@@ -95,7 +96,7 @@ insert into user( name, nickname,email, adress, account)values( 'zyy', '班花',
 insert into user( name, nickname,email, adress, account)values( '梁教官', '被女朋友潜规则', '55@qq.com', '上海海洋大学', '20000');
 insert into user( name, nickname,email, adress, account)values( '宋天健', '超级帅', '66@qq.com', '上海电机学院', '20000');
 insert into user( name, nickname,email, adress, account)values( '徐嘉良', '拳打印度人', '77@qq.com', '上海海洋大学', '20000');
-drop table orders;
+
 create table orders(
   id int not null auto_increment, 
   create_date date not null,
@@ -104,7 +105,7 @@ create table orders(
   user_id int not null,
   primary key(id)
   );
-drop table production_order;
+
   create table production_order(
   productiono_id int,
   orders_id int,
@@ -153,6 +154,7 @@ insert into production_order(productiono_id, orders_id,  number, price )
   insert into production_order(productiono_id, orders_id,  number, price )
   select  p.id, 4, 10,p.price from production p , category c, production_category pc where  p.id = pc.production_id and c.id = pc.category_id  and  p.name = '小黄书';
   
+    update user set account = account - 990 where id = 6;
   #为了迎接双十一的到来，老板娘决定先把所有商品都调回原价，请用一条SQL完成
   update production set price = original_price ;
   
@@ -172,10 +174,11 @@ insert into production_order(productiono_id, orders_id,  number, price )
   #贾锐最近书看完了，所以跑到商城点开了图书分类，查看一下有什么书能买来看看，写出SQL
 #发现只有两本书，觉得好少，只好各买了10本，下单，付款，写出SQL
 
- insert into orders(create_date, address, state, user_id)values('2016-10-12', '上海电机学院','支付', 6);
+ insert into orders(create_date, address, state, user_id)values('2016-10-12', '上海海洋大学','支付', 2);
     insert into production_order(productiono_id, orders_id,  number, price )
   select  p.id, 8, 10,p.price from production p , category c, production_category pc where  p.id = pc.production_id and c.id = pc.category_id  and  c.name = '图书';
   
+  update user set account = account - 199 where id = 6;
   #老板娘在双十一之前把所有商品，除了外星人电脑外，价格调整为原价的一半，一条SQL完成
   update production set price = original_price / 2 where name != '外星人电脑';
   
@@ -184,23 +187,47 @@ insert into production_order(productiono_id, orders_id,  number, price )
     update user set account = account - 5000 where name = '徐嘉良';
     
     #然后梁邵焕下单买了一台外星人电脑和两张战地1，付款，写出SQL
-     insert into orders(create_date, address, state, user_id)values('2016-10-12', '上海电机学院','支付', 5);
+     insert into orders(create_date, address, state, user_id)values('2016-10-12', '上海海洋大学','支付', 5);
     insert into production_order(productiono_id, orders_id,  number, price )
   select  p.id, 9, 1,p.price from production p , category c, production_category pc where  p.id = pc.production_id and c.id = pc.category_id  and  p.name = '外星人电脑';
      insert into production_order(productiono_id, orders_id,  number, price )
-  select  p.id, 9, 2,p.price from production p , category c, production_category pc where  p.id = pc.production_id and c.id = pc.category_id  and  p.name = '战地1';
+  select  p.id, 9, 2,p.price from production p , category c, production_category pc where  p.id = pc.production_id and c.id = pc.category_id  and  p.name = '战地1' and c.name = '游戏';
   
+    update user set account = account - 19300 where id = 5;
   #高成买了台小米无人机，并下单付款，写出SQL
-    insert into orders(create_date, address, state, user_id)values('2016-11-11', '上海电机学院','支付', 5);
+    insert into orders(create_date, address, state, user_id)values('2016-11-11', '上海海洋大学','支付', 3);
       insert into production_order(productiono_id, orders_id,  number, price )
-  select  p.id, 10, 1,p.price from production p , category c, production_category pc where  p.id = pc.production_id and c.id = pc.category_id  and  p.name = '小米无人机';
+  select  p.id, 10, 1,p.price from production p , category c, production_category pc where  p.id = pc.production_id and c.id = pc.category_id  and  p.name = '小米无人机' and c.name = '玩具';
     
-    
+      update user set account = account - 1999 where id = 6;
     #双11之前总的销售额
-    select sum(po.price * po.number) as allpay from production_order po , orders o where o.create_date = '2016-9-02' and o.state = '支付';
+    select sum(po.price * po.number) as allpay from production_order po , orders o where   po.orders_id = o.id  and o.create_date = '2016-9-02' and o.state = '支付';
     
     #双11当天总的销售额
-    select sum(po.price * po.number) as allpay from production_order po , orders o where o.create_date = '2016-11-11' and o.state = '支付';
+    select sum(po.price * po.number) as allpay from production_order po , orders o where po.orders_id = o.id  and o.create_date = '2016-11-11' and o.state = '支付';
     
     #各种商品及他们销售量的列表
-    select po.number as sellnumber , p.name from production_order po , orders o ,production p , category c, production_category pc where  p.id = pc.production_id and c.id = pc.category_id and o.state = '支付';
+    select po.number as sellnumber , p.name from production_order po , orders o ,production p  where  p.id = po.productiono_id and  po.orders_id = o.id  and o.state = '支付';
+    
+    #总共的销售额
+    select sum(po.price * po.number) as allpay from production_order po , orders o where   po.orders_id = o.id   and o.state = '支付';
+    
+    ###花钱最多的客户的名称
+    select z.name from    ( select m.name, sum(allpay) as allpay  from (select (po.price * po.number) as allpay , user.name from production_order po , orders o,  user where   po.orders_id = o.id  and user.id = o.user_id and o.state = '支付') as m group by name) as z order by allpay desc limit 1;
+
+    #每个客户的订单数量的列表
+    select count(o.user_id) as order_number, u.name from   orders o ,user u where  u.id = o.user_id  and o.state = '支付' group by user_id;
+    
+    #订单金额最大的订单
+    select sum(po.number * po.price) as mostPayOrder , o.id  from production_order po, orders o where po.orders_id = o.id group by po.orders_id order by mostPayOrder desc limit 1;
+    
+    #哪些商品至今销量为0
+    select po.*from production_order po ,orders o where po.orders_id = o.id and o.state = '支付';
+    select p.name,po.number from  production p  left join production_order po  on po.productiono_id = p.id ;
+
+    #他找出了创建未完成订单数量最多的人，SQL
+    #并将他的账号删除了，SQL  
+    
+    select count(o.user_id) as order_number, u.name from   orders o ,user u where  u.id = o.user_id  and o.state != '支付' group by user_id order by order_number desc limit 1;
+    delete from user where name = '宋天健';
+    

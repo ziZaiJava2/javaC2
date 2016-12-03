@@ -6,7 +6,8 @@
 create database newstore;
 drop database newstore;
 use newstore;
-
+select o.users_name, o.whethertopay from ordertable o
+	group by(users_name);
 select * from production;							#查看产品表
 select * from category;								#查看分类表
 select * from production_category;					#查看产品分类关联表
@@ -124,22 +125,30 @@ create table ordertable_production(
 
 
 
-delete from production where id=10 or id=11 or id=12 or id =13;
+
 ##################################          2016-09-01          ##################################
+
 
 #老板娘让程序员给他拉了一下报告，看看有多少个用户了，有多少商品在卖了。写出SQL
 select * from users;
+
+
 #老板娘觉得商品太多太乱，所以决定添加一些分类，把商品归结到不同分类下面去，这部分SQL也放入到最开头去吧。
 
 ##################################          2016-09-02          ##################################
 
+
 #任向杰进了商城，查看了一下自己的个人信息，写出SQL
 select * from users where users.name='任向杰';
+
+
 #他看到余额有两万，心理暗爽一把，选中了电子产品，查看了一下所有的电子产品，写出SQL
 select p.* from production p,category c, production_category pc 
 	where p.id=pc.production_id 
     and c.id=pc.category_id 
     and c.name='electronicProductclass';
+    
+    
 #然后把所有的电子产品都选上，生成了一个订单，写出SQL，
 insert into ordertable(date, users_name, address, total, whethertopay)
 	value('2016-09-02', '任向杰', '河北', null,'未付款'); 
@@ -148,44 +157,67 @@ insert into ordertable_production(ordersnumber, name, count, originalprice, curr
 		where c.name='electronicProductclass'
         and  p.id=pc.production_id
         and  c.id=pc.category_id;
+        
+        
 #他看了下总价，发现买不起，只好退出了商城，留下了未付款的订单
 update ordertable set ordertable.total=24197 where ordertable.id=1;
 #update ordertable set ordertable.total=sum(ordertable_production.count * ordertable_production.currentprice) 
+
+
 #数学没学好的他想了想，又进来创了一个订单，这次选了外星人电脑和小米Mix
 insert into ordertable(date, users_name, address, total, whethertopay)
 	value('2016-09-02', '任向杰', '河北', null,'未付款');
 insert into ordertable_production(ordersnumber, name, count, originalprice, currentprice)
 	select 2, p.name, 1, p.original_price, p.price from production p
 		where p.name='外星人电脑' or p.name='小米mix';
+        
+        
 #，发现还是买不起...,
 update ordertable set ordertable.total=22198 where ordertable.id=2;
+
+
 #这次他选择了取消了订单，这张订单被移除掉了，写出SQL
 delete  from ordertable where ordertable.id=2;
+
+
 #他十分沮丧，决定学好知识，决定Java编程思想和小黄书各买一本回去学习，下订单。写出SQL
 insert into ordertable(date, users_name, address, total, whethertopay)
 	value('2016-09-02', '任向杰', '河北', null,'未付款');
 insert into ordertable_production(ordersnumber, name, count, originalprice, currentprice)
 	select 3, p.name, 1, p.original_price, p.price from production p
 		where p.name='Java编程思想' or p.name='小黄书';
+        
+        
 #看了总价，发现买得起，随即付款。虽然数学不好，但是最终还是下单成功
 update ordertable set ordertable.total=278 where ordertable.id=3;
+start transaction;
 update users set users.balance=(users.balance - 278) where users.name='任向杰';
 update ordertable set ordertable.whethertopay='已付款' where ordertable.id=3;
+commit;
 
 ##################################          2016-09-11          ##################################
 
+
 #老板娘看到小黄书卖不动，觉得可能是价格定太高，所以下调价格到了原价。写出SQL
 update production set production.price=production.original_price where production.name='小黄书';
+
+
 #守候多时的zyy赶紧跳了出来，下单买了10本小黄书，写出SQL
 insert into ordertable(date, users_name, address, total, whethertopay)
 	value('2016-09-11', 'zyy', '上海', null,'未付款');
 insert into ordertable_production(ordersnumber, name, count, originalprice, currentprice)
 	select 4, p.name, 10, p.original_price, p.price from production p
 		where p.name='小黄书';
+        
+        
 #然后付款，写出SQL。
 update ordertable set ordertable.total=1000 where ordertable.id=4;
+start transaction;
 update users set users.balance=(users.balance - 1000) where users.name='zyy';
 update ordertable set ordertable.whethertopay='已付款' where ordertable.id=4;
+commit;
+
+
 #任向杰进来看到小黄书买的原价了，他觉得自己好像买贵了，所以回去查看了一下自己的订单，发现果然买贵了。写出SQL
 #(有点问题，想不出来)
 select * from ordertable o, ordertable_production op 
@@ -195,10 +227,13 @@ select * from ordertable o, ordertable_production op
 
 ##################################          2016-10-10          ##################################
 
+
 #为了迎接双十一的到来，老板娘决定先把所有商品都调回原价，请用一条SQL完成
 update production set production.price=production.original_price;
 
+
 ##################################          2016-10-12          ##################################
+
 
 #宋天健跑进来，发现线上居然比线下还买的贵，很气愤，创建了3个订单，每个订单都买了99台外星人电脑，然后不付款。写出SQL
 insert into ordertable(date, users_name, address, total, whethertopay)
@@ -229,6 +264,8 @@ select p.* from production p,category c, production_category pc
 	where p.id=pc.production_id 
     and c.id=pc.category_id 
     and c.name='bookclass';
+    
+    
 #发现只有两本书，觉得好少，只好各买了10本，下单，付款，写出SQL
 insert into ordertable(date, users_name, address, total, whethertopay)
 	value('2016-10-15', '贾锐', '安徽', null,'未付款');
@@ -236,8 +273,10 @@ insert into ordertable_production(ordersnumber, name, count, originalprice, curr
 	select 8, p.name, 10, p.original_price, p.price from production p
 		where p.name='java编程思想' or p.name='小黄书';
 update ordertable set ordertable.total=1990 where ordertable.id=8;
+start transaction;
 update ordertable set ordertable.whethertopay='已付款' where ordertable.id=8;
 update users set users.balance=(users.balance - 1990) where users.name='贾锐';
+commit;
 
 
 ##################################          2016-11-10          ##################################
@@ -248,8 +287,12 @@ update production set production.price=(production.original_price/2) where produ
 ##################################          2016-11-11          ##################################
 
 #梁邵焕想买一台外星人，然后两张战地1回去和女朋友联机玩，但是钱不够，所以他和徐嘉亮借了5000块。写出SQL
+start transaction;
 update users set users.balance=(users.balance - 5000) where users.name='徐嘉亮';
 update users set users.balance=(users.balance + 5000) where users.name='梁绍焕';
+commit;
+
+
 #然后梁邵焕下单买了一台外星人电脑和两张战地1，付款，写出SQL
 insert into ordertable(date, users_name, address, total, whethertopay)
 	value('2016-11-11', '梁绍焕', '山西', null,'未付款');
@@ -260,8 +303,12 @@ insert into ordertable_production(ordersnumber, name, count, originalprice, curr
 	select 9, p.name, 2, p.original_price, p.price from production p
 		where p.name='战地1';
 update ordertable set ordertable.total=22000 where ordertable.id=9;
+start transaction;
 update ordertable set ordertable.whethertopay='已付款' where ordertable.id=9;
 update users set users.balance=(users.balance - 22000) where users.name='梁绍焕';
+commit;
+
+
 #高成买了台小米无人机，并下单付款，写出SQL
 insert into ordertable(date, users_name, address, total, whethertopay)
 	value('2016-11-11', '高成', '留尼旺岛', null,'未付款');
@@ -269,37 +316,74 @@ insert into ordertable_production(ordersnumber, name, count, originalprice, curr
 	select 10, p.name, 1, p.original_price, p.price from production p
 		where p.name='小米无人机' ;
 update ordertable set ordertable.total=1000 where ordertable.id=10;
+start transaction;
 update ordertable set ordertable.whethertopay='已付款' where ordertable.id=10;
 update users set users.balance=(users.balance - 1000) where users.name='高成';
+commit;
 
 ##################################          2016-11-11          ##################################
 
 #老板想看看最近的销售情况，让程序员写了一些SQL
+
+
 #双11之前总的销售额
 select sum(total) from ordertable o 
 	where o.whethertopay='已付款'
     and o.date <'2016-11-11';
+
+
 #双11当天总的销售额
 select sum(total) from ordertable o 
-	where o.whethertopay='已付款'
+     	where o.whethertopay='已付款'
     and o.date ='2016-11-11';
+
+
 #总共的销售额
 select sum(total) from ordertable o 
 	where o.whethertopay='已付款';
+
+
 #各种商品及他们销售量的列表
+select p.name, sum(op.count) from production p,ordertable_production op, ordertable o 
+	where o.whethertopay='已付款'
+	and o.id = op.ordersnumber
+    and op.name=p.name
+    group by(p.name);
+
 
 #花钱最多的客户的名称
+select o.users_name, o.total from ordertable o 
+	where o.whethertopay='已付款'
+    order by o.total desc limit 1;
+
 
 #每个客户的订单数量的列表
+select o.users_name, count(o.whethertopay) from ordertable o
+	group by(o.users_name);
 
 #订单金额最大的订单
+select o.users_name, o.total from ordertable o 
+	order by o.total desc limit 1;
+
 
 #哪些商品至今销量为0
+#不会
+
 
 #老板娘觉得未完成订单有点多
 #他找出了创建未完成订单数量最多的人，SQL
-
+#（不会写）
+select o.users_name, o.whethertopay from ordertable o
+	where o.whethertopay='未付款'
+    group by(users_name);
+SELECT COUNT(*) AS NumberOfOrders FROM ordertable
+    where ordertable.users_name in('任向杰');
+SELECT COUNT(*) AS NumberOfOrders FROM ordertable
+    where ordertable.users_name in('宋天健');
+    
+    
 #并将他的账号删除了，SQL
+delete from users where users.name = '宋天健';
 
 
 

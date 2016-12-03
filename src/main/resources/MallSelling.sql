@@ -1,6 +1,6 @@
 create database shop;
 use shop;
-drop database shop;
+#drop database shop;
 
 create table production(
 	id int not null auto_increment,

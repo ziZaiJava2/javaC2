@@ -1,15 +1,13 @@
-/*package com.zizaitianyuan.javac2.lesson05;
+package com.zizaitianyuan.javac2.lesson05;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.swing.text.html.HTMLDocument.Iterator;
-
 public class BuildPath {
 
-	
+	/*
 	 * 
 	 * 假设我们有一颗树，如下所示。
 	 *        A
@@ -41,34 +39,8 @@ public class BuildPath {
 	 * }
 	 * 
 	 * 
-	 
-
-
-	}
+	 */
 	public static Map<String, List<String>> buildPaths(List<Node> nodes) {
-		Map<String, List<String>> map = new HashMap<String, List<String>>();
-		Iterator<Node> iter = nodes.iterator();
-		while (iter.hasNext()) {
-			List<String> list = new ArrayList<String>();
-			Node node = iter.next();
-			String now = node.getName();
-			while (node.getParentName() != null) {
-				list.add(node.getParentName());
-				for (int i = 0; i < nodes.size(); i++) {
-					if (nodes.get(i).getName() == node.getParentName()) {
-						node = nodes.get(i);
-						break;
-					}
-				}
-			}
-
-			Collections.reverse(list);
-			list.add(now);
-			map.put(now, list);
-
-		}
-
-		return map;
 		return new HashMap<>();
 	}
 }
@@ -172,7 +144,7 @@ class Node {
 
 class BuildPath2 {
 
-	
+	/*
 	 * 
 	 * 假设我们有一颗树，如下所示。
 	 *        A
@@ -204,7 +176,7 @@ class BuildPath2 {
 	 * }
 	 * 
 	 * 
-	 
+	 */
 	public static Map<String, List<String>> buildPaths(List<Node> nodes) {
 		
 		// 生成一个map，可以通过name来去的对应的node
@@ -212,7 +184,6 @@ class BuildPath2 {
 		
 		// 返回的结果
 		allPaths = new HashMap<>();
-		 
 		
 		for(Node node: nodes) {
 			allNodes.put(node.getName(), node);
@@ -248,4 +219,3 @@ class BuildPath2 {
 	}
 	
 }
-*/

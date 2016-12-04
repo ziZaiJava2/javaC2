@@ -270,14 +270,57 @@ and c.id = p_c.category_id
 and p.name = ('小米无人机'); 
 #双11之前总的销售额
   select sum(o_p.price * o_p.count)双11之前总的销售额 from orderr_production o_p , 
-  orderr o where o.create_date = '2016-9-02' and o_p.state = ('已付款');
+  orderr o where o.create_date = '2016-9-02' and o_p.orderr_id=o.id and o_p.state = ('已付款');
 #双11当天总的销售额
- select sum(o_p.price * o_p.orders_id)双11当天总的销售额 from orderr_production o_p , 
-  orderr o where o.create_date = '2016-11-11' and o_p.state = ('已付款');
+select sum(o_p.price * o_p.count)双11当天总的销售额 from orderr_production o_p , 
+orderr o where o.create_date = '2016-11-11' and o_p.orderr_id=o.id and o_p.state = ('已付款');
 
 
 #各种商品及他们销售量的列表
-select p.name,o_p.count from production p,orderr_production o_p where o_p.production_id=p.id group by(p.name);
+select p.name,o_p.count from production p left join orderr_production o_p 
+on o_p.production_id=p.id group by(p.name);
+
+select p.name, ifnull(o.count, 0) as count from (select op.production_id as pid,sum(op.count) as count 
+from orderr_production op ,orderr ord 
+where op.orderr_id = ord.id and ord.state = '已付款' group by op.production_id) o 
+right join production p on op_id = p.id;
+
+
+
+select p.name, ifnull(sum(op.count), 0) as count
+from  orders os 
+inner join orders_production op on os.id = op.orders_id
+right join production p on op.production_id = p.id 
+where os.state = '已付款' or (os.state is null and os.id is null)
+group by p.id;
+
+
+
+
+select *from orderr_production;
 
 #每个客户的订单数量的列表
-select o.user_name,count(o_p.orders_id) from orderr_production o_p,orderr o where o.id=o_p.orders_id group by(o.user_name);
+select o.name,count(o_p.orderr_id) from orderr_production o_p,users o 
+where o.id=o_p.orderr_id group by(o.name);
+
+#订单金额最大的订单
+select sum(o_p.orderr_id * o_p.price) as mostPayOrder , o.id  
+from orderr_production o_p, orderr o where o_p.orderr_id = o.id 
+group by o_p.orderr_id order by mostPayOrder desc limit 1;
+
+#哪些商品至今销量为0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

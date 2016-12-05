@@ -10,88 +10,112 @@ public class BuildPath {
 
 	/*
 	 * 
-	 * 假设我们有一颗树，如下所示。
-	 *        A
-	 *      /   \
-	 *     B     C
-	 *    /       \
-	 *   D        F
-	 *  /        / \
-	 * E        G   H
+	 * 假设我们有一颗树，如下所示。 A / \ B C / \ D F / / \ E G H
 	 * 
 	 * 他们数据是按每个节点保存的，节点保存自己的名字及父节点的名字
 	 * 
-	 * {name: A, parentName: null}
-	 * {name: B, parentName: A}
-	 * {name: C, parentName: A}
-	 * {name: D, parentName: B}
-	 * ...
+	 * {name: A, parentName: null} {name: B, parentName: A} {name: C,
+	 * parentName: A} {name: D, parentName: B} ...
 	 * 
-	 * 实现方法，传入的参数是所有节点的List,返回一个Map，他的Key是节点的名字，
-	 * Value是从根到节点的路径
+	 * 实现方法，传入的参数是所有节点的List,返回一个Map，他的Key是节点的名字， Value是从根到节点的路径
 	 * 
-	 * 例如： 
-	 * {
-	 * 		A: [A],
-	 * 		B: [A, B],
-	 * 		D: [A, B, D],
-	 * 		C: [A, C],
-	 *      ...
-	 * }
+	 * 例如： { A: [A], B: [A, B], D: [A, B, D], C: [A, C], ... }
 	 * 
 	 * 
 	 */
-	private static Map<String, List<String>> nodePath = new HashMap<>();
-	private static Map<String, Node> nodes = new HashMap<>();
+	// private static Map<String, List<String>> nodePath = new HashMap<>();
+	// private static Map<String, Node> nodese = new HashMap<>();
+	public static Map<String, List<String>> allPaths = new HashMap<>();
+	public static Map<String, Node> allNode = new HashMap<>();
 	public static Map<String, List<String>> buildPaths(List<Node> nodes) {
-		
-		for(Node node : nodes){
-			nodes.add(node);
+		Map<String, List<String>> allPaths = new HashMap<>();
+		// 遍历所有的node，把名字和节点放进去
+		putNode(nodes);
+		for (Node node : nodes) {
+			allPaths.put(node.getName(), getPath(node));
 		}
-		
-		for(Node node : nodes){
-			rootPath(node.getName());
+
+		return allPaths;
+
+		// for (Node node : nodes) {
+		// nodese.put(node.getName(), node);
+		// }
+		//
+		// for (Node node : nodes) {
+		// rootPath(node.getName());
+		// }
+		//
+		// return nodePath;
+
+	}
+
+	public static List<String> getPath(Node node) {
+		List<String> path = new ArrayList<String>();
+        if(node.getName() != null){
+        	return allPaths.get(node.getName());
+        }
+		if(node != null) {
+			List<String> parentPath = getPath(getNode(node.getParentName()));
+			path.addAll(parentPath);
+			path.add(node.getName());
+
 		}
-		
-		return nodePath;
-		
-		
-		
+		return path;
 		
 	}
 
-    public static List<String> rootPath(String name){
-    	List<String> path = new ArrayList<>();
-    	if(name == null){
-    		return new ArrayList<String>();
-    	}
-    	new ArrayList<String>();
-    	if(nodePath.get(name) != null){
-    		return path = nodePath.get(name);
-    	}else if("A".equals(name)){
-    		path.add(name);
-    		nodePath.get(name).addAll(path);
-    		return path;
-    	}else{
-    		path = rootPath(nodes.get(name).getParentName());
-    		path = new ArrayList<>(path);
-    		path.add(name);
-    		nodePath.get(name).addAll(path);
-    	}
-		return path;
-    }
-   
-
+	public static Node getNode(String name) {
+		if(name == null){
+			return null;
+		}
+		return allNode.get(name);
+	}
+	
+	
+	public static Map<String, Node> putNode(List<Node> nodes){
+		for(Node node : nodes){
+			allNode.put(node.getName(), node);
+		}
+		return null;
+	}
+	
+//	public int sumOfHundred(int i){
+//		if(i == 1){
+//			return 1;
+//		}
+//		return i + sumOfHundred(i - 1);
+//	}
+//	
+//	public int jiechen(int i){
+//		if(i == 0){
+//			return 1;
+//		}
+//		return i*jiechen(i - 1);
+//	}
+	// public static List<String> rootPath(String name) {
+	// List<String> path = new ArrayList<>();
+	// if (name == null) {
+	// return new ArrayList<String>();
+	// }
+	//
+	// if (nodePath.get(name) != null) {
+	// return path = nodePath.get(name);
+	// } else {
+	// path = rootPath(nodese.get(name).getParentName());
+	// path = new ArrayList<>(path);
+	// path.add(name);
+	// nodePath.get(name).addAll(path);
+	// return path;
+	// }
+	// }
 
 }
 
-
-
 class Node {
 	private String name;
-	
+
 	private String parentName;
-	
+
 	public Node(String name, String parentName) {
 		this.name = name;
 		this.parentName = parentName;
@@ -102,8 +126,7 @@ class Node {
 	// 这些代码可以自动生成：
 	// 菜单： source -> generate getters and setters
 	// (注意我这次使用的注释的方式是使用//)
-	
-	
+
 	public String getName() {
 		return name;
 	}
@@ -124,140 +147,62 @@ class Node {
 
 // 因为这个例子有点难，我写了个实现在下面。可以 想想再看
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 class BuildPath2 {
 
 	/*
 	 * 
-	 * 假设我们有一颗树，如下所示。
-	 *        A
-	 *      /   \
-	 *     B     C
-	 *    /       \
-	 *   D        F
-	 *  /        / \
-	 * E        G   H
+	 * 假设我们有一颗树，如下所示。 A / \ B C / \ D F / / \ E G H
 	 * 
 	 * 他们数据是按每个节点保存的，节点保存自己的名字及父节点的名字
 	 * 
-	 * {name: A, parentName: null}
-	 * {name: B, parentName: A}
-	 * {name: C, parentName: A}
-	 * {name: D, parentName: B}
-	 * ...
+	 * {name: A, parentName: null} {name: B, parentName: A} {name: C,
+	 * parentName: A} {name: D, parentName: B} ...
 	 * 
-	 * 实现方法，传入的参数是所有节点的List,返回一个Map，他的Key是节点的名字，
-	 * Value是从根到节点的路径
+	 * 实现方法，传入的参数是所有节点的List,返回一个Map，他的Key是节点的名字， Value是从根到节点的路径
 	 * 
-	 * 例如： 
-	 * {
-	 * 		A: [A],
-	 * 		B: [A, B],
-	 * 		D: [A, B, D],
-	 * 		C: [A, C],
-	 *      ...
-	 * }
+	 * 例如： { A: [A], B: [A, B], D: [A, B, D], C: [A, C], ... }
 	 * 
 	 * 
 	 */
-//	public static Map<String, List<String>> buildPaths(List<Node> nodes) {
-//		
-//		// 生成一个map，可以通过name来去的对应的node
-//		allNodes = new HashMap<>();
-//		
-//		// 返回的结果
-//		allPaths = new HashMap<>();
-//		
-//		for(Node node: nodes) {
-//			allNodes.put(node.getName(), node);
-//		}
-//		
-//		for(Node node: nodes) {
-//			generatePath(node.getName());
-//		}
-//		
-//		return allPaths;
-//	}
-//	
-//	
-//	private static Map<String, List<String>> allPaths;
-//	private static Map<String, Node> allNodes;
-//	
-//	private static List<String> generatePath(String name) {
-//		// 递归的结束条件
-//		if(name == null) {
-//			return new ArrayList<>();
-//		}
-//		
-//		List<String> path;
-//		if ((path = allPaths.get(name)) == null) {
-//			Node n = allNodes.get(name);
-//			List<String> parentPaths = generatePath(n.getParentName());
-//			// 拷贝一份父节点的path
-//			path = new ArrayList<>(parentPaths);
-//			path.add(name);
-//			allPaths.put(name, path);
-//		}
-//		return path;
-//	}
-	
-}
+	// public static Map<String, List<String>> buildPaths(List<Node> nodes) {
+	//
+	// // 生成一个map，可以通过name来去的对应的node
+	// allNodes = new HashMap<>();
+	//
+	// // 返回的结果
+	// allPaths = new HashMap<>();
+	//
+	// for(Node node: nodes) {
+	// allNodes.put(node.getName(), node);
+	// }
+	//
+	// for(Node node: nodes) {
+	// generatePath(node.getName());
+	// }
+	//
+	// return allPaths;
+	// }
+	//
+	//
+	// private static Map<String, List<String>> allPaths;
+	// private static Map<String, Node> allNodes;
+	//
+	// private static List<String> generatePath(String name) {
+	// // 递归的结束条件
+	// if(name == null) {
+	// return new ArrayList<>();
+	// }
+	//
+	// List<String> path;
+	// if ((path = allPaths.get(name)) == null) {
+	// Node n = allNodes.get(name);
+	// List<String> parentPaths = generatePath(n.getParentName());
+	// // 拷贝一份父节点的path
+	// path = new ArrayList<>(parentPaths);
+	// path.add(name);
+	// allPaths.put(name, path);
+	// }
+	// return path;
+	// }
 
+}

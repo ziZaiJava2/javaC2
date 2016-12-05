@@ -1,4 +1,4 @@
-drop database mall;
++drop database mall;
 create database mall;
 use mall;
 #品名：小黄书，描述：zyy最爱的绝版BL小说，原价：100，现价：199

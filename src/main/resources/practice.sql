@@ -123,6 +123,7 @@ id int not null auto_increment,
 create_date date not null,
 address varchar(100) not null,
 user_name varchar(20) not null,
+state varchar(20) not null,
 primary key(id)
 );
 
@@ -131,7 +132,7 @@ create table orderr_production(
 orderr_id int, 
 production_id int, 
 price decimal(16, 4),
-state varchar(10),
+
 count int
 );
 
@@ -142,13 +143,15 @@ select * from production p,category c,production_category p_c
 where p.id=p_c.production_id and c.id=p_c.category_id and c.name='electronic_products';
 
 
-insert into orderr(create_date,address,user_name) values ('2016-09-02','沪城环路6号','jie'); 
+insert into orderr(create_date,address,user_name,state) values ('2016-09-02','沪城环路6号','jie','未付款'); 
 #然后把所有的电子产品都选上，生成了一个订单
-insert into orderr_production(orderr_id,production_id,price,count,state)
-select 1, p.id, p.price, 1,'未付款' 
+insert into orderr_production(orderr_id,production_id,price,count)
+select 1, p.id, p.price, 1
 from production p, production_category p_c, category c where p.id = p_c.production_id 
 and c.id = p_c.category_id
 and c.name = 'electronic_products'; 
+
+select * , po.price*po.count as allpay from orderr , orderr_production po where state = '未付款' ; 
 
 select *from orderr_production;
 #他看了下总价，发现买不起，只好退出了商城，留下了未付款的订单
@@ -160,59 +163,68 @@ where p.id = p_c.production_id
 and c.id = p_c.category_id
 and p.name in ('外星人电脑','小米Mix');
 #这次他选择了取消了订单，这张订单被移除掉了
-delete from orderr_production where orderr_id like 4;
+delete from orderr_production where orderr_id like 2;
 
-select*from production;
+select*from orderr_production;
 select*from orderr;
 
 #他十分沮丧，决定学好知识，决定Java编程思想和小黄书各买一本回去学习，下订单
+insert into orderr(create_date,address,user_name,state) values ('2016-09-11','沪城环路6号','jie','已付款'); 
+
 insert into orderr_production(orderr_id,production_id,price,count)
 select 2, p.id, p.price, 1 from production p, production_category p_c, category c 
 where p.id = p_c.production_id 
 and c.id = p_c.category_id
 and p.name in ('小黄书','java编程思想');
 
-#然后付款
-update orderr_production set state='已付款' where production_id in (1,6);
+
+select *from orderr_production;
+
 #老板娘看到小黄书卖不动，觉得可能是价格定太高，所以下调价格到了原价
 update production set production.price = production.original_price where id in (1);
 #守候多时的zyy赶紧跳了出来，下单买了10本小黄书
+
+insert into orderr(create_date,address,user_name,state) values ('2016-09-02','沪城环路1号','yi','已付款'); 
+
 insert into orderr_production(orderr_id,production_id,price,count)
 select 3, p.id, p.price, 10 from production p, production_category p_c, category c 
 where p.id = p_c.production_id 
 and c.id = p_c.category_id
 and p.name in ('小黄书');
-#然后付款
 
 
-update orderr_production set state='已付款' where production_id in (1,6);
+
+
 
 #任向杰进来看到小黄书买的原价了，他觉得自己好像买贵了，所以回去查看了一下自己的订单，发现果然买贵了
 select * from orderr_production where orderr_id=2;
 
 #为了迎接双十一的到来，老板娘决定先把所有商品都调回原价
 update production set production.price = production.original_price;
+select * from production;
 
 #宋天健跑进来，发现线上居然比线下还买的贵，很气愤，创建了3个订单，每个订单都买了99台外星人电脑，然后不付款
-insert into orderr(create_date,address,user_name) values ('2016-10-12','沪城环路4号','jian'); 
+insert into orderr(create_date,address,user_name,state) values ('2016-10-12','沪城环路4号','jian','未付款'); 
 
-insert into orderr_production(orderr_id,production_id,price,count,state)
-select 4, p.id, p.price, 99,'未付款' from production p, production_category pc, category c 
+insert into orderr_production(orderr_id,production_id,price,count)
+select 4, p.id, p.price, 99 from production p, production_category pc, category c 
+where p.id = pc.production_id 
+and c.id = pc.category_id
+and p.name = '外星人电脑'; 
+
+
+select * from orderr_production;
+
+
+insert into orderr_production(orderr_id,production_id,price,count)
+select 5, p.id, p.price, 99 from production p, production_category pc, category c 
 where p.id = pc.production_id 
 and c.id = pc.category_id
 and p.name = '外星人电脑'; 
 select*from orderr_production;
 
-
-insert into orderr_production(orderr_id,production_id,price,count,state)
-select 5, p.id, p.price, 99,'未付款' from production p, production_category pc, category c 
-where p.id = pc.production_id 
-and c.id = pc.category_id
-and p.name = '外星人电脑'; 
-select*from orderr_production;
-
-insert into orderr_production(orderr_id,production_id,price,count,state)
-select 6, p.id, p.price, 99,'未付款' from production p, production_category pc, category c 
+insert into orderr_production(orderr_id,production_id,price,count)
+select 6, p.id, p.price, 99 from production p, production_category pc, category c 
 where p.id = pc.production_id 
 and c.id = pc.category_id
 and p.name = '外星人电脑'; 
@@ -223,13 +235,17 @@ select * from production p,category c,production_category p_c
 where p.id=p_c.production_id and c.id=p_c.category_id and c.name='book';
 
 #发现只有两本书，觉得好少，只好各买了10本，下单，付款
+select*from users;
+
+insert into orderr(create_date,address,user_name,state) values ('2016-10-15','沪城环路5号','rui','已付款'); 
+
 insert into orderr_production(orderr_id,production_id,price,count)
 select 7, p.id, p.price, 10 from production p, production_category p_c, category c 
 where p.id = p_c.production_id 
 and c.id = p_c.category_id
 and p.name in ('小黄书','java编程思想');
 
-update orderr_production set state='已付款' where production_id in (1,6);
+
 select *from orderr_production;
 delete from orderr_production where orderr_id like 7;
 
@@ -242,9 +258,9 @@ update users set balance = balance + 5000 where name = '梁绍焕';
 update users set balance = balance - 5000 where name = '徐嘉亮';
 select*from orderr_production;
 
-
+delete from orderr_production where orderr_id like 9;
 #然后梁邵焕下单买了一台外星人电脑和两张战地1，付款
-insert into orderr(create_date,address,user_name) values ('2016-11-11','沪城环路2号','huan'); 
+insert into orderr(create_date,address,user_name,state) values ('2016-11-11','沪城环路2号','huan','已付款'); 
 
 insert into orderr_production(orderr_id,production_id,price,count)
 select 8, p.id, p.price, 1 from production p, production_category p_c, category c 
@@ -257,28 +273,30 @@ where p.id = p_c.production_id
 and c.id = p_c.category_id
 and p.name in ('战地1');
 
-select *from orderr_production;
-update orderr_production set state='已付款' where production_id in (2,3);
+select *from orderr;
+
 
 #高成买了台小米无人机，并下单付款
-insert into orderr(create_date,address,user_name) values ('2016-11-11','沪城环路3号','cheng'); 
+insert into orderr(create_date,address,user_name,state) values ('2016-11-11','沪城环路3号','cheng','已付款'); 
 
-insert into orderr_production(orderr_id,production_id,price,count,state)
-select 9, p.id, p.price, 1,'已付款' from production p, production_category p_c, category c 
+insert into orderr_production(orderr_id,production_id,price,count)
+select 9, p.id, p.price, 1 from production p, production_category p_c, category c 
 where p.id = p_c.production_id 
 and c.id = p_c.category_id
-and p.name = ('小米无人机'); 
+and p.name in ('小米无人机');
 #双11之前总的销售额
   select sum(o_p.price * o_p.count)双11之前总的销售额 from orderr_production o_p , 
-  orderr o where o.create_date = '2016-9-02' and o_p.orderr_id=o.id and o_p.state = ('已付款');
+  orderr o where o.create_date = '2016-9-02' and o_p.orderr_id=o.id and o.state = ('已付款');
 #双11当天总的销售额
 select sum(o_p.price * o_p.count)双11当天总的销售额 from orderr_production o_p , 
-orderr o where o.create_date = '2016-11-11' and o_p.orderr_id=o.id and o_p.state = ('已付款');
+orderr o where o.create_date = '2016-11-11' and o_p.orderr_id=o.id and o.state = ('已付款');
 
 
 #各种商品及他们销售量的列表
-select p.name,o_p.count from production p left join orderr_production o_p 
-on o_p.production_id=p.id group by(p.name);
+
+select *from orderr_production;
+select p.name,op.count from production p left join orderr_production op
+on op.production_id=p.id group by(p.name);
 
 select p.name, ifnull(o.count, 0) as count from (select op.production_id as pid,sum(op.count) as count 
 from orderr_production op ,orderr ord 

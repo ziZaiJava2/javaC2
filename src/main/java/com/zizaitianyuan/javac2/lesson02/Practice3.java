@@ -47,37 +47,66 @@ public class Practice3 {
 		// 其中ｎ是你要放入元素的位置
 
 		// 这里写计算过程：
-		/**
-		 * 遍历传入的两个数组，如果有一个元素与另一个数组中的元素相同，放入inBoth中，同时将两数组中的该元素置0.
-		 */
-		int b = 0, c= 0, d = 0;
-		for (int i = 0; i < source.length; i++) {
-			for (int j = 0; j < newData.length; j++) {
-				if (newData[j] == source[i]) {
-					result.inBoth[b++] = source[i];
-					source[i] = 0;
-					newData[j] = 0;
-					break;
-				}
+		int i = 0, j = 0, k = 0, c = 0, d = 0;
+		while (i < source.length && j < newData.length) {
+			if (source[i] == newData[j]) {
+				result.inBoth[k++] = source[i];
+				source[i] = 0;
+				newData[j] = 0;
+				i++;
+				j++;
+				break;
+			} else if (source[i] < newData[j]) {
+				i++;
+			} else if (source[i] > newData[j]) {
+				j++;
 			}
 		}
-		/**
-		 * 遍历两个数组，将符合期望的元素分别传入onlyInSource和notInSource，并实现正数在前，0在后。
-		 */
-		
-		for (int i = 0; i < source.length; i++) {
-			if (source[i] != 0) {
-				result.onlyInSource[c++] = source[i];
+		for (int a = 0; a < source.length; a++) {
+			if (source[a] != 0) {
+				result.onlyInSource[c++] = source[a];
 			}
 		}
-		
-		for (int i = 0; i < newData.length; i++) {
-			if (newData[i] != 0) {
-				result.notInSource[d++] = newData[i];
+
+		for (int a = 0; a < newData.length; a++) {
+			if (newData[a] != 0) {
+				result.notInSource[d++] = newData[a];
 			}
 		}
 		return result;
 	}
+		
+		/**
+		 * 遍历传入的两个数组，如果有一个元素与另一个数组中的元素相同，放入inBoth中，同时将两数组中的该元素置0.
+		 */
+//		int b = 0, c= 0, d = 0;
+//		for (int i = 0; i < source.length; i++) {
+//			for (int j = 0; j < newData.length; j++) {
+//				if (newData[j] == source[i]) {
+//					result.inBoth[b++] = source[i];
+//					source[i] = 0;
+//					newData[j] = 0;
+//					break;
+//				}
+//			}
+//		}
+//		/**
+//		 * 遍历两个数组，将符合期望的元素分别传入onlyInSource和notInSource，并实现正数在前，0在后。
+//		 */
+//		
+//		for (int i = 0; i < source.length; i++) {
+//			if (source[i] != 0) {
+//				result.onlyInSource[c++] = source[i];
+//			}
+//		}
+//		
+//		for (int i = 0; i < newData.length; i++) {
+//			if (newData[i] != 0) {
+//				result.notInSource[d++] = newData[i];
+//			}
+//		}
+//		return result;
+//	}
 }
 
 class Result {

@@ -86,9 +86,41 @@ class Node {
 
 
 
-
-
-
+//public static Map<String, Node> allNodes = new HashMap<String, Node>();
+////public static Map<String, List<String>> nodePaths = new HashMap<String, List<String>>();
+//
+//public static Map<String, List<String>> buildPaths(List<Node> nodes) {
+//	Map<String, List<String>> allPaths = new HashMap<>();
+//	//遍历所有的node，把名字和节点放进去
+//	for (Node node : nodes) {
+//		allPaths.put(node.getName(), getPath(node,nodes));
+//	}
+//
+//	return allPaths;
+//}
+//private static List<String > getPath (Node node, List<Node> nodes){
+//	List<String> path = new ArrayList<String>();
+//	path.add(node.getName());
+//	//
+//	while(node.getParentName() != null){
+//		node = getNode(node.getParentName(),nodes);
+//		if(node != null){
+//			path.add(0,node.getName());
+//		}else{
+//			break;
+//		}
+//	}
+//	return path;
+//}
+//private static Node getNode(String name,List<Node> nodes){
+//	for(Node node: nodes){
+//		if(node.getName().equals(name)){
+//			return node;
+//		}
+//		
+//	}
+//	return null;
+//}
 
 
 

@@ -15,11 +15,12 @@ public class OIU {
 	private static Users users = new Users();
 	private static Orders orders = new Orders();
 	private static Category category = new Category();
-	private static ProductionDAO PD;
-	private static UsersDAO UD;
-	private static OrdersDAO OD;
-	private static CategoryDAO CD;
+	private static ProductionDAO PD=new ProductionDAO();
+	private static UsersDAO UD=new UsersDAO();
+	private static OrdersDAO OD=new OrdersDAO();
+	private static CategoryDAO CD=new CategoryDAO();
 	private static String input = null;
+	private static boolean a=true;
 	private static Scanner sc = new Scanner(System.in);
 	private static List<String> tableList = new ArrayList<>(Arrays.asList("production", "orders", "category", "users"));
 
@@ -94,13 +95,12 @@ public class OIU {
 			case "Q": {
 				System.out.println("请输入要查询的表名\n");
 				String tableName = sc.nextLine();
-				boolean a = true;
 				while (tableList.contains(tableName) && a) {
 					System.out.println("请选择查询模式:获取明细内容,输入:Y/获得所有名称,输入:N");
 					input = sc.nextLine();
 					if ("Y".equals(input.toUpperCase())) {
 						switch (tableName) {
-						case "producton": {
+						case "production": {
 							System.out.println("请输入要查询的商品ID\n");
 							int productionId = sc.nextInt();
 							Production pro = PD.getProduction(productionId);
@@ -132,7 +132,7 @@ public class OIU {
 							break;
 						}
 						}
-						judge(a);
+						judge();
 					} else if ("N".equals(input.toUpperCase())) {
 						switch (tableName) {
 						case "production": {
@@ -156,7 +156,7 @@ public class OIU {
 							break;
 						}
 						}
-						judge(a);
+						judge();
 					} else {
 						System.out.println("输入错误");
 					}
@@ -167,11 +167,8 @@ public class OIU {
 			}
 			case "B": {
 				flag = false;
+				System.out.println("您已成功退出，感谢使用青青数据库系统");
 				break;
-			}
-			default: {
-				System.out.println("您输入了不符合格式的指令!!");
-				tell();
 			}
 			}
 
@@ -249,15 +246,17 @@ public class OIU {
 	}
 
 	private static void speak() {
-		System.out.println("请选择想进行的操作:(不区分大小写)" + "\n" + "删除指定数据表(D/DELETE)\n" + "添加数据(A/ADD)\n" + "查找数据(Q/QUERY)\n"
-				+ "退出系统(B/BYE)\n");
+		System.out.println("******************************");
+		System.out.println("---> 请选择想进行的操作:(不区分大小写)" + "\n" + "---> 删除指定数据表(D/DELETE)\n" + "---> 添加数据(A/ADD)\n" + "---> 查找数据(Q/QUERY)\n"
+				+ "---> 退出系统(B/BYE)\n");
+		System.out.println("******************************");
 	}
 
 	private static void tell() {
 		System.out.println("请指示下一步操作:\n");
 	}
 
-	private static void judge(boolean a) {
+	private static void judge() {
 		System.out.println("是否继续查询？(Y/N)\n");
 		String choice = sc.nextLine();
 		if ("N".equals(choice.toUpperCase())) {

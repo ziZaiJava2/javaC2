@@ -49,6 +49,7 @@ public class Production {
 		this.price = price;
 	}
 	
+	//创建一个填写production属性的方法
 	public static Production getProduction(){
 		Scanner in = new Scanner(System.in);
 		Production production = new Production();
@@ -65,6 +66,7 @@ public class Production {
 		return production;
 	}
 
+	//生成一个toString方法
 	public String toString() {
 		String A = String.format("id:%d, name:%s, description:%s, original_price:%d, price:%d", stuId, name,
 				description, original_price, price);

@@ -69,10 +69,12 @@ public class ProductionDJBC {
 			}else if(number == 3){		//查找单个数据的操作
 				System.out.println("请输入要查找的数据的id：");
 				Production B = ProductionDAO.getProductionDAO().getProduction(in.nextInt());
-				System.out.println(B.toString());
+				System.out.println(B.toString());     //调用Production里的toString方法
+				
 			}else if(number == 4){      //更改数据的操作
 				System.out.println("请输入要更改的数据的id：");
 				ProductionDAO.getProductionDAO().updateProduction(in.nextInt());
+				
 			}else if(number == 5){      //删除数据的操作
 				System.out.println("请输入要删除的数据的id：");
 				ProductionDAO.getProductionDAO().deleteProduction(in.nextInt());

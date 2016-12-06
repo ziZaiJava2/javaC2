@@ -1,7 +1,7 @@
 package com.zizaitianyuan.javac2.bank00;
 
 import java.util.HashMap;
-public class BankTest{
+public class Bank1{
 	public static void main(String[] args){
 		Person p1 = new Person("13454213","李刚",10000);
 		Person p2 = new Person("13454245","张宏",500000);

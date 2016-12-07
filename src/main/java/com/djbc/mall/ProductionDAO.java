@@ -32,6 +32,7 @@ public class ProductionDAO {
 			stat = conn.prepareStatement(sql);
 			
 			//放入数据库
+			conn.setAutoCommit(false);
 			stat.setString(1, production.getName());
 			stat.setString(2, production.getDescription());
 			stat.setDouble(3, production.getOriginal_price());
@@ -42,6 +43,7 @@ public class ProductionDAO {
 			}else{
 				System.out.println("数据存储。。。失败！");
 			}	
+			conn.commit();
 			
 		} catch (SQLException e) {
 			e.printStackTrace(); // 显示出异常的路径
@@ -64,6 +66,7 @@ public class ProductionDAO {
 			conn = DriverManager.getConnection(url);
 			stat = conn.prepareStatement(sql);	
 			
+			conn.setAutoCommit(false);
 			stat.setInt(1, productionId);    // 用productionId条件
 			boolean A = stat.execute(sql);        //返回一个boolean类型
 			int count = stat.getUpdateCount();  //计算有多少条数据删除成功
@@ -72,6 +75,7 @@ public class ProductionDAO {
 			}else{
 				System.out.println(count+"条数据删除。。。失败！");
 			}
+			conn.commit();
 			
 		} catch (SQLException e) {
 			e.printStackTrace(); // 显示出异常的路径
@@ -88,7 +92,7 @@ public class ProductionDAO {
 		List<String> natureList = new ArrayList<String>();    // 生成一个临时保存更改的对象属性链表
 		Scanner in = new Scanner(System.in);
 		String url = ProductionDJBC.getUrl();     // 调用url和与加载驱动的方法
-		Connection conn = DriverManager.getConnection(url);     // 打开Connection资源
+		Connection conn = DriverManager.getConnection(url);     
 		PreparedStatement stat;
 		
 		System.out.println("请输入你要更改的商品属性：");
@@ -102,12 +106,12 @@ public class ProductionDAO {
 			System.out.println("是否结束属性填写！（是、否）");
 			if (in.next().equals("是")) {
 				break;
-			}
+			} 
 			i++;
 			n++;
 		}
 		try {
-			
+			conn.setAutoCommit(false);
 			if (natureList.contains("name")) {
 				System.out.println("请输入新的name：");
 				String sql = "update production set name=? where id=?";
@@ -167,6 +171,8 @@ public class ProductionDAO {
 				}
 				stat.close();
 			}
+			conn.commit();
+			
 		} catch (SQLException e) {
 			e.printStackTrace();      // 显示出异常的路径
 		} finally {
@@ -189,8 +195,10 @@ public class ProductionDAO {
 			String querySql = "select * from production where id = ?";
 			conn = DriverManager.getConnection(url);
 			stat = conn.prepareStatement(querySql);
-			rs = stat.executeQuery(querySql);
+			
+			conn.setAutoCommit(false);
 			stat.setInt(1, productionId);     // 用productionId条件
+			rs = stat.executeQuery(querySql);
 
 			production.setStuId(rs.getInt("id"));
 			production.setName(rs.getString("name"));
@@ -198,6 +206,7 @@ public class ProductionDAO {
 			production.setOriginal_price(rs.getInt("original_price"));
 			production.setPrice(rs.getInt("price"));
 
+			conn.commit();
 		} catch (SQLException e) {
 			e.printStackTrace();     // 显示出异常的路径
 		} finally {
@@ -221,6 +230,8 @@ public class ProductionDAO {
 			String querySql = "select * from production";     // 可以在这里设置条件
 			conn = DriverManager.getConnection(url);
 			stat = conn.createStatement();
+			
+			conn.setAutoCommit(false);
 			rs = stat.executeQuery(querySql);
 
 			while (rs.next()) {
@@ -233,6 +244,8 @@ public class ProductionDAO {
 
 				productionList.add(production);    // 将对象保存到链表中
 			}
+			conn.commit();
+			
 		} catch (SQLException e) {
 			e.printStackTrace();     // 显示出异常的路径
 		} finally {

@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class ProductionDJBC {
 
-	public static void main(String[] args) throws ClassNotFoundException {
+	public static void main(String[] args) throws ClassNotFoundException, SQLException {
 		Scanner in = new Scanner(System.in);
 		getDataSheet();
 		System.out.println("表单字段：id   name   description   original_price   price");
@@ -32,7 +32,7 @@ public class ProductionDJBC {
 	
 	
 	//创建一个数据表
-	public static  void getDataSheet() throws ClassNotFoundException{
+	public static  void getDataSheet() throws ClassNotFoundException, SQLException{
 		String url = getUrl();  // 调用url和与加载驱动的方法
 		Connection conn = null;
 		Statement stat = null;
@@ -44,14 +44,21 @@ public class ProductionDJBC {
 					+ "primary key(id)" + ");";
 			conn = DriverManager.getConnection(url);
 			stat = conn.createStatement();
+			
+			conn.setAutoCommit(false);
 			boolean A = stat.execute(sql);  //在数据库执行sql里的内容，返回一个boolean类型
 			if(A){
 				System.out.println("创建production数据表。。。成功！");
 			}else{
 				System.out.println("创建production数据表。。。失败！");
 			}
+			conn.commit();
+			
 		} catch (SQLException e) {
 			e.printStackTrace();    // 显示出异常的路径
+		}finally{
+			stat.close();
+			conn.close();
 		}
 		
 	}

@@ -1,6 +1,5 @@
 create database shop;
 use shop;
-#drop database shop;
 
 create table production(
 	id int not null auto_increment,
@@ -332,11 +331,3 @@ select name from production
 select serve_name , count(*) from orders 
 	where  state = '未付款' group by serve_name;
 delete from serve where name = '宋天健';
-
-
-select*from orders_production;
-select*from orders;
-select*from serve;
-select*from production;
-drop table orders;
-drop table orders_production

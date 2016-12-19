@@ -7,7 +7,7 @@ import java.util.List;
 
 import com.zizaitianyuan.javac2.store.dto.Users;
 
-public class UsersDAO {
+public class UsersDAO implements TAG {
 	private static final String URL = "jdbc:mysql://localhost:3306/store?user=root&password=root";
 	private PreparedStatement preState = null;
 
@@ -39,10 +39,10 @@ public class UsersDAO {
 	}
 
 	/**
-	 * 删除用户表 
+	 * 删除用户表
 	 */
-	public void deleteUsers() {
-		String sql = "drop table users";
+	public void deleteUsers(String name) {
+		String sql = "delete from users where name='" + name + "'";
 		try {
 			preState = PrepareUtils.prepare(URL, sql);
 			preState.executeUpdate();
@@ -64,16 +64,15 @@ public class UsersDAO {
 	 * 更新指定表的指定列
 	 * 
 	 * @param tableName
-	 * @param column
 	 * @param change
 	 */
-	public void updateUsers(String column, String change, int id) {
-		String sql = "update users set ?=? where id=?";
+	@Override
+	public void update(String change, String name) {
+		String sql = "update users set nickname=? where name=?";
 		try {
 			preState = PrepareUtils.prepare(URL, sql);
-			preState.setString(1, column);
-			preState.setString(2, change);
-			preState.setInt(3, id);
+			preState.setString(1, change);
+			preState.setString(2, name);
 			preState.executeUpdate();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -95,18 +94,20 @@ public class UsersDAO {
 	 * @param usersId
 	 * @return
 	 */
-	public Users getUsers(int usersId) {
+	public Users getUsers(String usersName) {
 		Users selectUsers = new Users();
-		String sql = "select name,nickName,mailbox,address,balance from users where id=?";
+		String sql = "select name,nickName,mailbox,address,balance from users where name=?";
 		try {
 			preState = PrepareUtils.prepare(URL, sql);
-			preState.setInt(1, usersId);
+			preState.setString(1, usersName);
 			ResultSet res = preState.executeQuery();
-			selectUsers.setName(res.getString("name"));
-			selectUsers.setNickName(res.getString("nickName"));
-			selectUsers.setMailbox(res.getString("mainbox"));
-			selectUsers.setAddress(res.getString("address"));
-			selectUsers.setBalance(res.getInt("balance"));
+			while (res.next()) {
+				selectUsers.setName(res.getString("name"));
+				selectUsers.setNickName(res.getString("nickName"));
+				selectUsers.setMailbox(res.getString("mailbox"));
+				selectUsers.setAddress(res.getString("address"));
+				selectUsers.setBalance(res.getInt("balance"));
+			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			tellError(e);

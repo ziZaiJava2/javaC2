@@ -7,7 +7,7 @@ import java.util.List;
 
 import com.zizaitianyuan.javac2.store.dto.Category;
 
-public class CategoryDAO {
+public class CategoryDAO implements TAG {
 	private static final String URL = "jdbc:mysql://localhost:3306/store?user=root&password=root";
 	private PreparedStatement preState = null;
 
@@ -37,8 +37,8 @@ public class CategoryDAO {
 	/**
 	 * 删除用户表
 	 */
-	public void deleteCategory() {
-		String sql = "drop table category";
+	public void deleteCategory(String name) {
+		String sql = "delete from category where name='" + name + "'";
 		try {
 			preState = PrepareUtils.prepare(URL, sql);
 			preState.executeUpdate();
@@ -63,13 +63,12 @@ public class CategoryDAO {
 	 * @param column
 	 * @param change
 	 */
-	public void updateUsers(String column, String change, int id) {
-		String sql = "update category set ?=? where id=?";
+	public void update(String change, String name) {
+		String sql = "update category set name=? where name=?";
 		try {
 			preState = PrepareUtils.prepare(URL, sql);
-			preState.setString(1, column);
-			preState.setString(2, change);
-			preState.setInt(3, id);
+			preState.setString(1, change);
+			preState.setString(2, name);
 			preState.executeUpdate();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -98,7 +97,9 @@ public class CategoryDAO {
 			preState = PrepareUtils.prepare(URL, sql);
 			preState.setInt(1, categoryId);
 			ResultSet res = preState.executeQuery();
-			selectCategory.setName(res.getString("name"));
+			while (res.next()) {
+				selectCategory.setName(res.getString("name"));
+			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			tellError(e);

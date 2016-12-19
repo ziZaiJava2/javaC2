@@ -15,12 +15,12 @@ public class OIU {
 	private static Users users = new Users();
 	private static Orders orders = new Orders();
 	private static Category category = new Category();
-	private static ProductionDAO PD=new ProductionDAO();
-	private static UsersDAO UD=new UsersDAO();
-	private static OrdersDAO OD=new OrdersDAO();
-	private static CategoryDAO CD=new CategoryDAO();
+	private static ProductionDAO PD = new ProductionDAO();
+	private static UsersDAO UD = new UsersDAO();
+	private static OrdersDAO OD = new OrdersDAO();
+	private static CategoryDAO CD = new CategoryDAO();
 	private static String input = null;
-	private static boolean a=true;
+	private static boolean a = true;
 	private static Scanner sc = new Scanner(System.in);
 	private static List<String> tableList = new ArrayList<>(Arrays.asList("production", "orders", "category", "users"));
 
@@ -38,19 +38,27 @@ public class OIU {
 				if (tableList.contains(input.toLowerCase())) {
 					switch (input) {
 					case "production": {
-						PD.deleteProduction();
+						System.out.println("请输入要删除的商品名");
+						String name = sc.nextLine();
+						PD.deleteProduction(name);
 						break;
 					}
 					case "users": {
-						UD.deleteUsers();
+						System.out.println("请输入要删除的用户名");
+						String name = sc.nextLine();
+						UD.deleteUsers(name);
 						break;
 					}
 					case "orders": {
-						OD.deleteOrders();
+						System.out.println("请输入要删除的订单用户名");
+						String name = sc.nextLine();
+						OD.deleteOrders(name);
 						break;
 					}
 					case "category": {
-						CD.deleteCategory();
+						System.out.println("请输入要删除的类名");
+						String name = sc.nextLine();
+						CD.deleteCategory(name);
 						break;
 					}
 					}
@@ -101,34 +109,34 @@ public class OIU {
 					if ("Y".equals(input.toUpperCase())) {
 						switch (tableName) {
 						case "production": {
-							System.out.println("请输入要查询的商品ID\n");
-							int productionId = sc.nextInt();
-							Production pro = PD.getProduction(productionId);
-							System.out.println("商品名:" + pro.getName() + "商品描述:" + pro.getDescription() + "商品原价"
-									+ pro.getOriginal_price() + "商品现价" + pro.getPrice());
+							System.out.println("请输入要查询的商品名\n");
+							String productionName = sc.nextLine();
+							Production pro = PD.getProduction(productionName);
+							System.out.println("商品名:" + pro.getName() + "\n商品描述:" + pro.getDescription() + "\n商品原价"
+									+ pro.getOriginal_price() + "\n商品现价" + pro.getPrice());
 							break;
 						}
 						case "orders": {
 							System.out.println("请输入要查询的订单ID\n");
 							int ordersId = sc.nextInt();
 							Orders ord = OD.getOrders(ordersId);
-							System.out.println("创建日期:" + ord.getCreate_Date() + "送货地址:" + ord.getAddress() + "用户昵称:"
-									+ ord.getUser_name() + "是否付款:" + ord.getIsPay());
+							System.out.println("\n创建日期:" + ord.getCreate_Date() + "\n送货地址:" + ord.getAddress()
+									+ "\n用户昵称:" + ord.getUser_name() + "\n是否付款:" + ord.getIsPay());
 							break;
 						}
 						case "users": {
-							System.out.println("请输入要查询的用户ID\n");
-							int usersId = sc.nextInt();
-							Users use = UD.getUsers(usersId);
-							System.out.println("用户姓名:：" + use.getName() + "用户地址:" + use.getAddress() + "用户余额"
-									+ use.getBalance() + "用户邮箱:" + use.getMailbox() + "用户昵称:" + use.getNickName());
+							System.out.println("请输入要查询的用户名\n");
+							String usersName = sc.nextLine();
+							Users use = UD.getUsers(usersName);
+							System.out.println("\n用户姓名:：" + use.getName() + "\n用户地址:" + use.getAddress() + "\n用户余额"
+									+ use.getBalance() + "\n用户邮箱:" + use.getMailbox() + "\n用户昵称:" + use.getNickName());
 							break;
 						}
 						case "category": {
 							System.out.println("请输入要查询的分类ID\n");
 							int categoryId = sc.nextInt();
 							Category cate = CD.getCategory(categoryId);
-							System.out.println("分类:" + cate.getName());
+							System.out.println("\n分类:" + cate.getName());
 							break;
 						}
 						}
@@ -137,22 +145,22 @@ public class OIU {
 						switch (tableName) {
 						case "production": {
 							List<String> proList = PD.getAllProduction();
-							System.out.println("所有的商品名:" + proList.toString() + "\n");
+							System.out.println("所有的商品名:\n" + proList.toString() + "\n");
 							break;
 						}
 						case "users": {
 							List<String> usersList = UD.getAllUsers();
-							System.out.println("所有的用户名:" + usersList.toString() + "\n");
+							System.out.println("所有的用户名:\n" + usersList.toString() + "\n");
 							break;
 						}
 						case "orders": {
 							List<String> ordersList = OD.getAllOrders();
-							System.out.println("订单用户:" + ordersList.toString() + "\n");
+							System.out.println("订单用户:\n" + ordersList.toString() + "\n");
 							break;
 						}
 						case "category": {
 							List<String> cateList = CD.getAllCategory();
-							System.out.println("分类名:" + cateList.toString() + "\n");
+							System.out.println("分类名:\n" + cateList.toString() + "\n");
 							break;
 						}
 						}
@@ -161,6 +169,36 @@ public class OIU {
 						System.out.println("输入错误");
 					}
 				}
+				break;
+			}
+			case "UPDATE": {
+			}
+			case "U": {
+				System.out.println("请输入想更新的数据表名称:");
+				String tableName = sc.nextLine();
+				switch (tableName) {
+				case "production": {
+					System.out.println("请输入您想在商品表中更新的商品描述和商品名");
+					updateStr(PD);
+					break;
+				}
+				case "users": {
+					System.out.println("请输入您想在用户表中更新的用户昵称和用户名");
+					updateStr(UD);
+					break;
+				}
+				case "category": {
+					System.out.println("请输入您想在分类表中更新的数据和类名");
+					updateStr(CD);
+					break;
+				}
+				case "orders": {
+					System.out.println("请输入您想在订单表中更新的付款状态和订单用户名");
+					updateStr(OD);
+					break;
+				}
+				}
+				tell();
 				break;
 			}
 			case "BYE": {
@@ -245,10 +283,17 @@ public class OIU {
 		users.setBalance(balance);
 	}
 
+	private static void updateStr(TAG tag) {
+		String change = sc.nextLine();
+		String name = sc.nextLine();
+		tag.update(change, name);
+		System.out.println("更新成功");
+	}
+
 	private static void speak() {
 		System.out.println("******************************");
-		System.out.println("---> 请选择想进行的操作:(不区分大小写)" + "\n" + "---> 删除指定数据表(D/DELETE)\n" + "---> 添加数据(A/ADD)\n" + "---> 查找数据(Q/QUERY)\n"
-				+ "---> 退出系统(B/BYE)\n");
+		System.out.println("---> 请选择想进行的操作:(不区分大小写)" + "\n" + "---> 删除指定数据表(D/DELETE)\n" + "---> 添加数据(A/ADD)\n"
+				+ "---> 查找数据(Q/QUERY)\n" + "---> 更新数据(U/UPDATE)\n" + "---> 退出系统(B/BYE)\n");
 		System.out.println("******************************");
 	}
 
@@ -257,7 +302,7 @@ public class OIU {
 	}
 
 	private static void judge() {
-		System.out.println("是否继续查询？(Y/N)\n");
+		System.out.println("是否继续查询？(Y/N)");
 		String choice = sc.nextLine();
 		if ("N".equals(choice.toUpperCase())) {
 			a = false;

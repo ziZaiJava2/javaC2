@@ -7,7 +7,7 @@ import java.util.List;
 
 import com.zizaitianyuan.javac2.store.dto.Production;
 
-public class ProductionDAO {
+public class ProductionDAO implements TAG {
 	private static final String URL = "jdbc:mysql://localhost:3306/store?user=root&password=root";
 	private PreparedStatement preState = null;
 
@@ -41,8 +41,8 @@ public class ProductionDAO {
 	/**
 	 * 删除商品表
 	 */
-	public void deleteProduction() {
-		String sql = "drop table production";
+	public void deleteProduction(String name) {
+		String sql = "delete from production where name='" + name + "'";
 		try {
 			preState = PrepareUtils.prepare(URL, sql);
 			preState.executeUpdate();
@@ -65,16 +65,14 @@ public class ProductionDAO {
 	 * 更新指定表的指定列
 	 * 
 	 * @param tableName
-	 * @param column
 	 * @param change
 	 */
-	public void updateProduction(String column, String change, int id) {
-		String sql = "update production set ?=? where id=?";
+	public void update(String change, String name) {
+		String sql = "update production set description=? where name=?;";
 		try {
 			preState = PrepareUtils.prepare(URL, sql);
-			preState.setString(1, column);
-			preState.setString(2, change);
-			preState.setInt(3, id);
+			preState.setString(1, change);
+			preState.setString(2, name);
 			preState.executeUpdate();
 
 		} catch (Exception e) {
@@ -97,17 +95,19 @@ public class ProductionDAO {
 	 * @param usersId
 	 * @return
 	 */
-	public Production getProduction(int productionId) {
+	public Production getProduction(String productionName) {
 		Production selectProduction = new Production();
-		String sql = "select name,description,original_price,price from production where id=?";
+		String sql = "select name,description,original_price,price from production where name=?";
 		try {
 			preState = PrepareUtils.prepare(URL, sql);
-			preState.setInt(1, productionId);
+			preState.setString(1, productionName);
 			ResultSet res = preState.executeQuery();
-			selectProduction.setName(res.getString("name"));
-			selectProduction.setDescription(res.getString("description"));
-			selectProduction.setOriginal_price(res.getInt("original_price"));
-			selectProduction.setPrice(res.getInt("price"));
+			while (res.next()) {
+				selectProduction.setName(res.getString("name"));
+				selectProduction.setDescription(res.getString("description"));
+				selectProduction.setOriginal_price(res.getInt("original_price"));
+				selectProduction.setPrice(res.getInt("price"));
+			}
 
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -158,4 +158,5 @@ public class ProductionDAO {
 		System.out.println("数据库命令执行失败");
 		e.printStackTrace();
 	}
+
 }

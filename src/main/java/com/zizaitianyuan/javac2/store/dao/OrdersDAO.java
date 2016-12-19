@@ -8,7 +8,7 @@ import java.util.List;
 
 import com.zizaitianyuan.javac2.store.dto.Orders;
 
-public class OrdersDAO {
+public class OrdersDAO implements TAG {
 	private static final String URL = "jdbc:mysql://localhost:3306/store?user=root&password=root";
 	private PreparedStatement preState = null;
 
@@ -43,8 +43,8 @@ public class OrdersDAO {
 	/**
 	 * 删除订单表
 	 */
-	public void deleteOrders() {
-		String sql = "drop table orders";
+	public void deleteOrders(String userName) {
+		String sql = "delete from orders where user_name='" + userName + "'";
 		try {
 			preState = PrepareUtils.prepare(URL, sql);
 			preState.executeUpdate();
@@ -70,13 +70,12 @@ public class OrdersDAO {
 	 * @param column
 	 * @param change
 	 */
-	public void updateOrders(String column, String change, int id) {
-		String sql = "update orders set ?=? where id=?";
+	public void update(String change, String name) {
+		String sql = "update orders set ispay=? where user_name=?";
 		try {
 			preState = PrepareUtils.prepare(URL, sql);
-			preState.setString(1, column);
-			preState.setString(2, change);
-			preState.setInt(3, id);
+			preState.setString(1, change);
+			preState.setString(2, name);
 			preState.executeUpdate();
 
 		} catch (Exception e) {
@@ -106,11 +105,13 @@ public class OrdersDAO {
 			preState = PrepareUtils.prepare(URL, sql);
 			preState.setInt(1, ordersId);
 			ResultSet res = preState.executeQuery();
-			selectOrders.setCreate_Date(res.getDate("create_date"));
-			selectOrders.setAddress(res.getString("address"));
-			selectOrders.setUser_name(res.getString("user_name"));
-			selectOrders.setIsPay(res.getString("ispay"));
+			while (res.next()) {
+				selectOrders.setCreate_Date(res.getDate("create_date"));
+				selectOrders.setAddress(res.getString("address"));
+				selectOrders.setUser_name(res.getString("user_name"));
+				selectOrders.setIsPay(res.getString("ispay"));
 
+			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			tellError(e);

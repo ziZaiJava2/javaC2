@@ -1,0 +1,7 @@
+package com.proxy;
+
+import java.lang.reflect.InvocationHandler;
+
+public class ProxyPerson implements InvocationHandler{
+	
+}

@@ -1,0 +1,7 @@
+package com.proxy;
+
+public interface Say {
+	public void say(String name){
+		System.out.println("我是一个人名字叫"+name);
+	}
+}

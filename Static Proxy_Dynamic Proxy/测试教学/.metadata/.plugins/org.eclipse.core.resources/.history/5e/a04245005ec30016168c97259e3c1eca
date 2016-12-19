@@ -1,0 +1,11 @@
+package com.proxy;
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		RealPerson realPerson=new RealPerson();
+		realPerson.say();
+	}
+
+}

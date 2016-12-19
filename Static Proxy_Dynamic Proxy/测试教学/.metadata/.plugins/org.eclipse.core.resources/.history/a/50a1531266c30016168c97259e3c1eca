@@ -1,0 +1,16 @@
+package com.proxy;
+
+import java.lang.reflect.Proxy;
+
+public class Main {
+
+	public static void main(String[] args) {
+
+		RealPerson realPerson=new RealPerson();
+
+		ProxyPerson proxyPerson=new ProxyPerson(realPerson);
+		
+		Say say=(Say) Proxy.newProxyInstance(realPerson.getClass().getClassLoader(),realPerson.getClass().getInterfaces(), proxyPerson)//获得代理
+		//Say say=Proxy.newProxyInstance(loader, interfaces, h)
+	}
+}

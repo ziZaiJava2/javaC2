@@ -1,0 +1,8 @@
+package com.proxy;
+
+public class RealPerson implements Say{
+	@Override
+	public void say(){
+		System.out.println("");
+	}
+}

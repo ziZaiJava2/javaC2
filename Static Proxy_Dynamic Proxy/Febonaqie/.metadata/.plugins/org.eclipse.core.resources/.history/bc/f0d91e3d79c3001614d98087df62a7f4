@@ -1,0 +1,5 @@
+package com.fe;
+
+public interface GetFib {
+	public void getFib(String name);
+}

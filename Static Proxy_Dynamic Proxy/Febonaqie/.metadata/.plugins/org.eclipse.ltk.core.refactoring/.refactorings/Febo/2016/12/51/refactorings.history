@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;com.fe.FibonacciE&apos; to &apos;FibonacciReal&apos;&#x0D;&#x0A;- Original project: &apos;Febo&apos;&#x0D;&#x0A;- Original element: &apos;com.fe.FibonacciE&apos;&#x0D;&#x0A;- Renamed element: &apos;com.fe.FibonacciReal&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;FibonacciE&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;com.fe{FibonacciE.java[FibonacciE" matchStrategy="1" name="FibonacciReal" qualified="false" references="true" similarDeclarations="false" stamp="1481879031124" textual="false" version="1.0"/>
+</session>

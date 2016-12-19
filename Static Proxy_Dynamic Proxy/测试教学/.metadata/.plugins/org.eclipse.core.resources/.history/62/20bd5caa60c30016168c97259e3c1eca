@@ -1,0 +1,5 @@
+package com.dongtai;
+
+public interface Say {
+	public void say(String name);
+}

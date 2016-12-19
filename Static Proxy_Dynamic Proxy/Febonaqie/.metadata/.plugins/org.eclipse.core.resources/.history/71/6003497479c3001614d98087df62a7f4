@@ -1,0 +1,15 @@
+package com.fe;
+
+import java.lang.reflect.Proxy;
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		FibonacciReal realF=new FibonacciReal();
+		FibonacciProxy proxyF=new FibonacciProxy(realF);
+		GetFib ff=(GetFib)Proxy.newProxyInstance(realF.getClass().getClassLoader(),realF.getClass().getInterfaces(), proxyF);
+		ff.getFib(4);
+	}
+
+}

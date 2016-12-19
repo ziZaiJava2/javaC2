@@ -1,0 +1,10 @@
+package com.proxy;
+
+public class ProxyPerson implements Say{
+	private RealPerson RealPerson;
+	public 
+	@Override
+	public void say(){
+		
+	}
+}

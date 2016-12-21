@@ -44,8 +44,7 @@ public class InPut2 {
 				Writer writer = new OutputStreamWriter(os);) {
 
 			char[] chars = new char[100];
-			int a;
-			while ((a = reader.read(chars))!=-1) {
+			while ((reader.read(chars))!=-1) {
 				writer.write(chars);
 			}
 		} catch (IOException e) {

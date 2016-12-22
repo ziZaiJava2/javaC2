@@ -1,4 +1,4 @@
-package com.zizaitianyuan.javac2.lesson06;
+package com.station_thread;
 
 import java.util.List;
 

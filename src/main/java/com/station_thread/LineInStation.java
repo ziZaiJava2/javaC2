@@ -1,9 +1,8 @@
-package com.zizaitianyuan.javac2.lesson06;
+package com.station_thread;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Random;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -57,24 +56,42 @@ public class LineInStation{
 	 * 名字随机从names中获取,也可以自己想办法生成
 	 * 
 	 */
-	public static List<Person> comingPassagers() {
+	public static List<Person> comingPassagers() throws InterruptedException {
 		/*
 		 * 随机建立长度不同的List
 		 */
-		Random rand = new Random();
+//		Random rand = new Random();
 		List<Person> comPass = new ArrayList<Person>();
-		int num=rand.nextInt(3)+1;
-		for (int i = 1; i <= num ; i++) {
-			Person per = new Person(names.get(rand.nextInt(names.size())));
-			comPass.add(per);
-			totalPassagers++;
-		}
+		
+		PassIntoStation intoStation =  new PassIntoStation(comPass);
+		
+		ExecutorService es = Executors.newSingleThreadExecutor();
+		
+		es.execute(intoStation);
+		
+		Thread.sleep(10);
+		
+		es.shutdown();
+		
+//		int num=rand.nextInt(3)+1;
+		
+//		for (int i = 1; i <= num ; i++) {
+//		
+//			Person per = new Person(names.get(rand.nextInt(names.size())));
+//			
+//			comPass.add(per);
+//			
+//			totalPassagers++;
+//		
+//		}
+		
 		return comPass;
+	
 	}
 
-	private static int totalPassagers = 0;
+	protected static int totalPassagers = 0;
 
-	private static List<String> names = Arrays.asList("Jim", "Ken", "Leon", "Ada", "Lily", "Lucy", "Will", "Eagle",
+	protected static List<String> names = Arrays.asList("Jim", "Ken", "Leon", "Ada", "Lily", "Lucy", "Will", "Eagle",
 			"David", "Zoe", "Wendy", "Acea", "Kin", "Fish", "Paul", "Dean");
 
 	/*

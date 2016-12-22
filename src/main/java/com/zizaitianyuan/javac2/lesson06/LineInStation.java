@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /*
  * 这个类用来模拟乘客进站排队买票。
@@ -20,14 +22,14 @@ import java.util.Random;
  * 
  * 
  */
-public class LineInStation {
+public class LineInStation{
 
 	private static List<Person> line1 = new ArrayList<>();
 	private static List<Person> line2 = new ArrayList<>();
 	private static List<Person> line3 = new ArrayList<>();
 	private static List<Person> line4 = new ArrayList<>();
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 
 		for (int i = 0; i < 10; i++) {
 
@@ -82,37 +84,67 @@ public class LineInStation {
 	 */
 	public static void lineUp(List<Person> passages) {
 		if (line1.isEmpty()) {
+			
 			line1.addAll(passages);
+		
 		} else if (line2.isEmpty()) {
+		
 			line2.addAll(passages);
+		
 		} else if (line3.isEmpty()) {
+		
 			line3.addAll(passages);
+		
 		} else if (line4.isEmpty()) {
+		
 			line4.addAll(passages);
+		
 		} else {
+		
 			int a[] = new int[] { line1.size(), 1, line2.size(), 2, line3.size(), 3, line4.size(), 4 };
+			
 			int index = 0;
+			
 			@SuppressWarnings("unused")
 			int min = a[0];
+			
 			for (int i = 2; i < 7; i += 2) {
+			
 				if (a[i] < a[0]) {
+				
 					min = a[i];
+					
 					index = i + 1;
+				
 				}
+			
 			}
 			switch (a[index]) {
+			
 			case 1: {
+			
 				line1.addAll(passages);
+			
 			}
+			
 			case 2: {
+			
 				line2.addAll(passages);
+			
 			}
+			
 			case 3: {
+			
 				line3.addAll(passages);
+			
 			}
+			
 			case 4: {
+			
 				line4.addAll(passages);
+			
 			}
+			
 			}
 
 		}
@@ -127,21 +159,48 @@ public class LineInStation {
 	 * 
 	 * 就是排队伍第一个位置的乘客从队列中删除
 	 */
-	public static void saleTickets() {
-		saleTicket(line1);
-		saleTicket(line2);
-		saleTicket(line3);
-		saleTicket(line4);
+	
+	public static void saleTickets() throws InterruptedException {
+//		saleTicket(line1);
+//		saleTicket(line2);
+//		saleTicket(line3);
+//		saleTicket(line4);
+		
+		StationWindow window1 = new StationWindow(line1);
+		
+		StationWindow window2 = new StationWindow(line2);
+		
+		StationWindow window3 = new StationWindow(line3);
+		
+		StationWindow window4 = new StationWindow(line4);
+		
+		ExecutorService es = Executors.newFixedThreadPool(4);
+		
+		es.execute(window1);
+		
+		es.execute(window2);
+		
+		es.execute(window3);
+		
+		es.execute(window4);
+		
+		Thread.sleep(10);
+		
+		es.shutdown();
+		
 	}
 
-	private static void saleTicket(List<Person> line) {
-		// TODO Auto-generated method stub
-		while(!line.isEmpty()){
-			line.remove(0);
-			saledTikets ++;
-		}
-	}
-
+//	private static void saleTicket(List<Person> line) {
+//
+//		while(!line.isEmpty()){
+//		
+//			line.remove(0);
+//			
+//			saledTikets ++;
+//		
+//		}
+//	}
+	
 	/*
 	 * 统计还有多少个乘客没有买到车票
 	 */
@@ -149,12 +208,13 @@ public class LineInStation {
 		return totalPassagers - saledTikets;
 	}
 
-	private static int saledTikets = 0;
+	protected static int saledTikets = 0;
 
 	public static String linesDesc() {
 		return "line1:" + line1.toString() + "\n" + "line2:" + line2.toString() + "\n" + "line3:" + line3.toString()
 				+ "\n" + "line4:" + line4.toString() + "\n";
 	}
+
 }
 
 class Person {
@@ -172,3 +232,14 @@ class Person {
 		return name;
 	}
 }
+
+
+
+
+
+
+
+
+
+
+

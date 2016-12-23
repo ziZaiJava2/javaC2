@@ -91,23 +91,27 @@ public class BuildPath {
 		   }
 		return allPaths;
 		}
-		@SuppressWarnings("unused")
-		private static List<String>getPath(Node node){
-			if(node==null){
-				return new ArrayList<String>();
+	
+		private static List<Node> getPath(Node node){
+			List<Node> path=new ArrayList<>();
+			if(node.getParentName()==null){
+				path.add(node.getName());
+				return path;
+			}else{
+				 path.add(getPath(node.getParentName().getNode()));
+				 path.add(node.getName());
 			}
-			List<String> path=new ArrayList<String>();
-		    path.addAll(getPath(getNode(node.getParentName())));
-		    path.add(node.getName());
-		    return  path;
+		   return path;
+		
 		}
 		
+
 	private static  Node getNode(String name){
 		if(name==null){
 			return null;
 		}
 		return allNodes.get(name);
-			 }
+			 
 	}
 
 

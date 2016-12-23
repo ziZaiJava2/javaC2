@@ -26,7 +26,7 @@ public class CourseSessionTest {
 		SimpleDateFormat format = new SimpleDateFormat("");
 		Date startDate = format.parse(startStr);
 		Date expectEndDate = format.parse(endStr);
-		CourseSession cs = CourseSession.create();
+		CourseSession cs = CourseSession.create(formatStr, formatStr);
 		Date endDate = cs.getEndDate();
 		Assert.assertTrue(expectEndDate.getTime() == endDate.getTime());
 	}

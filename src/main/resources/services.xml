@@ -4,6 +4,7 @@
     xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+<<<<<<< HEAD
     <bean id="servicesImpl" class="com.zizaitianyuan.javac2.spring.ServiceImpl">
     	<property name="dao" ref="MysqlDao "/>
     	<!-- name对应的是servicesImpl中的属性名，ref对应的是所要创建的实例名
@@ -12,3 +13,15 @@
 
 
 </beans>
+=======
+
+    <bean id="service" class="com.zizaitianyuan.spring.beans.Service">
+        <property name="dao" ref="dao"/>
+    </bean>
+    
+    <bean id="service2" class="com.zizaitianyuan.spring.beans.Service">
+        <property name="dao" ref="dao"/>
+    </bean>
+
+</beans>
+>>>>>>> master

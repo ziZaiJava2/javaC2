@@ -4,8 +4,18 @@
     xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+<<<<<<< HEAD
     <bean id="MysqlDao" class="com.zizaitianyuan.javac2.spring.MysqlDao">
     </bean>
 
 
 </beans>
+=======
+    <bean id="dao"
+        class="com.zizaitianyuan.spring.beans.Dao">
+        <!-- additional collaborators and configuration for this bean go here -->
+        <property name="database" value="Oracle"/>
+    </bean>
+
+</beans>
+>>>>>>> master

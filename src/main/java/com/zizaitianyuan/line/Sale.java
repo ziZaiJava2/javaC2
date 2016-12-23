@@ -2,15 +2,13 @@ package com.zizaitianyuan.line;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.ReentrantLock;
 
 public class Sale extends Thread {
-	public static List<Person> line1 = new ArrayList<>();
-	public static List<Person> line2 = new ArrayList<>();
-	public static List<Person> line3 = new ArrayList<>();
-	public static List<Person> line4 = new ArrayList<>();
-	public static int saledTikets = 0;
+	private static List<Person> line1 = new ArrayList<>();
+	private static List<Person> line2 = new ArrayList<>();
+	private static List<Person> line3 = new ArrayList<>();
+	private static List<Person> line4 = new ArrayList<>();
+	private static int saledTikets = 0;
 
 	private int id;
 

@@ -15,18 +15,18 @@ public class StationWindow implements Runnable{
 	}
 	@Override
 	public void run() {
-
+		
 		saledTickets(line);
 		
 	}
 	
 	private synchronized void saledTickets(List<Person> line){
-		
-		while(!line.isEmpty()){
+
+			while(!line.isEmpty()){
+				
+				line.remove(0);
 			
-			line.remove(0);
-			
-			LineInStation.saledTikets ++;
+				LineInStation.saledTikets ++;
 		
 		}
 		

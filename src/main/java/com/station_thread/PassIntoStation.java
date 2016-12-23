@@ -15,16 +15,20 @@ public class PassIntoStation implements Runnable{
 	
 	@Override
 	public void run() {
-	
-		intoStation(passage);
 		
-		try {
+		while(true){
+			intoStation(passage);
 		
-			Thread.sleep(200);
+			try {
 		
-		} catch (InterruptedException e) {
+				Thread.sleep(200);
+		
+			} catch (InterruptedException e) {
 
-			e.printStackTrace();
+				e.printStackTrace();
+		
+		
+			}
 		
 		}
 		

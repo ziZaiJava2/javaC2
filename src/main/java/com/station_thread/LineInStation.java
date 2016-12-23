@@ -54,6 +54,7 @@ public class LineInStation{
 		int passagers = passagersInLines();
 
 		System.out.printf("总共有%d个乘客进入车站，卖出%d张车票，还有%d个乘客没有买到车票。\n", totalPassagers, saledTikets, passagers);
+
 	}
 
 	/*
@@ -73,10 +74,10 @@ public class LineInStation{
 		List<Person> comPass = new ArrayList<Person>();
 		
 		PassIntoStation intoStation =  new PassIntoStation(comPass);
+			
+		station.es1.execute(intoStation);	
 		
-		station.es1.execute(intoStation);
-		
-		Thread.sleep(10);
+		Thread.sleep(5);
 				
 		return comPass;
 	
@@ -182,14 +183,18 @@ public class LineInStation{
 		
 		StationWindow window4 = new StationWindow(line4);
 		
-		station.es2.execute(window1);
-		
-		station.es2.execute(window2);
-		
-		station.es2.execute(window3);
-		
-		station.es2.execute(window4);
-				
+		synchronized (LineInStation.class) {
+			
+			station.es2.execute(window1);
+			
+			station.es2.execute(window2);
+			
+			station.es2.execute(window3);
+			
+			station.es2.execute(window4);
+			
+		}
+						
 	}
 	
 	/*

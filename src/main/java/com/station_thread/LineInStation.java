@@ -27,9 +27,13 @@ public class LineInStation{
 	private static List<Person> line2 = new ArrayList<>();
 	private static List<Person> line3 = new ArrayList<>();
 	private static List<Person> line4 = new ArrayList<>();
-
-	public static void main(String[] args) throws InterruptedException {
-
+	protected ExecutorService es1 = Executors.newSingleThreadExecutor();
+	protected ExecutorService es2 = Executors.newFixedThreadPool(4);
+	
+	public static void main(String[] args) throws InterruptedException {		
+		
+		LineInStation station = new LineInStation();
+		
 		for (int i = 0; i < 10; i++) {
 
 			saleTickets();
@@ -41,8 +45,12 @@ public class LineInStation{
 			lineUp(passages);
 
 			System.out.println(linesDesc());
+		
 		}
 
+		station.es1.shutdown();
+		station.es2.shutdown();
+		
 		int passagers = passagersInLines();
 
 		System.out.printf("总共有%d个乘客进入车站，卖出%d张车票，还有%d个乘客没有买到车票。\n", totalPassagers, saledTikets, passagers);
@@ -60,31 +68,16 @@ public class LineInStation{
 		/*
 		 * 随机建立长度不同的List
 		 */
-//		Random rand = new Random();
+		LineInStation station = new LineInStation();
+		
 		List<Person> comPass = new ArrayList<Person>();
 		
 		PassIntoStation intoStation =  new PassIntoStation(comPass);
 		
-		ExecutorService es = Executors.newSingleThreadExecutor();
-		
-		es.execute(intoStation);
+		station.es1.execute(intoStation);
 		
 		Thread.sleep(10);
-		
-		es.shutdown();
-		
-//		int num=rand.nextInt(3)+1;
-		
-//		for (int i = 1; i <= num ; i++) {
-//		
-//			Person per = new Person(names.get(rand.nextInt(names.size())));
-//			
-//			comPass.add(per);
-//			
-//			totalPassagers++;
-//		
-//		}
-		
+				
 		return comPass;
 	
 	}
@@ -178,10 +171,8 @@ public class LineInStation{
 	 */
 	
 	public static void saleTickets() throws InterruptedException {
-//		saleTicket(line1);
-//		saleTicket(line2);
-//		saleTicket(line3);
-//		saleTicket(line4);
+		
+		LineInStation station = new LineInStation();
 		
 		StationWindow window1 = new StationWindow(line1);
 		
@@ -191,32 +182,15 @@ public class LineInStation{
 		
 		StationWindow window4 = new StationWindow(line4);
 		
-		ExecutorService es = Executors.newFixedThreadPool(4);
+		station.es2.execute(window1);
 		
-		es.execute(window1);
+		station.es2.execute(window2);
 		
-		es.execute(window2);
+		station.es2.execute(window3);
 		
-		es.execute(window3);
-		
-		es.execute(window4);
-		
-		Thread.sleep(10);
-		
-		es.shutdown();
-		
+		station.es2.execute(window4);
+				
 	}
-
-//	private static void saleTicket(List<Person> line) {
-//
-//		while(!line.isEmpty()){
-//		
-//			line.remove(0);
-//			
-//			saledTikets ++;
-//		
-//		}
-//	}
 	
 	/*
 	 * 统计还有多少个乘客没有买到车票

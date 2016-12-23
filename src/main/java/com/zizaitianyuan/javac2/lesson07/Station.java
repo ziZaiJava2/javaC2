@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import com.zizaitianyuan.javc2.threadtest.Passager;
+
 public class Station {
 	
 	public static List<Passager> line01 = new ArrayList<>();

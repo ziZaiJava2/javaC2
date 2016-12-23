@@ -21,7 +21,18 @@ public class Disher extends Thread {
 		map.put(Portal.MAX_BOWL, maxBowlList);
 	}
 
-	public static int cleanTablewares = 0;
+	private String disher;
+	private String portalcount;
+
+	public Disher(String disher, String portalcount) {
+		this.disher = disher;
+		this.portalcount = portalcount;
+	}
+
+	public static int cleanTablewares = 0; //碗柜里总共有多少个盘子
+	public static int cleanTableware1 = 0; //第一个员工清洗的盘子数
+	public static int cleanTableware2 = 0; //第二个员工清洗的盘子数
+
 	@Override
 	public void run() {
 		try {
@@ -39,8 +50,14 @@ public class Disher extends Thread {
 					if (tableWares == null) {
 						System.out.println("Error:不存在该类型碗柜！");
 					}
+					System.out.println(portalcount+"\t"+disher + Thread.currentThread().getName() + " synchronized loop " + i);
 					tableWares.add(m);
 					increment();
+					if(disher.equals("第一个洗碗工")){
+						cleanTableware1++;
+					}else{
+						cleanTableware2++;
+					}
 				}
 				Thread.sleep(10);
 			}
@@ -49,9 +66,11 @@ public class Disher extends Thread {
 		}
 
 	}
-	
-	public synchronized void increment(){
+
+	public synchronized void increment() {
 		cleanTablewares++;
 	}
+	
+	
 
 }

@@ -12,6 +12,7 @@ public class LineInStation extends ComePassager{
 	private static LinkedList<Person> line2 = new LinkedList<>();
 	private static LinkedList<Person> line3 = new LinkedList<>();
 	private static LinkedList<Person> line4 = new LinkedList<>();
+	
 
 	public static void main(String[] args) {
 
@@ -48,7 +49,7 @@ public class LineInStation extends ComePassager{
 
 					// 然后为了防止队伍爆掉，可以加入限制，人数到一定数量就不让排入队伍了。
 
-					synchronized (this) {
+					synchronized (LineInStation.class) {
 						List<Person> min = line1;
 
 						if (min.size() > line2.size()) {
@@ -77,14 +78,15 @@ public class LineInStation extends ComePassager{
 		});
 		ExecutorService es = Executors.newCachedThreadPool();
 		es.execute(new Runnable() {
-
+             int count1 =0;
 			@Override
 			public void run() {
+				
 				while (true) {
 
 					try {
 
-						Thread.sleep(500);
+						Thread.sleep(1000);
 
 					} catch (InterruptedException e) {
 
@@ -98,7 +100,7 @@ public class LineInStation extends ComePassager{
 
 							Person person = line1.removeFirst();
 
-							System.out.println(person.getName() + " 买了票");
+							System.out.println(person.getName() + " 买了票  "+"\n1号窗口卖出了： "+(++count1)+"张票");
 
 						}
 
@@ -109,24 +111,24 @@ public class LineInStation extends ComePassager{
 			}
 		});
 		es.execute(new Runnable() {
-
+			int count2 = 0;
 			@Override
 			public void run() {
+				
 				while (true) {
 
 					try {
 
-						Thread.sleep(500);
+						Thread.sleep(1000);
 
 
 						synchronized (LineInStation.class) {
 
-						if (line1.size() > 0) {
+						if (line2.size() > 0) {
 
 							Person person = line2.removeFirst();
 
-							System.out.println(person.getName() + " 买了票");
-
+							System.out.println(person.getName() + " 买了票  "+"\n2号窗口卖出了： "+(++count2)+"张票");
 						}
 
 					}
@@ -141,14 +143,15 @@ public class LineInStation extends ComePassager{
 			}
 		});
 		es.execute(new Runnable() {
-
+          int count3 = 0;
 			@Override
 			public void run() {
+								
 				while (true) {
 
 					try {
 
-						Thread.sleep(500);
+						Thread.sleep(1000);
 
 					} catch (InterruptedException e) {
 
@@ -158,11 +161,11 @@ public class LineInStation extends ComePassager{
 
 					synchronized (LineInStation.class) {
 
-						if (line1.size() > 0) {
+						if (line3.size() > 0) {
 
 							Person person = line3.removeFirst();
 
-							System.out.println(person.getName() + " 买了票");
+							System.out.println(person.getName() + " 买了票  "+"\n3号窗口卖出了： "+(++count3)+"张票");
 
 						}
 
@@ -173,14 +176,15 @@ public class LineInStation extends ComePassager{
 			}
 		});
 		es.execute(new Runnable() {
-
+         int count4 = 0;
 			@Override
 			public void run() {
+				
 				while (true) {
 
 					try {
 
-						Thread.sleep(500);
+						Thread.sleep(1000);
 
 					} catch (InterruptedException e) {
 
@@ -190,11 +194,11 @@ public class LineInStation extends ComePassager{
 
 					synchronized (LineInStation.class) {
 
-						if (line1.size() > 0) {
+						if (line4.size() > 0) {
 
 							Person person = line4.removeFirst();
 
-							System.out.println(person.getName() + " 买了票");
+							System.out.println(person.getName() + " 买了票"+"\n4号窗口卖出了： "+(++count4)+"张票");
 
 
 						}

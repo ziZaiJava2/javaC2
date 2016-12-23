@@ -35,25 +35,17 @@ public class LineInStation extends Thread {
 		System.out.printf("总共有%d个乘客进入车站，卖出%d张车票，还有%d个乘客没有买到车票。\n", totalPassagers, Sale.getSaledTikets(), passagers);
 	}
 
-	/*
-	 * 此方法应该随机生成一个长度为1~3的list，表示1~3个乘客来到车站，
-	 * 
-	 * 并统计总的进站人数到(totalPassagers)
-	 * 
-	 * 名字随机从names中获取,也可以自己想办法生成
-	 * 
-	 */
+	
 	
 	private static int totalPassagers = 0;
+	
+	public static synchronized void increment(){
+		totalPassagers++;
+	}
 
 	private static List<String> names = Arrays.asList("Jim", "Ken", "Leon", "Ada", "Lily", "Lucy", "Will", "Eagle",
 			"David", "Zoe", "Wendy", "Acea", "Kin", "Fish", "Paul", "Dean");
 
-	/*
-	 * 此方法将乘客排进队伍中，一同到来的乘客为了买票买到一起，他们会排到 同一个队伍。
-	 * 
-	 * 乘客会挑选最短的队伍进行排队
-	 */
 	public void run() {
 		synchronized (this) {
 			for (int n = 0; n < 3; n++) {
@@ -65,7 +57,7 @@ public class LineInStation extends Thread {
 					int m = random.nextInt(names.size());
 					Person person = new Person(names.get(m));
 					passages.add(person);
-					totalPassagers++;
+					increment();   //增加总乘客
 				}
 
 				int[] arr = { Sale.getLine(1).size(), Sale.getLine(2).size(), Sale.getLine(3).size(),

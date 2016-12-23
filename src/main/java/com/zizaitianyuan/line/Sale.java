@@ -12,7 +12,6 @@ public class Sale extends Thread {
 	public static List<Person> line4 = new ArrayList<>();
 	public static int saledTikets = 0;
 
-	private Lock lock = new ReentrantLock();
 	private int id;
 
 	public Sale(int id) {
@@ -22,9 +21,8 @@ public class Sale extends Thread {
 	public void run() {
 		//同步代码块
 		synchronized (this) {
-			lock.lock();
 			if (getLine(id).size() != 0) {
-				System.out.println(id + "号窗口" + getLine(id).get(0) + "已购得的动车票一张\n");
+				System.out.println(Thread.currentThread().getName()+"\t"+id + "号窗口" + getLine(id).get(0) + "已购得的动车票一张\n");
 				getLine(id).remove(0);
 				incement();
 			}
@@ -34,6 +32,10 @@ public class Sale extends Thread {
 	//将卖票数锁住
 	public synchronized void incement() {
 		saledTikets++;
+	}
+	
+	public static synchronized int getSaledTikets(){
+		return saledTikets;
 	}
 	
 	//将获得Line的方法锁住

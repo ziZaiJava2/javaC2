@@ -1,4 +1,4 @@
-package Passenger3;
+package Passenger;
 
 public class Person {
 
@@ -15,6 +15,4 @@ public class Person {
 	public String toString() {
 		return name;
 	}
-	
-	
 }

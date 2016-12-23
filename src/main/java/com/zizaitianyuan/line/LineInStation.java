@@ -11,12 +11,12 @@ public class LineInStation {
 
 		try {
 			for (int i = 0; i < 10; i++) {
-				List<Person> passages = comingPassagers();
+				List<Person> passages = comingPassagers(); //两次调用生成乘客的方法
 				lineUp(passages);
-
 				passages = comingPassagers();
 				lineUp(passages);
-				System.out.println(linesDesc());
+				
+				System.out.println(linesDesc());   //调用队列输出方法
 
 				Thread.sleep(1000);
 				Sale thread1 = new Sale(1);
@@ -28,14 +28,13 @@ public class LineInStation {
 				thread3.start();
 				thread4.start();
 
-				Thread.sleep(3000);
-			}
-			Thread.sleep(3000);
+				Thread.sleep(3000);  //每次循环执行完就休眠一次
+			}			 
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
 
-		passagersInLines();
+		passagersInLines();   //调用计算剩余乘客的方法
 		System.out.printf("总共有%d个乘客进入车站，卖出%d张车票，还有%d个乘客没有买到车票。\n", totalPassagers, Sale.saledTikets, passagers);
 	}
 
@@ -89,7 +88,8 @@ public class LineInStation {
 	}
 
 	public static int passagers;// 剩余乘客
-
+	
+	//计算剩余乘客的方法
 	public static void passagersInLines() {
 		passagers = totalPassagers - Sale.saledTikets;
 

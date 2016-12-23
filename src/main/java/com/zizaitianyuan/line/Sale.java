@@ -20,6 +20,7 @@ public class Sale extends Thread {
 	}
 
 	public void run() {
+		//同步代码块
 		synchronized (this) {
 			lock.lock();
 			if (getLine(id).size() != 0) {
@@ -29,11 +30,13 @@ public class Sale extends Thread {
 			}
 		}
 	}
-
+	
+	//将卖票数锁住
 	public synchronized void incement() {
 		saledTikets++;
 	}
-
+	
+	//将获得Line的方法锁住
 	public static synchronized List<Person> getLine(int id) {
 		if (id == 1) {
 			return line1;

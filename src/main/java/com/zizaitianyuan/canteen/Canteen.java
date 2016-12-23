@@ -7,7 +7,7 @@ public class Canteen {
 
 		Disher.hashMap();
 
-		for (int i = 0; i < 10; i++) {
+		for (int i = 1; i < 11; i++) {
 			totalTablewares += Portal.portaled();
 			Thread r1 = new Disher("第一个洗碗工", "传送台第" + i + "执行");
 			Thread r2 = new Disher("第二个洗碗工", "传送台第" + i + "执行");
@@ -19,7 +19,7 @@ public class Canteen {
 				e.printStackTrace();
 			}
 		}
-		
+
 		System.out.println("传送台放入的盘子总数为：" + totalTablewares);
 		System.out.println("第一个员工清洗的盘子数为：" + Disher.cleanTableware1);
 		System.out.println("第二个员工清洗的盘子数为：" + Disher.cleanTableware2);

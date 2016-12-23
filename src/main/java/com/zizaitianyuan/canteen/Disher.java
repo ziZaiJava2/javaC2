@@ -29,48 +29,42 @@ public class Disher extends Thread {
 		this.portalcount = portalcount;
 	}
 
-	public static int cleanTablewares = 0; //碗柜里总共有多少个盘子
-	public static int cleanTableware1 = 0; //第一个员工清洗的盘子数
-	public static int cleanTableware2 = 0; //第二个员工清洗的盘子数
+	public static int cleanTablewares = 0; // 碗柜里总共有多少个盘子
+	public static int cleanTableware1 = 0; // 第一个员工清洗的盘子数
+	public static int cleanTableware2 = 0; // 第二个员工清洗的盘子数
 
 	@Override
 	public void run() {
-		try {
-			synchronized (Portal.portalList) {
-				Random random = new Random();
+		synchronized (Portal.portalList) {
+			Random random = new Random();
 
-				for (int i = 0; i < random.nextInt(3) + 3; i++) {
-					if (Portal.portalList.size() == 0) {
-						break;
-					}
-
-					Tableware m = Portal.portalList.remove(0);
-					String type = m.getType();
-					List<Tableware> tableWares = map.get(type);
-					if (tableWares == null) {
-						System.out.println("Error:不存在该类型碗柜！");
-					}
-					System.out.println(portalcount+"\t"+disher + Thread.currentThread().getName() + " synchronized loop " + i);
-					tableWares.add(m);
-					increment();
-					if(disher.equals("第一个洗碗工")){
-						cleanTableware1++;
-					}else{
-						cleanTableware2++;
-					}
+			for (int i = 0; i < random.nextInt(3) + 3; i++) {
+				if (Portal.portalList.size() == 0) {
+					break;
 				}
-				Thread.sleep(10);
-			}
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
 
+				Tableware m = Portal.portalList.remove(0);
+				String type = m.getType();
+				List<Tableware> tableWares = map.get(type);
+				if (tableWares == null) {
+					System.out.println("Error:不存在该类型碗柜！");
+				}
+				System.out.println(
+						portalcount + "\t" + disher + Thread.currentThread().getName() + " synchronized loop " + i);
+				tableWares.add(m);
+				increment();
+				if (disher.equals("第一个洗碗工")) {
+					cleanTableware1++;
+				} else {
+					cleanTableware2++;
+				}
+
+			}
+		}
 	}
 
 	public synchronized void increment() {
 		cleanTablewares++;
 	}
-	
-	
 
 }

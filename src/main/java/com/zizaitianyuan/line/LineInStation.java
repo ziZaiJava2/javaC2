@@ -28,7 +28,7 @@ public class LineInStation {
 				thread3.start();
 				thread4.start();
 
-				Thread.sleep(5000);
+				Thread.sleep(3000);
 			}
 			Thread.sleep(3000);
 		} catch (InterruptedException e) {
@@ -88,8 +88,8 @@ public class LineInStation {
 		}
 	}
 
-	
-	public static int passagers;//剩余乘客
+	public static int passagers;// 剩余乘客
+
 	public static void passagersInLines() {
 		passagers = totalPassagers - Sale.saledTikets;
 

@@ -9,8 +9,8 @@ public class LineInStation {
 
 	public static void main(String[] args) {
 
-		for (int i = 0; i < 10; i++) {
-			try {
+		try {
+			for (int i = 0; i < 10; i++) {
 				List<Person> passages = comingPassagers();
 				lineUp(passages);
 
@@ -28,10 +28,11 @@ public class LineInStation {
 				thread3.start();
 				thread4.start();
 
-				Thread.sleep(1000);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
+				Thread.sleep(5000);
 			}
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
 		}
 
 		passagersInLines();
@@ -87,28 +88,15 @@ public class LineInStation {
 		}
 	}
 
-	/*
-	 * 这个方法给每个队伍卖出一张车票，并统计总共卖出的票数到（saledTikets）。
-	 * 
-	 * 拿到票的乘客会离开车站
-	 * 
-	 * 就是排队伍第一个位置的乘客从队列中删除
-	 */
-
-	/*
-	 * 统计还有多少个乘客没有买到车票
-	 */
-	public static int passagers;
-
+	
+	public static int passagers;//剩余乘客
 	public static void passagersInLines() {
 		passagers = totalPassagers - Sale.saledTikets;
 
 	}
 
-	// private static int saledTikets = 0;
-
 	public static String linesDesc() {
-		return "line1:" + Sale.line1.toString() + "\n" + "line2:" + Sale.line2.toString() + "\n" + "line3:"
-				+ Sale.line3.toString() + "\n" + "line4:" + Sale.line4.toString() + "\n";
+		return "\n正在等待人员：\n1号窗口:" + Sale.line1.toString() + "\n" + "2号窗口:" + Sale.line2.toString() + "\n" + "3号窗口:"
+				+ Sale.line3.toString() + "\n" + "4号窗口:" + Sale.line4.toString() + "\n";
 	}
 }

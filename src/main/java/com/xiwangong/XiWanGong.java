@@ -2,7 +2,7 @@ package com.xiwangong;
 
 import java.util.Random;
 
-public class XiWanGong implements Runnable{
+public class XiWanGong  implements Runnable{
 	
 	public int count = 0;
 	
@@ -11,6 +11,8 @@ public class XiWanGong implements Runnable{
 	private Cupboard wanGui;
 	
 	private ConveyorBelt wanDeliver;
+	
+	public XiWanGong(){}
 	
 	public XiWanGong(Cupboard wanGui,ConveyorBelt wanDeliver){
 		
@@ -43,27 +45,14 @@ public class XiWanGong implements Runnable{
 		
 	}
 	
-//	public synchronized void getWan(Cupboard wanGui, ConveyorBelt wanDeliver) {
-//		
-//			Bowl w = wanDeliver.removeBowl();
-//			
-//			washBowlAndIntoCupboard(w, wanGui);
-//	
-//	}
-//
-//	public synchronized void washBowlAndIntoCupboard(Bowl w, Cupboard wanGui) {
-//	
-//		System.out.println("洗刷刷");
-//		
-//		wanGui.CupboardAddBowl(w);
-//		
-//		count++;
-//	
-//	}
-
 	public int getCount() {
-	
+		
 		return count;
 	}
 	
+	public String getName(){
+		
+		return null;
+		
+	}
 }

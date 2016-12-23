@@ -8,52 +8,81 @@ import java.util.List;
 import com.zizaitianyuan.javac2.store.dto.Category;
 
 public class CategoryDAO implements TAG {
+	
 	private static final String URL = "jdbc:mysql://localhost:3306/store?user=root&password=root";
+	
 	private PreparedStatement preState = null;
 
 	/**
-	 * 向用户表中添加数据
+	 * 向类别表中添加数据
 	 */
 	public void addCategory(Category category) {
+	
 		String sql = "insert into category (name)values(?);";
+		
 		try {
+		
 			preState = PrepareUtils.prepare(URL, sql);
+			
 			preState.setString(1, category.getName());
+			
 			preState.executeUpdate();
+		
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+		
 			tellError(e);
+		
 		} finally {
+		
 			try {
+			
 				preState.close();
+				
 				PrepareUtils.close();
+			
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
+			
 				e.printStackTrace();
+			
 			}
+		
 		}
+	
 	}
 
 	/**
-	 * 删除用户表
+	 * 删除类别表
 	 */
 	public void deleteCategory(String name) {
+	
 		String sql = "delete from category where name='" + name + "'";
+		
 		try {
+		
 			preState = PrepareUtils.prepare(URL, sql);
+			
 			preState.executeUpdate();
+		
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+
 			tellError(e);
+		
 		} finally {
+		
 			try {
+			
 				preState.close();
+				
 				PrepareUtils.close();
+			
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
+			
 				e.printStackTrace();
+			
 			}
+		
 		}
+	
 	}
 
 	/**
@@ -64,24 +93,39 @@ public class CategoryDAO implements TAG {
 	 * @param change
 	 */
 	public void update(String change, String name) {
+	
 		String sql = "update category set name=? where name=?";
+		
 		try {
+		
 			preState = PrepareUtils.prepare(URL, sql);
+			
 			preState.setString(1, change);
+			
 			preState.setString(2, name);
+			
 			preState.executeUpdate();
+		
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+		
 			tellError(e);
+		
 		} finally {
+		
 			try {
+			
 				preState.close();
+				
 				PrepareUtils.close();
+			
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
+			
 				e.printStackTrace();
+			
 			}
+		
 		}
+	
 	}
 
 	/**
@@ -91,28 +135,47 @@ public class CategoryDAO implements TAG {
 	 * @return
 	 */
 	public Category getCategory(int categoryId) {
+	
 		Category selectCategory = new Category();
+		
 		String sql = "select name from category where id=?";
+		
 		try {
+		
 			preState = PrepareUtils.prepare(URL, sql);
+			
 			preState.setInt(1, categoryId);
+			
 			ResultSet res = preState.executeQuery();
+			
 			while (res.next()) {
+			
 				selectCategory.setName(res.getString("name"));
+			
 			}
+		
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+		
 			tellError(e);
+		
 		} finally {
+		
 			try {
+			
 				preState.close();
+				
 				PrepareUtils.close();
+			
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
+				
 				e.printStackTrace();
+				
 			}
+		
 		}
+		
 		return selectCategory;
+	
 	}
 
 	/**
@@ -121,31 +184,54 @@ public class CategoryDAO implements TAG {
 	 * @return
 	 */
 	public List<String> getAllCategory() {
+	
 		String sql = "select name from category";
+		
 		List<String> nameList = new ArrayList<>();
+		
 		try {
+		
 			preState = PrepareUtils.prepare(URL, sql);
+			
 			ResultSet res = preState.executeQuery();
+			
 			while (res.next()) {
+			
 				nameList.add(res.getString("name"));
+			
 			}
+		
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+		
 			tellError(e);
+		
 		} finally {
+		
 			try {
+			
 				preState.close();
+				
 				PrepareUtils.close();
+			
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
+			
 				e.printStackTrace();
+			
 			}
+		
 		}
+		
 		return nameList;
+	
 	}
 
+	
 	private void tellError(Exception e) {
+	
 		System.out.println("数据库命令执行失败");
+		
 		e.printStackTrace();
+	
 	}
+
 }

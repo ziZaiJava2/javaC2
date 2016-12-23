@@ -13,9 +13,9 @@ public class WashingDishes {
 		
 		Cupboard wanGui = new Cupboard();
 		
-		XiWanGong jiarui = new XiWanGong(wanGui,wanDeliver);
+		XiWanGong1 first = new XiWanGong1(wanGui,wanDeliver);
 		
-		XiWanGong jiarui2 = new XiWanGong(wanGui,wanDeliver);
+		XiWanGong2 two = new XiWanGong2(wanGui,wanDeliver);
 		
 		ExecutorService es = Executors.newFixedThreadPool(2);
 				
@@ -23,11 +23,11 @@ public class WashingDishes {
 
 			intoDeliver.intoDeliver(intoDeliver.createBowl(), wanDeliver);
 				
-			es.execute(jiarui);
+			es.execute(first);
 			
-			es.execute(jiarui2);
+			es.execute(two);
 			
-			Thread.sleep(10);
+			Thread.sleep(0);
 						
 		}
 		
@@ -35,7 +35,7 @@ public class WashingDishes {
 		
 		System.out.println("总共放入" + IntoConvey.IntoWanCount + "个碗");
 		
-		System.out.println("洗碗工jiarui洗了"+jiarui.getCount()+"个碗,"+"洗碗工jiarui2洗了"+jiarui2.getCount()+"个碗");
+		System.out.println("洗碗工"+first.getName()+"洗了"+first.getCount()+"个碗,"+"洗碗工"+two.getName()+"洗了"+two.getCount()+"个碗");
 		
 		System.out.println("传送台还剩下" + ConveyorBelt.deliverWanCount + "个碗");
 		

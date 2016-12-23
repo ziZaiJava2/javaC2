@@ -25,13 +25,13 @@ public class SaleTicket implements Runnable {
 		getMinLine(list).remove(0);
 	}
 	
-//	得到List中空的队伍
+//	得到List中非空的队伍
 	public static synchronized List<Person> getMinLine(List<List<Person>> list){
 		List<Person> line = new ArrayList<Person>();
 		for(int i = 0;i < list.size();i++){
-			if(list.get(i).isEmpty()){
+			if(!list.get(i).isEmpty()){
 				line = list.get(i);
-			}
+			}else {line = null;}
 		}
 		return line;
 	}
@@ -42,14 +42,13 @@ public class SaleTicket implements Runnable {
 
 		try {
 			while (true) {
-				if (ticket > 0 ) {
-					for(int i = 0 ; i<list.size();i++ ){
+				if (ticket > 0 && getMinLine(list) != null) {
 					int now = ticket;
 					increase();
 					deletePerson();
 					System.out.println(name + "窗口执行了，车票还有" + (now - 1));// 现在不知道怎么让两个步骤同时进行（像MySQL的原子操作）
 																		// 所以只能用一个参数接收，不能直接用ticket。
-					Thread.sleep(1000);}
+					Thread.sleep(1000);
 				} else {
 					break;
 				}

@@ -14,36 +14,41 @@ public class LineInStation implements Runnable {
 		try {
 			ExecutorService executorService1 = Executors.newCachedThreadPool(); // 生成乘客的线程
 			executorService1.execute(new LineInStation());
-			
+
 			ExecutorService executorService = Executors.newFixedThreadPool(4);
 			for (int i = 1; i < 5; i++) {
-				executorService.execute(new Sale(i));  // 卖票的线程
+				executorService.execute(new Sale(i)); // 根据id确定卖票的队列
 
 			}
 			executorService.shutdown();
 			executorService1.shutdown();
-			Thread.sleep(10000);
+			Thread.sleep(50000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
 
 		System.out.println(linesDesc()); // 调用队列输出方法
 		passagersInLines(); // 调用计算剩余乘客的方法
-		System.out.printf("总共有%d个乘客进入车站，卖出%d张车票，还有%d个乘客没有买到车票。\n", totalPassagers, Sale.getSaledTikets(), passagers);
+		System.out.printf("总共有%d个乘客进入车站，卖出%d张车票，还有%d个乘客没有买到车票。\n", totalPassagers, Sale.saledTikets, passagers);
 	}
 
 	private static int totalPassagers = 0;
 
-	public static synchronized void increment() {
-		totalPassagers++;
-	}
+	// public static synchronized void increment() {
+	// totalPassagers++;
+	// }
+	//
+	// public static synchronized int getTotalPassagers() {
+	// return totalPassagers;
+	// }
 
 	private static List<String> names = Arrays.asList("Jim", "Ken", "Leon", "Ada", "Lily", "Lucy", "Will", "Eagle",
 			"David", "Zoe", "Wendy", "Acea", "Kin", "Fish", "Paul", "Dean");
 
 	public void run() {
-		synchronized (this) {
-			for (int n = 0; n < 20; n++) {
+
+		while (true) {
+			if (totalPassagers < 100) {
 				ArrayList<Person> passages = new ArrayList<Person>();
 
 				Random random = new Random();
@@ -52,7 +57,7 @@ public class LineInStation implements Runnable {
 					int m = random.nextInt(names.size());
 					Person person = new Person(names.get(m));
 					passages.add(person);
-					increment(); // 增加总乘客
+					totalPassagers++; // 增加总乘客
 				}
 
 				int[] arr = { Sale.getLine(1).size(), Sale.getLine(2).size(), Sale.getLine(3).size(),
@@ -68,6 +73,14 @@ public class LineInStation implements Runnable {
 				} else {
 					Sale.getLine(4).addAll(passages);
 				}
+				try {
+					Thread.sleep(500);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+
+			} else {
+				break;
 			}
 		}
 	}
@@ -76,7 +89,7 @@ public class LineInStation implements Runnable {
 
 	// 计算剩余乘客的方法
 	public static void passagersInLines() {
-		passagers = totalPassagers - Sale.getSaledTikets();
+		passagers = totalPassagers - Sale.saledTikets;
 
 	}
 

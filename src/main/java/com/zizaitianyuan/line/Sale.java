@@ -8,7 +8,7 @@ public class Sale implements Runnable {
 	private static List<Person> line2 = new ArrayList<>();
 	private static List<Person> line3 = new ArrayList<>();
 	private static List<Person> line4 = new ArrayList<>();
-	private static int saledTikets = 0;
+	public static int saledTikets = 0;
 
 	private int id;
 
@@ -18,34 +18,39 @@ public class Sale implements Runnable {
 
 	public void run() {
 		// 同步代码块
-		for (int i = 0; i < 10; i++) {
-			synchronized (this) {
-				try {
-					if (getLine(id).size() != 0) {
-						System.out.println(Thread.currentThread().getName() + "\t" + id + "号窗口" + getLine(id).get(0)
-								+ "已购得的动车票一张\n");
-						getLine(id).remove(0);
-						incement();
+
+		while (true) {
+			synchronized (Sale.class) {
+				if (saledTikets < 40) {
+					try {
+						if (getLine(id).size() != 0) {
+							System.out.println(Thread.currentThread().getName() + "\t" + id + "号窗口" + getLine(id).get(0)
+									+ "已购得的动车票一张\n");
+							getLine(id).remove(0);
+							saledTikets++;
+						}
+						Thread.sleep(500); // 每次执行休息
+					} catch (InterruptedException e) {
+						e.printStackTrace();
 					}
-					Thread.sleep(1000);  //每次执行休息1秒
-				} catch (InterruptedException e) {
-					e.printStackTrace();
+				} else {
+					break;
 				}
 			}
 		}
 	}
 
 	// 将卖票数锁住
-	public synchronized void incement() {
-		saledTikets++;
-	}
-
-	public static synchronized int getSaledTikets() {
-		return saledTikets;
-	}
+	// public static synchronized void incement() {
+	// saledTikets++;
+	// }
+	//
+	// public static synchronized int getSaledTikets() {
+	// return saledTikets;
+	// }
 
 	// 将获得Line的方法锁住
-	public static synchronized List<Person> getLine(int id) {
+	public static List<Person> getLine(int id) {
 		if (id == 1) {
 			return line1;
 		} else if (id == 2) {

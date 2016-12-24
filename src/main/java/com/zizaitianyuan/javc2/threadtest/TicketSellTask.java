@@ -6,9 +6,8 @@ public class TicketSellTask implements Runnable{
 	
 	private TikectSellSystem ticketSellSystem;
 	
-	//每买外一队，售票员休息10秒
-	
 	private List<Passager> line;
+	
 	 public TicketSellTask(TikectSellSystem ticketSellSystem, List<Passager> line) {
 		 this.ticketSellSystem = ticketSellSystem;
 		 this.line = line;
@@ -18,9 +17,21 @@ public class TicketSellTask implements Runnable{
 	public void run() {
 		
 		while(true){
-			ticketSellSystem.sellTickets(Thread.currentThread().getName(), line.get(0).getName());
-			line.remove(0);
+			synchronized (line) {
+				if(!line.isEmpty()){
+					ticketSellSystem.sellTickets(Thread.currentThread().getName(), line.get(0).getName());
+					line.remove(0);
+				}
+			}
 		}
+	}
+
+	public List<Passager> getLine() {
+		return line;
+	}
+
+	public void setLine(List<Passager> line) {
+		this.line = line;
 	}
 
 }

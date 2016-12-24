@@ -1,4 +1,4 @@
-package com.station_thread;
+package com.station;
 
 import java.util.ArrayList;
 import java.util.Arrays;

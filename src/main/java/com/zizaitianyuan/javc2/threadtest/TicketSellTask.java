@@ -19,7 +19,7 @@ public class TicketSellTask implements Runnable{
 		while(true){
 			synchronized (line) {
 				if(!line.isEmpty()){
-					ticketSellSystem.sellTickets(Thread.currentThread().getName(), line.get(0).getName());
+					ticketSellSystem.sellTickets(Thread.currentThread().getName(), line.get(0).getName(), line.size());
 					line.remove(0);
 				}
 			}

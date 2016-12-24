@@ -10,7 +10,7 @@ public class TikectSellSystem {
 	}
 	
 	
-	public void sellTickets(String lineName, String customeName){
+	public void sellTickets(String lineName, String customeName, int num){
 		
 		synchronized (TikectSellSystem.class) {
 			
@@ -19,7 +19,7 @@ public class TikectSellSystem {
 			//只有所有车票在多余乘客要买的车票的数字的时候才会买票
 			if(allTickets > customeT){
 				allTickets -= customeT;
-				System.out.println(customeName + " " + "在" + lineName + "买了" + customeT + "张" + "还剩下" + allTickets);
+				System.out.println(customeName +   " 买了" + customeT + "张" + "还剩下" + allTickets);
 			}
 			try {
 				Thread.sleep(time);

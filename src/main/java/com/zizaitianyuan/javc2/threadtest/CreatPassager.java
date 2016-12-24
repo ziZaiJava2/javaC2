@@ -18,6 +18,10 @@ public class CreatPassager implements Runnable {
 	private List<Passager> line4;
 	@Override
 	public void run() {
+		setLine1();
+		setLine2();
+		setLine3();
+		setLine4();
 		while(true){
 		addPassagers(line1,line2,line3,line4);
 		try {

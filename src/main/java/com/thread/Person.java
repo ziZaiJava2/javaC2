@@ -1,10 +1,10 @@
-package com.threading;
+package com.thread;
 
 public class Person {
-	public Person(String name){
+	public Person(String name) {
 		this.name = name;
 	}
-	
+
 	private String name;
 
 	public String getName() {

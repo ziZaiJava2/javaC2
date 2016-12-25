@@ -14,7 +14,7 @@ public class LineInStation implements Runnable {
 		try {
 			ExecutorService executorService1 = Executors.newCachedThreadPool(); // 生成乘客的线程
 			executorService1.execute(new LineInStation());
-
+			Thread.sleep(5000);
 			ExecutorService executorService = Executors.newFixedThreadPool(4);
 			for (int i = 1; i < 5; i++) {
 				executorService.execute(new Sale(i)); // 根据id确定卖票的队列
@@ -22,7 +22,7 @@ public class LineInStation implements Runnable {
 			}
 			executorService.shutdown();
 			executorService1.shutdown();
-			Thread.sleep(50000);
+			Thread.sleep(30000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
@@ -47,11 +47,10 @@ public class LineInStation implements Runnable {
 
 	public void run() {
 
+		Random random = new Random();
 		while (true) {
-			if (totalPassagers < 100) {
+			if (totalPassagers < 300) {
 				ArrayList<Person> passages = new ArrayList<Person>();
-
-				Random random = new Random();
 				int a = random.nextInt(3);
 				for (int i = 1; i <= a + 1; i++) {
 					int m = random.nextInt(names.size());
@@ -73,12 +72,6 @@ public class LineInStation implements Runnable {
 				} else {
 					Sale.getLine(4).addAll(passages);
 				}
-				try {
-					Thread.sleep(500);
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
-
 			} else {
 				break;
 			}

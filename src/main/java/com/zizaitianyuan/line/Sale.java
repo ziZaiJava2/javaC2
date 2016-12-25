@@ -21,20 +21,20 @@ public class Sale implements Runnable {
 
 		while (true) {
 			synchronized (Sale.class) {
-				if (saledTikets < 40) {
-					try {
+				try {
+					if (saledTikets < 180) {
 						if (getLine(id).size() != 0) {
 							System.out.println(Thread.currentThread().getName() + "\t" + id + "号窗口" + getLine(id).get(0)
 									+ "已购得的动车票一张\n");
 							getLine(id).remove(0);
 							saledTikets++;
 						}
-						Thread.sleep(500); // 每次执行休息
-					} catch (InterruptedException e) {
-						e.printStackTrace();
+					} else {
+						break;
 					}
-				} else {
-					break;
+					Thread.sleep(1000); // 每次执行休息
+				} catch (InterruptedException e) {
+					e.printStackTrace();
 				}
 			}
 		}
@@ -50,7 +50,7 @@ public class Sale implements Runnable {
 	// }
 
 	// 将获得Line的方法锁住
-	public static List<Person> getLine(int id) {
+	public static synchronized List<Person> getLine(int id) {
 		if (id == 1) {
 			return line1;
 		} else if (id == 2) {

@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
 
-public class Disher extends Thread {
+public class Disher implements Runnable {
 
 	static HashMap<String, List<Tableware>> map = new HashMap<>();
 
@@ -21,12 +21,10 @@ public class Disher extends Thread {
 		map.put(Portal.MAX_BOWL, maxBowlList);
 	}
 
-	private String disher;
-	private String portalcount;
+	private int id;
 
-	public Disher(String disher, String portalcount) {
-		this.disher = disher;
-		this.portalcount = portalcount;
+	public Disher(int id) {
+		this.id = id;
 	}
 
 	public static int cleanTablewares = 0; // 碗柜里总共有多少个盘子
@@ -35,36 +33,49 @@ public class Disher extends Thread {
 
 	@Override
 	public void run() {
-		synchronized (Portal.portalList) {
-			Random random = new Random();
+		for (int n = 0; n < 10; n++) {
+			synchronized (Disher.class) {
+				try {
+					Random random = new Random();
+				for (int i = 0; i < random.nextInt(3) + 3; i++) {
+					if (Portal.getPortalList().size() == 0) {
+						break;
+					}
 
-			for (int i = 0; i < random.nextInt(3) + 3; i++) {
-				if (Portal.portalList.size() == 0) {
-					break;
+					Tableware m = Portal.getPortalList().remove(0);
+					String type = m.getType();
+					List<Tableware> tableWares = map.get(type);
+					if (tableWares == null) {
+						System.out.println("Error:不存在该类型碗柜！");
+					}
+					System.out.println(
+							"\t" + getDisher(id) + Thread.currentThread().getName() + " synchronized loop " + i);
+					tableWares.add(m);
+					increment();
+					if (getDisher(id).equals("第一个洗碗工")) {
+						cleanTableware1++;
+					} else {
+						cleanTableware2++;
+					}
 				}
-
-				Tableware m = Portal.portalList.remove(0);
-				String type = m.getType();
-				List<Tableware> tableWares = map.get(type);
-				if (tableWares == null) {
-					System.out.println("Error:不存在该类型碗柜！");
+					Thread.sleep(1000);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
 				}
-				System.out.println(
-						portalcount + "\t" + disher + Thread.currentThread().getName() + " synchronized loop " + i);
-				tableWares.add(m);
-				increment();
-				if (disher.equals("第一个洗碗工")) {
-					cleanTableware1++;
-				} else {
-					cleanTableware2++;
-				}
-
 			}
 		}
 	}
 
 	public synchronized void increment() {
 		cleanTablewares++;
+	}
+
+	public static String getDisher(int id) {
+		if (id == 1) {
+			return "第一个洗碗工";
+		} else {
+			return "第二个洗碗工";
+		}
 	}
 
 }

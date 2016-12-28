@@ -18,7 +18,8 @@ public class Station {
 		List<String> line4 = new ArrayList<>();
 
 		Random ran = new Random();
-		
+
+		AddPassage ad = null;
 		/**
 		 * 负责创建初始的旅客 为了防止没有创建完CPU资源被抢夺，加了锁
 		 */
@@ -32,18 +33,15 @@ public class Station {
 				line4.add(passage[ran.nextInt(4)]);
 
 			}
-
 		}
-
 		List<List<String>> lines = new ArrayList<>();
-		
+
 		lines.add(line1);
 		lines.add(line2);
 		lines.add(line3);
 		lines.add(line4);
 
-
-		AddPassage ad = new AddPassage(lines);
+		ad = new AddPassage(lines);
 
 		/**
 		 * 建立四个窗口对象，每个对象对应一个线程

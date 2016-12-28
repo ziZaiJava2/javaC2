@@ -50,12 +50,12 @@ public class StationWindow implements Runnable {
 	private void saledTickets() {
 
 		synchronized (line) {
-			
+
 			if (line.size() > 0) {
 
-				System.out.println("现在车站有" + (--AddPassage.passCount) + "人");
-
 				String pass = line.remove(0);
+
+				System.out.println("现在车站有" + (--AddPassage.passCount) + "人");
 
 				System.out.println(pass + "买到了回家的票");
 

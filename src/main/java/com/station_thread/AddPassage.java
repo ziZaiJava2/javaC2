@@ -57,35 +57,30 @@ public class AddPassage implements Runnable {
 
 		int a = ran.nextInt(4);
 
-		synchronized (AddPassage.class) {
-			
-			target = lines.get(0);
+		target = lines.get(0);
 
-			for (List<String> line : lines) {
-				
-				if (line.size() < target.size()) {
-					
-					target = line;
-					
-				}
-				
+		for (List<String> line : lines) {
+
+			if (line.size() < target.size()) {
+
+				target = line;
+
 			}
-			
+
 		}
-		
+
 		synchronized (target) {
 
-			
 			target.add(passage[a]);
 
 			passCount++;
 
 			System.out.println("现在车站有" + passCount + "个人");
-		
+
 			if (passCount > 200) {
-				
+
 				isFull = true;
-				
+
 			}
 
 		}

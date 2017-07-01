@@ -29,7 +29,7 @@ public class Test2 {
 		System.out.print("请输入一个数字：");
 		int x = sc.nextInt();
 		fibonaccis(x);
-		System.out.println();
+		System.out.println();//分离
 		fibonacci(x);
 	}
 

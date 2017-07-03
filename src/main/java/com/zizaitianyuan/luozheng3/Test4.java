@@ -1,7 +1,7 @@
-package com.zizaitianyuan.javac2.lesson02;
+package com.zizaitianyuan.luozheng3;
 
-public class Practice3 {
 
+public class Test4 {
 	private static int MAX_SIZE = 5;
 
 	/**
@@ -55,10 +55,10 @@ public class Practice3 {
 			for (int j = time; j < newData.length; j++) {
 				if (source[i] == newData[j]) {
 					result.inBoth[j] = source[i];
-					if (j < newData.length) {
-						time = j + 1;
+					if(j<newData.length){
+						time = j+1;
 					}
-					result.notInSource[j] = 0;
+					result.notInSource[j]=0;
 					countForSource--;
 					break;
 				}

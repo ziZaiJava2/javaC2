@@ -26,16 +26,10 @@ public class Test3 {
 		return demo;
 	}
 	public static int fibonacci(int x) {//返回最后一个数
-		int[] demo = new int[x];
-		for (int i = 0; i < x; i++) {
-			if (i == 0||i==1) {
-				demo[i] = 1;
-			} else {
-				demo[i] = demo[i-1]+demo[i-2];
-
-			}
+		if(x==1||x==2){
+			return 1;
+		}else{
+			return fibonacci(x-1)+fibonacci(x-2);
 		}
-		System.out.print(demo[x-1]);
-		return demo[x-1];
 	}
 }

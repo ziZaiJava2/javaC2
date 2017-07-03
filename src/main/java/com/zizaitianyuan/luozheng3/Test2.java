@@ -29,35 +29,36 @@ public class Test2 {
 		System.out.print("请输入一个数字：");
 		int x = sc.nextInt();
 		fibonaccis(x);
-		System.out.println();//分离
+		System.out.println();// 分离
 		fibonacci(x);
 	}
 
-	public static int[] fibonaccis(int x) {//返回数组
+	public static int[] fibonaccis(int x) {// 返回数组
 		int[] demo = new int[x];
 		for (int i = 0; i < x; i++) {
-			if (i == 0||i==1) {
+			if (i == 0 || i == 1) {
 				demo[i] = 1;
 			} else {
-				demo[i] = demo[i-1]+demo[i-2];
+				demo[i] = demo[i - 1] + demo[i - 2];
 
 			}
 			System.out.print(demo[i] + " ");
 		}
 		return demo;
 	}
-	public static int fibonacci(int x) {//返回最后一个数
+
+	public static int fibonacci(int x) {// 返回最后一个数
 		int[] demo = new int[x];
 		for (int i = 0; i < x; i++) {
-			if (i == 0||i==1) {
+			if (i == 0 || i == 1) {
 				demo[i] = 1;
 			} else {
-				demo[i] = demo[i-1]+demo[i-2];
+				demo[i] = demo[i - 1] + demo[i - 2];
 
 			}
 		}
-		System.out.print(demo[x-1]);
-		return demo[x-1];
+		System.out.print(demo[x - 1]);
+		return demo[x - 1];
 	}
 
 }

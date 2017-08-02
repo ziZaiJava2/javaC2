@@ -13,7 +13,22 @@ import store.dto.User;
 
 public class UserDAO {
 	public static void main(String args[]) {
-
+		/*User u = new User();
+		u.setName("罗铮");
+		u.setAddress("上海电机学院");
+		u.setMailbox("925016145@qq.com");
+		u.setWallet(0);
+		addUser(u);
+		deleteUser(1);*/
+		/*User u1 = new User();
+		u1.setName("徐培源");
+		u1.setAddress("上海电机学院");
+		u1.setMailbox("1060629887@qq.com");
+		u1.setWallet(0);
+		//addUser(u1);
+		updateUser(u1);*/
+		//getAllProduction();
+		
 	}
 	
 	

@@ -23,10 +23,11 @@
 </bean>
 
 <bean id="carDAO" class="com.test.bean.CarDAO">
-
 </bean>
 
-
+<bean id = "bmwEquipment" class ="com.test.bean.BMWEquipment">
+<property name="carDAO" ref="carDAO"></property>
+</bean>
 
 
 </beans>

@@ -5,6 +5,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.test.bean.BMWEquipment;
 import com.test.bean.CarDAO;
+import com.test.bean.CarFatory;
 import com.test.bean.DasAutoEquipment;
 
 public class CarMain {
@@ -15,13 +16,11 @@ public class CarMain {
 		//容器的配置
 		ApplicationContext context = new ClassPathXmlApplicationContext("bean.xml");
 		
-		//大众的配置
-		DasAutoEquipment dasAutoEquipment = (DasAutoEquipment)context.getBean("dasAutoEquipment");
+		//工厂的配置
+		CarFatory carFatory = (CarFatory)context.getBean("carFatory");
 		
-		//宝马的配置	
-		BMWEquipment bmwEquipment = (BMWEquipment)context.getBean("bmwEquipment");
 		
-		dasAutoEquipment.produceCar();
-		bmwEquipment.produceCar();
+		carFatory.produce();
+
 	}
 }

@@ -1,33 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://www.springframework.org/schema/beans
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
                         http://www.springframework.org/schema/beans/spring-beans.xsd">
-  
-<!-- <bean id="userServiceImpl" class="com.test.bean.UserServiceImpl"> -->
-<!-- 	<constructor-arg ref = "userDao"> -->
-<!-- 	</constructor-arg> -->
+
+	<!-- 	<bean id="userServiceImpl" class="com.test.bean.UserServiceImpl"> -->
+	<!-- <constructor-arg ref = "userDao"> -->
+	<!-- </constructor-arg> -->
+
+	<!-- <property name="userDao" ref="userDao"/> -->
+	<!-- <constructor-arg type = "int" value = "1"> -->
+	<!-- </constructor-arg> -->
+	<!-- <constructor-arg type = "String" value= "name"> -->
+	<!-- </constructor-arg> -->
+	<!-- </bean> -->
+
+	<!-- <bean id="userDao" class="com.test.bean.UserDAO"> -->
+	<!-- </bean> -->
+
+	<bean id="carFatory" class="com.test.bean.CarFatory">
+		<property name="equipment" ref="bmwEquipment"></property>
+<!-- 		<property name="equipment" ref="dasAutoEquipment"></property> -->
+	</bean>
 	
-<!-- 	<property name="userDao" ref="userDao"/> -->
-<!-- 	<constructor-arg type = "int" value = "1"> -->
-<!-- 	</constructor-arg> -->
-<!-- 	<constructor-arg type = "String" value= "name"> -->
-<!-- 	</constructor-arg> -->
-<!-- </bean> -->
 
-<!-- <bean id="userDao" class="com.test.bean.UserDAO"> -->
-<!-- </bean> -->
+	<bean id="dasAutoEquipment" class="com.test.bean.DasAutoEquipment">
+		<property name="carDAO" ref="carDAO"></property>
+	</bean>
 
-<bean id = "dasAutoEquipment" class="com.test.bean.DasAutoEquipment">
-<property name="carDAO" ref="carDAO"></property>
-</bean>
+	<bean id="carDAO" class="com.test.bean.CarDAO">
+	</bean>
 
-<bean id="carDAO" class="com.test.bean.CarDAO">
-</bean>
-
-<bean id = "bmwEquipment" class ="com.test.bean.BMWEquipment">
-<property name="carDAO" ref="carDAO"></property>
-</bean>
+	<bean id="bmwEquipment" class="com.test.bean.BMWEquipment">
+		<property name="carDAO" ref="carDAO"></property>
+	</bean>
 
 
 </beans>

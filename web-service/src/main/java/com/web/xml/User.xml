@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--命名空间应该是对应接口的包名+接口名 -->
+<mapper namespace="User">
+
+	<resultMap type="com.web.model.User" id="UserResult">
+    <id column="id" jdbcType="INTEGER" property="id"/>
+    <result column="name" jdbcType="VARCHAR" property="userName"/>
+    <result column="password" jdbcType="VARCHAR" property="password"/>
+    <result column="age" jdbcType="VARCHAR" property="age"/>
+  </resultMap>
+  
+    <!-- 获得单个用户通过编号 -->
+    <select id="getUserById" resultMap="UserResult">
+        select 
+        id,name,password,age from user where id=#{id}
+    </select>
+    <!--新增加用户-->
+    <insert id="insert" parameterType="com.web.model.User" >
+        insert into user(name,password,age) values(#{userName},#{password},#{age});
+    </insert>
+    <!-- 删除用户 -->
+    <delete id="delete">
+        delete from user where id=#{id}
+    </delete>
+    <!-- 修改用户信息 -->
+    <update id="update" >
+        update user set
+        name=#{name},password=#{password},age=#{age} where id=#{id}
+    </update>
+</mapper>

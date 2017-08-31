@@ -13,7 +13,7 @@ import com.web.service.UserService;
 import com.web.service.UserServiceImpl;
 
 @Controller
-@RequestMapping("/user")
+@RequestMapping(value = "/user")
 public class UserController {
 	@Autowired
 	private UserService userService;
@@ -31,8 +31,11 @@ public class UserController {
 	@RequestMapping(value = "", method = RequestMethod.POST)
 	@ResponseBody
 	public String addUser(@RequestBody User user) {
-		userService.addUser(user);
-		return "add successfully";
+		if(userService.addUser(user)) {
+			return "add successfully";
+		}else{
+			return "add fail";
+		}
 	}
 	
 	

@@ -10,10 +10,10 @@
         http://www.springframework.org/schema/context/spring-context.xsd
         http://www.springframework.org/schema/mvc
         http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd">
-	
+
 	<!--1 引入属性文件，在配置中占位使用 -->
-    <context:property-placeholder location="classpath*:db.properties" />
-    
+	<context:property-placeholder location="classpath*:db.properties" />
+
 	<context:annotation-config />
 	<context:component-scan base-package="com.web" />
 
@@ -28,6 +28,25 @@
 	</bean>
 
 	<bean id="jsonHttpMessageConverter"
-		class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+		  class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
 	</bean>
+
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+		<property name="driverClassName" value="${db.driverClassName}"/>
+		<property name="url" value="${db.url}"/>
+		<property name="username" value="${db.username}"/>
+		<property name="password" value="${db.password}"/>
+	</bean>
+	<!-- (事务管理)transaction manager, use JtaTransactionManager for global tx -->  
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource" />
+	</bean>  
+	<!-- 创建SqlSessionFactory，同时指定数据源 -->  
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+	</bean>  
+	<!-- Mapper接口所在包名，Spring会自动查找其下的Mapper -->  
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="com.web.mapper" />
+	</bean>  
 </beans>

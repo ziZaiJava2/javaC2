@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	   xmlns:context="http://www.springframework.org/schema/context"
+	   xmlns:mvc="http://www.springframework.org/schema/mvc"
+	   xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd">
+
+	<!-- 	引入配置文件 -->
+	<context:property-placeholder location="classpath:db.properties" />
+	<context:annotation-config />
+
+	<!-- 	自动扫描 -->
+	<context:component-scan base-package="com.store" />
+
+	<!-- 	自动注册DefaultAnnotationHandlerMapping与AnnotationMethodHandlerAdapter 两个bean 是spring MVC为@Controllers分发请求所必须的。-->
+	<mvc:annotation-driven />
+
+	<!-- 	实现JSON数据的处理 -->
+	<bean
+			class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
+		<property name="messageConverters">
+			<list>
+				<ref bean="jsonHttpMessageConverter" />
+			</list>
+		</property>
+	</bean>
+
+	<!-- 	处理jason -->
+	<bean id="jsonHttpMessageConverter"
+		  class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+	</bean>
+
+	<!-- 	配置数据来源 -->
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+		  destroy-method="close">
+		<!-- 配置连接数据库 -->
+		<property name="driverClassName" value="${db.driverClassName}" />
+		<property name="url" value="${db.url}" />
+		<property name="username" value="${db.username}" />
+		<property name="password" value="${db.password}" />
+	</bean>
+
+	<!-- 	MyBatis 参与到 Spring 的事务管理中 -->
+	<bean id="transactionManager"
+		  class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<!-- 	SqlSessionFactoryBean 是用于创建 SqlSessionFactory 的 -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	<!-- 	自动扫描 将Mapper接口生成代理注入到Spring -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="com.store.mapper" />
+	</bean>
+
+
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/html/" />
+		<property name="suffix" value=".jsp" />
+		<property name="viewClass" value="org.springframework.web.servlet.view.JstlView"></property>
+	</bean>
+</beans>
